@@ -1,27 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
+<<<<<<< HEAD
 // Austin's comment for initial commit 
+=======
+// imported components
+import WeatherHeader from "./Components/WeatherHeader/weather-header";
+>>>>>>> 4e3b7fc93a8b27383040433ecda32a65702df3b8
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WeatherHeader />
+      
     </div>
   );
 }
