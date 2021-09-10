@@ -4,15 +4,11 @@ import { useEffect, useState } from "react";
 // import weather API
 import { fetchAllWeather } from "../../services";
 
-export let lat: number = 0;
-export let lon: number = 0;
-
 
 const WeatherHeader = () => {
     const [weather, setWeather] = useState([])
-
-    // const lat: number = 0;
-    // const lon: number = 0;
+    const [location, setLocation] = useState({})
+    
 
     // FIND LOCATION FUNCTIONS <---- FIX ANY TYPE
     const success = (pos: any) => {
@@ -36,6 +32,7 @@ const WeatherHeader = () => {
     useEffect(() => {
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(success, error, options);
+            fetchAllWeather();
         }
     }, []);
     
