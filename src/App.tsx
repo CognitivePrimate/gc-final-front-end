@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 
 
 
@@ -42,8 +43,9 @@ function App() {
   return (
     <div className="App">
       
-      
-      <WeatherHeader />
+      <ItemContextProvider>
+        <WeatherHeader />
+      </ItemContextProvider>
 
 
 
