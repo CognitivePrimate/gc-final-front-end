@@ -38,13 +38,13 @@ import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 
 // imported components
 import WeatherHeader from "./Components/WeatherHeader/weather-header";
+import Header from './Components/Header/header';
 
 function App() {
   return (
     <div className="App">
-      
       <ItemContextProvider>
-        <WeatherHeader />
+        <Header />
       </ItemContextProvider>
 
 

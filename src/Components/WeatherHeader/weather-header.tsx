@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { GeoLocation } from "../../Model/Interfaces"
 import {GeoLocationContext} from "../../ContextProviders/WeatherLocationProvider"
+import "./weather-header-styles.css";
 
 // import weather API
 import { fetchAllWeather } from "../../services";
@@ -49,10 +50,10 @@ const WeatherHeader = () => {
 
 
     return (
-        <div>
-            <p>test</p>
-            <p>{GeoLocation.lat}</p>
-            <p>{GeoLocation.lon}</p>
+        <div className="weather-header">
+            <span>test</span>
+            <span>{GeoLocation.lat}</span>
+            <span>{GeoLocation.lon}</span>
             
         </div>
     );

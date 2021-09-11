@@ -19,7 +19,7 @@ export const ItemContextProvider = ({children}: {children: ReactNode}) => {
     const [GeoLocation, setLocation] = useState<GeoLocation | any>({})
 
     function updateLocation(newLocation: GeoLocation){
-        console.log(newLocation);
+        console.log("newLocation from serviceprovider", newLocation);
         let newGeoLocation = newLocation;
         setLocation(newGeoLocation);
     }

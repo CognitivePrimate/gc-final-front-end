@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    width: 100%;
+    background: darkgray;
+    height: 50px;
+    position:fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 40px;
+}
+
+.header-banner {
+    margin-top: 0;
+    font-size: 1.75rem;
+}
