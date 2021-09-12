@@ -6,8 +6,9 @@ const Header = () => {
     
     return (
         <div className="header">
-        <h1 className="header-banner">HeaderPlaceHolder</h1>
-        {/* <WeatherHeader />             */}
+            <h1 className="header-banner">Company Name</h1>
+            <h2 className="header-banner">Username</h2>
+            {/* <WeatherHeader />             */}
         </div>
     )
 }

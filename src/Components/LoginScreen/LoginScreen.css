@@ -4,7 +4,7 @@ main.login-main {
 }
 
 main.login-main form.login-form{
-background: darkgray;
+background: rgb(197, 197, 197);;
  border-style: solid;
  border-color: black;
  border-width: 2px;

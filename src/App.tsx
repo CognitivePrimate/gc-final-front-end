@@ -17,7 +17,7 @@ import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 
 // 1. LoginAuthentication
 // 2. Header  *created*
-// 3. HomeScreen
+// 3. HomeScreen *created*
 // 4. SubmitLogEntry
 // 5. DailyShiftLog
 // 6. Schedule
@@ -40,17 +40,19 @@ import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 import WeatherHeader from "./Components/WeatherHeader/weather-header";
 import Header from './Components/Header/header';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
+import HomeScreen from './Components/HomeScreen/HomeScreen';
+// import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
-      <ItemContextProvider>
-        <WeatherHeader />
-      </ItemContextProvider>
+        <Header />
+        <ItemContextProvider>
+          <WeatherHeader />
+        </ItemContextProvider>
 
-      <LoginScreen/>
-
+        <LoginScreen/>
+        {/* <HomeScreen/> */}
 
 
     </div>
