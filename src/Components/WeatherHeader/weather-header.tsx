@@ -57,7 +57,7 @@ const WeatherHeader = () => {
                 <span>Temperature</span>
             </section>
             <section className="weather-header-sections">
-                <span className="lat-lon-span">Lat: {GeoLocation.current}</span>
+                <span className="lat-lon-span">{}</span>
                 <span className="lat-lon-span">Lon: {GeoLocation.lon}</span>
             </section>
             

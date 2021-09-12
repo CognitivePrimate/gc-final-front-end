@@ -41,6 +41,7 @@ import WeatherHeader from "./Components/WeatherHeader/weather-header";
 import Header from './Components/Header/header';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
+import NewLogEntry from './Components/NewShiftLogEntry/new-log-entry';
 
 
 function App() {
@@ -58,6 +59,10 @@ function App() {
 
         <Route path="/HomeScreen">
           <HomeScreen/>
+        </Route>
+
+        <Route path="/NewLogEntry">
+          <NewLogEntry />
         </Route>
 
         </Router>
