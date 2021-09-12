@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 
@@ -41,20 +41,26 @@ import WeatherHeader from "./Components/WeatherHeader/weather-header";
 import Header from './Components/Header/header';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
-// import { Route } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
+      <Router>
         <Header />
         <ItemContextProvider>
           <WeatherHeader />
         </ItemContextProvider>
 
-        <LoginScreen/>
-        {/* <HomeScreen/> */}
+        <Route path="/" exact>
+          <LoginScreen/>
+        </Route>
 
+        <Route path="/HomeScreen">
+          <HomeScreen/>
+        </Route>
 
+        </Router>
     </div>
   );
 }

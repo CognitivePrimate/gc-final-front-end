@@ -16,4 +16,8 @@ export interface ShiftLog {
     month: Date;
     day: Date;
     time: Date;
+}    
+export interface UserLogin {
+    username: string,
+    password: string
 }
