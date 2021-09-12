@@ -42,6 +42,7 @@ import Header from './Components/Header/header';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
 import NewLogEntry from './Components/NewShiftLogEntry/new-log-entry';
+import SubmitLogEntry from './Components/SubmitLogEntry/SubmitLogEntry';
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
       <Router>
         <Header />
         <ItemContextProvider>
-          <WeatherHeader />
+          <WeatherHeader/>
         </ItemContextProvider>
 
         <Route path="/" exact>
@@ -63,6 +64,9 @@ function App() {
 
         <Route path="/NewLogEntry">
           <NewLogEntry />
+        </Route>
+        <Route path="/SubmitLogEntry">
+          <SubmitLogEntry/>
         </Route>
 
         </Router>

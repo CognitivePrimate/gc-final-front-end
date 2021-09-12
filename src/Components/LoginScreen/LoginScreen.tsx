@@ -6,11 +6,14 @@ import "./LoginScreen.css";
 
 const LoginScreen = () => {
 
+    // Tracks the user input username and password using the value of the inputs//
     const [UsernameLogin, setUsernameLogin] = useState<UserLogin>({
         username: '',
         password: ''
     })
 
+    // state used to change the value of the Link route. Ideally, if the password and username is good, it will update
+    // the state to the route that takes you to the home page.
     const [authenticatedLogin, setAuthenticatedLogin] = useState({
         authenticated: '/'
     })
@@ -18,7 +21,12 @@ const LoginScreen = () => {
     const HandleLoginSubmit = (e: FormEvent) => {
         e.preventDefault();
 
+        // if the username and password are equal to the volunteer or admin information,
+        // then change the authenticatedLogin state to equal the route path to the home screen.
+        // if not, then keep it on the home screen or '/'. 
 
+        // TODO - update an error message that says something like "invalid username or password" to give a 
+        // response to a bad password username combination.
         if(UsernameLogin.username == 'admin' && UsernameLogin.password == 'password'){
             setAuthenticatedLogin({authenticated:"/HomeScreen"})
             console.log(UsernameLogin);
@@ -41,6 +49,7 @@ const LoginScreen = () => {
                 <h3 className="login-title">App Name</h3>
                 <section className="login-section">
                     <label htmlFor="username-login" className="login-label">Username</label>
+                    {/* using 'onChange' to track the user value. Each time something is typed it updates the UsernameLogin */}
                     <input type="text" name="username-login" id="username-login" className="login-input" onChange={ (e) => setUsernameLogin({username: e.target.value, password: UsernameLogin.password})}/>
                 </section>
                 <section className="login-section">
