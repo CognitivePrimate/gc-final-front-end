@@ -1,11 +1,12 @@
 main.login-main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 main.login-main form.login-form{
-background: rgb(197, 197, 197);;
+background: rgb(197, 197, 197);
  border-style: solid;
  border-color: black;
  border-width: 2px;
