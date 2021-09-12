@@ -1,6 +1,7 @@
 main.login-main {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 main.login-main form.login-form{
@@ -10,7 +11,7 @@ background: rgb(197, 197, 197);;
  border-width: 2px;
  border-radius: 20px;
  width: 60%;
- margin: 80px 0 0 0;
+ margin: 30px 0 0 0;
  padding: 20px;
 }
 
@@ -44,6 +45,6 @@ main.login-main button.login-submit-button {
     margin: 60px 0 20px 0;
     border-radius: 8px;
     height: 30px;
-    width: 50%;
+    width: 100%;
 }
 
