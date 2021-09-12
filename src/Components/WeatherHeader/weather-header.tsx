@@ -51,9 +51,15 @@ const WeatherHeader = () => {
 
     return (
         <div className="weather-header">
-            <span>test</span>
-            <span>{GeoLocation.lat}</span>
-            <span>{GeoLocation.lon}</span>
+            <section className="weather-header-sections">
+                <span>City</span>
+                <span>Time</span>
+                <span>Temperature</span>
+            </section>
+            <section className="weather-header-sections">
+                <span className="lat-lon-span">Lat: {GeoLocation.lat}</span>
+                <span className="lat-lon-span">Lon: {GeoLocation.lon}</span>
+            </section>
             
         </div>
     );

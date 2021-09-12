@@ -16,7 +16,7 @@ import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 // TO-DO//
 
 // 1. LoginAuthentication
-// 2. Header
+// 2. Header  *created*
 // 3. HomeScreen
 // 4. SubmitLogEntry
 // 5. DailyShiftLog
@@ -39,13 +39,17 @@ import {ItemContextProvider} from './ContextProviders/WeatherLocationProvider'
 // imported components
 import WeatherHeader from "./Components/WeatherHeader/weather-header";
 import Header from './Components/Header/header';
+import LoginScreen from './Components/LoginScreen/LoginScreen';
 
 function App() {
   return (
     <div className="App">
+      {/* <Header /> */}
       <ItemContextProvider>
-        <Header />
+        <WeatherHeader />
       </ItemContextProvider>
+
+      <LoginScreen/>
 
 
 
