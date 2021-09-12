@@ -7,3 +7,13 @@ export interface GeoLocationCon {
     GeoLocation: GeoLocation | any,
     updateLocation: (geoLocation: GeoLocation) => void
 }
+
+export interface ShiftLog {
+    author: string;
+    supervisor?: string;
+    logText: string;
+    year: Date;
+    month: Date;
+    day: Date;
+    time: Date;
+}
