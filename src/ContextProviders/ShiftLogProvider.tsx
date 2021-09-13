@@ -15,7 +15,7 @@ const ShiftLogDefaultValue: ShiftLogContextModel = {
 
 export const ShiftLogContext = createContext(ShiftLogDefaultValue);
 
-export const ShiftLogContextProvider = ({children}: {children: ReactNode}) => {
+export function ShiftLogContextProvider({children}: {children: ReactNode}) {
     const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([])
 
     const addLog = (shiftLog: ShiftLog): void => {
@@ -33,7 +33,11 @@ export const ShiftLogContextProvider = ({children}: {children: ReactNode}) => {
     }
 
     // return()WHAT IS HAPPENING HERE?!
-    
+    return(
+        <ShiftLogContext.Provider value={{shiftLogs, addLog, removeLog}}>
+            {children}
+        </ShiftLogContext.Provider>
+    )
     
 
 };
