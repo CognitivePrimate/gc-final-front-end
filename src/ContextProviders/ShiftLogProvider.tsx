@@ -29,6 +29,7 @@ export function ShiftLogContextProvider({children}: {children: ReactNode}) {
             ...prevShiftLogs,
             shiftLog
         ]);
+        console.log("ShiftProvider", shiftLogs)
     }
 
     const removeLog = (index: number): void => {
