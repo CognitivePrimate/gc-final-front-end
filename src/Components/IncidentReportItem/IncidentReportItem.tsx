@@ -6,13 +6,14 @@ interface Props {
     incident: IncidentReport
 }
 
-const ShiftLogItem = ({incident}: Props) => {
+const IncidentReportItem = ({incident}: Props) => {
 
+    
     return (
         <main>
             <section className="incident-author-supervisor-section">
-                <p>Author:{incident.author}</p>
-                <p>Supervvisor: {incident.supervisor}</p>
+                <p>Author: {incident.author}</p>
+                <p>Supervisor: {incident.supervisor}</p>
             </section>
             <section>
                 <p>Log Text: {incident.logText}</p>
@@ -21,4 +22,4 @@ const ShiftLogItem = ({incident}: Props) => {
     )
 }
 
-export default ShiftLogItem;
+export default IncidentReportItem;

@@ -36,7 +36,8 @@ const LoginScreen = () => {
             console.log(UsernameLogin);
             console.log(authenticatedLogin);
         } else {
-            setUsernameLogin({username: 'incorrect username', password: 'incorrect password'})
+            setUsernameLogin({username: 'incorrect username', password: 'incorrect password'});
+            alert('Please enter a valid username and password');
             console.log(UsernameLogin);
             console.log(authenticatedLogin);
             console.log(' no valid password login combination');

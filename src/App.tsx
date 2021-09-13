@@ -44,6 +44,9 @@ import HomeScreen from './Components/HomeScreen/HomeScreen';
 import NewLogEntry from './Components/NewShiftLogEntry/new-log-entry';
 import DailyShiftLog from './Components/DailyShiftLog/DailyShiftLog';
 import SubmitIncidentReport from './Components/SubmitIncidentReport/SubmitIncidentReport';
+import IncidentReportLogs from './Components/IncidentReportLogs/IncidentReportLogs';
+import {ShiftLogContextProvider} from './ContextProviders/ShiftLogProvider';
+import { IncidentReportsContextProvider } from './ContextProviders/IncidentReportsProvider';
 
 
 
@@ -68,14 +71,21 @@ function App() {
           <NewLogEntry/>
         </Route>
 
-        <Route path="/DailyShiftLog" exact>
-            <DailyShiftLog/>
-        </Route>
+        <ShiftLogContextProvider>
+          <Route path="/DailyShiftLog" exact>
+              <DailyShiftLog/>
+          </Route>
+        </ShiftLogContextProvider>
 
         <Route path="/SubmitIncidentReport" exact>
             <SubmitIncidentReport/>
         </Route>
 
+        <IncidentReportsContextProvider>
+          <Route path="/IncidentReportLogs" exact>
+              <IncidentReportLogs/>
+          </Route>
+        </IncidentReportsContextProvider>
       </Router>
     </div>
   );

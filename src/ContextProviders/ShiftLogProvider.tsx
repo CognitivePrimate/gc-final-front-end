@@ -16,7 +16,13 @@ const ShiftLogDefaultValue: ShiftLogContextModel = {
 export const ShiftLogContext = createContext(ShiftLogDefaultValue);
 
 export function ShiftLogContextProvider({children}: {children: ReactNode}) {
-    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([])
+    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([
+        {
+            author: 'Austin',
+            supervisor: 'Kyle',
+            logText: 'This is a test log',
+        }
+    ])
 
     const addLog = (shiftLog: ShiftLog): void => {
         setShiftLogs(prevShiftLogs => [

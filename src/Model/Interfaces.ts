@@ -12,10 +12,10 @@ export interface ShiftLog {
     author: string;
     supervisor?: string;
     logText: string;
-    year: Date;
-    month: Date;
-    day: Date;
-    time: Date;
+    year?: Date;
+    month?: Date;
+    day?: Date;
+    time?: Date;
 }    
 export interface UserLogin {
     username: string,
@@ -27,8 +27,8 @@ export interface IncidentReport {
     author: string;
     supervisor?: string;
     logText: string;
-    year: Date;
-    month: Date;
-    day: Date;
-    time: Date;
+    year?: Date;
+    month?: Date;
+    day?: Date;
+    time?: Date;
 }   

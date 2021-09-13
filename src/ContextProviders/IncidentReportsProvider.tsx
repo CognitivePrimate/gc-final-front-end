@@ -16,7 +16,13 @@ export const IncidentReportsContext = createContext(IncidentReportsDefaultValue)
 
 export const IncidentReportsContextProvider = ({children}: {children: ReactNode}) => {
 
-    const [incidentReports, setIncidentReports] = useState<IncidentReport[]>([])
+    const [incidentReports, setIncidentReports] = useState<IncidentReport[]>([
+        {
+            author: 'Austin',
+            supervisor: 'Kyle',
+            logText: 'This is a test incident',
+        }
+    ])
 
 
 

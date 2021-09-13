@@ -19,3 +19,7 @@ main.home-screen-main button.home-screen-button {
     border-radius: 8px;
     background-color: rgb(197, 197, 197);;
 }
+
+section.hidden {
+    display: none;
+}
