@@ -42,7 +42,9 @@ import Header from './Components/Header/header';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
 import NewLogEntry from './Components/NewShiftLogEntry/new-log-entry';
-import SubmitLogEntry from './Components/SubmitLogEntry/SubmitLogEntry';
+import DailyShiftLog from './Components/DailyShiftLog/DailyShiftLog';
+import SubmitIncidentReport from './Components/SubmitIncidentReport/SubmitIncidentReport';
+
 
 
 function App() {
@@ -65,6 +67,15 @@ function App() {
         <Route path="/NewLogEntry">
           <NewLogEntry/>
         </Route>
+
+        <Route path="/DailyShiftLog" exact>
+            <DailyShiftLog/>
+        </Route>
+
+        <Route path="/SubmitIncidentReport" exact>
+            <SubmitIncidentReport/>
+        </Route>
+
       </Router>
     </div>
   );

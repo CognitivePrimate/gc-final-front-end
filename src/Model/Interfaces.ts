@@ -21,3 +21,14 @@ export interface UserLogin {
     username: string,
     password: string
 }
+
+
+export interface IncidentReport {
+    author: string;
+    supervisor?: string;
+    logText: string;
+    year: Date;
+    month: Date;
+    day: Date;
+    time: Date;
+}   
