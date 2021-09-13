@@ -1,15 +1,12 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
-
-import {ShiftLogContext} from "../../ContextProviders/ShiftLogProvider"
 
 import "./new-log-entry-styles.css";
 import { Link } from "react-router-dom";
 
-// interface Props {
-//     onClose: () => void;
-//     onSubmit: (log: ShiftLog) => void;
-// }
+// TODO
+// remove log function
 
 const NewLogEntry = () => {
    const [author, setAuthor] = useState("");
@@ -17,14 +14,12 @@ const NewLogEntry = () => {
    const [logText, setLogText] = useState("");
 
  //takes all log items to compile into shift log object
-   const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
+   const { shiftLogs, addLog, removeLog } = useContext(ShiftLogContext);
 
  //functions to handle onSubmit
     const onSubmit = (log: ShiftLog) => {
-       setShiftLogs(prevShiftLogs => [
-           ...prevShiftLogs,
-           log
-       ])
+       addLog(log);
+       console.log("shiftlogs post onSubmit function",shiftLogs)
     }    
 
  //handles submit event with ShiftLog object key values -FIX ANY
