@@ -63,13 +63,9 @@ function App() {
         </Route>
 
         <Route path="/NewLogEntry">
-          <NewLogEntry />
+          <NewLogEntry/>
         </Route>
-        <Route path="/SubmitLogEntry">
-          <SubmitLogEntry/>
-        </Route>
-
-        </Router>
+      </Router>
     </div>
   );
 }

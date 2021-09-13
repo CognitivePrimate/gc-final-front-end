@@ -7,7 +7,7 @@ const Header = () => {
     
     return (
         <div className="header">
-            <h1 className="header-banner">Company Name</h1>
+            <Link to="/HomeScreen"><h1 className="header-banner">Company Name</h1></Link> 
             <section>
             <h2 className="header-banner">Username</h2>
             <Link to="/"><button>Logout</button></Link>

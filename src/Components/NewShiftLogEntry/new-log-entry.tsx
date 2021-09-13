@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
 
+import "./new-log-entry-styles.css";
+
 // interface Props {
 //     onClose: () => void;
 //     onSubmit: (log: ShiftLog) => void;
@@ -15,15 +17,15 @@ const NewLogEntry = () => {
    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
 
  //functions to handle onSubmit
-   const onSubmit = (log: ShiftLog) => {
+    const onSubmit = (log: ShiftLog) => {
        setShiftLogs(prevShiftLogs => [
            ...prevShiftLogs,
            log
        ])
-   }    
+    }    
 
  //handles submit event with ShiftLog object key values -FIX ANY
-   const handlesubmit = (e: FormEvent) => {
+    const handlesubmit = (e: FormEvent) => {
         e.preventDefault();
         const d: Date = new Date();
         let year: any = d.getFullYear();
@@ -41,6 +43,7 @@ const NewLogEntry = () => {
             time
         });
         // onClose();
+        console.log(shiftLogs);
         setAuthor("");
         setSupervisor("");
         setLogText("");
@@ -54,7 +57,7 @@ const NewLogEntry = () => {
 
 
     return (
-        <form className="logInputForm">
+        <form className="logInputForm" action="submit">
             <div className="logInputInfoContainer">
                 <label htmlFor="author">Name</label>
                 <input type="text" name="author" id="author" value={author} onChange={newAuthor} />
@@ -63,7 +66,7 @@ const NewLogEntry = () => {
                 <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} />
             </div>
             <label htmlFor="logEntry">Log Here:</label><br/>
-            <input type="textArea" name="logEntry" id="logEntry" value={logText} onChange={newLogText} />
+            <input type="textArea" name="logEntry" id="logEntry" value={logText} onChange={newLogText}/><br />
             <button id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
 
         </form>
@@ -71,4 +74,4 @@ const NewLogEntry = () => {
 }
 
 
-export default NewLogEntry
+export default NewLogEntry;
