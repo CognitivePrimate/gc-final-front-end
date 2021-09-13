@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
 
+import {ShiftLogContext} from "../../ContextProviders/ShiftLogProvider"
+
 import "./new-log-entry-styles.css";
 
 // interface Props {

@@ -1,5 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-
+import { createContext, ReactNode, useState } from "react";
 import { ShiftLog } from "../Model/Interfaces";
 
 export interface ShiftLogContextModel {
@@ -8,13 +7,13 @@ export interface ShiftLogContextModel {
     removeLog: (index: number) => void;
 }
 
-const shiftLogDefaultValue: ShiftLogContextModel = {
+const ShiftLogDefaultValue: ShiftLogContextModel = {
     shiftLogs: [],
     addLog: () => {},
     removeLog: () => {}
 }
 
-export const ShiftLogContext = createContext(shiftLogDefaultValue);
+export const ShiftLogContext = createContext(ShiftLogDefaultValue);
 
 export const ShiftLogContextProvider = ({children}: {children: ReactNode}) => {
     const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([])
@@ -33,9 +32,8 @@ export const ShiftLogContextProvider = ({children}: {children: ReactNode}) => {
         ])
     }
 
-
-
-    return ()
+    // return()WHAT IS HAPPENING HERE?!
+    
     
 
-}
+};
