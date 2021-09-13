@@ -1,0 +1,28 @@
+.weather-header {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    bottom: -10px;
+    display: flex;
+    margin-top: 30px;
+    /* margin: 0 auto; */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background: rgb(197, 197, 197);
+    width: 98vw;
+    padding: 10px;
+
+}
+
+
+
+div.weather-header section.weather-header-sections {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+div.weather-header span.lat-lon-span {
+    margin: 0 10px;
+}

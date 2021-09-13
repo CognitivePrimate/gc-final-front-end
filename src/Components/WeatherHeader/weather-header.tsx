@@ -1,26 +1,29 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useContext } from "react";
+import { GeoLocation } from "../../Model/Interfaces"
+import {GeoLocationContext} from "../../ContextProviders/WeatherLocationProvider"
+import "./weather-header-styles.css";
 
 // import weather API
 import { fetchAllWeather } from "../../services";
 
-export let lat: number = 0;
-export let lon: number = 0;
-
 
 const WeatherHeader = () => {
     const [weather, setWeather] = useState([])
+  
+    const {GeoLocation, updateLocation} = useContext(GeoLocationContext);
 
-    // const lat: number = 0;
-    // const lon: number = 0;
+    const updateLocationTwo = (location: GeoLocation) => {
+        // updateLocation({lat: location.lat, lon: location.lon});
+        updateLocation(location);
+    }
 
     // FIND LOCATION FUNCTIONS <---- FIX ANY TYPE
     const success = (pos: any) => {
         let crd = pos.coords;
         console.log(`lat: ${crd.latitude}`);
         console.log(`lon: ${crd.longitude}`);
-        lat = crd.latitude;
-        lon = crd.longitude;
+        updateLocationTwo({lon: crd.latitude, lat: crd.longitude})
+        fetchAllWeather(GeoLocation);
     }
     // if timeout/error
     const error = (err: any) => {
@@ -36,6 +39,7 @@ const WeatherHeader = () => {
     useEffect(() => {
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(success, error, options);
+            // fetchAllWeather(GeoLocation);
         }
     }, []);
     
@@ -46,10 +50,16 @@ const WeatherHeader = () => {
 
 
     return (
-        <div>
-            <p>test</p>
-            <p>{lon}</p>
-            <p>{lat}</p>
+        <div className="weather-header">
+            <section className="weather-header-sections">
+                <span>City</span>
+                <span>Time</span>
+                <span>Temperature</span>
+            </section>
+            <section className="weather-header-sections">
+                <span className="lat-lon-span">{}</span>
+                <span className="lat-lon-span">Lon: {GeoLocation.lon}</span>
+            </section>
             
         </div>
     );

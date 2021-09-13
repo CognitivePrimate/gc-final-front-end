@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    /* background: darkgray; */
+    height: 50px;
+    /* position:fixed; */
+    top: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 0 10px 0 10px;
+}
+
+.header-banner {
+    margin-top: 0;
+    font-size: 1.5rem;
+}

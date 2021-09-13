@@ -1,0 +1,25 @@
+main.home-screen-main div.home-screen-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+main.home-screen-main section.home-screen-options-containers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.home-screen-main button.home-screen-button {
+    width: 60%;
+    margin: 10px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 8px;
+    background-color: rgb(197, 197, 197);;
+}
+
+section.hidden {
+    display: none;
+}
