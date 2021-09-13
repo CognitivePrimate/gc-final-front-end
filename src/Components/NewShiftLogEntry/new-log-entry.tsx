@@ -40,7 +40,6 @@ const NewLogEntry = () => {
             time
         });
         // onClose();
-        console.log(shiftLogs);
         setAuthor("");
         setSupervisor("");
         setLogText("");
