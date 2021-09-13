@@ -3,6 +3,7 @@ import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
 
 import "./new-log-entry-styles.css";
+import { Link } from "react-router-dom";
 
 // TODO
 // remove log function
@@ -64,7 +65,7 @@ const NewLogEntry = () => {
             <label htmlFor="logEntry">Log Here:</label><br/>
             <input type="textArea" name="logEntry" id="logEntry" value={logText} onChange={newLogText}/><br />
             <button id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
-
+            <Link to="/HomeScreen"><button>Back</button></Link>
         </form>
     );
 }

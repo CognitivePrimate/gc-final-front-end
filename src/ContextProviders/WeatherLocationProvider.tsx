@@ -4,8 +4,7 @@ import {GeoLocation, GeoLocationCon } from "../Model/Interfaces"
 
 
 let defaultGeoLocation: GeoLocationCon = {
-    GeoLocation: {
-    },
+    GeoLocation: {},
     updateLocation: (newLocation) => {}
 }
 

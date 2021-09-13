@@ -9,9 +9,9 @@ const HomeScreen = () => {
             <div className="home-screen-container">
                 <section className="home-screen-options-volunteers home-screen-options-containers">
                     <Link to="/NewLogEntry" className="home-screen-button"><button className="home-screen-button">Submit Log Entry</button></Link>
-                    <button className="home-screen-button">Current Shift Log</button>
+                    <Link to="/DailyShiftLog"><button className="home-screen-button">Current Shift Log</button></Link>
                     <button className="home-screen-button">Schedule</button>
-                    <button className="home-screen-button">Submit Incident Report</button>
+                    <Link to="/SubmitIncidentReport"><button className="home-screen-button">Submit Incident Report</button></Link>
                     <button className="home-screen-button">Emergency Contacts</button>
                     <button className="home-screen-button">Incident Report Logs</button>
                     <button className="home-screen-button">Events</button>
