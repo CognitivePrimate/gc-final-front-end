@@ -1,6 +1,7 @@
 import { FormEvent, useContext, useState } from "react";
 import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
+import {ObjectId} from "mongodb";
 
 import "./new-log-entry-styles.css";
 import { Link } from "react-router-dom";
@@ -30,6 +31,9 @@ const NewLogEntry = () => {
         let month: any = d.getMonth();
         let day: any = d.getDate();
         let time: any = Date.now();
+
+        // IS THIS CORRECT?
+        let _id = new ObjectId();
         
         onSubmit({
             author,
@@ -38,7 +42,8 @@ const NewLogEntry = () => {
             year,
             month,
             day,
-            time
+            time,
+            _id
         });
         // onClose();
         setAuthor("");
