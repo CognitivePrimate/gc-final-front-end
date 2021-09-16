@@ -47,6 +47,7 @@ import SubmitIncidentReport from './Components/SubmitIncidentReport/SubmitIncide
 import IncidentReportLogs from './Components/IncidentReportLogs/IncidentReportLogs';
 import {ShiftLogContextProvider} from './ContextProviders/ShiftLogProvider';
 import { IncidentReportsContextProvider } from './ContextProviders/IncidentReportsProvider';
+import ScheduleCreation from './Components/ScheduleCreation/schedule-creation';
 
 
 
@@ -86,6 +87,10 @@ function App() {
               <IncidentReportLogs/>
           </Route>
         </IncidentReportsContextProvider>
+
+        <Route path="/ScheduleCreation" exact>
+          <ScheduleCreation />
+        </Route>
       </Router>
     </div>
   );

@@ -47,14 +47,16 @@ export interface ScheduleRow {
     _id?: ObjectId;
 }
 
+// FIX ANY TYPE BELOW
 export interface Schedule {
     scheduleRows: ScheduleRow[];
     volunteersNeeded: number;
-    startTime: Date;
-    endTime: Date;
-    year?: Date;
-    month?: Date;
-    day?: Date;
+    dateNeeded: any;
+    startTime: number;
+    endTime: number;
+    yearCreated?: Date;
+    monthCreated?: Date;
+    dayCreated?: Date;
     _id?: ObjectId;
     
 }

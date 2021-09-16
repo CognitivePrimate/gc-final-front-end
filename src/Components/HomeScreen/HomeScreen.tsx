@@ -24,7 +24,7 @@ const HomeScreen = () => {
                 <section className="home-screen-options-admin home-screen-options-containers hidden">
                     <button className="home-screen-button">Add Emergency Contact</button>
                     <button className="home-screen-button">Add Event</button>
-                    <button className="home-screen-button">Volunteer Scheduling</button>
+                    <Link to="/ScheduleCreation"><button className="home-screen-button">Create Schedule</button></Link>
                 </section>
             </div>
         </main>
