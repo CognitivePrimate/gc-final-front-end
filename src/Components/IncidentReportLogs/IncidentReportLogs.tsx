@@ -1,17 +1,4 @@
-<<<<<<< HEAD
 import React from 'react';
-
-const IncidentReportLogs = () => {
-    
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-
-=======
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IncidentReportsContext } from "../../ContextProviders/IncidentReportsProvider";
@@ -39,5 +26,4 @@ const IncidentReportLogs = () => {
     )
 }
 
->>>>>>> 03cc32b21af170009b394a1dae0882731550fbc3
 export default IncidentReportLogs;

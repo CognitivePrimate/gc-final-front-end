@@ -1,19 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const HomeScreen= () => {
-    
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-
-=======
-import { Link } from "react-router-dom";
-import "./HomeScreen.css";
 
 const HomeScreen = () => {
 
@@ -44,5 +31,4 @@ const HomeScreen = () => {
     )
 }
 
->>>>>>> 03cc32b21af170009b394a1dae0882731550fbc3
 export default HomeScreen;

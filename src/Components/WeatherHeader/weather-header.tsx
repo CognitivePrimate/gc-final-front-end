@@ -25,6 +25,7 @@ const WeatherHeader = () => {
         updateLocationTwo({lon: crd.latitude, lat: crd.longitude})
         fetchAllWeather(GeoLocation);
     }
+    
     // if timeout/error
     const error = (err: any) => {
         console.warn(`ERROR:(${err.code}): ${err.message}`)

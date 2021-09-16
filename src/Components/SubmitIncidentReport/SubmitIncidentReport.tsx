@@ -1,20 +1,5 @@
-<<<<<<< HEAD
 import React from 'react';
-
-const SubmitIncidentReport = () => {
-    
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-
-=======
-import { Link } from "react-router-dom"
-
-
+import { Link } from 'react-router-dom';
 
 const SubmitIncidentReport = () => {
 
@@ -38,5 +23,4 @@ const SubmitIncidentReport = () => {
     )
 }
 
->>>>>>> 03cc32b21af170009b394a1dae0882731550fbc3
 export default SubmitIncidentReport;
