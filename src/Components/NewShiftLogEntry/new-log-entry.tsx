@@ -1,5 +1,5 @@
-import { FormEvent, useContext, useState } from "react";
-import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
+import { FormEvent, useState } from "react";
+// import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
 import {ObjectId} from "mongodb";
 
@@ -14,12 +14,20 @@ const NewLogEntry = () => {
    const [logText, setLogText] = useState("");
 
  //takes all log items to compile into shift log object
-   const { shiftLogs, addLog, removeLog } = useContext(ShiftLogContext);
+   const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
 
  //functions to handle onSubmit
-    const onSubmit = (log: ShiftLog) => {
-       addLog(log);
-       console.log("shiftlogs post onSubmit function",shiftLogs)
+    const onSubmit = (shiftLog: ShiftLog) => {
+        // setShiftLogs(prevShiftLogs => [
+        //     ...prevShiftLogs,
+        //     shiftLog
+        // ]);
+        // console.log("trying", shiftLogs);
+        // WHY ONLY WORK THIS WAY?! 
+        let newShiftLogs: ShiftLog[] = shiftLogs;
+        newShiftLogs.push(shiftLog);
+        setShiftLogs(newShiftLogs);
+        console.log("shiftlogs post onSubmit function",shiftLogs)
     }    
 
  //handles submit event with ShiftLog object key values -FIX ANY
@@ -67,7 +75,7 @@ const NewLogEntry = () => {
                 <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} />
             </div>
             <label htmlFor="logEntry">Log Here:</label><br/>
-            <input type="textArea" name="logEntry" id="logEntry" value={logText} onChange={newLogText}/><br />
+            <textarea name="logEntry" id="logEntry" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
             <button id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
             <Link to="/HomeScreen"><button>Back</button></Link>
         </form>

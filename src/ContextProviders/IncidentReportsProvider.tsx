@@ -20,7 +20,7 @@ export const IncidentReportsContextProvider = ({children}: {children: ReactNode}
         {
             author: 'Austin',
             supervisor: 'Kyle',
-            logText: 'This is a test incident',
+            incident: 'This is a test incident',
         }
     ])
 

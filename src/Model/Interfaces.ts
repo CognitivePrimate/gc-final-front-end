@@ -28,15 +28,16 @@ export interface UserLogin {
 export interface IncidentReport {
     author: string;
     supervisor?: string;
-    logText: string;
+    incident: string;
+    witnesses?: string[];
     year?: Date;
     month?: Date;
     day?: Date;
     time?: Date;
-    _id: ObjectId;
+    _id?: ObjectId;
 }
 
-export interface Schedule {
+export interface ScheduleRow {
     firstName?: string;
     lastName?:string;
     aliases?: string;
@@ -44,6 +45,18 @@ export interface Schedule {
     timeIn?: Date;
     timeOut?: Date;
     _id?: ObjectId;
+}
+
+export interface Schedule {
+    scheduleRows: ScheduleRow[];
+    volunteersNeeded: number;
+    startTime: Date;
+    endTime: Date;
+    year?: Date;
+    month?: Date;
+    day?: Date;
+    _id?: ObjectId;
+    
 }
 
 export interface EmergencyContact {
