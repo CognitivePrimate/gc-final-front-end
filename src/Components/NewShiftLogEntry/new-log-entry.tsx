@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 // TODO
 // remove log function
-
 const NewLogEntry = () => {
    const [author, setAuthor] = useState("");
    const [supervisor, setSupervisor] = useState("");
