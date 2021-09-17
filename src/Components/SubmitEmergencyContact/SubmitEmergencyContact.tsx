@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { addEmergencyContact } from "../../services";
@@ -98,6 +99,7 @@ const SubmitEmergencyContact = () => {
                 </div>
                 <button onClick={handlesubmit}>Add Emergency Contact</button>
             </form>
+            <Link to="/HomeScreen"><button>Back</button></Link>
 
         </main>
     )

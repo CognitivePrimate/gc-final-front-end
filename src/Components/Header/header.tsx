@@ -12,8 +12,7 @@ const Header = () => {
         <div className="header">
             <Link to="/HomeScreen"><h1 className="header-banner">Company Name</h1></Link> 
             <section>
-            <h2 className="header-banner">{user?.displayName}</h2>
-            <Link to="/"><button>Logout</button></Link>
+                <h2 className="header-banner">{user?.displayName}</h2>
             </section>
             {/* <WeatherHeader />             */}
         </div>

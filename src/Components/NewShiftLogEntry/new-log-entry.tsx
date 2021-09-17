@@ -84,19 +84,27 @@ const NewLogEntry = () => {
 
     
     return (
+    <main className="NewLogContainer">
         <form className="logInputForm" action="submit">
+        <h3 className="NewLogTitle">New Shift Log</h3>
             <div className="logInputInfoContainer">
-                <label htmlFor="author">Name</label>
-                <input type="text" name="author" id="author" value={author} onChange={newAuthor} />
-
-                <label htmlFor="supervisor">Supervisor</label>
-                <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} />
+                <div className="InputOptions">
+                    <label htmlFor="author">Name</label>
+                    <input type="text" name="author" id="author" value={author} onChange={newAuthor} />
+                </div>
+                <div className="InputOptions">
+                    <label htmlFor="supervisor">Supervisor</label>
+                    <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} />
+                </div>
             </div>
             <label htmlFor="logEntry">Log Here:</label><br/>
-            <textarea name="logEntry" id="logEntry" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
-            <button id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
-            <Link to="/HomeScreen"><button>Back</button></Link>
+            <textarea name="logEntry" id="logEntry" className="logEntry" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
+            <div className="FinishButtons">
+                <button className="logSubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
+                <Link to="/HomeScreen"><button>Back</button></Link>
+            </div>
         </form>
+    </main>
     );
 }
 
