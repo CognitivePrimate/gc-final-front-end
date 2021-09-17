@@ -48,11 +48,13 @@ import IncidentReportLogs from './Components/IncidentReportLogs/IncidentReportLo
 import {ShiftLogContextProvider} from './ContextProviders/ShiftLogProvider';
 import { IncidentReportsContextProvider } from './ContextProviders/IncidentReportsProvider';
 import ScheduleCreation from './Components/ScheduleCreation/schedule-creation';
+import { AuthContextProvider } from './ContextProviders/auth-context';
 
 
 
 function App() {
   return (
+    <AuthContextProvider>
     <div className="App">
       <Router>
         <Header />
@@ -93,6 +95,7 @@ function App() {
         </Route>
       </Router>
     </div>
+    </AuthContextProvider>
   );
 }
 
