@@ -22,9 +22,9 @@ const HomeScreen = () => {
                     <button className="home-screen-button">Events</button>
                 </section>
                 <section className="home-screen-options-admin home-screen-options-containers hidden">
-                    <button className="home-screen-button">Add Emergency Contact</button>
-                    <button className="home-screen-button">Add Event</button>
-                    <Link to="/ScheduleCreation"><button className="home-screen-button">Create Schedule</button></Link>
+                    <Link to="/SubmitEmergencyContact"><button className="home-screen-button">Submit Emergency Contact</button>
+                    <button className="home-screen-button">Add Event</button></Link>
+                    <Link to="/ScheduleCreation" className="home-screen-button-link"><button className="home-screen-button">Create Schedule</button></Link>
                 </section>
             </div>
         </main>

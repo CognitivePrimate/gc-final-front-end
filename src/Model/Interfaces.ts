@@ -10,6 +10,8 @@ export interface GeoLocationCon {
     updateLocation: (geoLocation: GeoLocation) => void
 }
 
+
+
 export interface ShiftLog {
     user?: firebase.User | null;
     author: string;
@@ -67,6 +69,7 @@ export interface EmergencyContact {
     firstName: string;
     lastName: string;
     phoneNumber: number;
+    role?: string,
     email?: string;
     _id?: ObjectId;
 }

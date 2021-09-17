@@ -2,6 +2,7 @@ import { ObjectId } from 'bson';
 import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IncidentReport } from '../../Model/Interfaces';
+import { addIncidentReport } from '../../services';
 
 const SubmitIncidentReport = () => {
    const [author, setAuthor] = useState("");
@@ -13,18 +14,26 @@ const SubmitIncidentReport = () => {
    const [incidentReports, setIncidentReports] = useState<IncidentReport[]>([]);
 
  //functions to handle onSubmit
+    // const onSubmit = (incidentReport: IncidentReport) => {
+    //     // setShiftLogs(prevShiftLogs => [
+    //     //     ...prevShiftLogs,
+    //     //     shiftLog
+    //     // ]);
+    //     // console.log("trying", shiftLogs);
+    //     // WHY ONLY WORK THIS WAY?! 
+    //     let newIncidentReport: IncidentReport[] = incidentReports;
+    //     newIncidentReport.push(incidentReport);
+    //     setIncidentReports(newIncidentReport);
+    //     console.log("incidentReports post onSubmit function", incidentReports)
+    // }    
+
     const onSubmit = (incidentReport: IncidentReport) => {
-        // setShiftLogs(prevShiftLogs => [
-        //     ...prevShiftLogs,
-        //     shiftLog
-        // ]);
-        // console.log("trying", shiftLogs);
-        // WHY ONLY WORK THIS WAY?! 
-        let newIncidentReport: IncidentReport[] = incidentReports;
-        newIncidentReport.push(incidentReport);
-        setIncidentReports(newIncidentReport);
-        console.log("incidentReports post onSubmit function", incidentReports)
-    }    
+        // record the input values
+        console.log(incidentReport);
+        addIncidentReport(incidentReport)
+    }
+
+
 
  //handles submit event with ShiftLog object key values -FIX ANY
     const handlesubmit = (e: FormEvent) => {
