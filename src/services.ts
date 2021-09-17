@@ -27,7 +27,7 @@ export function fetchAllWeather(location: GeoLocation){
 const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
 
 export function fetchShiftLogs() : Promise<ShiftLog[]> {
-  return axios.get(`${key}/ShiftLogs`)
+  return axios.get(`${baseUrl}/ShiftLogs`)
   .then(res => res.data)
 }
 
