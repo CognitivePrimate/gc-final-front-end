@@ -23,12 +23,19 @@ const ScheduleCreation = () => {
         setTimeBlocks(newTimeBlock);
         console.log("schedules post onSubmit function", timeBlocks);
 
+        
+
+    }
+
+    const handleScheduleRows = (scheduleRow: ScheduleRow) => {
         // TEST
         for (let i = 0; i < volunteersNeeded; i++){
-            setScheduleRows([]); 
+            let newScheduleRow: ScheduleRow[] = scheduleRows;
+            newScheduleRow.push(scheduleRow)
+            setScheduleRows(newScheduleRow);
+            console.log("ScheduleRows", scheduleRows);
         }
         // TEST
-
     }
     
     
@@ -43,6 +50,9 @@ const ScheduleCreation = () => {
 
         // IS THIS CORRECT?
         let _id = new ObjectId();
+
+        handleScheduleRows({
+        })
         
         onTimeBlockSubmit({
             scheduleRows,
@@ -96,7 +106,11 @@ const ScheduleCreation = () => {
                 </form>
             </div>
             <div className="generatedTimeBlockContainer">
-                
+                {timeBlocks.map((timeblock, index) => 
+                    <ScheduleRowComponent
+                    key={`${timeblock.dateNeeded}-${index}`}
+                    />
+                )}
             
             </div>
         </main>
