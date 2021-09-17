@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { fetchEmergencyContacts } from "../../services";
 import EmergencyContactItem from "../EmergencyContactItem/EmergencyContactItem";
@@ -24,6 +25,7 @@ const EmergencyContacts = () => {
                         />
                 )}
             </section>
+            <Link to="/HomeScreen"><button>Back</button></Link>
         </main>
     )
 }

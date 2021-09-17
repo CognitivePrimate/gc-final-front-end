@@ -50,6 +50,7 @@ import { IncidentReportsContextProvider } from './ContextProviders/IncidentRepor
 import ScheduleCreation from './Components/ScheduleCreation/schedule-creation';
 import { AuthContextProvider } from './ContextProviders/auth-context';
 import SubmitEmergencyContact from './Components/SubmitEmergencyContact/SubmitEmergencyContact';
+import EmergencyContacts from './Components/EmergencyContacts/EmergencyContacts';
 
 
 
@@ -93,6 +94,10 @@ function App() {
 
           <Route path="/SubmitEmergencyContact" exact>
               <SubmitEmergencyContact/>
+          </Route>
+
+          <Route path="/EmergencyContacts" exact>
+            <EmergencyContacts/>
           </Route>
 
         <Route path="/ScheduleCreation" exact>
