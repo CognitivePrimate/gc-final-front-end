@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import "./HomeScreen.css";
 
 const HomeScreen = () => {
-
 
     return (
 
@@ -13,12 +13,12 @@ const HomeScreen = () => {
         <main className="home-screen-main">
             <div className="home-screen-container">
                 <section className="home-screen-options-volunteers home-screen-options-containers">
-                    <Link to="/NewLogEntry" className="home-screen-button"><button className="home-screen-button">Submit Log Entry</button></Link>
+                    <Link to="/NewLogEntry" className="home-screen-button-link"><button className="home-screen-button">Submit Log Entry</button></Link>
                     <Link to="/DailyShiftLog"><button className="home-screen-button">Current Shift Log</button></Link>
                     <button className="home-screen-button">Schedule</button>
-                    <Link to="/SubmitIncidentReport"><button className="home-screen-button">Submit Incident Report</button></Link>
+                    <Link to="/SubmitIncidentReport"><button className="home-screen-button-link">Submit Incident Report</button></Link>
                     <button className="home-screen-button">Emergency Contacts</button>
-                    <Link to="/IncidentReportLogs"><button className="home-screen-button">Incident Report Logs</button></Link>
+                    <Link to="/IncidentReportLogs"><button className="home-screen-button-link">Incident Report Logs</button></Link>
                     <button className="home-screen-button">Events</button>
                 </section>
                 <section className="home-screen-options-admin home-screen-options-containers hidden">

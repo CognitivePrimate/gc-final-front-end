@@ -22,3 +22,22 @@ export function fetchAllWeather(location: GeoLocation){
 }
 
 
+// to mongodb
+
+const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
+
+export function fetchShoutOuts() : Promise<ShoutOut[]> {
+  return axios.get(`${baseUrl}/shoutouts`)
+  .then(res => res.data)
+}
+
+export function addShoutOut(shoutOut:ShoutOut) : Promise<ShoutOut> {
+  return axios.post(`${baseUrl}/shoutouts`, shoutOut).then(res => res.data);
+}
+
+export function fetchShoutOutsTo(user: string) : Promise<ShoutOut[]> {
+  return axios.get(`${baseUrl}/shoutouts`, {
+    params: { to: user }
+  })
+  .then(res => res.data)
+}

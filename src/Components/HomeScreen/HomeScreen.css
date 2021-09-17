@@ -11,7 +11,7 @@ main.home-screen-main section.home-screen-options-containers {
 }
 
 main.home-screen-main button.home-screen-button {
-    width: 60%;
+    width: 100%;
     margin: 10px;
     height: 40px;
     border-style: solid;
@@ -22,4 +22,8 @@ main.home-screen-main button.home-screen-button {
 
 section.hidden {
     display: none;
+}
+
+.home-screen-button-link {
+    width: 70vw;
 }

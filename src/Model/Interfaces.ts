@@ -1,4 +1,5 @@
 import {ObjectId} from "mongodb";
+import firebase from '../firebaseConfig'
 export interface GeoLocation {
     lat: number;
     lon: number;
@@ -10,6 +11,7 @@ export interface GeoLocationCon {
 }
 
 export interface ShiftLog {
+    user?: firebase.User | null;
     author: string;
     supervisor?: string;
     logText: string;

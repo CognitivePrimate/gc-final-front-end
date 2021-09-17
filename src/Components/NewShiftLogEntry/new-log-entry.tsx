@@ -5,6 +5,7 @@ import {ObjectId} from "mongodb";
 
 import "./new-log-entry-styles.css";
 import { Link } from "react-router-dom";
+import { useAuthUser } from "../../ContextProviders/auth-context";
 
 // TODO
 // remove log function
@@ -12,6 +13,8 @@ const NewLogEntry = () => {
    const [author, setAuthor] = useState("");
    const [supervisor, setSupervisor] = useState("");
    const [logText, setLogText] = useState("");
+
+   const user = useAuthUser();
 
  //takes all log items to compile into shift log object
    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
@@ -43,6 +46,7 @@ const NewLogEntry = () => {
         let _id = new ObjectId();
         
         onSubmit({
+            user,
             author,
             supervisor,
             logText,
