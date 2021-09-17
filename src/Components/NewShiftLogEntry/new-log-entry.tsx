@@ -63,8 +63,7 @@ const NewLogEntry = () => {
     const newSupervisor = (e: any) => setSupervisor(e.target.value);
     const newLogText = (e: any) => setLogText(e.target.value);
 
-
-
+    
     return (
         <form className="logInputForm" action="submit">
             <div className="logInputInfoContainer">
