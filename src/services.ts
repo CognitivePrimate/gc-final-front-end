@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext} from "react";
 
 // import variables from weather header component for api request
-import { GeoLocation, ShiftLog } from "./Model/Interfaces";
+import { EmergencyContact, GeoLocation, IncidentReport, ShiftLog } from "./Model/Interfaces";
 import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 
 // gets API key from .env file
@@ -27,12 +27,17 @@ export function fetchAllWeather(location: GeoLocation){
 
 const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
 
+
+
+/// **  ShiftLogs access ** /// 
+
+
 export function fetchShiftLogs() : Promise<ShiftLog[]> {
   return axios.get(`${baseUrl}/ShiftLogs`)
   .then(res => res.data)
 }
 
-export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog | undefined> {
+export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog> {
   return axios.post(`${baseUrl}/ShiftLogs`, shiftLog).then(res => res.data);
 }
 
@@ -42,3 +47,29 @@ export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog |
 //   })
 //   .then(res => res.data)
 // }
+
+
+
+/// ** IncidentReports Access ** ///
+
+
+export function fetchIncidentReports() : Promise<IncidentReport[]> {
+  return axios.get(`${baseUrl}/IncidentReports`)
+  .then(res => res.data)
+}
+
+export function addIncidentReport(shiftLog: IncidentReport | undefined) : Promise<IncidentReport> {
+  return axios.post(`${baseUrl}/IncidentReports`, shiftLog).then(res => res.data);
+}
+
+
+/// ** EmergencyContacts Access ** ///
+
+export function fetchEmergencyContacts() : Promise<EmergencyContact[]> {
+  return axios.get(`${baseUrl}/EmergencyContacts`)
+  .then(res => res.data)
+}
+
+export function addEmergencyContact(shiftLog: EmergencyContact | undefined) : Promise<EmergencyContact> {
+  return axios.post(`${baseUrl}/EmergencyContacts`, shiftLog).then(res => res.data);
+}
