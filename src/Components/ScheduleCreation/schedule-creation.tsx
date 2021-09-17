@@ -1,7 +1,3 @@
-
-
-
-
 import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
 import { Schedule, ScheduleRow } from "../../Model/Interfaces";
