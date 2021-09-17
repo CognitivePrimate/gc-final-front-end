@@ -17,6 +17,10 @@ const DailyShiftLog = () => {
     const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
     useEffect(loadDailyShiftLogs, []);
 
+    
+
+
+
 
     return (
         <main>

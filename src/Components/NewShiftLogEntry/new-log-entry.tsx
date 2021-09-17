@@ -6,6 +6,7 @@ import {ObjectId} from "mongodb";
 import "./new-log-entry-styles.css";
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
+import { addShiftLog } from "../../services";
 
 // TODO
 // remove log function
@@ -17,21 +18,35 @@ const NewLogEntry = () => {
    const user = useAuthUser();
 
  //takes all log items to compile into shift log object
-   const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
+
+
+//    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
+
+
+  
+    // const [newShiftLog, setNewShiftLog] = useState<ShiftLog>();
+
 
  //functions to handle onSubmit
+    // const onSubmit = (shiftLog: ShiftLog) => {
+    //     // setShiftLogs(prevShiftLogs => [
+    //     //     ...prevShiftLogs,
+    //     //     shiftLog
+    //     // ]);
+    //     // console.log("trying", shiftLogs);
+    //     // WHY ONLY WORK THIS WAY?! 
+    //     let newShiftLogs: ShiftLog[] = shiftLogs;
+    //     newShiftLogs.push(shiftLog);
+    //     setShiftLogs(newShiftLogs);
+        
+    //     console.log("shiftlogs post onSubmit function",shiftLogs)
+    // }    
+
     const onSubmit = (shiftLog: ShiftLog) => {
-        // setShiftLogs(prevShiftLogs => [
-        //     ...prevShiftLogs,
-        //     shiftLog
-        // ]);
-        // console.log("trying", shiftLogs);
-        // WHY ONLY WORK THIS WAY?! 
-        let newShiftLogs: ShiftLog[] = shiftLogs;
-        newShiftLogs.push(shiftLog);
-        setShiftLogs(newShiftLogs);
-        console.log("shiftlogs post onSubmit function",shiftLogs)
-    }    
+        // record the input values
+        console.log(shiftLog);
+        addShiftLog(shiftLog)
+    }
 
  //handles submit event with ShiftLog object key values -FIX ANY
     const handlesubmit = (e: FormEvent) => {

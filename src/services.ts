@@ -8,6 +8,7 @@ import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 // gets API key from .env file
 const key: string | undefined = process.env.REACT_APP_WEATHER_API;
 
+
 console.log (key);
 // get all weather
 export function fetchAllWeather(location: GeoLocation){
@@ -27,13 +28,13 @@ export function fetchAllWeather(location: GeoLocation){
 const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
 
 export function fetchShiftLogs() : Promise<ShiftLog[]> {
-  return axios.get(`${key}/ShiftLogs`)
+  return axios.get(`${baseUrl}/ShiftLogs`)
   .then(res => res.data)
 }
 
-// export function addShoutOut(shoutOut:ShoutOut) : Promise<ShoutOut> {
-//   return axios.post(`${baseUrl}/shoutouts`, shoutOut).then(res => res.data);
-// }
+export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog | undefined> {
+  return axios.post(`${baseUrl}/ShiftLogs`, shiftLog).then(res => res.data);
+}
 
 // export function fetchShoutOutsTo(user: string) : Promise<ShoutOut[]> {
 //   return axios.get(`${baseUrl}/shoutouts`, {
