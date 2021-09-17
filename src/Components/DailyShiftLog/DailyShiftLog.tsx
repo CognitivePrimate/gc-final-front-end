@@ -1,18 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
+import { ShiftLog } from "../../Model/Interfaces";
+import { fetchShiftLogs } from "../../services";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
 
 
 
 const DailyShiftLog = () => {
 
-    const {shiftLogs} = useContext(ShiftLogContext);
+    // const {shiftLogs} = useContext(ShiftLogContext);
+    const loadDailyShiftLogs = () => {
+        fetchShiftLogs().then(setDailyShiftLogs);
+    }
+
+    const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
+    useEffect(loadDailyShiftLogs, []);
+
 
     return (
         <main>
             <section>
-                {shiftLogs.map((log, index) =>
+                {dailyShiftLogs.map((log, index) =>
                     <ShiftLogItem
                         key={log.author}
                         log={log}
