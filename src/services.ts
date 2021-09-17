@@ -2,13 +2,13 @@ import axios from "axios";
 import { useContext} from "react";
 
 // import variables from weather header component for api request
-import { GeoLocation } from "./Model/Interfaces";
+import { GeoLocation, ShiftLog } from "./Model/Interfaces";
 import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 
 // gets API key from .env file
 const key: string | undefined = process.env.REACT_APP_WEATHER_API;
 
-
+console.log (key);
 // get all weather
 export function fetchAllWeather(location: GeoLocation){
     console.log("services location", location);
@@ -26,18 +26,18 @@ export function fetchAllWeather(location: GeoLocation){
 
 const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
 
-export function fetchShoutOuts() : Promise<ShoutOut[]> {
-  return axios.get(`${baseUrl}/shoutouts`)
+export function fetchShiftLogs() : Promise<ShiftLog[]> {
+  return axios.get(`${key}/ShiftLogs`)
   .then(res => res.data)
 }
 
-export function addShoutOut(shoutOut:ShoutOut) : Promise<ShoutOut> {
-  return axios.post(`${baseUrl}/shoutouts`, shoutOut).then(res => res.data);
-}
+// export function addShoutOut(shoutOut:ShoutOut) : Promise<ShoutOut> {
+//   return axios.post(`${baseUrl}/shoutouts`, shoutOut).then(res => res.data);
+// }
 
-export function fetchShoutOutsTo(user: string) : Promise<ShoutOut[]> {
-  return axios.get(`${baseUrl}/shoutouts`, {
-    params: { to: user }
-  })
-  .then(res => res.data)
-}
+// export function fetchShoutOutsTo(user: string) : Promise<ShoutOut[]> {
+//   return axios.get(`${baseUrl}/shoutouts`, {
+//     params: { to: user }
+//   })
+//   .then(res => res.data)
+// }
