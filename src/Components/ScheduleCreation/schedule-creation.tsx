@@ -72,14 +72,17 @@ const ScheduleCreation = () => {
             <h3>Create a new schedule:</h3>
         <form className="scheduleCreationForm" action="submit">
             
-            <label htmlFor="datesNeeded">Date Needed:</label>
-            <input type="date" name="datesNeeded" id="datesNeeded" value={dateNeeded} onChange={newDateNeeded}/>
+            <label htmlFor="dateNeeded">Date Needed:</label>
+            <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
             <br/>
             <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
             <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
 
-            <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
-            <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
+            <label htmlFor="startTime">Start Time:</label>
+            <input type="time" name="startTime" id="startTime" value={startTime} onChange={newStartTime}/>
+
+            <label htmlFor="endTime">end Time:</label>
+            <input type="time" name="endTime" id="endTime" value={endTime} onChange={newEndTime}/>
 
             
         </form>
