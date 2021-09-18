@@ -10,28 +10,27 @@ const ScheduleList = () => {
     // brings in all schedules from db
     const loadSchedules = () => {
         fetchSchedules().then(setSchedules);
+        console.log("schedules", schedules);
     }
     // sets all schedule items into state
     const [schedules, setSchedules] = useState<Schedule[]>([]);
-
+    
     // sets specific *searched* schedules into state for rendering
     const [searchedSchedules, setSearchedSchedules] = useState<Schedule[]>([]);
     // calls all schedules immediately upon component render, but only once per useEffect
     useEffect(loadSchedules, []);
 
-    // get schedules by single date
+    // get schedules by single date variables and functions
     let dateNeeded: Date = new Date;
     const newGetScheduleByDateInput = (e: any) => {dateNeeded = e.target.value}
     
     const onGetSchedulesByDateSubmit = (dateNeeded: Date) => {
         schedules.forEach((schedule) => {
-            if (schedule.dateNeeded === dateNeeded){
+            if (dateNeeded === schedule.dateNeeded){
                 let newSearchedSchedule: Schedule[] = searchedSchedules;
                 newSearchedSchedule.push(schedule);
                 setSearchedSchedules(newSearchedSchedule);
                 console.log("searchedSchedules", searchedSchedules);
-            }else{
-                alert("No schedules found for this date");
             }
         })
     }
@@ -57,26 +56,28 @@ const ScheduleList = () => {
                 {/* TODO : the key needs a string or number. Currently not string or number to use
                     as the _id can be more than a string or number. Unsure what to use for the key in this instance.
                 */}
-                {searchedSchedules.map((schedule, index) =>
+                {searchedSchedules.map((schedule) =>
                     <div className="scheduleContainer">
                         <div className="scheduleContainerHeader">
                             <h4>{schedule.dateNeeded}</h4>
                         </div>
                         <div className="scheduleTimeBlockContainer">
-                            {schedule.timeBlocks.map((timeBlock, index) =>
-                                <div className="scheduleTimeBlockHeaderContainer">
-                                    <h4>From: {timeBlock.startTime} To: {timeBlock.endTime}</h4>
-                                </div>
-                                
-                                // {schedule.timeBlocks.scheduleRows.map((row, index) => 
-                                //     <div className="scheduleRowComponentWrapper">
-                                //         <ScheduleRowComponent
-                                //         key={`${row.lastName}-${index}`}
-                                //         />
-                                //     </div>
-                                // )}
-
-                            
+                            {schedule.timeBlocks.map((timeBlock) =>
+                                <div>
+                                    <div className="scheduleTimeBlockHeaderContainer">
+                                        <h5>From: {timeBlock.startTime} To: {timeBlock.endTime}</h5>
+                                    </div>
+                                    <div>
+                                        {timeBlock.scheduleRows.map((row, index) => 
+                                            <div className="scheduleRowComponentWrapper">
+                                                <ScheduleRowComponent
+                                                key={`${row.lastName}-${index}`}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>                                                                                     
+                                                                                      
                             )}
                         </div>
 
