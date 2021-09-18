@@ -66,6 +66,7 @@ export interface TimeBlock {
 
 export interface Schedule {
     timeBlocks: TimeBlock[];
+    dateNeeded: any;
     yearCreated?: Date;
     monthCreated?: Date;
     dayCreated?: Date;

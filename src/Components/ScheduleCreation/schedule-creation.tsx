@@ -76,9 +76,10 @@ const ScheduleCreation = () => {
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0)
+        setScheduleRows([]);
     } 
 
-    // functions to handle creation of shiftlog - FIX ANY
+    // functions to handle creation of schedule - FIX ANY
     const newScheduleRows = (e: any) => setScheduleRows(e.target.value);
     const newDateNeeded = (e: any) => setDateNeeded(e.target.value);
     const newVolunteersNeeded = (e: any) => setVolunteersNeeded(e.target.value);
@@ -86,10 +87,11 @@ const ScheduleCreation = () => {
     const newStartTime = (e: any) => setStartTime(e.target.value);
     const newEndTime = (e: any) => setEndTime(e.target.value);
     
-    // sends entire schedule object to server
-    const submitSchedule = (timeBlocks: TimeBlock[]) => {
+    // sends entire schedule object to server --- called by handleScheduleSubmit function
+    const submitSchedule = (schedule: Schedule) => {
+        let dateNeeded = timeBlocks[0].dateNeeded;
         console.log("timeblocks:", timeBlocks);
-        // addSchedule(timeBlocks);
+        addSchedule(schedule);
     }
     
     const handleScheduleSubmit = (e: FormEvent) => {
@@ -99,12 +101,28 @@ const ScheduleCreation = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
+        // let dateNeeded = timeBlocks[0].dateNeeded;
+
         // IS THIS CORRECT?
         let _id = new ObjectId();
         console.log("timeblocks", timeBlocks);
-        // submitSchedule({
         
-        // })
+        submitSchedule({
+            timeBlocks,
+            dateNeeded,
+            yearCreated,
+            monthCreated,
+            dayCreated,
+            _id
+        })
+
+        setScheduleRows([]);
+        setVolunteersNeeded(0);
+        setStartTime(0);
+        setEndTime(0);
+
+        // resets timeBlocks array to remove TimeBlock properties from display upon schedule submission
+        // setTimeBlocks([]);
 
     }
 
@@ -131,31 +149,16 @@ const ScheduleCreation = () => {
                 </form>
             </div>
             <div className="generatedTimeBlockContainer">
-                {/* {scheduleRows.map((row, index) => 
-                    <ScheduleRowComponent
-                    key={`${row.lastName}-${index}`}
-                    />
-                )} */}
-                {/* <form action="submit" className="timeBlockSubmissionContainerForm">
-                {scheduleRows.map((row, index) => 
-                    <div className="scheduleRowComponentWrapper">
-                        <ScheduleRowComponent
-                        key={`${row.lastName}-${index}`}
-                    />
-                    </div>
-                )}
-                <button type="button">Submit Schedule</button>
-                </form> */}
-
-                {/* TEST */}
                 {timeBlocks.map((timeblock, index) =>
                 // maps each time block and within that timeblock maps scheduleRowComponents based on VolunteersNeeded input
                     <div className="timeBlockContainer">
                         <div className="timeBlockContainerHeaderContainer">
                             <h4 className="timeBlockTimeHeader">{timeblock.dateNeeded}</h4>
                             <div className="timeBlockDateHeaderRight">
-                                <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5>
-                                <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5>
+                                {/* <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5> */}
+                                {/* <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5> */}
+                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5>}
+                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5>}
                             </div>
                         </div>
                         
