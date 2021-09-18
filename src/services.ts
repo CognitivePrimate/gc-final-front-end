@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext} from "react";
 
 // import variables from weather header component for api request
-import { EmergencyContact, GeoLocation, IncidentReport, ShiftLog } from "./Model/Interfaces";
+import { EmergencyContact, GeoLocation, IncidentReport, Schedule, ShiftLog } from "./Model/Interfaces";
 import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 
 // gets API key from .env file
@@ -72,4 +72,13 @@ export function fetchEmergencyContacts() : Promise<EmergencyContact[]> {
 
 export function addEmergencyContact(shiftLog: EmergencyContact | undefined) : Promise<EmergencyContact> {
   return axios.post(`${baseUrl}/EmergencyContacts`, shiftLog).then(res => res.data);
+}
+
+/// ** Schedule Access ** ///
+export function fetchSchedules(schedule: Schedule) : Promise<Schedule[]>{
+  return axios.post(`${baseUrl}/Schedules`, schedule).then(res => res.data)
+}
+
+export function addSchedule(schedule: Schedule | undefined) : Promise<Schedule> {
+  return axios.post(`${baseUrl}/Schedules`, schedule).then(res => res.data)
 }

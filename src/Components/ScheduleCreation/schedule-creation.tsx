@@ -1,6 +1,8 @@
 import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
-import { Schedule, ScheduleRow } from "../../Model/Interfaces";
+import { useAuthUser } from "../../ContextProviders/auth-context";
+import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
+import { addSchedule } from "../../services";
 import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
 
@@ -12,34 +14,30 @@ const ScheduleCreation = () => {
    const [startTime, setStartTime] = useState(0);
    const [endTime, setEndTime] = useState(0);
 
+   const user= useAuthUser();
+
 
  //takes all log items to compile into shift log object
-   const [timeBlocks, setTimeBlocks] = useState<Schedule[]>([]);
+   const [timeBlocks, setTimeBlocks] = useState<TimeBlock[]>([]);
 
  //functions to handle onSubmit
-    const onTimeBlockSubmit = (schedule: Schedule) => {
-        let newTimeBlock: Schedule[] = timeBlocks;
-        newTimeBlock.push(schedule);
+    const onTimeBlockSubmit = (timeBlock: TimeBlock) => {
+        let newTimeBlock: TimeBlock[] = timeBlocks;
+        newTimeBlock.push(timeBlock);
         setTimeBlocks(newTimeBlock);
-        console.log("schedules post onSubmit function", timeBlocks);
-
-        
-
+        console.log("timeBlocks post onSubmit function", timeBlocks);
     }
 
     const handleScheduleRows = (scheduleRow: ScheduleRow) => {
-        // TEST
+        // generates a Schedule Row component in respective TimeBlock based on number of volunteers input by user
         for (let i = 0; i < volunteersNeeded; i++){
             let newScheduleRow: ScheduleRow[] = scheduleRows;
             newScheduleRow.push(scheduleRow)
             setScheduleRows(newScheduleRow);
             console.log("ScheduleRows", scheduleRows);
         }
-        // TEST
     }
     
-    
-
  //handles submit event with ShiftLog object key values -FIX ANY
     const handleTimeBlocksubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -48,10 +46,18 @@ const ScheduleCreation = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
-        // IS THIS CORRECT?
+        // add new MongoDb unique id to each TimeBlock
         let _id = new ObjectId();
 
         handleScheduleRows({
+            firstName: "",
+            lastName: "",
+            aliases: "",
+            email: "",
+            timeIn: undefined,
+            timeOut: undefined,
+            _id
+
         })
         
         onTimeBlockSubmit({
@@ -66,7 +72,6 @@ const ScheduleCreation = () => {
             _id
         });
         // onClose();
-        setScheduleRows([]);
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0)
@@ -80,8 +85,27 @@ const ScheduleCreation = () => {
     const newStartTime = (e: any) => setStartTime(e.target.value);
     const newEndTime = (e: any) => setEndTime(e.target.value);
     
+    // sends entire schedule object to server
+    const submitSchedule = (timeBlocks: TimeBlock[]) => {
+        console.log("timeblocks:", timeBlocks);
+        // addSchedule(timeBlocks);
+    }
+    
+    const handleScheduleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        const d: Date = new Date();
+        let yearCreated: any = d.getFullYear();
+        let monthCreated: any = d.getMonth();
+        let dayCreated: any = d.getDate();
 
+        // IS THIS CORRECT?
+        let _id = new ObjectId();
+        console.log("timeblocks", timeBlocks);
+        // submitSchedule({
+        
+        // })
 
+    }
 
 
     return(
@@ -106,12 +130,49 @@ const ScheduleCreation = () => {
                 </form>
             </div>
             <div className="generatedTimeBlockContainer">
-                {timeBlocks.map((timeblock, index) => 
+                {/* {scheduleRows.map((row, index) => 
                     <ScheduleRowComponent
-                    key={`${timeblock.dateNeeded}-${index}`}
+                    key={`${row.lastName}-${index}`}
                     />
+                )} */}
+                {/* <form action="submit" className="timeBlockSubmissionContainerForm">
+                {scheduleRows.map((row, index) => 
+                    <div className="scheduleRowComponentWrapper">
+                        <ScheduleRowComponent
+                        key={`${row.lastName}-${index}`}
+                    />
+                    </div>
                 )}
-            
+                <button type="button">Submit Schedule</button>
+                </form> */}
+
+                {/* TEST */}
+                {timeBlocks.map((timeblock, index) =>
+                // maps each time block and within that timeblock maps scheduleRowComponents based on VolunteersNeeded input
+                    <div className="timeBlockContainer">
+                        <div className="timeBlockContainerHeaderContainer">
+                            <h4 className="timeBlockTimeHeader">{timeblock.dateNeeded}</h4>
+                            <div className="timeBlockDateHeaderRight">
+                                <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5>
+                                <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5>
+                            </div>
+                        </div>
+                        
+                        <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm">
+                            {scheduleRows.map((row, index) => 
+                                <div className="scheduleRowComponentWrapper">
+                                    <ScheduleRowComponent
+                                    key={`${row.lastName}-${index}`}
+                                    />
+                                </div>
+                            )}
+                        </form>
+                        
+                    </div>
+                )}
+
+                {/* TEST */}
+                <button type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
             </div>
         </main>
         

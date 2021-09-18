@@ -40,10 +40,10 @@ export interface IncidentReport {
     time?: Date;
     _id?: ObjectId;
 }
-
+/** SCHEDULE INTERFACES */
 export interface ScheduleRow {
-    firstName?: string;
-    lastName?:string;
+    firstName: string;
+    lastName:string;
     aliases?: string;
     email?: string;
     timeIn?: Date;
@@ -52,7 +52,7 @@ export interface ScheduleRow {
 }
 
 // FIX ANY TYPE BELOW
-export interface Schedule {
+export interface TimeBlock {
     scheduleRows: ScheduleRow[];
     volunteersNeeded: number;
     dateNeeded: any;
@@ -62,8 +62,17 @@ export interface Schedule {
     monthCreated?: Date;
     dayCreated?: Date;
     _id?: ObjectId;
-    
 }
+
+export interface Schedule {
+    timeBlocks: TimeBlock[];
+    yearCreated?: Date;
+    monthCreated?: Date;
+    dayCreated?: Date;
+    _id?: ObjectId;
+}
+
+/**SCHEDULE INTERFACES END */
 
 export interface EmergencyContact {
     user?: firebase.User | null;

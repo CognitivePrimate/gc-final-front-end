@@ -1,0 +1,11 @@
+.scheduleRowContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+div.scheduleRowContainer input {
+    /* width: 25%; */
+    width: 80vw;
+    height: 20px;
+}

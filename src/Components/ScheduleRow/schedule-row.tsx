@@ -65,7 +65,7 @@ const ScheduleRowComponent = () => {
 
 
     return(
-        <form className="scheduleRowForm" action="submit">
+        <div className="scheduleRowContainer">
             
             <label htmlFor="firstName">First Name</label>
             <input type="text" name="firstName" id="firstName" value={firstName} onChange={newFirstName} placeholder="first name"/>
@@ -73,22 +73,21 @@ const ScheduleRowComponent = () => {
             <label htmlFor="lastName">Last Name</label>
             <input type="text" name="lastName" id="lastName" value={lastName} onChange={newLastName} />
         
-            <label htmlFor="aliases">Aliases</label><br/>
-            <input type="text" name="aliases" id="aliases" value={aliases} onChange={newAliases}/><br />
+            <label htmlFor="aliases">Aliases</label>
+            <input type="text" name="aliases" id="aliases" value={aliases} onChange={newAliases}/>
 
-            <label htmlFor="email">Email</label><br/>
-            <input type="text" name="email" id="email" value={email} onChange={newEmail}/><br />
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email" value={email} onChange={newEmail}/>
 
-            <label htmlFor="timeIn">Time In</label><br/>
-            <input type="time" name="timeIn" id="timeIn" value={timeIn} onChange={newTimeIn}/><br />
+            <label htmlFor="timeIn">Time In</label>
+            <input type="time" name="timeIn" id="timeIn" value={timeIn} onChange={newTimeIn}/>
 
-            <label htmlFor="timeOut">Time Out</label><br/>
-            <input type="time" name="timeOut" id="timeOut" value={timeOut} onChange={newTimeOut}/><br />
+            <label htmlFor="timeOut">Time Out</label>
+            <input type="time" name="timeOut" id="timeOut" value={timeOut} onChange={newTimeOut}/>
             
             
-            <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button>
-            <Link to="/HomeScreen"><button>Back</button></Link>
-        </form>
+            {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}
+        </div>
     )
 }
 
