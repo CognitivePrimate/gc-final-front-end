@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IncidentReport } from '../../Model/Interfaces';
 import { addIncidentReport } from '../../services';
+import './SubmitIncidentReport.css';
 
 const SubmitIncidentReport = () => {
    const [author, setAuthor] = useState("");
@@ -78,17 +79,20 @@ const SubmitIncidentReport = () => {
 
 
     return (
-        <main>
-            <form className="incidentInputForm" action="submit">
+        <main className="SubmitIncidentReportContainer">
+            <form className="incidentInputForm InputForm" action="submit">
                 <div className="incidentInputInfoContainer">
-                    <label htmlFor="author">Name:</label>
-                    <input type="text" name="author" id="author" value={author} onChange={newAuthor}/><br/>
-
-                    <label htmlFor="supervisor">Supervisor:</label>
-                    <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor}/>
+                    <section className="AuthSupStyle">
+                        <label htmlFor="author">Name:</label>
+                        <input type="text" name="author" id="author" value={author} onChange={newAuthor}/><br/>
+                    </section>
+                    <section className="AuthSupStyle">
+                        <label htmlFor="supervisor">Supervisor:</label>
+                        <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor}/>
+                    </section>
                 </div>
                 <label htmlFor="incidentEntry">Log Here:</label><br/>
-                <textarea name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident}/><br/>
+                <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident}/><br/>
 
                 <label htmlFor="witnesses">Witnesses:</label><br/>
                 <input type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses}/><br/>

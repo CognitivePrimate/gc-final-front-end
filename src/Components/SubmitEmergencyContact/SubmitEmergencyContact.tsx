@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { addEmergencyContact } from "../../services";
+import './SubmitEmergencyContact.css';
 
 
 
@@ -75,8 +76,8 @@ const SubmitEmergencyContact = () => {
     
 
     return(
-        <main>
-            <form action="submit" onSubmit={handlesubmit}>
+        <main className="EmergencyContactContainer">
+            <form className="InputForm" action="submit" onSubmit={handlesubmit}>
                 <div>
                     <label htmlFor="first-name">First Name:</label>
                     <input type="text" name="first-name" id="first-name" value={firstName} onChange={newFirstName}/>

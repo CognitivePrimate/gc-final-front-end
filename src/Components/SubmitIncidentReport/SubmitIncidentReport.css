@@ -1,0 +1,8 @@
+main.SubmitIncidentReportContainer section.AuthSupStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+main.SubmitIncidentReportContainer textarea.IncidentTextArea {
+    width: 80%;
+}

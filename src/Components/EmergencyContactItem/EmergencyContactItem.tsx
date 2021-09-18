@@ -1,4 +1,5 @@
 import { EmergencyContact } from "../../Model/Interfaces"
+import './EmergencyContactItem.css';
 
 
 
@@ -9,7 +10,7 @@ interface Props {
 const EmergencyContactItem = ({emergencyContact}: Props) => {
     
     return(
-        <main>
+        <main className="EmergencyContactItemContainer">
             <section>
                 <div>{emergencyContact.firstName}</div>
                 <div>{emergencyContact.lastName}</div>
