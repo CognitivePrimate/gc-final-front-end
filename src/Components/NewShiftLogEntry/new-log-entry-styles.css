@@ -1,4 +1,45 @@
-#logEntry {
+main.NewLogContainer {
+    padding: 20px;
+}
+
+main.NewLogContainer form.logInputForm {
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(197, 197, 197);
+    padding: 15px;
+}
+
+main.NewLogContainer h3.NewLogTitle {
+    text-align: center;
+}
+
+main.NewLogContainer div.logInputInfoContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+main.NewLogContainer div.InputOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+main.NewLogContainer div.FinishButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+main.NewLogContainer button.logSubmitButton {
+    border-style: solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 80%;
+    margin-bottom: 10px;
+
+}
+
+main.NewLogContainer textarea.logEntry {
     height: 10rem;
-    width: 80vw;
+    width: 100%;
 }
