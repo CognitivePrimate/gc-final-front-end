@@ -100,8 +100,10 @@ const NewLogEntry = () => {
             <label htmlFor="logEntry">Log Here:</label><br/>
             <textarea name="logEntry" id="logEntry" className="logEntry" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
             <div className="FinishButtons">
-                <button className="logSubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
-                <Link to="/HomeScreen"><button>Back</button></Link>
+                <button className="SubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
+                <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                </section>
             </div>
         </form>
     </main>

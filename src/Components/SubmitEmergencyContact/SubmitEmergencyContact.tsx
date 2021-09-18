@@ -97,9 +97,11 @@ const SubmitEmergencyContact = () => {
                     <label htmlFor="contact-role">Role:</label>
                     <input type="text" name="contact-role" id="contact-role" value={role} onChange={newRole}/>
                 </div>
-                <button onClick={handlesubmit}>Add Emergency Contact</button>
+                <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
             </form>
-            <Link to="/HomeScreen"><button>Back</button></Link>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+            </section>
 
         </main>
     )

@@ -10,6 +10,7 @@
 // } 
 
 import { ShiftLog } from "../../Model/Interfaces";
+import './ShiftLogItem.css';
 
 // import { ShiftLog } from "../../Model/Interfaces";
 
@@ -20,13 +21,17 @@ interface Props {
 const ShiftLogItem = ({log}: Props) => {
 
     return (
-        <main>
-            <section className="log-author-supervisor-section">
-                <p>Author:{log.author}</p>
-                <p>Supervvisor: {log.supervisor}</p>
+        <main className="ShiftLogContainer">
+            <section className="LogAuthorTime">
+                <p>Author: {log.author}</p>
+                <p>time: {log.time}</p>
             </section>
-            <section>
-                <p>Log Text: {log.logText}</p>
+            <section className="LogTextContainer">
+                <section>
+                    <p>Supervisor: {log.supervisor}</p>
+                    <p>Date: {log.month}/{log.day}/{log.year}</p>
+                </section>
+                <p>{log.logText}</p>
             </section>
         </main>
     )

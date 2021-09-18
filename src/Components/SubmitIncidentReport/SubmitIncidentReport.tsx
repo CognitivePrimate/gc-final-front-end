@@ -93,9 +93,11 @@ const SubmitIncidentReport = () => {
                 <label htmlFor="witnesses">Witnesses:</label><br/>
                 <input type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses}/><br/>
 
-                <button id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
-                <Link to="/HomeScreen"><button>Back</button></Link>
+                <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
             </form>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+            </section>
         </main>
     )
 }

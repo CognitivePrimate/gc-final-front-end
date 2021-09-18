@@ -32,8 +32,9 @@ const IncidentReportLogs = () => {
                         />
                 )}
             </section>
-
-            <Link to="/HomeScreen"><button>Back</button></Link>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+            </section>
         </main>
     )
 }

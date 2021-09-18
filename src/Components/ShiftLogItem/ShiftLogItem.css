@@ -1,0 +1,38 @@
+main.ShiftLogContainer {
+    /* border-style: solid;
+    border-radius: 8px;
+    border-color: black;
+    background-color: gray; */
+    padding: 5px;
+    padding-left: 10px;
+    width: 90%;
+    margin-top: 20px;
+}
+
+main.ShiftLogContainer section.LogAuthorTime {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-color: black;
+    background-color: rgb(197, 197, 197);
+}
+
+main.ShiftLogContainer section.LogTextContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-top-style: none;
+    border-top-left-radius: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-color: black;
+    background-color: rgb(197, 197, 197);
+
+}

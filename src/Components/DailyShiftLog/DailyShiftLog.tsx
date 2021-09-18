@@ -4,6 +4,7 @@ import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
 import { fetchShiftLogs } from "../../services";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
+import './DailyShiftLog.css';
 
 
 
@@ -23,7 +24,7 @@ const DailyShiftLog = () => {
 
 
     return (
-        <main>
+        <main className="DailyShiftLogContainer">
             <section>
                 {dailyShiftLogs.map((log, index) =>
                     <ShiftLogItem
@@ -32,8 +33,9 @@ const DailyShiftLog = () => {
                         />
                 )}
             </section>
-
-            <Link to="/HomeScreen"><button>Back</button></Link>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen" className="BackButtonLinkContainer"><button className="BackButton">Back</button></Link>
+            </section>
         </main>
     )
 }

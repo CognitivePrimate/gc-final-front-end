@@ -1,3 +1,42 @@
 body {
     background-color: rgb(163, 163, 163);
 }
+
+
+
+/* ////** Global styles for reuseable elements between components *\\\\\ */
+
+
+
+/* *** Buttons *** */
+
+
+/* Global Back button */
+
+button.BackButton {
+    border-style: solid;
+    border-radius: 8px;
+    width: 60px;
+    height: 30px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    background-color: gray;
+    color: white;
+}
+
+section.BackButtonLinkContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+/*  Global Submit button */
+
+button.SubmitButton {
+    border-style: solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 80%;
+    margin-bottom: 10px;
+}

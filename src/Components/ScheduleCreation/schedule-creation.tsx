@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
 import { addSchedule } from "../../services";
@@ -172,8 +173,11 @@ const ScheduleCreation = () => {
                 )}
 
                 {/* TEST */}
-                <button type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
+                <button className="SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
             </div>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+            </section>
         </main>
         
     );

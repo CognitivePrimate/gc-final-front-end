@@ -74,9 +74,11 @@ export function addEmergencyContact(shiftLog: EmergencyContact | undefined) : Pr
   return axios.post(`${baseUrl}/EmergencyContacts`, shiftLog).then(res => res.data);
 }
 
+
 /// ** Schedule Access ** ///
-export function fetchSchedules(schedule: Schedule) : Promise<Schedule[]>{
-  return axios.post(`${baseUrl}/Schedules`, schedule).then(res => res.data)
+
+export function fetchSchedules() : Promise<Schedule[]>{
+  return axios.post(`${baseUrl}/Schedules`).then(res => res.data)
 }
 
 export function addSchedule(schedule: Schedule | undefined) : Promise<Schedule> {
