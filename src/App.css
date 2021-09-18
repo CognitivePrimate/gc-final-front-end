@@ -7,6 +7,20 @@ body {
 /* ////** Global styles for reuseable elements between components *\\\\\ */
 
 
+/* *** Containers *** */
+
+
+/* Global Submit Form Container */
+
+form.InputForm {
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(197, 197, 197);
+    padding: 15px;
+    margin: 10px;
+}
+
+
 
 /* *** Buttons *** */
 

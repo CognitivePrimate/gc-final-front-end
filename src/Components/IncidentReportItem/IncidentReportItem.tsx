@@ -1,4 +1,5 @@
 import { IncidentReport } from "../../Model/Interfaces";
+import './IncidentReportItem.css';
 
 
 
@@ -10,7 +11,7 @@ const IncidentReportItem = ({incident}: Props) => {
 
     
     return (
-        <main>
+        <main className="IncidentReportLogContainer">
             <section>
                 <span>Date:</span>
                 <span>{incident.month}</span>

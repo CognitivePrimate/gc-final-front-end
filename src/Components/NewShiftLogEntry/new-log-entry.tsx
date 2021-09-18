@@ -85,7 +85,7 @@ const NewLogEntry = () => {
     
     return (
     <main className="NewLogContainer">
-        <form className="logInputForm" action="submit">
+        <form className="InputForm" action="submit">
         <h3 className="NewLogTitle">New Shift Log</h3>
             <div className="logInputInfoContainer">
                 <div className="InputOptions">
