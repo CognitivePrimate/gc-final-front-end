@@ -116,7 +116,7 @@ const ScheduleCreation = () => {
             _id
         })
 
-        setScheduleRows([]);
+        // setScheduleRows([]);
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0);
@@ -151,7 +151,7 @@ const ScheduleCreation = () => {
             <div className="generatedTimeBlockContainer">
                 {timeBlocks.map((timeblock, index) =>
                 // maps each time block and within that timeblock maps scheduleRowComponents based on VolunteersNeeded input
-                    <div className="timeBlockContainer">
+                    <div className="timeBlockContainer" key={index}>
                         <div className="timeBlockContainerHeaderContainer">
                             <h4 className="timeBlockTimeHeader">{timeblock.dateNeeded}</h4>
                             <div className="timeBlockDateHeaderRight">
@@ -166,7 +166,7 @@ const ScheduleCreation = () => {
                             {scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
                                     <ScheduleRowComponent
-                                    key={`${row.lastName}-${index}`}
+                                    key={`${row._id}-${index}`}
                                     />
                                 </div>
                             )}
