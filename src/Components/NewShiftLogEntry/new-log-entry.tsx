@@ -17,30 +17,6 @@ const NewLogEntry = () => {
 
    const user = useAuthUser();
 
- //takes all log items to compile into shift log object
-
-
-//    const [shiftLogs, setShiftLogs] = useState<ShiftLog[]>([]);
-
-
-  
-    // const [newShiftLog, setNewShiftLog] = useState<ShiftLog>();
-
-
- //functions to handle onSubmit
-    // const onSubmit = (shiftLog: ShiftLog) => {
-    //     // setShiftLogs(prevShiftLogs => [
-    //     //     ...prevShiftLogs,
-    //     //     shiftLog
-    //     // ]);
-    //     // console.log("trying", shiftLogs);
-    //     // WHY ONLY WORK THIS WAY?! 
-    //     let newShiftLogs: ShiftLog[] = shiftLogs;
-    //     newShiftLogs.push(shiftLog);
-    //     setShiftLogs(newShiftLogs);
-        
-    //     console.log("shiftlogs post onSubmit function",shiftLogs)
-    // }    
 
     const onSubmit = (shiftLog: ShiftLog) => {
         // record the input values
@@ -57,6 +33,11 @@ const NewLogEntry = () => {
         let day: any = d.getDate();
         let hours: any = d.getHours();
         let minutes: any = d.getMinutes();
+
+        // minutes does exact minutes. So if minutes is less than 10, add a '0' string before it
+        if(minutes < 10){
+            minutes = '0' + minutes;
+        }
 
         // IS THIS CORRECT?
         let _id = new ObjectId();
