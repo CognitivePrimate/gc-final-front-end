@@ -16,4 +16,8 @@ code {
     monospace;
 }
 
+.trashIcon {
+  cursor: pointer;
+}
+
 

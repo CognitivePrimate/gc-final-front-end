@@ -6,6 +6,9 @@ import { addHistoricalSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
 
+import deleteIcon from "../../Icons/delete.svg";
+// import 
+
 const ScheduleList = () => {
     // brings in all schedules from db && sets into state
     const loadSchedules = () => {
@@ -71,6 +74,12 @@ const ScheduleList = () => {
         setSearchedSchedules([]);
     }
 
+    const HandleDeleteRow = (_id: ObjectId) => {
+        console.log("_id", _id);
+
+
+    }
+
     
 
     return (
@@ -103,7 +112,9 @@ const ScheduleList = () => {
                                             {timeBlock.scheduleRows.map((row, index) => 
                                                 <div className="scheduleRowComponentWrapper" key={index}>
                                                     <ScheduleRowComponent
-                                                    key={`${row.lastName}`}
+                                                    // _id={row._id}
+                                                    key={`${row._id}-${index}`}
+                                                    onDelete={() => HandleDeleteRow(row._id)}
                                                     />
                                                 </div>
                                             )}
@@ -114,6 +125,9 @@ const ScheduleList = () => {
                             </div>
                             <button className="submitButton" type="submit" name="submit" form="historicalScheduleSubmissionForm" onClick={handleHistoricalScheduleSubmit}>Submit Completed Schedule</button>
                         </form>
+                        <div className="scheduleIconContainer">
+
+                        </div>
 
                     </div>
 

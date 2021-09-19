@@ -49,7 +49,7 @@ export interface ScheduleRow {
     email?: string;
     timeIn?: number;
     timeOut?: number;
-    _id?: ObjectId;
+    _id: ObjectId;
 }
 
 // FIX ANY TYPE BELOW

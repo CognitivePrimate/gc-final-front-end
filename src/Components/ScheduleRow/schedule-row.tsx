@@ -9,8 +9,12 @@ import { ObjectId } from "mongodb";
 // icons
 import deleteIcon from "../../Icons/delete.svg";
 
+// css
+import "../../../src/index.css";
+
 interface Props {
-    onDelete: (_id: ObjectId) => void;
+    onDelete: () => void;
+    // _id: ObjectId;
 }
 
 
@@ -94,10 +98,9 @@ const ScheduleRowComponent = ({onDelete}: Props) => {
                 <input type="time" name="timeOut" id="timeOut" defaultValue={timeOut} onChange={newTimeOut}/>
 
                 <div className="scheduleRowIconContainer">
-                    <img src={deleteIcon} alt="delete" onClick={(_id) => onDelete}/>
+                    <img className="trashIcon" src={deleteIcon} alt="delete" onClick={onDelete}/>
                 </div>
-                
-                
+                {/* <p>{_id}</p> */}
                 {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}
             </div>
         )
