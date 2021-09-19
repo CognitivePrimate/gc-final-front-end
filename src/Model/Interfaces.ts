@@ -47,8 +47,8 @@ export interface ScheduleRow {
     lastName:string;
     aliases?: string;
     email?: string;
-    timeIn?: Date;
-    timeOut?: Date;
+    timeIn?: number;
+    timeOut?: number;
     _id?: ObjectId;
 }
 

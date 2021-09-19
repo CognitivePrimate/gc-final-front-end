@@ -11,7 +11,7 @@ const ScheduleCreation = () => {
     // setting with state all required properties for Schedule object
    const [scheduleRows, setScheduleRows] = useState<ScheduleRow[]>([]);
    const [volunteersNeeded, setVolunteersNeeded] = useState(0);
-   const [dateNeeded, setDateNeeded] = useState();
+   const [dateNeeded, setDateNeeded] = useState(Date);
    const [startTime, setStartTime] = useState(0);
    const [endTime, setEndTime] = useState(0);
 
@@ -76,7 +76,7 @@ const ScheduleCreation = () => {
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0)
-        setScheduleRows([]);
+        // setScheduleRows([]);
     } 
 
     // functions to handle creation of schedule - FIX ANY
@@ -116,7 +116,7 @@ const ScheduleCreation = () => {
             _id
         })
 
-        // setScheduleRows([]);
+        setScheduleRows([]);
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0);
