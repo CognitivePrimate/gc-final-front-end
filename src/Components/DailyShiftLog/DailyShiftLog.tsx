@@ -10,17 +10,26 @@ import './DailyShiftLog.css';
 
 const DailyShiftLog = () => {
 
-    // const {shiftLogs} = useContext(ShiftLogContext);
-    const loadDailyShiftLogs = () => {
-        fetchShiftLogs().then(setDailyShiftLogs);
-    }
+
+    // const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
+
+    // const [searchedShiftLogs, setSearchedShiftLogs ] = useState<ShiftLog[]>([]);
+
+   
 
     const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
-    useEffect(loadDailyShiftLogs, []);
 
     const [searchedShiftLogs, setSearchedShiftLogs ] = useState<ShiftLog[]>([]);
 
-    
+    const loadDailyShiftLogs = () => {
+        // fetchShiftLogs().then(setDailyShiftLogs);
+        fetchShiftLogs().then((res) => {
+            setDailyShiftLogs(res);
+            setSearchedShiftLogs(res);
+        })
+       
+    }
+    useEffect(loadDailyShiftLogs, []);
 
     // Search State //
     const [ searchFirst, setSearchFirst] = useState('');
@@ -28,50 +37,25 @@ const DailyShiftLog = () => {
     // Search functions //
     function handleSubmit(e: FormEvent){
         e.preventDefault();
-        // query is type Query
-        // fetchShiftLogs().then( (res) => {
-        //     setDailyShiftLogs([]);
-        //     let searchedShiftLogs = [];
-        //     res.forEach((shift) => {
-        //         if (shift.author === searchFirst){
-                    
-        //         }
-        //     })
-        
-
-        // let searchedShiftLogs: ShiftLog[] = []
-        // dailyShiftLogs.forEach((shiftLog) => {
-        //     if (searchFirst === shiftLog.author) {
-        //         searchedShiftLogs.push(shiftLog);
-        //     }
-        // })
-        // setDailyShiftLogs(searchedShiftLogs);
-        
-    //     fetchShiftLogs().then ( (res) => {
-    //     setDailyShiftLogs(res);
-    //     let searchedShiftLogs: ShiftLog[] = []
-    //     dailyShiftLogs.forEach((shiftLog) => {
-    //         if (searchFirst === shiftLog.author) {
-    //             searchedShiftLogs.push(shiftLog);
-    //         }
-    //     })
-    //     setDailyShiftLogs(searchedShiftLogs);
-    // })
 
         
+        let newSearchedShiftLogs: ShiftLog[] = [];
+        dailyShiftLogs.forEach((shiftLog) => {
+        if (searchFirst === shiftLog.author) {
+            newSearchedShiftLogs.push(shiftLog);
+        }
+        })
+        setSearchedShiftLogs(newSearchedShiftLogs);
 
-    //     let newSearchedShiftLogs: ShiftLog[] = searchedShiftLogs;
-    //     dailyShiftLogs.forEach((log) => {
-    //         if (searchFirst === log.author){
-    //             // let newSearchedShiftLogs: ShiftLog[] = searchedShiftLogs;
-    //             newSearchedShiftLogs.push(log);
-    //             setSearchedShiftLogs(newSearchedShiftLogs);
-    //             console.log(searchedShiftLogs);
-    //         }
-    //     })
-    // }
 
 }
+
+ const resetSearch = () => {
+    fetchShiftLogs().then(setSearchedShiftLogs);
+ }
+
+
+
 
     return (
         <main className="DailyShiftLogContainer">
@@ -92,13 +76,14 @@ const DailyShiftLog = () => {
                     <input type="text" name="supervisorSearch" id="supervisorSearch"/>
                 </section>
                 <button>Search</button>
+                <button onClick={resetSearch}>Reset</button>
             </form>
         </main>
             </section>
             <section>
-                {dailyShiftLogs.map((log, index) =>
+                {searchedShiftLogs.map((log, index) =>
                     <ShiftLogItem
-                        key={log.author}
+                        key={`${log.author}-${index}`}
                         log={log}
                         />
                 )}
