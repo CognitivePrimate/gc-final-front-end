@@ -25,6 +25,7 @@ const ScheduleRowComponent = () => {
     const onSubmit = (scheduleRow: ScheduleRow) => {
         // addSchedule(schedule);
         console.log("schedule post onSubmit function", scheduleRows)
+        //  ** NOTE ** ^ this is console logging scheduleRows the state, not the parameter in the function. Issue?//
     }    
  
   //handles submit event with ShiftLog object key values -FIX ANY
