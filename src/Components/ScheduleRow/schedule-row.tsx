@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 import { FormEvent, useState } from "react";
 import { ObjectId } from "mongodb";
 
+// icons
+import deleteIcon from "../../Icons/delete.svg";
+
+interface Props {
+    onDelete: (_id: ObjectId) => void;
+}
 
 
-
-const ScheduleRowComponent = () => {
+const ScheduleRowComponent = ({onDelete}: Props) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [aliases, setAliases] = useState("");
@@ -51,7 +56,9 @@ const ScheduleRowComponent = () => {
             setEmail("");
             setTimeIn(undefined);
             setTimeOut(undefined);
-    } 
+    }
+    
+    
  
      // functions to handle creation of scheduleRow - FIX ANY
      const newFirstName = (e: any) => setFirstName(e.target.value);
@@ -85,6 +92,10 @@ const ScheduleRowComponent = () => {
 
                 <label htmlFor="timeOut">Time Out</label>
                 <input type="time" name="timeOut" id="timeOut" defaultValue={timeOut} onChange={newTimeOut}/>
+
+                <div className="scheduleRowIconContainer">
+                    <img src={deleteIcon} alt="delete" onClick={(_id) => onDelete}/>
+                </div>
                 
                 
                 {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}

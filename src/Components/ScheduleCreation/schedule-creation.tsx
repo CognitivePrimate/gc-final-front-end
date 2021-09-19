@@ -76,7 +76,7 @@ const ScheduleCreation = () => {
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0)
-        // setScheduleRows([]);
+        setScheduleRows([]);
     } 
 
     // functions to handle creation of schedule - FIX ANY
@@ -122,8 +122,12 @@ const ScheduleCreation = () => {
         setEndTime(0);
 
         // resets timeBlocks array to remove TimeBlock properties from display upon schedule submission
-        // setTimeBlocks([]);
+        setTimeBlocks([]);
 
+    }
+
+    const HandleDeleteRow = (_id: ObjectId) => {
+        
     }
 
 
@@ -163,10 +167,11 @@ const ScheduleCreation = () => {
                         </div>
                         
                         <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm">
-                            {scheduleRows.map((row, index) => 
+                            {timeblock.scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
                                     <ScheduleRowComponent
                                     key={`${row._id}-${index}`}
+                                    onDelete={() => HandleDeleteRow(_id)}
                                     />
                                 </div>
                             )}

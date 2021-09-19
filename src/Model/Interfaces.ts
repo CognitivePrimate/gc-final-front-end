@@ -62,7 +62,7 @@ export interface TimeBlock {
     yearCreated?: Date;
     monthCreated?: Date;
     dayCreated?: Date;
-    _id?: ObjectId;
+    _id: ObjectId;
 }
 
 export interface Schedule {
@@ -71,7 +71,7 @@ export interface Schedule {
     yearCreated?: Date;
     monthCreated?: Date;
     dayCreated?: Date;
-    _id?: ObjectId;
+    _id: ObjectId;
 }
 
 export interface HistoricalSchedule {
@@ -79,7 +79,7 @@ export interface HistoricalSchedule {
     yearCreated?: Date;
     monthCreated?: Date;
     dayCreated?: Date;
-    _id?: ObjectId;
+    _id: ObjectId;
 }
 
 /**SCHEDULE INTERFACES END */

@@ -7,14 +7,13 @@ import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
 
 const ScheduleList = () => {
-    // brings in all schedules from db
+    // brings in all schedules from db && sets into state
     const loadSchedules = () => {
-        fetchSchedules().then((res) => {
-            console.log("res", res);
-            setSchedules(res)});
-        console.log("schedules", schedules);
-       
+        fetchSchedules().then(setSchedules); 
     }
+
+    useEffect(loadSchedules, []);
+    
     // sets all schedule items into state
     const [schedules, setSchedules] = useState<Schedule[]>([]);
     
@@ -28,6 +27,7 @@ const ScheduleList = () => {
     let dateNeeded: Date = new Date;
     const newGetScheduleByDateInput = (e: any) => {dateNeeded = e.target.value}
     
+    // iterates through schedules array state to match user date input to schedule date
     const onGetSchedulesByDateSubmit = (dateNeeded: Date) => {
         schedules.forEach((schedule) => {
             if (dateNeeded === schedule.dateNeeded){
@@ -66,9 +66,9 @@ const ScheduleList = () => {
             monthCreated,
             dayCreated,
             _id
-        })
-        
+        });
 
+        setSearchedSchedules([]);
     }
 
     
