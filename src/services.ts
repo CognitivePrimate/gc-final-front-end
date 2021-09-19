@@ -37,6 +37,8 @@ export function fetchShiftLogs() : Promise<ShiftLog[]> {
   .then(res => res.data)
 }
 
+
+
 export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog> {
   return axios.post(`${baseUrl}/ShiftLogs`, shiftLog).then(res => res.data);
 }

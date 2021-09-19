@@ -23,8 +23,8 @@ const ShiftLogItem = ({log}: Props) => {
     return (
         <main className="ShiftLogContainer">
             <section className="LogAuthorTime">
-                <p>Author: {log.author}</p>
-                <p>time: {log.time}</p>
+                <p>{log.author}</p>
+                <p>{log.hours}:{log.minutes} </p>
             </section>
             <section className="LogTextContainer">
                 <section>
