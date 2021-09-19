@@ -64,31 +64,31 @@ const ScheduleRowComponent = () => {
 
 
 
-    return(
-        <div className="scheduleRowContainer">
+        return(
+            <div className="scheduleRowContainer">
+                
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" defaultValue={firstName} onChange={newFirstName} placeholder="first name"/>
+
+                <label htmlFor="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" defaultValue={lastName} onChange={newLastName} placeholder="last name" />
             
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" value={firstName} onChange={newFirstName} placeholder="first name"/>
+                <label htmlFor="aliases">Aliases</label>
+                <input type="text" name="aliases" id="aliases" defaultValue={aliases} onChange={newAliases} placeholder={"aliases"}/>
 
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" value={lastName} onChange={newLastName} />
-        
-            <label htmlFor="aliases">Aliases</label>
-            <input type="text" name="aliases" id="aliases" value={aliases} onChange={newAliases}/>
+                <label htmlFor="email">Email</label>
+                <input type="text" name="email" id="email" defaultValue={email} onChange={newEmail} placeholder="email"/>
 
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" id="email" value={email} onChange={newEmail}/>
+                <label htmlFor="timeIn">Time In</label>
+                <input type="time" name="timeIn" id="timeIn" defaultValue={timeIn} onChange={newTimeIn}/>
 
-            <label htmlFor="timeIn">Time In</label>
-            <input type="time" name="timeIn" id="timeIn" value={timeIn} onChange={newTimeIn}/>
-
-            <label htmlFor="timeOut">Time Out</label>
-            <input type="time" name="timeOut" id="timeOut" value={timeOut} onChange={newTimeOut}/>
-            
-            
-            {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}
-        </div>
-    )
+                <label htmlFor="timeOut">Time Out</label>
+                <input type="time" name="timeOut" id="timeOut" defaultValue={timeOut} onChange={newTimeOut}/>
+                
+                
+                {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}
+            </div>
+        )
 }
 
 

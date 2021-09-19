@@ -73,6 +73,14 @@ export interface Schedule {
     _id?: ObjectId;
 }
 
+export interface HistoricalSchedule {
+    schedule: Schedule | Schedule[];
+    yearCreated?: Date;
+    monthCreated?: Date;
+    dayCreated?: Date;
+    _id?: ObjectId;
+}
+
 /**SCHEDULE INTERFACES END */
 
 export interface EmergencyContact {

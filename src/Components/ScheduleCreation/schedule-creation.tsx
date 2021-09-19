@@ -176,7 +176,7 @@ const ScheduleCreation = () => {
                 )}
 
                 {/* TEST */}
-                <button className="SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
+                <button className="submitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
             </div>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>

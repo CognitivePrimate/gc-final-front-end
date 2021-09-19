@@ -13,7 +13,7 @@ const HomeScreen = () => {
         <main className="home-screen-main">
             <div className="home-screen-container">
                 <section className="home-screen-options-volunteers home-screen-options-containers">
-                    <Link to="/Schedule" className="home-screen-button-link"><button className="home-screen-button">Schedule</button></Link>
+                    <Link to="/Schedule" className="home-screen-button-link"><button className="home-screen-button">Schedules</button></Link>
                     <Link to="/NewLogEntry" className="home-screen-button-link"><button className="home-screen-button">Submit Log Entry</button></Link>
                     <Link to="/DailyShiftLog" className="home-screen-button-link"><button className="home-screen-button">Current Shift Log</button></Link>
                     <Link to="/SubmitIncidentReport" className="home-screen-button-link"><button className="home-screen-button">Submit Incident Report</button></Link>
