@@ -55,7 +55,8 @@ const NewLogEntry = () => {
         let year: any = d.getFullYear();
         let month: any = d.getMonth();
         let day: any = d.getDate();
-        let time: any = Date.now();
+        let hours: any = d.getHours();
+        let minutes: any = d.getMinutes();
 
         // IS THIS CORRECT?
         let _id = new ObjectId();
@@ -68,7 +69,8 @@ const NewLogEntry = () => {
             year,
             month,
             day,
-            time,
+            hours,
+            minutes,
             _id
         });
         // onClose();

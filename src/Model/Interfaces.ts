@@ -20,7 +20,8 @@ export interface ShiftLog {
     year?: Date;
     month?: Date;
     day?: Date;
-    time?: Date;
+    hours?: Date;
+    minutes?: Date;
     _id: ObjectId;
 }    
 export interface UserLogin {
