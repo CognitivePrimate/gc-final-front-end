@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShiftLog } from "../../Model/Interfaces";
-import { fetchShiftLogs } from "../../services";
+import { deleteShiftLog, fetchShiftLogs } from "../../services";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
 import './DailyShiftLog.css';
 
@@ -41,10 +41,16 @@ const DailyShiftLog = () => {
 
 }
 
- const resetSearch = () => {
-    fetchShiftLogs().then(setSearchedShiftLogs);
- }
+    const resetSearch = () => {
+        loadDailyShiftLogs();
+    }
 
+    const handleDelete = (shiftLog: ShiftLog) => {
+        console.log(shiftLog);
+        console.log(shiftLog._id)
+        deleteShiftLog(shiftLog);
+        resetSearch();
+        };
 
 
 
@@ -72,6 +78,7 @@ const DailyShiftLog = () => {
                     <ShiftLogItem
                         key={`${log.author}-${index}`}
                         log={log}
+                        deleteReport={ () => handleDelete(log)} 
                         />
                 )}
             </section>

@@ -23,6 +23,12 @@ main.ShiftLogContainer section.LogAuthorTime {
     background-color: rgb(197, 197, 197);
 }
 
+main.ShiftLogContainer section.AuthDateSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space space-around;
+}
+
 main.ShiftLogContainer section.LogTextContainer {
     display: flex;
     flex-direction: column;
@@ -35,4 +41,8 @@ main.ShiftLogContainer section.LogTextContainer {
     border-color: black;
     background-color: rgb(197, 197, 197);
 
+}
+
+main.ShiftLogContainer p.ParaInfo{
+    margin: 5px;
 }

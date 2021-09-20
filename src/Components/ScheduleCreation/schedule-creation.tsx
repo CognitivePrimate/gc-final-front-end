@@ -145,7 +145,7 @@ const ScheduleCreation = () => {
         <main className="sheduleComponentContainer">
             <h3>Create a new schedule:</h3>
             <div className="scheduleCreationContainer">
-                <form className="scheduleCreationForm" action="submit">
+                <form className="scheduleCreationForm InputForm" action="submit">
                     
                     <label htmlFor="dateNeeded">Date Needed:</label>
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
@@ -176,7 +176,7 @@ const ScheduleCreation = () => {
                             </div>
                         </div>
                         
-                        <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm" onSubmit={handleScheduleSubmit}>
+                        <form action="submit" className="timeBlockSubmissionContainerForm InputForm" id="timeBlockSubmissionContainerForm" onSubmit={handleScheduleSubmit}>
                             {timeblock.scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
                                     <ScheduleRowComponent
@@ -198,7 +198,7 @@ const ScheduleCreation = () => {
                 )}
 
                 {/* TEST */}
-                <button className="submitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
+                <button className="submitButton SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
             </div>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>

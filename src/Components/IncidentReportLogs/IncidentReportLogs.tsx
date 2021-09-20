@@ -54,8 +54,6 @@ const IncidentReportLogs = () => {
 
 
     const handleDelete = (incident: IncidentReport) => {
-        console.log(incident);
-        console.log(incident._id)
         deleteIncidentReport(incident);
         resetSearch();
     };
