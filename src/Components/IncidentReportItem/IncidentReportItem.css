@@ -5,3 +5,8 @@ main.IncidentReportLogContainer {
     margin: 10px;
     background-color: rgb(197, 197, 197);
 }
+
+main.IncidentReportLogContainer section.ReportHeaderSection {
+    display: flex;
+    justify-content: space-between;
+}

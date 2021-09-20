@@ -1,6 +1,5 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ShiftLogContext } from "../../ContextProviders/ShiftLogProvider";
 import { ShiftLog } from "../../Model/Interfaces";
 import { fetchShiftLogs } from "../../services";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
