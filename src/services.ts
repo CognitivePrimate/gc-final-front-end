@@ -43,12 +43,11 @@ export function addShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog> 
   return axios.post(`${baseUrl}/ShiftLogs`, shiftLog).then(res => res.data);
 }
 
-// export function fetchShoutOutsTo(user: string) : Promise<ShoutOut[]> {
-//   return axios.get(`${baseUrl}/shoutouts`, {
-//     params: { to: user }
-//   })
-//   .then(res => res.data)
-// }
+export function deleteShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog> {
+  return axios.delete(`${baseUrl}/ShiftLogs/${shiftLog?._id}`).then(res => res.data);
+}
+
+
 
 
 
@@ -78,6 +77,10 @@ export function fetchEmergencyContacts() : Promise<EmergencyContact[]> {
 
 export function addEmergencyContact(shiftLog: EmergencyContact | undefined) : Promise<EmergencyContact> {
   return axios.post(`${baseUrl}/EmergencyContacts`, shiftLog).then(res => res.data);
+}
+
+export function deleteEmergencyContact (contact: EmergencyContact | undefined) : Promise<EmergencyContact> {
+  return axios.delete(`${baseUrl}/EmergencyContacts/${contact?._id}`).then(res => res.data);
 }
 
 
