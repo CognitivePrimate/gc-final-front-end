@@ -44,13 +44,13 @@ const IncidentReportLogs = () => {
         setSearchedIncidentReports(newSearchedIncidentReports);
 
 
-}
+    }
 
     const resetSearch = () => {
         fetchIncidentReports().then((res) => {
             setSearchedIncidentReports(res);
         });
-     }
+    }
 
     return (
         <main>

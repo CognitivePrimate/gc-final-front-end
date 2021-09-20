@@ -51,7 +51,7 @@ const SubmitIncidentReport = () => {
         }
 
         // IS THIS CORRECT?
-        let _id = new ObjectId();
+        // let _id = new ObjectId();
         
         onSubmit({
             author,
@@ -63,7 +63,6 @@ const SubmitIncidentReport = () => {
             day,
             hours,
             minutes,
-            _id
         });
         // onClose();
         setAuthor("");

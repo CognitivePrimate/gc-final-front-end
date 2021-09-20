@@ -126,19 +126,20 @@ const ScheduleCreation = () => {
 
     }
 
-    const HandleDeleteRow = (index: number) => {
+    const HandleDeleteRow = (_id: ObjectId) => {
         console.log("trying to delete");
+        console.log(_id)
         timeBlocks.forEach((timeBlock) => {
             console.log("test");
-            if (timeBlock.scheduleRows[index]){
-                // console.log("trying to slice");
-                // timeBlock.scheduleRows.slice(index, 1);
-                // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
-                // setTimeBlocks(timeBlock.scheduleRows => [
-                //     ...prevPosts.slice(0, index),
-                //     ...prevPosts.slice(index+1)
-                // ]);
-            }
+            // if (timeBlock.scheduleRows === _id){
+            //     // console.log("trying to slice");
+            //     // timeBlock.scheduleRows.slice(index, 1);
+            //     // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
+            //     // setTimeBlocks(timeBlock.scheduleRows => [
+            //     //     ...prevPosts.slice(0, index),
+            //     //     ...prevPosts.slice(index+1)
+            //     // ]);
+            // }
         })
         
         
@@ -176,8 +177,8 @@ const ScheduleCreation = () => {
                             <div className="timeBlockDateHeaderRight">
                                 {/* <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5> */}
                                 {/* <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5> */}
-                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5>}
-                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5>}
+                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">From: {timeblock.startTime.toLocaleString("en-US")}</h5>}
+                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">To: {timeblock.endTime.toLocaleString("en-US")}</h5>}
                             </div>
                         </div>
                         
@@ -193,7 +194,7 @@ const ScheduleCreation = () => {
                                         timeOut={row.timeOut}
                                         _id={row._id}
                                         key={`${row._id}-${index}`}
-                                        onDelete={() => HandleDeleteRow(index)}
+                                        onDelete={() => HandleDeleteRow(row._id)}
                                     />
                                 </div>
                             )}

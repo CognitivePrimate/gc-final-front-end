@@ -35,12 +35,12 @@ export interface IncidentReport {
     supervisor?: string;
     incident: string;
     witnesses?: string[];
-    year?: Date;
-    month?: Date;
-    day?: Date;
-    hours?: number;
-    minutes?: number;
-    _id?: ObjectId;
+    year: Date;
+    month: Date;
+    day: Date;
+    hours: Date;
+    minutes: Date;
+    _id?: string;
 }
 /** SCHEDULE INTERFACES */
 export interface ScheduleRow {
