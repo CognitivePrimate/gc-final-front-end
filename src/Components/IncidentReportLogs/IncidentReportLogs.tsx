@@ -1,9 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { IncidentReportsContext } from "../../ContextProviders/IncidentReportsProvider";
 import { IncidentReport } from '../../Model/Interfaces';
-import { fetchIncidentReports } from '../../services';
+import { deleteIncidentReport, fetchIncidentReports } from '../../services';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
 
 
@@ -26,6 +25,7 @@ const IncidentReportLogs = () => {
     // Search Parameters
 
     const [searchAuthor, setSearchAuthor] = useState('');
+    const [searchSup, setSearchSup] = useState('');
 
     // use effect so it only loads up once
     useEffect(loadIncidentReports, []);
@@ -52,6 +52,14 @@ const IncidentReportLogs = () => {
         });
     }
 
+
+    const handleDelete = (incident: IncidentReport) => {
+        console.log(incident);
+        console.log(incident._id)
+        deleteIncidentReport(incident);
+        resetSearch();
+    };
+
     return (
         <main>
             <form action="submit" className="InputForm" onSubmit={handleSubmit}>
@@ -72,6 +80,7 @@ const IncidentReportLogs = () => {
                     <IncidentReportItem
                         key={`${incident.author}-${index}`}
                         incident={incident}
+                        deleteReport={ () => handleDelete(incident)}
                         />
                 )}
             </section>

@@ -60,8 +60,12 @@ export function fetchIncidentReports() : Promise<IncidentReport[]> {
   .then(res => res.data)
 }
 
-export function addIncidentReport(shiftLog: IncidentReport | undefined) : Promise<IncidentReport> {
-  return axios.post(`${baseUrl}/IncidentReports`, shiftLog).then(res => res.data);
+export function addIncidentReport(report: IncidentReport | undefined) : Promise<IncidentReport> {
+  return axios.post(`${baseUrl}/IncidentReports`, report).then(res => res.data);
+}
+
+export function deleteIncidentReport(report: IncidentReport | undefined) : Promise<IncidentReport> {
+  return axios.delete(`${baseUrl}/IncidentReports/${report?._id}`).then(res => res.data);
 }
 
 

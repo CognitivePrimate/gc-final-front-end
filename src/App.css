@@ -54,3 +54,8 @@ button.SubmitButton {
     width: 80%;
     margin-bottom: 10px;
 }
+
+button.DeleteButton {
+    border-style: none;
+    background: none;
+}
