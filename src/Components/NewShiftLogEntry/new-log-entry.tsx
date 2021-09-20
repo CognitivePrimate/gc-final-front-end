@@ -40,8 +40,7 @@ const NewLogEntry = () => {
         }
 
 
-        // IS THIS CORRECT?
-        let _id = new ObjectId();
+       
         
         onSubmit({
             user,
@@ -52,8 +51,7 @@ const NewLogEntry = () => {
             month,
             day,
             hours,
-            minutes,
-            _id
+            minutes
         });
         // onClose();
         setAuthor("");

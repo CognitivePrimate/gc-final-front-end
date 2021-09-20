@@ -38,33 +38,14 @@ const SubmitEmergencyContact = () => {
 
     const handlesubmit = (e: FormEvent) => {
         e.preventDefault();
-        const d: Date = new Date();
-        let year: any = d.getFullYear();
-        let month: any = d.getMonth();
-        let day: any = d.getDate();
-        let hours: any = d.getHours();
-        let minutes: any = d.getMinutes();
-
-        if (minutes < 10){
-            minutes = '0' + minutes;
-        }
-
-        // IS THIS CORRECT?
-        let _id = new ObjectId();
         
         onSubmit({
             user,
             firstName,
             lastName,
             phoneNumber,
-            year,
             email,
-            role,
-            month,
-            day,
-            hours,
-            minutes,
-            _id
+            role
         });
         // onClose();
         setFirstName("");

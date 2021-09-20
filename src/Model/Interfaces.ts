@@ -17,12 +17,12 @@ export interface ShiftLog {
     author: string;
     supervisor?: string;
     logText: string;
-    year?: Date;
-    month?: Date;
-    day?: Date;
-    hours?: Date;
+    year: Date;
+    month: Date;
+    day: Date;
+    hours: Date;
     minutes?: Date;
-    _id: ObjectId;
+    _id?: string;
 }    
 export interface UserLogin {
     username: string,
@@ -31,6 +31,7 @@ export interface UserLogin {
 
 
 export interface IncidentReport {
+    user?: firebase.User | null;
     author: string;
     supervisor?: string;
     incident: string;
@@ -45,12 +46,12 @@ export interface IncidentReport {
 /** SCHEDULE INTERFACES */
 export interface ScheduleRow {
     firstName: string;
-    lastName:string;
+    lastName: string;
     aliases?: string;
     email?: string;
     timeIn?: number;
     timeOut?: number;
-    _id: ObjectId;
+    _id?: string;
 }
 
 // FIX ANY TYPE BELOW
@@ -60,27 +61,26 @@ export interface TimeBlock {
     dateNeeded: any;
     startTime: number;
     endTime: number;
-    yearCreated?: Date;
-    monthCreated?: Date;
-    dayCreated?: Date;
-    _id: ObjectId;
+    _id?: string;
 }
 
 export interface Schedule {
+    user?: firebase.User | null;
     timeBlocks: TimeBlock[];
-    dateNeeded?: any;
-    yearCreated?: Date;
-    monthCreated?: Date;
-    dayCreated?: Date;
-    _id: ObjectId;
+    dateNeeded: Date | string;
+    yearCreated: Date;
+    monthCreated: Date;
+    dayCreated: Date;
+    _id?: string;
 }
 
 export interface HistoricalSchedule {
-    schedule?: Schedule | Schedule[];
-    yearCreated?: Date;
-    monthCreated?: Date;
-    dayCreated?: Date;
-    _id: ObjectId;
+    user?: firebase.User | null;
+    schedule: Schedule;
+    yearCreated: Date;
+    monthCreated: Date;
+    dayCreated: Date;
+    _id?: string;
 }
 
 /**SCHEDULE INTERFACES END */
@@ -89,13 +89,8 @@ export interface EmergencyContact {
     user?: firebase.User | null;
     firstName: string;
     lastName: string;
-    phoneNumber: string;
+    phoneNumber: number;
     role?: string,
     email?: string;
-    year?: Date;
-    month?: Date;
-    day?: Date;
-    hours?: number;
-    minutes?: number;
-    _id?: ObjectId;
+    _id?: string;
 }

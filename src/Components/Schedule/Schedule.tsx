@@ -27,7 +27,7 @@ const ScheduleList = () => {
     useEffect(loadSchedules, []);
 
     // variable for historical schedule submission and finalization
-    let schedule: Schedule | Schedule[] = searchedSchedules;
+    let schedule: Schedule | any = searchedSchedules;
     // Search State
     const [searchDate, setSearchDate] = useState();
 
@@ -88,14 +88,13 @@ const ScheduleList = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
-        let _id = new ObjectId();
+        
 
         submitHistoricalSchedule({
             schedule,
             yearCreated,
             monthCreated,
             dayCreated,
-            _id
         });
 
         setSearchedSchedules([]);
