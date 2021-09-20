@@ -57,7 +57,6 @@ const ScheduleCreation = () => {
             email: "",
             timeIn: undefined,
             timeOut: undefined,
-            _id
         })
         
         onTimeBlockSubmit({
@@ -66,10 +65,6 @@ const ScheduleCreation = () => {
             dateNeeded,
             startTime,
             endTime,
-            yearCreated,
-            monthCreated,
-            dayCreated,
-            _id
         });
 
         // onClose();
@@ -89,7 +84,7 @@ const ScheduleCreation = () => {
     
     // sends entire schedule object to server --- called by handleScheduleSubmit function
     const submitSchedule = (schedule: Schedule) => {
-        let dateNeeded = timeBlocks[0].dateNeeded;
+        let dateNeeded: Date | string = timeBlocks[0].dateNeeded;
         console.log("timeblocks:", timeBlocks);
         addSchedule(schedule);
     }
@@ -104,7 +99,6 @@ const ScheduleCreation = () => {
         // let dateNeeded = timeBlocks[0].dateNeeded;
 
         // IS THIS CORRECT?
-        let _id = new ObjectId();
         console.log("timeblocks", timeBlocks);
         
         submitSchedule({
@@ -113,7 +107,6 @@ const ScheduleCreation = () => {
             yearCreated,
             monthCreated,
             dayCreated,
-            _id
         })
 
         setScheduleRows([]);
@@ -126,9 +119,9 @@ const ScheduleCreation = () => {
 
     }
 
-    const HandleDeleteRow = (_id: ObjectId) => {
+    const HandleDeleteRow = (index: number) => {
         console.log("trying to delete");
-        console.log(_id)
+        console.log(index)
         timeBlocks.forEach((timeBlock) => {
             console.log("test");
             // if (timeBlock.scheduleRows === _id){
@@ -145,6 +138,7 @@ const ScheduleCreation = () => {
         
         
     }
+    
 
 
     return(
@@ -193,8 +187,8 @@ const ScheduleCreation = () => {
                                         timeIn={row.timeIn}
                                         timeOut={row.timeOut}
                                         _id={row._id}
-                                        key={`${row._id}-${index}`}
-                                        onDelete={() => HandleDeleteRow(row._id)}
+                                        key={index}
+                                        onDelete={() => HandleDeleteRow(index)}
                                     />
                                 </div>
                             )}

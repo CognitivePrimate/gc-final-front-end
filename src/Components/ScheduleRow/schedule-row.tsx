@@ -20,7 +20,7 @@ interface Props {
     email?: string;
     timeIn?: number;
     timeOut?: number;
-    _id: ObjectId;
+    _id?: string;
 }
 
 
@@ -47,8 +47,6 @@ const ScheduleRowComponent = ({onDelete, firstName, lastName, aliases, email, ti
     const handlesubmit = (e: FormEvent) => {
         e.preventDefault();
 
-            // IS THIS CORRECT?
-        let _id = new ObjectId();
             
         onSubmit({
             firstName,
