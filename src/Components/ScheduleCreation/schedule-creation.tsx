@@ -58,7 +58,6 @@ const ScheduleCreation = () => {
             timeIn: undefined,
             timeOut: undefined,
             _id
-
         })
         
         onTimeBlockSubmit({
@@ -72,6 +71,7 @@ const ScheduleCreation = () => {
             dayCreated,
             _id
         });
+
         // onClose();
         setVolunteersNeeded(0);
         setStartTime(0);
@@ -126,7 +126,22 @@ const ScheduleCreation = () => {
 
     }
 
-    const HandleDeleteRow = (_id: ObjectId) => {
+    const HandleDeleteRow = (index: number) => {
+        console.log("trying to delete");
+        timeBlocks.forEach((timeBlock) => {
+            console.log("test");
+            if (timeBlock.scheduleRows[index]){
+                // console.log("trying to slice");
+                // timeBlock.scheduleRows.slice(index, 1);
+                // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
+                // setTimeBlocks(timeBlock.scheduleRows => [
+                //     ...prevPosts.slice(0, index),
+                //     ...prevPosts.slice(index+1)
+                // ]);
+            }
+        })
+        
+        
         
     }
 
@@ -169,10 +184,11 @@ const ScheduleCreation = () => {
                         <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm">
                             {timeblock.scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
-                                    {/* <ScheduleRowComponent
+                                    <ScheduleRowComponent
+                                    // _id={row._id}
                                     key={`${row._id}-${index}`}
-                                    onDelete={() => HandleDeleteRow(_id)}
-                                    /> */}
+                                    onDelete={() => HandleDeleteRow(index)}
+                                    />
                                 </div>
                             )}
                         </form>
