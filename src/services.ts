@@ -87,6 +87,10 @@ export function addSchedule(schedule: Schedule | undefined) : Promise<Schedule> 
   return axios.post(`${baseUrl}/Schedules`, schedule).then(res => res.data)
 }
 
+export function deleteSchedule(schedule: Schedule) : Promise<Schedule> {
+  return axios.delete(`${baseUrl}/Schedules/:id`).then(res => res.data)
+}
+
 /// ** Historical Schedule Access **///
 
 export function fetchHistoricalSchedules() : Promise<HistoricalSchedule[]>{
