@@ -89,7 +89,7 @@ export interface EmergencyContact {
     user?: firebase.User | null;
     firstName: string;
     lastName: string;
-    phoneNumber: number;
+    phoneNumber: string;
     role?: string,
     email?: string;
     _id?: string;
