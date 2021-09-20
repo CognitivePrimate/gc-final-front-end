@@ -1,3 +1,7 @@
+main.home-screen-main {
+    margin-top: 10px;
+}
+
 main.home-screen-main div.home-screen-container {
     display: flex;
     flex-direction: column;

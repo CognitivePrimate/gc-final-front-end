@@ -169,10 +169,10 @@ const ScheduleCreation = () => {
                         <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm">
                             {timeblock.scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
-                                    <ScheduleRowComponent
+                                    {/* <ScheduleRowComponent
                                     key={`${row._id}-${index}`}
                                     onDelete={() => HandleDeleteRow(_id)}
-                                    />
+                                    /> */}
                                 </div>
                             )}
                         </form>

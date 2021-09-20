@@ -102,9 +102,9 @@ const ScheduleList = () => {
                                         <div>
                                             {timeBlock.scheduleRows.map((row, index) => 
                                                 <div className="scheduleRowComponentWrapper" key={index}>
-                                                    <ScheduleRowComponent
+                                                    {/* <ScheduleRowComponent
                                                     key={`${row.lastName}`}
-                                                    />
+                                                    /> */}
                                                 </div>
                                             )}
                                         </div>

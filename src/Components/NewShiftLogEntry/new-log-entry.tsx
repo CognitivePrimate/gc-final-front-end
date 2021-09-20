@@ -29,7 +29,7 @@ const NewLogEntry = () => {
         e.preventDefault();
         const d: Date = new Date();
         let year: any = d.getFullYear();
-        let month: any = d.getMonth();
+        let month: any = d.getMonth() + 1;
         let day: any = d.getDate();
         let hours: any = d.getHours();
         let minutes: any = d.getMinutes();
@@ -38,6 +38,7 @@ const NewLogEntry = () => {
         if(minutes < 10){
             minutes = '0' + minutes;
         }
+
 
         // IS THIS CORRECT?
         let _id = new ObjectId();

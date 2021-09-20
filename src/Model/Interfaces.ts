@@ -38,7 +38,8 @@ export interface IncidentReport {
     year?: Date;
     month?: Date;
     day?: Date;
-    time?: Date;
+    hours?: number;
+    minutes?: number;
     _id?: ObjectId;
 }
 /** SCHEDULE INTERFACES */
@@ -94,6 +95,7 @@ export interface EmergencyContact {
     year?: Date;
     month?: Date;
     day?: Date;
-    time?: Date;
+    hours?: number;
+    minutes?: number;
     _id?: ObjectId;
 }

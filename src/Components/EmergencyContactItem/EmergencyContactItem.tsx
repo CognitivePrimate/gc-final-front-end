@@ -14,9 +14,9 @@ const EmergencyContactItem = ({emergencyContact}: Props) => {
             <section>
                 <div>{emergencyContact.firstName}</div>
                 <div>{emergencyContact.lastName}</div>
-                <div>{emergencyContact.phoneNumber}</div>
-                <div>{emergencyContact.email}</div>
-                <div>{emergencyContact.role}</div>
+                <div>Phone # {emergencyContact.phoneNumber}</div>
+                <div>Email: {emergencyContact.email}</div>
+                <div>Role: {emergencyContact.role}</div>
             </section>
         </main>
     )
