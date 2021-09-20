@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
@@ -42,13 +41,6 @@ const ScheduleCreation = () => {
  //handles submit event with ShiftLog object key values -FIX ANY
     const handleTimeBlocksubmit = (e: FormEvent) => {
         e.preventDefault();
-        const d: Date = new Date();
-        let yearCreated: any = d.getFullYear();
-        let monthCreated: any = d.getMonth();
-        let dayCreated: any = d.getDate();
-
-        // add new MongoDb unique id to each TimeBlock
-        let _id = new ObjectId();
 
         handleScheduleRows({
             firstName: "",
@@ -121,18 +113,58 @@ const ScheduleCreation = () => {
 
     const HandleDeleteRow = (index: number) => {
         console.log("trying to delete");
-        console.log(index)
+        console.log("index", index);
+        // let newTimeBlocks: TimeBlock[] = timeBlocks;
+        // newTimeBlocks.splice(index, 1);
+        // setTimeBlocks(newTimeBlocks);
+        console.log("pre-delete", timeBlocks);
+
         timeBlocks.forEach((timeBlock) => {
-            console.log("test");
-            // if (timeBlock.scheduleRows === _id){
-            //     // console.log("trying to slice");
-            //     // timeBlock.scheduleRows.slice(index, 1);
-            //     // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
-            //     // setTimeBlocks(timeBlock.scheduleRows => [
-            //     //     ...prevPosts.slice(0, index),
-            //     //     ...prevPosts.slice(index+1)
-            //     // ]);
+            console.log("first foreach");
+            timeBlock.scheduleRows.forEach((row) => {
+                console.log("second for each")
+                if (timeBlock.scheduleRows[index]){
+                    console.log("in if statement");
+                    setScheduleRows([]);
+                    setVolunteersNeeded(0);
+
+                    handleScheduleRows({
+                        firstName: "",
+                        lastName: "",
+                        aliases: "",
+                        email: "",
+                        timeIn: undefined,
+                        timeOut: undefined,
+                    })
+                    
+                    onTimeBlockSubmit({
+                        scheduleRows,
+                        volunteersNeeded,
+                        dateNeeded,
+                        startTime,
+                        endTime,
+                    });
+                    
+                    
+                }
+            })
+            // if (index === timeBlock.scheduleRows[index]){
+            //     console.log("trying to slice");
+            //     let newVolunteersNeeded: number = timeBlock.volunteersNeeded -1;
+            //     setVolunteersNeeded(newVolunteersNeeded);
+            //     console.log("v needed", volunteersNeeded);
+                
+                
+            //     timeBlock.scheduleRows.splice(index, 1);
+
+
+                // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
+                // setTimeBlocks([prevTimeBlocks =>
+                //     ...timeBlocks.slice(0, index),
+                //     ...timeBlocks.slice(index+1)
+                // ]);
             // }
+            console.log("afterDeleteAttempt", timeBlocks);
         })
         
         
