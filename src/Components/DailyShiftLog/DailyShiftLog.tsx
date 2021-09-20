@@ -11,18 +11,10 @@ import './DailyShiftLog.css';
 const DailyShiftLog = () => {
 
 
-    // const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
-
-    // const [searchedShiftLogs, setSearchedShiftLogs ] = useState<ShiftLog[]>([]);
-
-   
-
     const [dailyShiftLogs, setDailyShiftLogs] = useState<ShiftLog[]>([]);
-
     const [searchedShiftLogs, setSearchedShiftLogs ] = useState<ShiftLog[]>([]);
 
     const loadDailyShiftLogs = () => {
-        // fetchShiftLogs().then(setDailyShiftLogs);
         fetchShiftLogs().then((res) => {
             setDailyShiftLogs(res);
             setSearchedShiftLogs(res);
@@ -67,10 +59,6 @@ const DailyShiftLog = () => {
                     <label htmlFor="firstNameSearch">Author: </label>
                     <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) }/>
                 </section>
-                {/* <section>
-                    <label htmlFor="lastNameSearch">Last Name:</label>
-                    <input type="text" name="lastNameSearch" id="lastNameSearch"/>
-                </section> */}
                 <section>
                     <label htmlFor="supervisorSearch">Supervisor:</label>
                     <input type="text" name="supervisorSearch" id="supervisorSearch"/>

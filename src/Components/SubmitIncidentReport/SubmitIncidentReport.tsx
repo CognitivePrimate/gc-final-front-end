@@ -41,9 +41,14 @@ const SubmitIncidentReport = () => {
         e.preventDefault();
         const d: Date = new Date();
         let year: any = d.getFullYear();
-        let month: any = d.getMonth();
+        let month: any = d.getMonth() +1;
         let day: any = d.getDate();
-        let time: any = Date.now();
+        let hours: any = d.getHours();
+        let minutes: any = d.getMinutes();
+
+        if (minutes < 10){
+            minutes = '0' + minutes;
+        }
 
         // IS THIS CORRECT?
         let _id = new ObjectId();
@@ -56,7 +61,8 @@ const SubmitIncidentReport = () => {
             year,
             month,
             day,
-            time,
+            hours,
+            minutes,
             _id
         });
         // onClose();
