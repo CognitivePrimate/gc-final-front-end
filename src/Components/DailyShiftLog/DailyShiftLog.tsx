@@ -57,21 +57,21 @@ const DailyShiftLog = () => {
     return (
         <main className="DailyShiftLogContainer">
             <section>
-            <main>
-            <form action="submit" className="InputForm" onSubmit={handleSubmit}>
-                <h4>Search Logs</h4>
-                <section>
-                    <label htmlFor="firstNameSearch">Author: </label>
-                    <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) }/>
-                </section>
-                <section>
-                    <label htmlFor="supervisorSearch">Supervisor:</label>
-                    <input type="text" name="supervisorSearch" id="supervisorSearch"/>
-                </section>
-                <button>Search</button>
-                <button onClick={resetSearch}>Reset</button>
-            </form>
-        </main>
+                <form action="submit" className="InputForm" onSubmit={handleSubmit}>
+                    <h3 className="CenterTextTitle">Search Logs</h3>
+                    <section className="InputOptions">
+                        <label htmlFor="firstNameSearch">Author: </label>
+                        <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) }/>
+                    </section>
+                    <section className="InputOptions">
+                        <label htmlFor="supervisorSearch">Supervisor:</label>
+                        <input type="text" name="supervisorSearch" id="supervisorSearch"/>
+                    </section>
+                    <section className="SearchOptions">
+                        <button className="SubmitButton">Search</button>
+                        <button className="SubmitButton" onClick={resetSearch}>Reset</button>
+                    </section>
+                </form>
             </section>
             <section>
                 {searchedShiftLogs.map((log, index) =>

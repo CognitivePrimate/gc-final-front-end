@@ -125,25 +125,25 @@ const ScheduleCreation = () => {
                 console.log("second for each")
                 if (timeBlock.scheduleRows[index]){
                     console.log("in if statement");
-                    setScheduleRows([]);
-                    setVolunteersNeeded(0);
+                    // setScheduleRows([]);
+                    // setVolunteersNeeded(0);
 
-                    handleScheduleRows({
-                        firstName: "",
-                        lastName: "",
-                        aliases: "",
-                        email: "",
-                        timeIn: undefined,
-                        timeOut: undefined,
-                    })
+                    // handleScheduleRows({
+                    //     firstName: "",
+                    //     lastName: "",
+                    //     aliases: "",
+                    //     email: "",
+                    //     timeIn: undefined,
+                    //     timeOut: undefined,
+                    // })
                     
-                    onTimeBlockSubmit({
-                        scheduleRows,
-                        volunteersNeeded,
-                        dateNeeded,
-                        startTime,
-                        endTime,
-                    });
+                    // onTimeBlockSubmit({
+                    //     scheduleRows,
+                    //     volunteersNeeded,
+                    //     dateNeeded,
+                    //     startTime,
+                    //     endTime,
+                    // });
                     
                     
                 }
@@ -230,7 +230,9 @@ const ScheduleCreation = () => {
                 )}
 
                 {/* TEST */}
+                <section className="SubmitButtonContainer">
                 <button className="submitButton SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
+                </section>
             </div>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>

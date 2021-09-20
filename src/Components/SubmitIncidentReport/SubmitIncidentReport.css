@@ -4,5 +4,9 @@ main.SubmitIncidentReportContainer section.AuthSupStyle {
 }
 
 main.SubmitIncidentReportContainer textarea.IncidentTextArea {
-    width: 80%;
+    width: 100%;
+}
+
+main.SubmitIncidentReportContainer input.FormInputsStyle {
+    width: 100%;
 }

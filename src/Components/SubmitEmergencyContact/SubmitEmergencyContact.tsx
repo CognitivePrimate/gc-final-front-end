@@ -10,19 +10,6 @@ import './SubmitEmergencyContact.css';
 
 const SubmitEmergencyContact = () => {
 
-    // user?: firebase.User | null;
-    // firstName: string;
-    // lastName: string;
-    // phoneNumber: number;
-    // role?: string,
-    // email?: string;
-    // year?: Date;
-    // month?: Date;
-    // day?: Date;
-    // time?: Date;
-    // _id?: ObjectId;
-    
-
    const [firstName, setFirstName] = useState("");
    const [lastName, setLastName] = useState("");
    const [phoneNumber, setPhoneNumber] = useState("");
@@ -67,27 +54,30 @@ const SubmitEmergencyContact = () => {
     return(
         <main className="EmergencyContactContainer">
             <form className="InputForm" action="submit" onSubmit={handlesubmit}>
-                <div>
+                <h3 className="ContactTitle">Add Emergency Contact</h3>
+                <div className="ContactLabelInputContainer">
                     <label htmlFor="first-name">First Name:</label>
                     <input type="text" name="first-name" id="first-name" value={firstName} onChange={newFirstName}/>
                 </div>
-                <div>
+                <div className="ContactLabelInputContainer">
                     <label htmlFor="last-name">Last Name:</label>
                     <input type="text" name="last-name" id="last-name" value={lastName} onChange={newLastName}/>
                 </div>
-                <div>
+                <div className="ContactLabelInputContainer">
                     <label htmlFor="phone-number">Phone Number:</label>
                     <input type="text" name="phone-number" id="phone-number" value={phoneNumber} onChange={newPhoneNumber}/>
                 </div>
-                <div>
+                <div className="ContactLabelInputContainer">
                     <label htmlFor="email">E-Mail:</label>
                     <input type="text" name="email" id="email" value={email} onChange={newEmail}/>
                 </div>
-                <div>
+                <div className="ContactLabelInputContainer">
                     <label htmlFor="contact-role">Role:</label>
                     <input type="text" name="contact-role" id="contact-role" value={role} onChange={newRole}/>
                 </div>
-                <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
+                <section className="SubmitButtonContainer">
+                    <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
+                </section>
             </form>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>

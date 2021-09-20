@@ -100,9 +100,11 @@ const SubmitIncidentReport = () => {
                 <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident}/><br/>
 
                 <label htmlFor="witnesses">Witnesses:</label><br/>
-                <input type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses}/><br/>
+                <input className="FormInputsStyle" type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses}/><br/>
 
-                <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
+                <section className="SubmitButtonContainer">
+                    <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
+                </section>
             </form>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>

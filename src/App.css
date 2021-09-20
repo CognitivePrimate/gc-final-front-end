@@ -21,6 +21,15 @@ form.InputForm {
 }
 
 
+div.InputOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+section.InputOptions {
+    display: flex;
+    flex-direction: column;
+}
 
 /* *** Buttons *** */
 
@@ -55,9 +64,29 @@ button.SubmitButton {
     margin-bottom: 10px;
 }
 
+section.SubmitButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+/* Delete Button */
+
 button.DeleteButton {
     border-style: solid;
     border-radius: 5px;
     background: none;
     margin: 5px;
 }
+
+
+
+/* *** Headers *** */
+
+h3.CenterTextTitle {
+    text-align: center;
+}
+
+
+

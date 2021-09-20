@@ -1,3 +1,13 @@
 main.EmergencyContactContainer {
     padding: 20px;
 }
+
+main.EmergencyContactContainer h3.ContactTitle {
+    text-align: center;
+}
+
+main.EmergencyContactContainer div.ContactLabelInputContainer {
+    display: flex;
+    flex-direction: column;
+
+}
