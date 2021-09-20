@@ -27,20 +27,22 @@ const IncidentReportLogs = () => {
     const [searchAuthor, setSearchAuthor] = useState('');
     const [searchSup, setSearchSup] = useState('');
 
-    // use effect so it only loads up once
+    // use effect so it loads once when you go to the route, but only once.
     useEffect(loadIncidentReports, []);
 
-    
+    //Function for handling onSubmit in the form or the button 'submit' click.
     function handleSubmit(e: FormEvent){
         e.preventDefault();
 
-        
+        // Author matching
         let newSearchedIncidentReports: IncidentReport[] = [];
         incidentReports.forEach((report) => {
         if (searchAuthor === report.author) {
             newSearchedIncidentReports.push(report);
         }
         })
+
+        // Set the Searched State to what is returned after filtering.
         setSearchedIncidentReports(newSearchedIncidentReports);
 
 
@@ -54,6 +56,8 @@ const IncidentReportLogs = () => {
 
 
     const handleDelete = (incident: IncidentReport) => {
+
+        // delete report imported from services.
         deleteIncidentReport(incident);
         resetSearch();
     };
@@ -74,6 +78,7 @@ const IncidentReportLogs = () => {
                 <button onClick={resetSearch}>Reset</button>
             </form>
             <section>
+                {/* Map the searched reports. The Reports initially have no filtering on useEffect load up render. */}
                 {searchedIncidentReports.map((incident, index) =>
                     <IncidentReportItem
                         key={`${incident.author}-${index}`}
