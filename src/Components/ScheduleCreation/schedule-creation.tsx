@@ -181,13 +181,19 @@ const ScheduleCreation = () => {
                             </div>
                         </div>
                         
-                        <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm">
+                        <form action="submit" className="timeBlockSubmissionContainerForm" id="timeBlockSubmissionContainerForm" onSubmit={handleScheduleSubmit}>
                             {timeblock.scheduleRows.map((row, index) => 
                                 <div className="scheduleRowComponentWrapper">
                                     <ScheduleRowComponent
-                                    // _id={row._id}
-                                    key={`${row._id}-${index}`}
-                                    onDelete={() => HandleDeleteRow(index)}
+                                        firstName={row.firstName}
+                                        lastName={row.lastName}
+                                        aliases={row.aliases}
+                                        email={row.email}
+                                        timeIn={row.timeIn}
+                                        timeOut={row.timeOut}
+                                        _id={row._id}
+                                        key={`${row._id}-${index}`}
+                                        onDelete={() => HandleDeleteRow(index)}
                                     />
                                 </div>
                             )}
@@ -197,7 +203,7 @@ const ScheduleCreation = () => {
                 )}
 
                 {/* TEST */}
-                <button className="submitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm" onClick={handleScheduleSubmit}>Submit Schedule</button>
+                <button className="submitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
             </div>
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
