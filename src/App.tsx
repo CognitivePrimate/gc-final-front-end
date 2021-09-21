@@ -61,9 +61,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <ItemContextProvider>
-          <WeatherHeader/>
-        </ItemContextProvider>
+          {/* <WeatherHeader/> */}
 
         <Route path="/" exact>
           <LoginScreen/>

@@ -16,7 +16,7 @@ const Header = () => {
             <section>
                 <h2 className="header-banner">{user?.displayName}</h2>
             </section>
-            {/* <WeatherHeader />             */}
+            {/* <WeatherHeader />  */}
         </div>
     )
 }

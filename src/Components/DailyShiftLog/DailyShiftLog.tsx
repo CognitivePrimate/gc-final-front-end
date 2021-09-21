@@ -51,6 +51,11 @@ const DailyShiftLog = () => {
         deleteShiftLog(shiftLog);
         resetSearch();
         };
+    
+    const handleUpdate = (shiftlog: ShiftLog) => {
+
+    };
+
 
 
 
@@ -79,6 +84,7 @@ const DailyShiftLog = () => {
                         key={`${log.author}-${index}`}
                         log={log}
                         deleteReport={ () => handleDelete(log)} 
+                        updateLog={ () => handleUpdate(log)}
                         />
                 )}
             </section>
