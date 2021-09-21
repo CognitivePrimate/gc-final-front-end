@@ -10,7 +10,9 @@ const Header = () => {
 
     return (
         <div className="header">
-            <Link to="/HomeScreen"><h1 className="header-banner">Company Name</h1></Link> 
+            <section>
+                <Link to="/HomeScreen"><h1 className="header-banner">SkedMan</h1></Link> 
+            </section>
             <section>
                 <h2 className="header-banner">{user?.displayName}</h2>
             </section>
