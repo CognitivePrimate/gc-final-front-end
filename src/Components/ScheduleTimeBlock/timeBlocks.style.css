@@ -1,0 +1,21 @@
+.timeBlockContainer{
+    margin: 10px 0;
+    box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.timeBlockDateHeaderRight {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.timeBlockContainerHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeBlockTimeHeader {
+    margin-bottom: 2px;
+    margin-left: 8px;
+}

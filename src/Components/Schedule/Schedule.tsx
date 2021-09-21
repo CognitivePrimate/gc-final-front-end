@@ -20,9 +20,10 @@ const ScheduleList = () => {
     const loadSchedules = () => {
         fetchSchedules().then((res) => {
             setSchedules(res);
-            // setSearchedSchedules(res);
+
         }); 
     }
+    
     // calls all schedules immediately upon component render, but only once per useEffect
     useEffect(loadSchedules, []);
 
