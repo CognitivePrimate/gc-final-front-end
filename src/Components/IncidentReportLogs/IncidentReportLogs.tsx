@@ -2,7 +2,7 @@ import React, { FormEvent, useEffect, useState } from 'react';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IncidentReport } from '../../Model/Interfaces';
-import { deleteIncidentReport, fetchIncidentReports } from '../../services';
+import { deleteIncidentReport, fetchIncidentReports, updateIncidentReport } from '../../services';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
 
 
@@ -62,6 +62,13 @@ const IncidentReportLogs = () => {
         resetSearch();
     };
 
+
+    const handleUpdate = (pendingIncident: IncidentReport) => {
+        console.log(pendingIncident);
+        updateIncidentReport(pendingIncident);
+        resetSearch();
+    }
+
     return (
         <main>
             <form action="submit" className="InputForm" onSubmit={handleSubmit}>
@@ -84,6 +91,7 @@ const IncidentReportLogs = () => {
                         key={`${incident.author}-${index}`}
                         incident={incident}
                         deleteReport={ () => handleDelete(incident)}
+                        updateIncidentSubmit={ (pendingIncident) => handleUpdate(pendingIncident)}
                         />
                 )}
             </section>

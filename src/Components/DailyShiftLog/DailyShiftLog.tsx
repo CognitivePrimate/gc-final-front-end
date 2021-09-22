@@ -90,7 +90,7 @@ const DailyShiftLog = () => {
                 </form>
             </section>
             <section>
-                {searchedShiftLogs.map((log, index, e) =>
+                {searchedShiftLogs.map((log, index) =>
                     <ShiftLogItem
                         key={`${log.author}-${index}`}
                         log={log}

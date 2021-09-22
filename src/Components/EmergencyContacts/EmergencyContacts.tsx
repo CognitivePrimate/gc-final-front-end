@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { EmergencyContact } from "../../Model/Interfaces";
-import { deleteEmergencyContact, fetchEmergencyContacts } from "../../services";
+import { deleteEmergencyContact, fetchEmergencyContacts, updateEmergencyContact } from "../../services";
 import EmergencyContactItem from "../EmergencyContactItem/EmergencyContactItem";
 
 
@@ -27,6 +27,16 @@ const EmergencyContacts = () => {
         deleteEmergencyContact(contact);
         resetSearch();
         };
+    
+    
+    const handleUpdate = (pendingContact: EmergencyContact) => {
+        console.log(pendingContact);
+        updateEmergencyContact(pendingContact);
+        resetSearch();
+    }
+
+    
+        
 
     return(
         <main>
@@ -35,7 +45,8 @@ const EmergencyContacts = () => {
                     <EmergencyContactItem
                         key={`${emergencyContact.lastName}-${index}`}
                         emergencyContact={emergencyContact}
-                        deleteReport={ () => handleDelete(emergencyContact)}
+                        deleteContact={ () => handleDelete(emergencyContact)}
+                        updateEmergencyContact={(pendingContact) => handleUpdate(pendingContact)}
                         />
                 )}
             </section>

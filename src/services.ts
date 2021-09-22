@@ -72,6 +72,10 @@ export function deleteIncidentReport(report: IncidentReport | undefined) : Promi
   return axios.delete(`${baseUrl}/IncidentReports/${report?._id}`).then(res => res.data);
 }
 
+export function updateIncidentReport(report: IncidentReport | undefined) : Promise<IncidentReport> {
+  return axios.put(`${baseUrl}/IncidentReports/${report?._id}`, report).then(res => res.data);
+}
+
 
 /// ** EmergencyContacts Access ** ///
 
@@ -86,6 +90,10 @@ export function addEmergencyContact(shiftLog: EmergencyContact | undefined) : Pr
 
 export function deleteEmergencyContact (contact: EmergencyContact | undefined) : Promise<EmergencyContact> {
   return axios.delete(`${baseUrl}/EmergencyContacts/${contact?._id}`).then(res => res.data);
+}
+
+export function updateEmergencyContact (contact: EmergencyContact | undefined) : Promise<EmergencyContact> {
+  return axios.put(`${baseUrl}/EmergencyContacts/${contact?._id}`, contact).then(res => res.data);
 }
 
 
