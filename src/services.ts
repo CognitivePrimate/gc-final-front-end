@@ -47,6 +47,11 @@ export function deleteShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLo
   return axios.delete(`${baseUrl}/ShiftLogs/${shiftLog?._id}`).then(res => res.data);
 }
 
+export function updateShiftLog(shiftLog: ShiftLog | undefined) : Promise<ShiftLog> {
+  return axios.put(`${baseUrl}/ShiftLogs/${shiftLog?._id}`, shiftLog).then(res => res.data);
+}
+
+
 
 
 

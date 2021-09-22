@@ -4,18 +4,17 @@ import './ShiftLogItem.css';
 // icons
 import deleteIcon from "../../Icons/delete.svg";
 import ShiftLogUpdater from "../ShiftLogUpdater/ShiftLogUpdater";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { updateShiftLog } from "../../services";
 
 
 interface Props {
     log: ShiftLog;
-    // UpdateForm: string;
     deleteReport: () => void;
-    updateLog: () => void;
-    // updateHidden: () => void;
+    updateLogSubmit: (shiftLog: ShiftLog) => void;
 }
 
-const ShiftLogItem = ({log, deleteReport, updateLog}: Props) => {
+const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
 
     const [updateForm, setUpdateForm] = useState<string>("hidden");
 
@@ -26,6 +25,7 @@ const ShiftLogItem = ({log, deleteReport, updateLog}: Props) => {
             setUpdateForm("hidden");
         }
     }
+
 
     return (
         <main className="ShiftLogContainer">
@@ -39,7 +39,7 @@ const ShiftLogItem = ({log, deleteReport, updateLog}: Props) => {
                     <ShiftLogUpdater
                         shiftLog={log}
                         UpdateForm={updateForm}
-                        updateLog={updateLog}
+                        updateLogSubmit={updateLogSubmit}
                         updateHidden={handleHidden}
                     />
                 </section>

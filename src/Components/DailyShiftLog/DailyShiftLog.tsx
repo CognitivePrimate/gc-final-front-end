@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShiftLog } from "../../Model/Interfaces";
-import { deleteShiftLog, fetchShiftLogs } from "../../services";
+import { deleteShiftLog, fetchShiftLogs, updateShiftLog } from "../../services";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
 import './DailyShiftLog.css';
 
@@ -52,9 +52,20 @@ const DailyShiftLog = () => {
         resetSearch();
         };
     
-    const handleUpdate = (shiftlog: ShiftLog) => {
 
-    };
+    // Handle Updating the individual ShiftLog
+
+    const handleUpdate = (pendingLog: ShiftLog) => {
+        console.log(pendingLog);
+        updateShiftLog(pendingLog);
+        resetSearch();
+    }
+
+    // const handleUpdateSubmit =  (e: FormEvent) => {
+    //     e.preventDefault();
+
+    //     handleUpdate();
+    // };
 
 
 
@@ -79,12 +90,12 @@ const DailyShiftLog = () => {
                 </form>
             </section>
             <section>
-                {searchedShiftLogs.map((log, index) =>
+                {searchedShiftLogs.map((log, index, e) =>
                     <ShiftLogItem
                         key={`${log.author}-${index}`}
                         log={log}
                         deleteReport={ () => handleDelete(log)} 
-                        updateLog={ () => handleUpdate(log)}
+                        updateLogSubmit={ (pendingLog) => handleUpdate(pendingLog)}
                         />
                 )}
             </section>

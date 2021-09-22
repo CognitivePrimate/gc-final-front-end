@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import "./HomeScreen.css";
 
+const homeScreenStyle = "home-screen-button"
 const HomeScreen = () => {
 
     return (
@@ -12,8 +13,10 @@ const HomeScreen = () => {
         // hidden class or nothing
         <main className="home-screen-main">
             <div className="home-screen-container">
+
+                {/*  D R Y, don't repeat yourself.  W E T,  */}
                 <section className="home-screen-options-volunteers home-screen-options-containers">
-                    <Link to="/Schedule" className="home-screen-button-link"><button className="home-screen-button">Schedules</button></Link>
+                    <Link to="/Schedule" className="home-screen-button-link"><button className={homeScreenStyle}>Schedules</button></Link>
                     <Link to="/NewLogEntry" className="home-screen-button-link"><button className="home-screen-button">Submit Log Entry</button></Link>
                     <Link to="/DailyShiftLog" className="home-screen-button-link"><button className="home-screen-button">Current Shift Log</button></Link>
                     <Link to="/SubmitIncidentReport" className="home-screen-button-link"><button className="home-screen-button">Submit Incident Report</button></Link>
