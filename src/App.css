@@ -1,8 +1,11 @@
 body {
-    background-color: rgb(163, 163, 163);
+    background-color: #fff;
+background-image: linear-gradient(315deg, #fff 0%, #e9ecef 74%);;
 }
 
-
+* {
+    font-family: sans-serif;
+}
 
 /* ////** Global styles for reuseable elements between components *\\\\\ */
 
@@ -15,10 +18,11 @@ body {
 form.InputForm {
     border-style: none;
     border-radius: 5px;
-    background-color: rgb(197, 197, 197);
+    background-color: #ffffff;
     padding: 15px;
     margin: 10px;
-}
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+} 
 
 
 div.InputOptions {
@@ -37,15 +41,15 @@ section.InputOptions {
 /* Global Back button */
 
 button.BackButton {
-    border-style: solid;
+    border-style: none;
+    font-weight: 700;
     border-radius: 8px;
     width: 60px;
     height: 30px;
-    border-style: solid;
-    border-color: white;
     border-width: 2px;
-    background-color: gray;
-    color: white;
+    background-color: #F17841;
+    color: #ffffff;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 section.BackButtonLinkContainer {
@@ -57,11 +61,15 @@ section.BackButtonLinkContainer {
 /*  Global Submit button */
 
 button.SubmitButton {
-    border-style: solid;
+    border-style: none;
+    font-weight: 700;
     border-radius: 5px;
     height: 50px;
     width: 80%;
     margin-bottom: 10px;
+    background-color: #F17841;
+    color: #ffffff;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 section.SubmitButtonContainer {
