@@ -25,7 +25,8 @@ export function fetchAllWeather(location: GeoLocation){
 
 // to mongodb
 
-const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
+// const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
+const baseUrl = 'http://localhost:5001/my-scheduling-backend/us-central1/api';
 
 
 

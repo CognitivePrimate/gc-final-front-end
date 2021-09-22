@@ -36,14 +36,16 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
             <section>
                 <section>
                     <div>{emergencyContact.firstName}</div>
-                    <button className="DeleteButton" type="button" onClick={deleteContact}><img src={deleteIcon} alt="delete button"/></button>
                     <section>
-                        <EmergencyContactsUpdater
-                            contact={emergencyContact}
-                            updateForm={updateForm}
-                            updateEmergencyContact={updateEmergencyContact}
-                            updateHidden={handleHidden}
-                        />
+                        <button className="DeleteButton" type="button" onClick={deleteContact}><img src={deleteIcon} alt="delete button"/></button>
+                        <section>
+                            <EmergencyContactsUpdater
+                                contact={emergencyContact}
+                                updateForm={updateForm}
+                                updateEmergencyContact={updateEmergencyContact}
+                                updateHidden={handleHidden}
+                            />
+                        </section>
                     </section>
                 </section>
                 <div>{emergencyContact.lastName}</div>
