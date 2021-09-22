@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {HistoricalSchedule, Schedule} from '../../Model/Interfaces'
+import {HistoricalSchedule, Schedule, ScheduleRow} from '../../Model/Interfaces'
 import { addHistoricalSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
@@ -34,25 +34,32 @@ const ScheduleList = () => {
 
     // get schedules by single date variables and functions
     let dateNeeded: Date = new Date;
-    const newGetScheduleByDateInput = (e: any) => {setSearchDate(e.target.value)}
+    const newGetScheduleByDateInput = (e: any) => {setSearchDate(e.target.value)};
     
     // iterates through schedules array state to match user date input to schedule date
     const handleGetSchedulesByDate = (e: FormEvent) => {
         e.preventDefault();
         let newSearchedSchedule: Schedule[] = [];
         schedules.forEach((schedule) => {
+            console.log("searchDate", searchDate);
+            console.log("sched.needed", schedule.dateNeeded);
             if (searchDate === schedule.dateNeeded){
+                console.log("in if statesment", searchDate);
                 newSearchedSchedule.push(schedule);
             }
-        });
+        })
+        // TODO --- if not found, message on screen, not alert probably
         setSearchedSchedules(newSearchedSchedule);
+        console.log("newSearchedbeforeReset", searchedSchedules)
+        console.log("searched", searchedSchedules);
     }
    
 
     // resetSearch
     const resetSearch = () => {
-        fetchSchedules().then(setSearchedSchedules);
-        console.log(searchedSchedules);
+        loadSchedules();
+        // fetchSchedules().then(setSearchedSchedules);
+        // console.log(searchedSchedules);
     }
     
     // const onGetSchedulesByDateSubmit = (dateNeeded: Date) => {
@@ -89,8 +96,6 @@ const ScheduleList = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
-        
-
         submitHistoricalSchedule({
             schedule,
             yearCreated,
@@ -101,10 +106,12 @@ const ScheduleList = () => {
         setSearchedSchedules([]);
     }
 
-    const HandleDeleteRow = (schedule: Schedule) => {
+    const handleDeleteRow = (schedule: Schedule) => {
         console.log("sched id to delete", schedule._id);
 
+    }
 
+    const handleRowEdit = (row: ScheduleRow) => {
 
     }
 
@@ -113,7 +120,9 @@ const ScheduleList = () => {
         console.log("searchedSchedules", searchedSchedules);
     }
 
-    
+    const handleScheduleDelete = (schedule: Schedule) => {
+        console.log("scheduleId to delete", schedule._id);
+    }
 
     return (
         <main>
@@ -122,65 +131,41 @@ const ScheduleList = () => {
                     <form action="submit" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
                         <h4>Search schedules by date:</h4>
                         <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/>
-                        <button form="scheduleItemSearchByDate">Search</button>
+                        <button type="submit" form="scheduleItemSearchByDate">Search</button>
                     </form>
                     <button type="button" onClick={handleFetchSchedules}>View All Schedules</button>
                     <button onClick={resetSearch}>Reset</button>
             </div>
-            <section className="scheduleItemFoundSchedulesContainer">
+            {/* <section className="scheduleItemFoundSchedulesContainer"> */}
                 {/* TODO : the key needs a string or number. Currently not string or number to use
                     as the _id can be more than a string or number. Unsure what to use for the key in this instance.
                 */}
-                {searchedSchedules.map((schedule, index) =>
-                    <div className="scheduleContainer" key={`${schedule._id}-${schedule}`}>
-                        <form action="submit" id="historicalScheduleSubmissionForm">
-                            <div className="scheduleContainerHeader">
-                                <h4>{schedule.dateNeeded}</h4>
-                            </div>
-                            <div className="scheduleTimeBlockContainer" key={`${schedule._id}-${index}`}>
-                                {schedule.timeBlocks.map((timeBlock, index) =>
-                                    <div key={`${timeBlock._id}-${index}`}>
-                                        <div className="scheduleTimeBlockHeaderContainer">
-                                            <h5>From: {timeBlock.startTime} To: {timeBlock.endTime}</h5>
-                                        </div>
-                                        <div>
-                                            {timeBlock.scheduleRows.map((row, index) => 
-                                                <div className="scheduleRowComponentWrapper" key={`${row._id}-${index}`}>
-                                                    <ScheduleRowComponent
-                                                    firstName={row.firstName}
-                                                    lastName={row.lastName}
-                                                    aliases={row.aliases}
-                                                    email={row.email}
-                                                    timeIn={row.timeIn}
-                                                    timeOut={row.timeOut}
-                                                    _id={row._id}
-                                                    key={`${row._id}-${index}`}
-                                                    onDelete={() => HandleDeleteRow(schedule)}
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>                                                                                     
-                                                                                        
-                                )}
-                            </div>
-                            <button className="submitButton" type="submit" name="submit" form="historicalScheduleSubmissionForm" onClick={handleHistoricalScheduleSubmit}>Submit Completed Schedule</button>
-                        </form>
-                        <div className="scheduleIconContainer">
+                {/* TEST */}
+                <main className="sheduleComponentContainer">
+                    <h3>Schedule Search:</h3>
+                    <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleHistoricalScheduleSubmit}>
+                        {searchedSchedules && searchedSchedules.map((schedule, index) => 
+                            <ScheduleItem
+                                key={`${schedule.dateNeeded}-${index}`} 
+                                schedule={schedule}
+                                onScheduleDelete={() => handleScheduleDelete}
+                                onScheduleEdit={() => {}}
+                                // onScheduleSubmission={() => handleScheduleSubmit}
+                            />
+                        )}
+                        <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
+                    </form>
 
-                        </div>
-
-                    </div>
-
-                )}
-
-               
-            </section>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+                    <section className="BackButtonLinkContainer">
+                        <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                    </section>
+                </main>
         </main>
+
+        // TEST END
     )
+     
+    
 }
 
 

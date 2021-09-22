@@ -1,6 +1,17 @@
 .timeBlockContainer{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     margin: 10px 0;
-    box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    width: 95%;
+}
+
+.timeBlockScheduleRowContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .timeBlockDateHeaderRight {

@@ -4,21 +4,27 @@ import TimeBlockItem from "../ScheduleTimeBlock/timeBlock";
 // icons
 import deleteIcon from "../../Icons/delete.svg";
 import editIcon from "../../Icons/edit.svg";
+
+// css
+import "./schedule-item.styles.css";
+import { addSchedule } from "../../services";
+import { FormEvent } from "react";
 interface Props {
     schedule: Schedule,
     onScheduleDelete: (schedule: Schedule) => void;
     onScheduleEdit: (schedule: Schedule) => void;
-    onScheduleSubmission: (schedule: Schedule) => void;
+    // onScheduleSubmission: () => void;
 }
 
-const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onScheduleSubmission}: Props) => {
+const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit}: Props) => {
 
     const handleTimeBlockDelete = (timeBlock: TimeBlock) => {
         console.log("timeblock", timeBlock)
-    }   
+    }
+    
 
     return(
-        <form className="scheduleItemContainer" action="submit">
+        <div className="scheduleItemContainer" key={`${schedule.dateNeeded}-${schedule._id}`}>
             <div className="scheduleItemHeaderContainer">
                 <h5>{schedule.dateNeeded}</h5>
             </div>
@@ -31,10 +37,9 @@ const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onScheduleSub
             )}
             <div className="scheduleIconContainer">
                 {schedule.templated === true && <img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit(schedule)}/>}
-                <img src={deleteIcon} alt="delete" onClick={() => onScheduleDelete(schedule)}/>
+                <img className="trashIcon"src={deleteIcon} alt="delete" onClick={() => onScheduleDelete(schedule)}/><span>Delete Schedule Template</span>
             </div>
-            <button className="submitButton" id="scheduleTemplateSubmitButton" onClick={() => onScheduleSubmission(schedule)}>Submit Schedule Template</button>
-        </form>
+        </div>
 
     );
 }

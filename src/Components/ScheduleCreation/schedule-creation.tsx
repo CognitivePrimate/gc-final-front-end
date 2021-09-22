@@ -1,3 +1,4 @@
+import firebase from "firebase";
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
@@ -7,17 +8,19 @@ import ScheduleItem from "../ScheduleItem/ScheduleItem";
 import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
 
-interface Props {
-    schedule: Schedule
-}
 
-const ScheduleCreation = ({schedule}: Props) => {
+
+const ScheduleCreation = () => {
     // setting with state all required properties for Schedule object
    const [scheduleRows, setScheduleRows] = useState<ScheduleRow[]>([]);
    const [volunteersNeeded, setVolunteersNeeded] = useState(0);
    const [dateNeeded, setDateNeeded] = useState(Date);
    const [startTime, setStartTime] = useState(0);
    const [endTime, setEndTime] = useState(0);
+   
+    //  finalized schedule template to be submitted
+   const [scheduleTemplate, setScheduleTemplate] = useState<Schedule[]>([]);
+
 
    const user= useAuthUser();
 
@@ -64,6 +67,20 @@ const ScheduleCreation = ({schedule}: Props) => {
             endTime
         });
 
+        // should stay false until submission for editing post-template-finalization
+        let templated = false;
+
+        setScheduleTemplate([{
+            user: user,
+            timeBlocks: timeBlocks,
+            dateNeeded: dateNeeded,
+            // yearCreated,
+            // monthCreated,
+            // dayCreated,
+            templated
+
+        }])
+
         // onClose();
         setVolunteersNeeded(0);
         setStartTime(0);
@@ -80,36 +97,64 @@ const ScheduleCreation = ({schedule}: Props) => {
     const newEndTime = (e: any) => setEndTime(e.target.value);
     
     // sends entire schedule object to server --- called by handleScheduleSubmit function
-    const submitSchedule = (schedule: Schedule) => {
-        let dateNeeded: Date | string = timeBlocks[0].dateNeeded;
-        console.log("timeblocks:", timeBlocks);
-        addSchedule(schedule);
-    }
+    // const submitSchedule = (schedule: Schedule) => {
+    //     console.log("onsubmitSchedulefunction")
+    //     let dateNeeded: Date | string = timeBlocks[0].dateNeeded;
+    //     console.log("timeblocks:", timeBlocks);
+    //     console.log("schedule", schedule);
+    //     addSchedule(schedule);
+    // }
     
     const handleScheduleSubmit = (e: FormEvent) => {
         e.preventDefault();
+        console.log("insubmitform");
+        // IS THIS REDUNDANT BECAUSE IT'S SET ABOVE?
         const d: Date = new Date();
         let yearCreated: any = d.getFullYear();
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
         // set templating to true for editing on call from db
-        let templated = true;
-        // let dateNeeded = timeBlocks[0].dateNeeded;
+        let dateNeeded = timeBlocks[0].dateNeeded;
 
         // IS THIS CORRECT?
-        console.log("timeblocks", timeBlocks);
-
-        // TODO? timeblocks for each block templated = true?
+        // console.log("timeblocks", timeBlocks);
         
-        submitSchedule({
-            timeBlocks,
-            dateNeeded,
-            yearCreated,
-            monthCreated,
-            dayCreated,
-            templated
-        })
+        // submitSchedule({
+        //     timeBlocks,
+        //     dateNeeded,
+        //     yearCreated,
+        //     monthCreated,
+        //     dayCreated,
+        //     templated
+        // })
+        let schedule: Schedule | undefined = undefined;
+
+        if (scheduleTemplate[0]) {
+            schedule = scheduleTemplate[0];
+            console.log("schedule", schedule);
+            addSchedule({
+                user: schedule.user,
+                timeBlocks: schedule.timeBlocks,
+                dateNeeded: schedule.dateNeeded,
+                yearCreated: yearCreated,
+                monthCreated: monthCreated,
+                dayCreated: dayCreated,
+                templated: true
+            })
+        }
+
+        // addSchedule(schedule);
+        
+        // addSchedule({
+        //     user: schedule.user,
+        //     timeBlocks,
+        //     dateNeeded,
+        //     yearCreated,
+        //     monthCreated,
+        //     dayCreated,
+        //     templated
+        // })
 
         setScheduleRows([]);
         setVolunteersNeeded(0);
@@ -118,8 +163,18 @@ const ScheduleCreation = ({schedule}: Props) => {
 
         // resets timeBlocks array to remove TimeBlock properties from display upon schedule submission
         setTimeBlocks([]);
+        setScheduleTemplate([]);
+
+        console.log("schedule submitted", schedule);
 
     }
+
+    // NEW TEST AREA
+    const handleScheduleDelete = () => {
+        setScheduleTemplate([]);
+    }
+    
+    // NEW TEST AREA
 
     return(
         <main className="sheduleComponentContainer">
@@ -141,14 +196,19 @@ const ScheduleCreation = ({schedule}: Props) => {
                     <button type="button" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
                 </form>
             </div>
-            <ScheduleItem 
-                schedule={schedule}
-                onScheduleDelete={() => handleScheduleDelete(schedule)}
-                onScheduleEdit={() => handleScheduleEdit(schedule)}
-                onScheduleSubmission={() => handleScheduleSubmit}
-            />
+            <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleScheduleSubmit}>
+                {scheduleTemplate && scheduleTemplate.map((schedule, index) => 
+                    <ScheduleItem
+                        key={`${schedule.dateNeeded}-${index}`} 
+                        schedule={schedule}
+                        onScheduleDelete={() => handleScheduleDelete()}
+                        onScheduleEdit={() => {}}
+                        // onScheduleSubmission={() => handleScheduleSubmit}
+                    />
+                )}
+                <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
+            </form>
 
-      
             <section className="BackButtonLinkContainer">
                 <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
             </section>

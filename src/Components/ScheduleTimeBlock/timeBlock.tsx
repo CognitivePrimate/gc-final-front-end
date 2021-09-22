@@ -49,7 +49,7 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
                 
             </div>
             <div className="timeBlockIconContainer">
-                <img src={deleteIcon} alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} />
+                <img src={deleteIcon} className="trashIcon" alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} />
             </div>
         </main>
     );

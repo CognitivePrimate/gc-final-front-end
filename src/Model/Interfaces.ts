@@ -69,9 +69,9 @@ export interface Schedule {
     user?: firebase.User | null;
     timeBlocks: TimeBlock[];
     dateNeeded: Date | string;
-    yearCreated: Date;
-    monthCreated: Date;
-    dayCreated: Date;
+    yearCreated?: Date;
+    monthCreated?: Date;
+    dayCreated?: Date;
     _id?: string;
     templated: boolean;
 }
