@@ -31,7 +31,7 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
     return(
         <main className="IncidentReportUpdaterContainer">
             <section>
-                <button onClick={updateHidden}>E</button>
+                <button className="ModalToggle" onClick={updateHidden}>U</button>
             </section>
             <section className={updateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>

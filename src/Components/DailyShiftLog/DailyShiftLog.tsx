@@ -61,11 +61,7 @@ const DailyShiftLog = () => {
         resetSearch();
     }
 
-    // const handleUpdateSubmit =  (e: FormEvent) => {
-    //     e.preventDefault();
-
-    //     handleUpdate();
-    // };
+   
 
 
 

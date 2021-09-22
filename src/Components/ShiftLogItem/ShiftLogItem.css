@@ -46,3 +46,10 @@ main.ShiftLogContainer section.LogTextContainer {
 main.ShiftLogContainer p.ParaInfo{
     margin: 5px;
 }
+
+
+main.ShiftLogContainer section.UpdateDeleteSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

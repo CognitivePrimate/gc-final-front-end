@@ -41,3 +41,12 @@ main.ShiftLogUpdaterContainer form.InputFormUpdater {
     height: 60%;
     width: 80%;
 }
+
+main.ShiftLogUpdaterContainer button.ModalToggle {
+    background-color: rgba(197, 197, 197, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    height: 32px;
+    width: 38px;
+}

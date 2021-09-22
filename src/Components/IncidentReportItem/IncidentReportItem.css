@@ -10,3 +10,20 @@ main.IncidentReportLogContainer section.ReportHeaderSection {
     display: flex;
     justify-content: space-between;
 }
+
+main.IncidentReportLogContainer section.UpdateDeletecontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.IncidentReportLogContainer section.incident-author-supervisor-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main.IncidentReportLogContainer section.ReportLogSections {
+    margin: 20px 0;
+}

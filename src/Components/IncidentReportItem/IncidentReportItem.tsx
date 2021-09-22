@@ -34,26 +34,28 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
     
     return (
         <main className="IncidentReportLogContainer">
-            <section className="ReportHeaderSection">
+            <section className="ReportHeaderSection ReportLogSections">
                 <section>
                     <span>Date: {incident.month}/{incident.day}/{incident.year}</span>
                     <span> Time: {incident.hours}:{incident.minutes}</span>
                 </section>
-                <button className="DeleteButton" type="button" onClick={deleteReport}><img src={deleteIcon} alt="delete button" /></button>
-                <section>
-                    <IncidentReportUpdater
-                        report={incident}
-                        updateForm={updateForm}
-                        updateIncidentSubmit={updateIncidentSubmit}
-                        updateHidden={handleHidden}
-                    />
+            </section>
+            <section className="incident-author-supervisor-section ReportLogSections">
+                <div>
+                    <p>Author: {incident.author}</p>
+                    <p>Supervisor: {incident.supervisor}</p>
+                </div>
+                <section className="UpdateDeletecontainer">
+                        <button className="DeleteButton" type="button" onClick={deleteReport}><img src={deleteIcon} alt="delete button" /></button>
+                        <IncidentReportUpdater
+                            report={incident}
+                            updateForm={updateForm}
+                            updateIncidentSubmit={updateIncidentSubmit}
+                            updateHidden={handleHidden}
+                        />
                 </section>
             </section>
-            <section className="incident-author-supervisor-section">
-                <p>Author: {incident.author}</p>
-                <p>Supervisor: {incident.supervisor}</p>
-            </section>
-            <section>
+            <section className="ReportLogSections">
                 <p>Log Text: {incident.incident}</p>
                 <p>Witness: {incident.witnesses}</p>
             </section>

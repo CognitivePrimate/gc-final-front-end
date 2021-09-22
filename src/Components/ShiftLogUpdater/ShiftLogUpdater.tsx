@@ -26,7 +26,7 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
     return(
         <main className="ShiftLogUpdaterContainer">
             <section>
-                <button onClick={updateHidden}>E</button>
+                <button className="ModalToggle" onClick={updateHidden}>E</button>
             </section>
             <section className={UpdateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
