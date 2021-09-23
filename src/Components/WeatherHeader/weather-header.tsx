@@ -2,15 +2,33 @@ import { useEffect, useState, useContext } from "react";
 import { GeoLocation } from "../../Model/Interfaces"
 import {GeoLocationContext} from "../../ContextProviders/WeatherLocationProvider"
 import "./weather-header-styles.css";
+import axios from "axios";
 
 // import weather API
-import { fetchAllWeather } from "../../services";
+// import { fetchAllWeather } from "../../services";
 
 
 const WeatherHeader = () => {
     const [weather, setWeather] = useState([])
   
     const {GeoLocation, updateLocation} = useContext(GeoLocationContext);
+
+    // TEST
+    // gets API key from .env file
+    const key: string | undefined = process.env.REACT_APP_WEATHER_API;  
+    let APILon
+    function fetchAllWeather(location: GeoLocation){
+        console.log("services location", location);
+        console.log("services location.lat", location.lat);
+        const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&appid=${key}`;
+        console.log("lat-services", location.lat);
+        return axios.get(weatherAPIURL).then((response) => {
+            console.log("services response.data", response.data)
+            return response.data;
+        });
+    }
+
+    // END TEST
 
     const updateLocationTwo = (location: GeoLocation) => {
         // updateLocation({lat: location.lat, lon: location.lon});

@@ -3,7 +3,10 @@ main.EmergencyContactItemContainer {
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
-    background-color: rgb(197, 197, 197);
+    /* background-color: rgb(197, 197, 197); */
+    background-color: #ffffff;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    animation: FadeIn .7s;
 }
 
 

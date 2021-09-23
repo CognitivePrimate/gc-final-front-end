@@ -1,5 +1,6 @@
 main.NewLogContainer {
     padding: 20px;
+    animation: FadeIn .7s;
 }
 
 main.NewLogContainer form.logInputForm {

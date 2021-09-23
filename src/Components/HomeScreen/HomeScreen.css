@@ -1,5 +1,6 @@
 main.home-screen-main {
     margin-top: 10px;
+    animation: FadeIn .7s;
 }
 
 main.home-screen-main div.home-screen-container {
