@@ -174,7 +174,7 @@ const ScheduleCreation = () => {
                         schedule={schedule}
                         onScheduleDelete={() => handleScheduleDelete()}
                         onScheduleEdit={() => {}}
-                        onInputChange={() => {}}
+                        onInputChangeSubmit3={() => {}}
                         // onTimeBlockRowReset={() => handleTimeBlockRowReset}
                         // onScheduleSubmission={() => handleScheduleSubmit}
                     /> 

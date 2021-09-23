@@ -23,86 +23,82 @@ interface Props {
     // newEmail: () => void;
     // newTimeIn: () => void;
     // newTimeOut: () => void;
+    
     onInputChangeSubmit: () => void;
     index: number;
 }
 
 
 const ScheduleRowComponent = ({onRowDelete, onInputChangeSubmit, row, index}: Props) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [aliases, setAliases] = useState("");
-    const [email, setEmail] = useState("");
-    const [timeIn, setTimeIn] = useState();
-    const [timeOut, setTimeOut] = useState();
+//     const [firstName, setFirstName] = useState("");
+//     const [lastName, setLastName] = useState("");
+//     const [aliases, setAliases] = useState("");
+//     const [email, setEmail] = useState("");
+//     const [timeIn, setTimeIn] = useState();
+//     const [timeOut, setTimeOut] = useState();
 
-    
-    // const [scheduleRows, setScheduleRows] = useState();
+//   //handles submit event with ShiftLog object key values -FIX ANY
+//     const onRowSubmit = (e: FormEvent) => {
+//         e.preventDefault();
 
- 
-  //functions to handle onSubmit
-    const onSubmit = (scheduleRow: ScheduleRow) => {
-        // addSchedule(schedule);
-        console.log("schedule post onSubmit function")
-        //  ** NOTE ** ^ this is console logging scheduleRows the state, not the parameter in the function. Issue?//
-    }    
- 
-  //handles submit event with ShiftLog object key values -FIX ANY
-    const onRowSubmit = (e: FormEvent) => {
-        e.preventDefault();
+//         rowSubmit(e);
        
-        onSubmit({
-            firstName,
-            lastName,
-            aliases,
-            email,
-            timeIn,
-            timeOut, 
-        });
+//         // let newRow: ScheduleRow = row;
+//         console.log("row from sched-row", row);
 
-            // onClose();
-            setFirstName("");
-            setLastName("");
-            setAliases("");
-            setEmail("");
-            setTimeIn(undefined);
-            setTimeOut(undefined);
+//         // onClose();
+//         setFirstName("");
+//         setLastName("");
+//         setAliases("");
+//         setEmail("");
+//         setTimeIn(undefined);
+//         setTimeOut(undefined);
         
     
-            // NOTE FOR LATER: forEachRow --- do below?
-    }
-     // functions to handle creation of scheduleRow - FIX ANY
-     const newFirstName = (e: any) => setFirstName(e.target.value);
-     const newLastName = (e: any) => setLastName(e.target.value);
-     const newAliases = (e: any) => setAliases(e.target.value);
-     const newEmail = (e: any) => setEmail(e.target.value);
-     const newTimeIn = (e: any) => setTimeIn(e.target.value);
-     const newTimeOut = (e: any) => setTimeOut(e.target.value);
+//             // NOTE FOR LATER: forEachRow --- do below?
+//     }
+
+//      // functions to handle creation of scheduleRow - FIX ANY
+//         const rowSubmit = (e: FormEvent) => {
+//             const newFirstName = (e: any) => setFirstName(e.target.value);
+//             const newLastName = (e: any) => setLastName(e.target.value);
+//             const newAliases = (e: any) => setAliases(e.target.value);
+//             const newEmail = (e: any) => setEmail(e.target.value);
+//             const newTimeIn = (e: any) => setTimeIn(e.target.value);
+//             const newTimeOut = (e: any) => setTimeOut(e.target.value);
+//             newFirstName(e);
+//             newLastName(e);
+//             newAliases(e);
+//             newEmail(e);
+//             newTimeIn(e);
+//             newTimeOut(e);
+
+//         }
+     
 
 
-
-
+        // row.index?
 
         return(
             <div className="scheduleRowContainer">
                 
                 <label htmlFor={`firstName-${index}`}>First Name</label>
-                <input type="text" name={`firstName-${index}`} id={`firstName-${index}`} defaultValue={row.firstName} onChange={newFirstName} placeholder="first name"/>
+                <input type="text" name={`firstName-${index}`} id={`firstName-${index}`} defaultValue={row.firstName} onChange={onInputChangeSubmit} placeholder="first name"/>
 
                 <label htmlFor={`lastName-${index}`}>Last Name</label>
-                <input type="text" name={`lastName-${index}`} id={`lastName-${index}`} defaultValue={row.lastName} onChange={newLastName} placeholder="last name" />
+                <input type="text" name={`lastName-${index}`} id={`lastName-${index}`} defaultValue={row.lastName} onChange={onInputChangeSubmit} placeholder="last name" />
             
-                <label htmlFor="aliases">Aliases</label>
-                <input type="text" name="aliases" id="aliases" defaultValue={row.aliases} onChange={newAliases} placeholder={"aliases"}/>
+                <label htmlFor={`aliases-${index}`}>Aliases</label>
+                <input type="text" name={`aliases-${index}`} id={`aliases-${index}`} defaultValue={row.aliases} onChange={onInputChangeSubmit} placeholder="aliases"/>
 
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" id="email" defaultValue={row.email} onChange={newEmail} placeholder="email"/>
+                <label htmlFor={`email-${index}`}>Email</label>
+                <input type="text" name={`email-${index}`} id={`email-${index}`} defaultValue={row.email} onChange={onInputChangeSubmit} placeholder="email"/>
 
-                <label htmlFor="timeIn">Time In</label>
-                <input type="time" name="timeIn" id="timeIn" defaultValue={row.timeIn} onChange={newTimeIn}/>
+                <label htmlFor={`timeIn-${index}`}>Time In</label>
+                <input type="time" name={`timeIn-${index}`} id={`timeIn-${index}`} defaultValue={row.timeIn} onChange={onInputChangeSubmit}/>
 
                 <label htmlFor="timeOut">Time Out</label>
-                <input type="time" name="timeOut" id="timeOut" defaultValue={row.timeOut} onChange={newTimeOut}/>
+                <input type="time" name={`timeOut-${index}`} id={`timeOut-${index}`} defaultValue={row.timeOut} onChange={onInputChangeSubmit}/>
 
                 <div className="scheduleRowIconContainer">
                     <img className="trashIcon" src={deleteIcon} alt="delete" onClick={() => onRowDelete(row)}/>

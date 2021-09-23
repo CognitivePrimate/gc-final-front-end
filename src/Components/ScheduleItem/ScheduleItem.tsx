@@ -13,18 +13,19 @@ interface Props {
     schedule: Schedule,
     onScheduleDelete: () => void;
     onScheduleEdit: () => void;
-    onInputChange: () => void;
+    // onInputChange: () => void;
+    onInputChangeSubmit3: () => void;
     // onScheduleSubmission: () => void;
     // onTimeBlockRowReset: () => void;
 }
 
-const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange}: Props) => {
+const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChangeSubmit3}: Props) => {
 
     const handleTimeBlockDelete = (timeBlock: TimeBlock) => {
         console.log("timeblock", timeBlock)
     }
     
-    // updateTimeBlock = (timeBlock: TimeBlock) => {}
+    
 
     return(
         <div className="scheduleItemContainer" key={`${schedule.dateNeeded}-${schedule._id}`}>
@@ -36,6 +37,7 @@ const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange
                     key={`${timeBlock.startTime}-${index}`}
                     timeBlock={timeBlock}
                     onTimeBlockDelete={()=> handleTimeBlockDelete(timeBlock)}
+                    onInputChangeSubmit2={onInputChangeSubmit3}
                     // updateTimeBlock={(pendingTimeblock) => {}}
                 />
             )}

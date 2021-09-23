@@ -71,9 +71,9 @@ const ScheduleList = () => {
     
 
     // handle submission of finalized form, with volunteer info, to historicalSchedules collection
-    const submitHistoricalSchedule = (historicalSchedule: HistoricalSchedule) => {
-        addHistoricalSchedule(historicalSchedule);
-    }
+    // const submitHistoricalSchedule = (historicalSchedule: HistoricalSchedule) => {
+    //     addHistoricalSchedule(historicalSchedule);
+    // }
     
     // finalizes submission of finalized form, calling submit function from above
     const handleHistoricalScheduleSubmit =(e: FormEvent) => {
@@ -83,41 +83,133 @@ const ScheduleList = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
-        // TEST
+        // TEST TEST
+        // functions to handle creation of scheduleRow - FIX ANY
+        
+        const rowSubmit = (e: FormEvent) => {
+            console.log("in Row Submit")
+            const newFirstName = (e: any) => setFirstName(e.target.value);
+            const newLastName = (e: any) => setLastName(e.target.value);
+            const newAliases = (e: any) => setAliases(e.target.value);
+            const newEmail = (e: any) => setEmail(e.target.value);
+            const newTimeIn = (e: any) => setTimeIn(e.target.value);
+            const newTimeOut = (e: any) => setTimeOut(e.target.value);
+            newFirstName(e);
+            newLastName(e);
+            newAliases(e);
+            newEmail(e);
+            newTimeIn(e);
+            newTimeOut(e);
+        }
         searchedSchedules.forEach((schedule) => {
             for (let i = 0; i > schedule.timeBlocks.length; i++){
-                schedule.timeBlocks[i].scheduleRows.forEach((row) => {
-                //  onInputChange(e: any) => row.firstName = (e.target.value);
-                // const newLastName = (e: any) => row.lastName = (e.target.value);
-                // const newAliases = (e: any) => row.aliases = (e.target.value);
-                // const newEmail = (e: any) => row.email = (e.target.value);
-                // const newTimeIn = (e: any) => row.timeIn = (e.target.value);
-                // const newTimeOut = (e: any) => row.timeOut = (e.target.value); 
+                schedule.timeBlocks.forEach((block) => {
+                    block.scheduleRows.forEach((row) => {
+                        rowSubmit(e);
+                        row.firstName = firstName;
+                        row.lastName = lastName;
+                        row.aliases = aliases;
+                        row.email = email;
+                        row.timeIn = timeIn;
+                        row.timeOut = timeOut
+                    })
                 })
+                
             }
-            // block.scheduleRows.forEach((row) => {
-            //     // functions to handle creation of scheduleRow - FIX ANY
-                // const newFirstName = (e: any) => row.firstName = (e.target.value);
-                // const newLastName = (e: any) => row.lastName = (e.target.value);
-                // const newAliases = (e: any) => row.aliases = (e.target.value);
-                // const newEmail = (e: any) => row.email = (e.target.value);
-                // const newTimeIn = (e: any) => row.timeIn = (e.target.value);
-                // const newTimeOut = (e: any) => row.timeOut = (e.target.value);
-            // })
         })
+
+        let schedule = searchedSchedules[0];
+        
+        addHistoricalSchedule({
+            schedule,
+            yearCreated,
+            monthCreated,
+            dayCreated
+        })
+        
+        // ENDTEST
+
+        // submitHistoricalSchedule(e);
+
+        
+
+        // TEST
+        // searchedSchedules.forEach((schedule) => {
+        //     for (let i = 0; i > schedule.timeBlocks.length; i++){
+        //         schedule.timeBlocks[i].scheduleRows.forEach((row) => {
+        //          onInputChange(e: any) => row.firstName = (e.target.value);
+        //         const newLastName = (e: any) => row.lastName = (e.target.value);
+        //         const newAliases = (e: any) => row.aliases = (e.target.value);
+        //         const newEmail = (e: any) => row.email = (e.target.value);
+        //         const newTimeIn = (e: any) => row.timeIn = (e.target.value);
+        //         const newTimeOut = (e: any) => row.timeOut = (e.target.value); 
+        //         })
+        //     }
+        //     block.scheduleRows.forEach((row) => {
+        //         // functions to handle creation of scheduleRow - FIX ANY
+        //         const newFirstName = (e: any) => row.firstName = (e.target.value);
+        //         const newLastName = (e: any) => row.lastName = (e.target.value);
+        //         const newAliases = (e: any) => row.aliases = (e.target.value);
+        //         const newEmail = (e: any) => row.email = (e.target.value);
+        //         const newTimeIn = (e: any) => row.timeIn = (e.target.value);
+        //         const newTimeOut = (e: any) => row.timeOut = (e.target.value);
+        //     })
+        // })
         
 
         // END TEST
 
-        submitHistoricalSchedule({
-            schedule,
-            yearCreated,
-            monthCreated,
-            dayCreated,
-        });
+        // submitHistoricalSchedule({
+        //     historicalSchedule,
+        //     yearCreated,
+        //     monthCreated,
+        //     dayCreated,
+        // });
 
         setSearchedSchedules([]);
     }
+
+    // TESTING FOR SCHEDULE SUBMISSION FINAL
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [aliases, setAliases] = useState("");
+    const [email, setEmail] = useState("");
+    const [timeIn, setTimeIn] = useState();
+    const [timeOut, setTimeOut] = useState();
+
+  //handles submit event with ShiftLog object key values -FIX ANY
+    const submitHistoricalSchedule = (schedule: Schedule) => {
+        // e.preventDefault();
+        console.log("in form event");
+        // let newRow: ScheduleRow = row;
+
+        // rowSubmit({
+        //     firstName,
+        //     lastName,
+        //     aliases,
+        //     email,
+        //     timeIn,
+        //     timeOut
+        // });
+       
+        // let newRow: ScheduleRow = row;
+        // console.log("row from sched-row", row);
+
+        // onClose();
+        // setFirstName("");
+        // setLastName("");
+        // setAliases("");
+        // setEmail("");
+        // setTimeIn(undefined);
+        // setTimeOut(undefined);
+        
+    
+            // NOTE FOR LATER: forEachRow --- do below?
+    }
+
+     
+
+    // END TESTING FOR SCHEDULE SUBMISSION FINAL
 
     const handleDeleteRow = (schedule: Schedule) => {
         console.log("sched id to delete", schedule._id);
@@ -178,7 +270,7 @@ const ScheduleList = () => {
                                 schedule={schedule}
                                 onScheduleDelete={() => handleScheduleDelete(schedule)}
                                 onScheduleEdit={() => handleScheduleEdit(schedule)}
-                                onInputChange={() => {}}
+                                onInputChangeSubmit3={() => handleHistoricalScheduleSubmit}
                                 // onTimeBlockRowReset={()=>{}}
                                 // onScheduleSubmission={() => handleScheduleSubmit}
                             />

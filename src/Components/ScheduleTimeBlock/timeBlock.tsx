@@ -6,11 +6,12 @@ import "./timeBlocks.style.css";
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 interface Props {
     timeBlock: TimeBlock,
     onTimeBlockDelete: (timeBlock: TimeBlock) => void;
+    onInputChangeSubmit2: () => void;
 
     // updateTimeBlock: (pendingTimeBlock: TimeBlock) => {}
     // onInputChange: () => void;
@@ -18,7 +19,7 @@ interface Props {
     // onRowDelete: (index: number, row: ScheduleRow) => void;
 }
 
-const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
+const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Props) => {
 
     const [pendingTimeBlock, setPendingTimeBlock] = useState<TimeBlock>({
         ...timeBlock
@@ -46,7 +47,6 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
         console.log("editIndex", row);
     }
 
-    
 
 
     return(
@@ -68,7 +68,7 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
                         // onRowDelete={() => handleRowDelete}
                         onRowEdit={() => handleRowEdit(row)}
                         row={row}
-                        onInputChangeSubmit={() => {}}      
+                        onInputChangeSubmit={onInputChangeSubmit2}      
                     />
                 )}
                 
