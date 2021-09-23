@@ -4,6 +4,9 @@ import ShiftLogUpdater from "../ShiftLogUpdater/ShiftLogUpdater";
 
 import './IncidentReportUpdater.css' ;
 
+// Icons
+import editIcon from "../../Icons/edit.svg";
+
 
 
 
@@ -31,7 +34,7 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
     return(
         <main className="IncidentReportUpdaterContainer">
             <section>
-                <button className="ModalToggle" onClick={updateHidden}>U</button>
+                <button className="ModalToggle" onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
             </section>
             <section className={updateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>

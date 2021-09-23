@@ -34,24 +34,23 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
     return(
         <main className="EmergencyContactItemContainer">
             <section>
-                <section>
-                    <div>{emergencyContact.firstName}</div>
+                <section className="NameUpdateSection">
                     <section>
+                        <p>Name: {emergencyContact.firstName} {emergencyContact.lastName}</p>
+                        <p>Phone # {emergencyContact.phoneNumber}</p>
+                        <p>Email: {emergencyContact.email}</p>
+                        <p>Role: {emergencyContact.role}</p>
+                    </section>
+                    <section className="UpdateDeleteSection">
                         <button className="DeleteButton" type="button" onClick={deleteContact}><img src={deleteIcon} alt="delete button"/></button>
-                        <section>
                             <EmergencyContactsUpdater
                                 contact={emergencyContact}
                                 updateForm={updateForm}
                                 updateEmergencyContact={updateEmergencyContact}
                                 updateHidden={handleHidden}
                             />
-                        </section>
                     </section>
                 </section>
-                <div>{emergencyContact.lastName}</div>
-                <div>Phone # {emergencyContact.phoneNumber}</div>
-                <div>Email: {emergencyContact.email}</div>
-                <div>Role: {emergencyContact.role}</div>
             </section>
         </main>
     )

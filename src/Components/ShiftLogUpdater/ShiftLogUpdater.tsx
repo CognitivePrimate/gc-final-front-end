@@ -2,6 +2,9 @@ import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
 import './ShiftLogUpdater.css';
 
+// Icon
+import editIcon from "../../Icons/edit.svg";
+
 
 interface Props {
     shiftLog: ShiftLog;
@@ -26,7 +29,7 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
     return(
         <main className="ShiftLogUpdaterContainer">
             <section>
-                <button className="ModalToggle" onClick={updateHidden}>E</button>
+                <button className="ModalToggle" onClick={updateHidden}><img src={editIcon} alt="edit" /></button>
             </section>
             <section className={UpdateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>

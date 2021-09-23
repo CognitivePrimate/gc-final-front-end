@@ -4,6 +4,9 @@ import { updateEmergencyContact } from "../../services"
 
 import './EmergencyContactsUpdater.css';
 
+// Icons
+import editIcon from "../../Icons/edit.svg";
+
 
 
 interface Props {
@@ -23,7 +26,7 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
 
     const preventReload = (e: FormEvent) => {
         e.preventDefault();
-        updateEmergencyContact(contact);
+        updateEmergencyContact(pendingContact);
 
         // separation of concerns. Parent shouldn't be concerned //
     }
@@ -31,7 +34,7 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
     return (
         <main className="EmergencyContactsUpdaterContainer">
             <section>
-                <button onClick={updateHidden}>E</button>
+                <button onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
             </section>
             <section className={updateForm}>
                 <form className="InputFormUpdater" action="submit" onSubmit={preventReload}>

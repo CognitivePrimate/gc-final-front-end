@@ -81,7 +81,7 @@ const DailyShiftLog = () => {
                     </section>
                     <section className="SearchOptions">
                         <button className="SubmitButton">Search</button>
-                        <button className="SubmitButton" onClick={resetSearch}>Reset</button>
+                        <button className="ResetButton" onClick={resetSearch}>Reset</button>
                     </section>
                 </form>
             </section>

@@ -29,7 +29,7 @@ main.ShiftLogContainer section.AuthDateSection{
     justify-content: space space-around;
 }
 
-main.ShiftLogContainer section.LogTextContainer {
+main.ShiftLogContainer section.PersonUpdateSection {
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -49,6 +49,14 @@ main.ShiftLogContainer p.ParaInfo{
 
 
 main.ShiftLogContainer section.UpdateDeleteSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+main.ShiftLogContainer div.MainDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

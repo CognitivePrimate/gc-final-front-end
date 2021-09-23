@@ -25,8 +25,11 @@ export function fetchAllWeather(location: GeoLocation){
 
 // to mongodb
 
-// const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
-const baseUrl = 'http://localhost:5001/my-scheduling-backend/us-central1/api';
+// firebase version
+const baseUrl = 'https://us-central1-my-scheduling-backend.cloudfunctions.net/api';
+
+// local fire base version
+// const baseUrl = 'http://localhost:5001/my-scheduling-backend/us-central1/api';
 
 
 
@@ -94,6 +97,7 @@ export function deleteEmergencyContact (contact: EmergencyContact | undefined) :
 }
 
 export function updateEmergencyContact (contact: EmergencyContact | undefined) : Promise<EmergencyContact> {
+  console.log(contact);
   return axios.put(`${baseUrl}/EmergencyContacts/${contact?._id}`, contact).then(res => res.data);
 }
 
@@ -109,7 +113,7 @@ export function addSchedule(schedule: Schedule | undefined) : Promise<Schedule> 
 }
 
 export function deleteSchedule(schedule: Schedule) : Promise<Schedule> {
-  return axios.delete(`${baseUrl}/Schedules/:id`).then(res => res.data)
+  return axios.delete(`${baseUrl}/Schedules/${schedule?._id}`).then(res => res.data)
 }
 
 /// ** Historical Schedule Access **///

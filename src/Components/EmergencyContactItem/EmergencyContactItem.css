@@ -1,6 +1,21 @@
 main.EmergencyContactItemContainer {
     border-style: none;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
+    background-color: rgb(197, 197, 197);
+}
+
+
+main.EmergencyContactItemContainer  section.UpdateDeleteSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+main.EmergencyContactItemContainer section.NameUpdateSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

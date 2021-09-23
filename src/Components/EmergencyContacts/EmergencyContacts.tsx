@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { deleteEmergencyContact, fetchEmergencyContacts, updateEmergencyContact } from "../../services";
 import EmergencyContactItem from "../EmergencyContactItem/EmergencyContactItem";
+import "./EmergencyContacts.css";
 
 
 
@@ -39,7 +40,8 @@ const EmergencyContacts = () => {
         
 
     return(
-        <main>
+        <main className="EmergencyContactsContainer">
+            <h3 className="SectionTitle">Emergency Contacts</h3>
             <section>
             {emergencyContactList.map((emergencyContact, index) =>
                     <EmergencyContactItem
