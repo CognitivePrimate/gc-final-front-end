@@ -72,12 +72,12 @@ const DailyShiftLog = () => {
                 <form action="submit" className="InputForm" onSubmit={handleSubmit}>
                     <h3 className="CenterTextTitle">Search Logs</h3>
                     <section className="InputOptions">
-                        <label htmlFor="firstNameSearch">Author: </label>
-                        <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) }/>
+                        <label htmlFor="firstNameSearch"></label>
+                        <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) } placeholder="Name"/>
                     </section>
                     <section className="InputOptions">
-                        <label htmlFor="supervisorSearch">Supervisor:</label>
-                        <input type="text" name="supervisorSearch" id="supervisorSearch"/>
+                        <label htmlFor="supervisorSearch"></label>
+                        <input type="text" name="supervisorSearch" id="supervisorSearch" placeholder="Supervisor"/>
                     </section>
                     <section className="SearchOptions">
                         <button className="SubmitButton">Search</button>

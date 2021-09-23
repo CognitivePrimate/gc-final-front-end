@@ -70,16 +70,16 @@ const NewLogEntry = () => {
         <h3 className="NewLogTitle">New Shift Log</h3>
             <div className="logInputInfoContainer">
                 <div className="InputOptions">
-                    <label htmlFor="author">Name</label>
-                    <input type="text" name="author" id="author" value={author} onChange={newAuthor} />
+                    <label htmlFor="author"></label>
+                    <input type="text" name="author" id="author" value={author} onChange={newAuthor} placeholder="Name"/>
                 </div>
                 <div className="InputOptions">
-                    <label htmlFor="supervisor">Supervisor</label>
-                    <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} />
+                    <label htmlFor="supervisor"></label>
+                    <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} placeholder="Supervisor"/>
                 </div>
             </div>
-            <label htmlFor="logEntry">Log Here:</label><br/>
-            <textarea name="logEntry" id="logEntry" className="logEntry" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
+            <label htmlFor="logEntry"></label><br/>
+            <textarea name="logEntry" id="logEntry" className="logEntry" placeholder="Log Here:" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
             <div className="FinishButtons">
                 <button className="SubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
                 <section className="BackButtonLinkContainer">

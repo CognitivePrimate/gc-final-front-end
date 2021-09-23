@@ -19,8 +19,8 @@ main.ShiftLogContainer section.LogAuthorTime {
     border-style: none;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border-color: black;
-    background-color: rgb(197, 197, 197);
+    background-color:  #ffffff;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 main.ShiftLogContainer section.AuthDateSection{
@@ -38,8 +38,8 @@ main.ShiftLogContainer section.PersonUpdateSection {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    border-color: black;
-    background-color: rgb(197, 197, 197);
+    background-color: #ffffff;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 
 }
 
