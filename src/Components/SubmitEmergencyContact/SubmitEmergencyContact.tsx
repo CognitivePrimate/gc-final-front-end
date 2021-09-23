@@ -56,24 +56,24 @@ const SubmitEmergencyContact = () => {
             <form className="InputForm" action="submit" onSubmit={handlesubmit}>
                 <h3 className="ContactTitle">Add Emergency Contact</h3>
                 <div className="ContactLabelInputContainer">
-                    <label htmlFor="first-name">First Name:</label>
-                    <input type="text" name="first-name" id="first-name" value={firstName} onChange={newFirstName}/>
+                    <label htmlFor="first-name"></label>
+                    <input type="text" name="first-name" id="first-name" value={firstName} onChange={newFirstName} placeholder="First Name"/>
                 </div>
                 <div className="ContactLabelInputContainer">
-                    <label htmlFor="last-name">Last Name:</label>
-                    <input type="text" name="last-name" id="last-name" value={lastName} onChange={newLastName}/>
+                    <label htmlFor="last-name"></label>
+                    <input type="text" name="last-name" id="last-name" value={lastName} onChange={newLastName} placeholder="Last Name"/>
                 </div>
                 <div className="ContactLabelInputContainer">
-                    <label htmlFor="phone-number">Phone Number:</label>
-                    <input type="text" name="phone-number" id="phone-number" value={phoneNumber} onChange={newPhoneNumber}/>
+                    <label htmlFor="phone-number"></label>
+                    <input type="text" name="phone-number" id="phone-number" value={phoneNumber} onChange={newPhoneNumber} placeholder="Phone Number:"/>
                 </div>
                 <div className="ContactLabelInputContainer">
-                    <label htmlFor="email">E-Mail:</label>
-                    <input type="text" name="email" id="email" value={email} onChange={newEmail}/>
+                    <label htmlFor="email"></label>
+                    <input type="text" name="email" id="email" value={email} onChange={newEmail} placeholder="E-Mail"/>
                 </div>
                 <div className="ContactLabelInputContainer">
-                    <label htmlFor="contact-role">Role:</label>
-                    <input type="text" name="contact-role" id="contact-role" value={role} onChange={newRole}/>
+                    <label htmlFor="contact-role"></label>
+                    <input type="text" name="contact-role" id="contact-role" value={role} onChange={newRole} placeholder="Role"/>
                 </div>
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
