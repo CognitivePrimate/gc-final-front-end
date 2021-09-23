@@ -49,3 +49,11 @@ main.login-main button.login-submit-button {
     width: 100%;
 }
 
+
+main.login-main section.HeroShotLoginDiv {
+    border-style: solid;
+    border-color: red;
+    border-width: 2px;
+    width: 50%;
+    height: 60px;
+}
