@@ -88,19 +88,19 @@ const SubmitIncidentReport = () => {
             <form className="incidentInputForm InputForm" action="submit">
                 <div className="incidentInputInfoContainer">
                     <section className="AuthSupStyle">
-                        <label htmlFor="author">Name:</label>
-                        <input type="text" name="author" id="author" value={author} onChange={newAuthor}/><br/>
+                        <label htmlFor="author"></label>
+                        <input type="text" name="author" id="author" value={author} onChange={newAuthor} placeholder="Your Name"/><br/>
                     </section>
                     <section className="AuthSupStyle">
-                        <label htmlFor="supervisor">Supervisor:</label>
-                        <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor}/>
+                        <label htmlFor="supervisor"></label>
+                        <input type="text" name="supervisor" id="supervisor" value={supervisor} onChange={newSupervisor} placeholder="Supervisor"/>
                     </section>
                 </div>
-                <label htmlFor="incidentEntry">Log Here:</label><br/>
-                <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident}/><br/>
+                <label htmlFor="incidentEntry"></label><br/>
+                <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident} placeholder="Log Here:"/><br/>
 
-                <label htmlFor="witnesses">Witnesses:</label><br/>
-                <input className="FormInputsStyle" type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses}/><br/>
+                <label htmlFor="witnesses"></label><br/>
+                <input className="FormInputsStyle" type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses} placeholder="Witnesses"/><br/>
 
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>

@@ -1,6 +1,7 @@
 body {
+    /* #e9ecef */
     background-color: #fff;
-background-image: linear-gradient(315deg, #fff 0%, #e9ecef 74%);;
+/* background-image: linear-gradient(315deg, #e9ecef 0%, #fff 50%, #ffffff 100%);; */
 }
 
 * {
@@ -15,13 +16,24 @@ background-image: linear-gradient(315deg, #fff 0%, #e9ecef 74%);;
 
 /* Global Submit Form Container */
 
+input {
+    border: hidden; 
+    border-bottom: groove #ffffff;  
+}
+
+textarea {
+    border: hidden;
+    border-left: groove #ffffff;
+    border-bottom: groove;
+}
+
 form.InputForm {
     border-style: none;
     border-radius: 5px;
     background-color: #ffffff;
     padding: 15px;
     margin: 10px;
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 } 
 
 

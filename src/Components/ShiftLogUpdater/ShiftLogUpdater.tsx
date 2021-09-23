@@ -36,16 +36,16 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
                     <h3 className="NewLogTitle">Update Log</h3>
                     <div className="logInputInfoContainer">
                         <div className="InputOptions">
-                            <label htmlFor="author">Name</label>
-                            <input type="text" name="author" id="author" value={pendingLog.author} onChange={(e) => setPendingLog({...pendingLog, author: e.target.value})}/>
+                            <label htmlFor="author"></label>
+                            <input type="text" name="author" id="author" value={pendingLog.author} onChange={(e) => setPendingLog({...pendingLog, author: e.target.value})} placeholder="Name"/>
                         </div>
                         <div className="InputOptions">
-                            <label htmlFor="supervisor">Supervisor</label>
-                            <input type="text" name="supervisor" id="supervisor" value={pendingLog.supervisor} onChange={(e) => setPendingLog({...pendingLog, supervisor: e.target.value})}/>
+                            <label htmlFor="supervisor"></label>
+                            <input type="text" name="supervisor" id="supervisor" value={pendingLog.supervisor} onChange={(e) => setPendingLog({...pendingLog, supervisor: e.target.value})} placeholder="Supervisor"/>
                         </div>
                     </div>
-                    <label htmlFor="logEntry">Log Here:</label><br/>
-                    <textarea name="logEntry" id="logEntry" className="logEntry" value={pendingLog.logText} onChange={(e) => setPendingLog({...pendingLog, logText: e.target.value})} required minLength={2} rows={8}/><br />
+                    <label htmlFor="logEntry"></label><br/>
+                    <textarea name="logEntry" id="logEntry" className="logEntry" value={pendingLog.logText} onChange={(e) => setPendingLog({...pendingLog, logText: e.target.value})} required minLength={2} rows={8} placeholder="Log Here:"/><br />
                     <button className="SubmitButton" id="logSubmitButton" type="submit" >Update Log</button>
                 </form>
             </section>
