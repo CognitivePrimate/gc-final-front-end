@@ -39,7 +39,7 @@ const ScheduleCreation = () => {
     const handleScheduleRows = (scheduleRow: ScheduleRow) => {     
         for (let i = 0; i < volunteersNeeded; i++){
             let newScheduleRow: ScheduleRow[] = scheduleRows;
-            newScheduleRow.push(scheduleRow)
+            newScheduleRow.push(scheduleRow);
             setScheduleRows(newScheduleRow);
             console.log("ScheduleRows", scheduleRows);
         }
@@ -56,7 +56,6 @@ const ScheduleCreation = () => {
             email: "",
             timeIn: undefined,
             timeOut: undefined,
-            templated: false
         })
         
         onTimeBlockSubmit({
@@ -78,7 +77,6 @@ const ScheduleCreation = () => {
             // monthCreated,
             // dayCreated,
             templated
-
         }])
 
         // onClose();
@@ -95,39 +93,20 @@ const ScheduleCreation = () => {
     // const newSupervisor = (e: any) => setVolunteersNeeded(e.target.value);
     const newStartTime = (e: any) => setStartTime(e.target.value);
     const newEndTime = (e: any) => setEndTime(e.target.value);
-    
-    // sends entire schedule object to server --- called by handleScheduleSubmit function
-    // const submitSchedule = (schedule: Schedule) => {
-    //     console.log("onsubmitSchedulefunction")
-    //     let dateNeeded: Date | string = timeBlocks[0].dateNeeded;
-    //     console.log("timeblocks:", timeBlocks);
-    //     console.log("schedule", schedule);
-    //     addSchedule(schedule);
-    // }
-    
+
+    // sends ScheduleItem template to database
     const handleScheduleSubmit = (e: FormEvent) => {
         e.preventDefault();
         console.log("insubmitform");
         // IS THIS REDUNDANT BECAUSE IT'S SET ABOVE?
         const d: Date = new Date();
         let yearCreated: any = d.getFullYear();
-        let monthCreated: any = d.getMonth();
+        let monthCreated: any = d.getMonth() + 1;
         let dayCreated: any = d.getDate();
 
         // set templating to true for editing on call from db
         let dateNeeded = timeBlocks[0].dateNeeded;
 
-        // IS THIS CORRECT?
-        // console.log("timeblocks", timeBlocks);
-        
-        // submitSchedule({
-        //     timeBlocks,
-        //     dateNeeded,
-        //     yearCreated,
-        //     monthCreated,
-        //     dayCreated,
-        //     templated
-        // })
         let schedule: Schedule | undefined = undefined;
 
         if (scheduleTemplate[0]) {
@@ -144,24 +123,12 @@ const ScheduleCreation = () => {
             })
         }
 
-        // addSchedule(schedule);
-        
-        // addSchedule({
-        //     user: schedule.user,
-        //     timeBlocks,
-        //     dateNeeded,
-        //     yearCreated,
-        //     monthCreated,
-        //     dayCreated,
-        //     templated
-        // })
-
         setScheduleRows([]);
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0);
 
-        // resets timeBlocks array to remove TimeBlock properties from display upon schedule submission
+        // resets timeBlocks & template array to remove properties from display upon schedule submission
         setTimeBlocks([]);
         setScheduleTemplate([]);
 
@@ -172,6 +139,10 @@ const ScheduleCreation = () => {
     // NEW TEST AREA
     const handleScheduleDelete = () => {
         setScheduleTemplate([]);
+    }
+
+    const handleTimeBlockRowReset = () => {
+        console.log("in function thing");
     }
     
     // NEW TEST AREA
@@ -186,7 +157,7 @@ const ScheduleCreation = () => {
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
                     <br/>
                     <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
-                    <input type="number" name="volunteersNeeded" id="volunteersNeeded" defaultValue={volunteersNeeded} onChange={newVolunteersNeeded}/>
+                    <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
 
                     <label htmlFor="startTime">Start Time:</label>
                     <input type="time" name="startTime" id="startTime" value={startTime} onChange={newStartTime}/>
@@ -203,8 +174,10 @@ const ScheduleCreation = () => {
                         schedule={schedule}
                         onScheduleDelete={() => handleScheduleDelete()}
                         onScheduleEdit={() => {}}
+                        onInputChange={() => {}}
+                        // onTimeBlockRowReset={() => handleTimeBlockRowReset}
                         // onScheduleSubmission={() => handleScheduleSubmit}
-                    />
+                    /> 
                 )}
                 <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
             </form>

@@ -52,7 +52,7 @@ export interface ScheduleRow {
     timeIn?: number;
     timeOut?: number;
     _id?: string;
-    templated: boolean;
+    // templated: boolean;
 }
 
 // FIX ANY TYPE BELOW

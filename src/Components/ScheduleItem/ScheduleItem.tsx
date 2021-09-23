@@ -11,33 +11,37 @@ import { addSchedule } from "../../services";
 import { FormEvent } from "react";
 interface Props {
     schedule: Schedule,
-    onScheduleDelete: (schedule: Schedule) => void;
-    onScheduleEdit: (schedule: Schedule) => void;
+    onScheduleDelete: () => void;
+    onScheduleEdit: () => void;
+    onInputChange: () => void;
     // onScheduleSubmission: () => void;
+    // onTimeBlockRowReset: () => void;
 }
 
-const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit}: Props) => {
+const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange}: Props) => {
 
     const handleTimeBlockDelete = (timeBlock: TimeBlock) => {
         console.log("timeblock", timeBlock)
     }
     
+    // updateTimeBlock = (timeBlock: TimeBlock) => {}
 
     return(
         <div className="scheduleItemContainer" key={`${schedule.dateNeeded}-${schedule._id}`}>
             <div className="scheduleItemHeaderContainer">
-                <h5>{schedule.dateNeeded}</h5>
+                <h4>Schedule Date: {schedule.dateNeeded}</h4>
             </div>
             {schedule.timeBlocks.map((timeBlock, index) =>
                 <TimeBlockItem
                     key={`${timeBlock.startTime}-${index}`}
                     timeBlock={timeBlock}
                     onTimeBlockDelete={()=> handleTimeBlockDelete(timeBlock)}
+                    // updateTimeBlock={(pendingTimeblock) => {}}
                 />
             )}
             <div className="scheduleIconContainer">
-                {schedule.templated === true && <img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit(schedule)}/>}
-                <img className="trashIcon"src={deleteIcon} alt="delete" onClick={() => onScheduleDelete(schedule)}/><span>Delete Schedule Template</span>
+                {schedule.templated === true && <><img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit}/><span>Edit Schedule Template</span> </>}
+                <img className="trashIcon"src={deleteIcon} alt="delete" onClick={onScheduleDelete}/><span>Delete Schedule Template</span>
             </div>
         </div>
 

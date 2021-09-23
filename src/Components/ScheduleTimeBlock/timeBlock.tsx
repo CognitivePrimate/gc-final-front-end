@@ -6,18 +6,40 @@ import "./timeBlocks.style.css";
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
+import { useState } from "react";
 
 interface Props {
     timeBlock: TimeBlock,
     onTimeBlockDelete: (timeBlock: TimeBlock) => void;
+
+    // updateTimeBlock: (pendingTimeBlock: TimeBlock) => {}
+    // onInputChange: () => void;
+    // onTimeBlockTemplateRowDelete: () => void;
+    // onRowDelete: (index: number, row: ScheduleRow) => void;
 }
 
 const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
 
+    const [pendingTimeBlock, setPendingTimeBlock] = useState<TimeBlock>({
+        ...timeBlock
+    })
 
-    const handleRowDelete = (row: ScheduleRow) => {
-        console.log("deleteIndex", row);
-
+    const handleRowDelete = (index: number, row: ScheduleRow) => {
+        // finds row at specified index in array. otherwise, row always returns index 0 in this case
+        // let toDelete = timeBlock.scheduleRows.indexOf(row, index);
+        let newTimeBlock = pendingTimeBlock;
+        let toDelete = newTimeBlock.scheduleRows.indexOf(row, index);
+        console.log("index", index);
+        console.log("toDelete", toDelete);
+        if (index === toDelete){
+            console.log("predelete", timeBlock.scheduleRows);
+            // timeBlock.scheduleRows.splice(index, 1);
+            newTimeBlock.scheduleRows.splice(index, 1);
+            console.log("deleted", timeBlock.scheduleRows);
+            // onTimeBlockTemplateRowDelete();
+        }
+        setPendingTimeBlock(newTimeBlock);
+        // updateTimeBlock(pendingTimeBlock)
     }
 
     const handleRowEdit = (row: ScheduleRow) => {
@@ -41,9 +63,12 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete}: Props) => {
                 {timeBlock.scheduleRows.map((row, index) => 
                     <ScheduleRowComponent 
                         key={`${row}-${index}`}
-                        onRowDelete={() => handleRowDelete(row)}
+                        index={index}
+                        onRowDelete={() => handleRowDelete(index, row)}
+                        // onRowDelete={() => handleRowDelete}
                         onRowEdit={() => handleRowEdit(row)}
-                        row={row}             
+                        row={row}
+                        onInputChangeSubmit={() => {}}      
                     />
                 )}
                 

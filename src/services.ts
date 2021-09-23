@@ -95,7 +95,11 @@ export function addSchedule(schedule: Schedule | undefined) : Promise<Schedule> 
 }
 
 export function deleteSchedule(schedule: Schedule) : Promise<Schedule> {
-  return axios.delete(`${baseUrl}/Schedules/:id`).then(res => res.data)
+  return axios.delete(`${baseUrl}/Schedules/${schedule._id}`).then(res => res.data)
+}
+
+export function editSchedule(schedule: Schedule) : Promise<Schedule> {
+  return axios.put(`${baseUrl}/Schedules/${schedule._id}`).then(res => res.data)
 }
 
 /// ** Historical Schedule Access **///

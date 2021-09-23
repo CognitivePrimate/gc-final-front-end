@@ -18,9 +18,19 @@ code {
 
 .trashIcon {
   cursor: pointer;
+  filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7));
 }
 
 .trashIcon:hover{
+  animation: Wiggles .8s infinite;
+}
+
+.editIcon {
+  cursor: pointer;
+  filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7));
+}
+
+.editIcon:hover{
   animation: Wiggles .8s infinite;
 }
 
