@@ -5,22 +5,22 @@ import { useContext} from "react";
 import { EmergencyContact, GeoLocation, HistoricalSchedule, IncidentReport, Schedule, ShiftLog } from "./Model/Interfaces";
 import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 
-// gets API key from .env file
-const key: string | undefined = process.env.REACT_APP_WEATHER_API;
+// // gets API key from .env file
+// const key: string | undefined = process.env.REACT_APP_WEATHER_API;
 
 
-console.log (key);
+// console.log (key);
 // get all weather
-export function fetchAllWeather(location: GeoLocation){
-    console.log("services location", location);
-    console.log("services location.lat", location.lat);
-    const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&appid=${key}`;
-    console.log("lat-services", location.lat);
-    return axios.get(weatherAPIURL).then((response) => {
-        console.log("services response.data", response.data)
-        return response.data;
-    });
-}
+// export function fetchAllWeather(location: GeoLocation){
+//     console.log("services location", location);
+//     console.log("services location.lat", location.lat);
+//     const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&appid=${key}`;
+//     console.log("lat-services", location.lat);
+//     return axios.get(weatherAPIURL).then((response) => {
+//         console.log("services response.data", response.data)
+//         return response.data;
+//     });
+// }
 
 
 // to mongodb

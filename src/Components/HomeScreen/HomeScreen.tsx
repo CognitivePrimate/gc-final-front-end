@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import "./HomeScreen.css";
+import "../../App.css";
+import "../../index.css";
 
 const homeScreenStyle = "home-screen-button"
 const HomeScreen = () => {

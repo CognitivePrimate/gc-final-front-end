@@ -3,6 +3,9 @@ import { ShiftLog } from "../../Model/Interfaces";
 import {ObjectId} from "mongodb";
 
 import "./new-log-entry-styles.css";
+import "../../App.css";
+import "../../index.css";
+
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { addShiftLog } from "../../services";

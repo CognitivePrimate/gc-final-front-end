@@ -6,6 +6,7 @@ body {
 
 * {
     font-family: sans-serif;
+
 }
 
 /* ////** Global styles for reuseable elements between components *\\\\\ */
@@ -34,6 +35,7 @@ form.InputForm {
     padding: 15px;
     margin: 10px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    animation: FadeIn .7s;
 } 
 
 
@@ -82,6 +84,14 @@ button.SubmitButton {
     background-color: #F17841;
     color: #ffffff;
     box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    cursor: pointer;
+}
+
+/* TEST */
+.SubmitButton:hover{
+    background-color: #ee5e1b;
+    box-shadow:  3px 3px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 section.SubmitButtonContainer {
