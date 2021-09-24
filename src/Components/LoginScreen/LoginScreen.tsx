@@ -22,19 +22,56 @@ const LoginScreen = () => {
     return (
         <main className="login-screen">
         { user ?
-          <section>
-            {user.displayName} {' '}
-            (<Link to="/HomeScreen">Home</Link>) {' '}
+          <section className="SignedInSection">
+            <div>
+                {user.displayName} {' '}
+                (<Link to="/HomeScreen">Home</Link>) {' '}
+            </div>
             <button onClick={logout}>Sign Out</button>
+
           </section> :
           <button className="SignInButton" onClick={signIn}>Sign in with Google</button>
           
           
         }
+        <section className="StylishDivsContainerSize2">
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+        </section>
+        <section className="StylishDivsContainerSize1">
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+        </section>
         <section className="HeroShotLoginSection">
             <div className="HeroShotLoginDiv">
-                <h2>SkedMan</h2>
+                <h2 className="AppName">SkedMan</h2>
             </div>
+        </section>
+        <section className="StylishDivsContainerSize1">
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+            <div className="StylishDivSize1"></div>
+        </section>
+        <section className="StylishDivsContainerSize2">
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
+            <div className="StylishDivSize2"></div>
         </section>
 
         </main>

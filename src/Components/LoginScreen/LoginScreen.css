@@ -49,7 +49,11 @@ main.login-main button.login-submit-button {
     width: 100%;
 }
 
-main.login-screen section.HeroLoginSection {
+
+
+/* Login Screen styles */
+
+main.login-screen section.HeroShotLoginSection {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,8 +61,68 @@ main.login-screen section.HeroLoginSection {
 
 main.login-screen div.HeroShotLoginDiv {
     border-style: solid;
-    border-color: red;
+    border-color: #F17841;
+    background-color: #F17841;
+    border-radius: 10px;
     border-width: 2px;
+    margin: 20px;
     width: 50%;
-    height: 60px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.login-screen h2.AppName {
+    text-align: center;
+    color: white;
+}
+
+/*  sign in section */
+
+main.login-screen section.SignedInSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+    background-color: #f3eae6;
+}
+
+
+
+
+/* fun stylish thing  */
+
+main.login-screen section.StylishDivsContainerSize1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 0 40px;
+}
+
+main.login-screen div.StylishDivSize1 {
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #f1a886;
+}
+
+
+/*  size 2 */
+
+main.login-screen section.StylishDivsContainerSize2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+main.login-screen div.StylishDivSize2 {
+    height: 20px;
+    width: 14px;
+    border-radius: 3px;
+    margin: 0 10px;
+    background-color: #f1d5c7;
 }
