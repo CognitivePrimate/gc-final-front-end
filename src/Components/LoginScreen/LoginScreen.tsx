@@ -31,7 +31,7 @@ const LoginScreen = () => {
           
           
         }
-        <section className="HeroShotLoginDiv">
+        <section className="HeroShotLoginSection">
             <div className="HeroShotLoginDiv">
                 <h2>SkedMan</h2>
             </div>

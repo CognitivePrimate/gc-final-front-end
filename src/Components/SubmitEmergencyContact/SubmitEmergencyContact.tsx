@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { addEmergencyContact } from "../../services";
+import BackButton from "../ButtonComponents/BackButton/BackButton";
 import './SubmitEmergencyContact.css';
 
 
@@ -79,9 +80,7 @@ const SubmitEmergencyContact = () => {
                     <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
                 </section>
             </form>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
 
         </main>
     )

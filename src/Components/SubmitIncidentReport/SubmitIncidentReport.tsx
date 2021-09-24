@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IncidentReport } from '../../Model/Interfaces';
 import { addIncidentReport } from '../../services';
+import BackButton from '../ButtonComponents/BackButton/BackButton';
 import './SubmitIncidentReport.css';
 
 const SubmitIncidentReport = () => {
@@ -106,9 +107,7 @@ const SubmitIncidentReport = () => {
                     <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
                 </section>
             </form>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
     )
 }

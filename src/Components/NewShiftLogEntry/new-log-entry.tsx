@@ -9,6 +9,7 @@ import "../../index.css";
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { addShiftLog } from "../../services";
+import BackButton from "../ButtonComponents/BackButton/BackButton";
 
 // TODO
 // remove log function
@@ -85,9 +86,7 @@ const NewLogEntry = () => {
             <textarea name="logEntry" id="logEntry" className="logEntry" placeholder="Log Here:" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
             <div className="FinishButtons">
                 <button className="SubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
-                <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-                </section>
+                <BackButton/>
             </div>
         </form>
     </main>

@@ -5,6 +5,7 @@ import IncidentReportUpdater from "../IncidentReportUpdater/IncidentReportUpdate
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
+import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
 
@@ -48,7 +49,9 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
                     <p>Supervisor: {incident.supervisor}</p>
                 </div>
                 <section className="UpdateDeletecontainer">
-                        <button className="DeleteButton" type="button" onClick={deleteReport}><img src={deleteIcon} alt="delete button" /></button>
+                        <DeleteButton
+                        deleteReport={deleteReport}
+                        />
                         <IncidentReportUpdater
                             report={incident}
                             updateForm={updateForm}

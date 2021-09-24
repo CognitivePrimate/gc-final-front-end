@@ -49,8 +49,13 @@ main.login-main button.login-submit-button {
     width: 100%;
 }
 
+main.login-screen section.HeroLoginSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-main.login-main section.HeroShotLoginDiv {
+main.login-screen div.HeroShotLoginDiv {
     border-style: solid;
     border-color: red;
     border-width: 2px;

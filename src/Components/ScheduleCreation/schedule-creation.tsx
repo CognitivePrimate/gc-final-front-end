@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
 import { addSchedule } from "../../services";
+import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
 
@@ -234,9 +235,7 @@ const ScheduleCreation = () => {
                 <button className="submitButton SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
                 </section>
             </div>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
         
     );
