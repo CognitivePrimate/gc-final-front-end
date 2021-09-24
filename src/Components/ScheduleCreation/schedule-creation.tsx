@@ -1,11 +1,15 @@
+import firebase from "firebase";
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
 import { addSchedule } from "../../services";
 import BackButton from "../ButtonComponents/BackButton/BackButton";
+import ScheduleItem from "../ScheduleItem/ScheduleItem";
 import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
+
+
 
 const ScheduleCreation = () => {
     // setting with state all required properties for Schedule object
@@ -14,6 +18,10 @@ const ScheduleCreation = () => {
    const [dateNeeded, setDateNeeded] = useState(Date);
    const [startTime, setStartTime] = useState(0);
    const [endTime, setEndTime] = useState(0);
+   
+    //  finalized schedule template to be submitted
+   const [scheduleTemplate, setScheduleTemplate] = useState<Schedule[]>([]);
+
 
    const user= useAuthUser();
 
@@ -28,12 +36,11 @@ const ScheduleCreation = () => {
         setTimeBlocks(newTimeBlock);
         console.log("timeBlocks post onSubmit function", timeBlocks);
     }
-
-    const handleScheduleRows = (scheduleRow: ScheduleRow) => {
-        // generates a Schedule Row component in respective TimeBlock based on number of volunteers input by user
+ // generates a Schedule Row component in respective TimeBlock based on number of volunteers input by user
+    const handleScheduleRows = (scheduleRow: ScheduleRow) => {     
         for (let i = 0; i < volunteersNeeded; i++){
             let newScheduleRow: ScheduleRow[] = scheduleRows;
-            newScheduleRow.push(scheduleRow)
+            newScheduleRow.push(scheduleRow);
             setScheduleRows(newScheduleRow);
             console.log("ScheduleRows", scheduleRows);
         }
@@ -57,8 +64,21 @@ const ScheduleCreation = () => {
             volunteersNeeded,
             dateNeeded,
             startTime,
-            endTime,
+            endTime
         });
+
+        // should stay false until submission for editing post-template-finalization
+        let templated = false;
+
+        setScheduleTemplate([{
+            user: user,
+            timeBlocks: timeBlocks,
+            dateNeeded: dateNeeded,
+            // yearCreated,
+            // monthCreated,
+            // dayCreated,
+            templated
+        }])
 
         // onClose();
         setVolunteersNeeded(0);
@@ -74,105 +94,59 @@ const ScheduleCreation = () => {
     // const newSupervisor = (e: any) => setVolunteersNeeded(e.target.value);
     const newStartTime = (e: any) => setStartTime(e.target.value);
     const newEndTime = (e: any) => setEndTime(e.target.value);
-    
-    // sends entire schedule object to server --- called by handleScheduleSubmit function
-    const submitSchedule = (schedule: Schedule) => {
-        let dateNeeded: Date | string = timeBlocks[0].dateNeeded;
-        console.log("timeblocks:", timeBlocks);
-        addSchedule(schedule);
-    }
-    
+
+    // sends ScheduleItem template to database
     const handleScheduleSubmit = (e: FormEvent) => {
         e.preventDefault();
+        console.log("insubmitform");
+        // IS THIS REDUNDANT BECAUSE IT'S SET ABOVE?
         const d: Date = new Date();
         let yearCreated: any = d.getFullYear();
-        let monthCreated: any = d.getMonth();
+        let monthCreated: any = d.getMonth() + 1;
         let dayCreated: any = d.getDate();
 
-        // let dateNeeded = timeBlocks[0].dateNeeded;
+        // set templating to true for editing on call from db
+        let dateNeeded = timeBlocks[0].dateNeeded;
 
-        // IS THIS CORRECT?
-        console.log("timeblocks", timeBlocks);
-        
-        submitSchedule({
-            timeBlocks,
-            dateNeeded,
-            yearCreated,
-            monthCreated,
-            dayCreated,
-        })
+        let schedule: Schedule | undefined = undefined;
+
+        if (scheduleTemplate[0]) {
+            schedule = scheduleTemplate[0];
+            console.log("schedule", schedule);
+            addSchedule({
+                user: schedule.user,
+                timeBlocks: schedule.timeBlocks,
+                dateNeeded: schedule.dateNeeded,
+                yearCreated: yearCreated,
+                monthCreated: monthCreated,
+                dayCreated: dayCreated,
+                templated: true
+            })
+        }
 
         setScheduleRows([]);
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0);
 
-        // resets timeBlocks array to remove TimeBlock properties from display upon schedule submission
+        // resets timeBlocks & template array to remove properties from display upon schedule submission
         setTimeBlocks([]);
+        setScheduleTemplate([]);
+
+        console.log("schedule submitted", schedule);
 
     }
 
-    const HandleDeleteRow = (index: number) => {
-        console.log("trying to delete");
-        console.log("index", index);
-        // let newTimeBlocks: TimeBlock[] = timeBlocks;
-        // newTimeBlocks.splice(index, 1);
-        // setTimeBlocks(newTimeBlocks);
-        console.log("pre-delete", timeBlocks);
+    // NEW TEST AREA
+    const handleScheduleDelete = () => {
+        setScheduleTemplate([]);
+    }
 
-        timeBlocks.forEach((timeBlock) => {
-            console.log("first foreach");
-            timeBlock.scheduleRows.forEach((row) => {
-                console.log("second for each")
-                if (timeBlock.scheduleRows[index]){
-                    console.log("in if statement");
-                    // setScheduleRows([]);
-                    // setVolunteersNeeded(0);
-
-                    // handleScheduleRows({
-                    //     firstName: "",
-                    //     lastName: "",
-                    //     aliases: "",
-                    //     email: "",
-                    //     timeIn: undefined,
-                    //     timeOut: undefined,
-                    // })
-                    
-                    // onTimeBlockSubmit({
-                    //     scheduleRows,
-                    //     volunteersNeeded,
-                    //     dateNeeded,
-                    //     startTime,
-                    //     endTime,
-                    // });
-                    
-                    
-                }
-            })
-            // if (index === timeBlock.scheduleRows[index]){
-            //     console.log("trying to slice");
-            //     let newVolunteersNeeded: number = timeBlock.volunteersNeeded -1;
-            //     setVolunteersNeeded(newVolunteersNeeded);
-            //     console.log("v needed", volunteersNeeded);
-                
-                
-            //     timeBlock.scheduleRows.splice(index, 1);
-
-
-                // console.log("timeblocks.scheduleRows", timeBlock.scheduleRows);
-                // setTimeBlocks([prevTimeBlocks =>
-                //     ...timeBlocks.slice(0, index),
-                //     ...timeBlocks.slice(index+1)
-                // ]);
-            // }
-            console.log("afterDeleteAttempt", timeBlocks);
-        })
-        
-        
-        
+    const handleTimeBlockRowReset = () => {
+        console.log("in function thing");
     }
     
-
+    // NEW TEST AREA
 
     return(
         <main className="sheduleComponentContainer">
@@ -184,7 +158,7 @@ const ScheduleCreation = () => {
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
                     <br/>
                     <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
-                    <input type="number" name="volunteersNeeded" id="volunteersNeeded" defaultValue={volunteersNeeded} onChange={newVolunteersNeeded}/>
+                    <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
 
                     <label htmlFor="startTime">Start Time:</label>
                     <input type="time" name="startTime" id="startTime" value={startTime} onChange={newStartTime}/>
@@ -192,50 +166,26 @@ const ScheduleCreation = () => {
                     <label htmlFor="endTime">end Time:</label>
                     <input type="time" name="endTime" id="endTime" value={endTime} onChange={newEndTime}/>
                     <button type="button" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
-        
                 </form>
             </div>
-            <div className="generatedTimeBlockContainer">
-                {timeBlocks.map((timeblock, index) =>
-                // maps each time block and within that timeblock maps scheduleRowComponents based on VolunteersNeeded input
-                    <div className="timeBlockContainer" key={index}>
-                        <div className="timeBlockContainerHeaderContainer">
-                            <h4 className="timeBlockTimeHeader">{timeblock.dateNeeded}</h4>
-                            <div className="timeBlockDateHeaderRight">
-                                {/* <h5 className="timeBlockTimeHeader">From: {timeblock.startTime}</h5> */}
-                                {/* <h5 className="timeBlockTimeHeader">To: {timeblock.endTime}</h5> */}
-                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">From: {timeblock.startTime.toLocaleString("en-US")}</h5>}
-                                {timeBlocks.length > 0 && <h5 className="timeBlockTimeHeader">To: {timeblock.endTime.toLocaleString("en-US")}</h5>}
-                            </div>
-                        </div>
-                        
-                        <form action="submit" className="timeBlockSubmissionContainerForm InputForm" id="timeBlockSubmissionContainerForm" onSubmit={handleScheduleSubmit}>
-                            {timeblock.scheduleRows.map((row, index) => 
-                                <div className="scheduleRowComponentWrapper">
-                                    <ScheduleRowComponent
-                                        firstName={row.firstName}
-                                        lastName={row.lastName}
-                                        aliases={row.aliases}
-                                        email={row.email}
-                                        timeIn={row.timeIn}
-                                        timeOut={row.timeOut}
-                                        _id={row._id}
-                                        key={index}
-                                        onDelete={() => HandleDeleteRow(index)}
-                                    />
-                                </div>
-                            )}
-                        </form>
-                        
-                    </div>
+            <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleScheduleSubmit}>
+                {scheduleTemplate && scheduleTemplate.map((schedule, index) => 
+                    <ScheduleItem
+                        key={`${schedule.dateNeeded}-${index}`} 
+                        schedule={schedule}
+                        onScheduleDelete={() => handleScheduleDelete()}
+                        onScheduleEdit={() => {}}
+                        onInputChangeSubmit3={() => {}}
+                        // onTimeBlockRowReset={() => handleTimeBlockRowReset}
+                        // onScheduleSubmission={() => handleScheduleSubmit}
+                    /> 
                 )}
+                <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
+            </form>
 
-                {/* TEST */}
-                <section className="SubmitButtonContainer">
-                <button className="submitButton SubmitButton" type="submit" name="submit" form="timeBlockSubmissionContainerForm">Submit Schedule</button>
-                </section>
-            </div>
-            <BackButton/>
+            <section className="BackButtonLinkContainer">
+                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+            </section>
         </main>
         
     );

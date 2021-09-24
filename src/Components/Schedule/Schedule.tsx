@@ -1,8 +1,8 @@
 import { ObjectId } from 'mongodb';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {HistoricalSchedule, Schedule} from '../../Model/Interfaces'
-import { addHistoricalSchedule, fetchSchedules } from '../../services';
+import {HistoricalSchedule, Schedule, ScheduleRow} from '../../Model/Interfaces'
+import { addHistoricalSchedule, deleteSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
 
@@ -21,9 +21,10 @@ const ScheduleList = () => {
     const loadSchedules = () => {
         fetchSchedules().then((res) => {
             setSchedules(res);
-            // setSearchedSchedules(res);
+
         }); 
     }
+    
     // calls all schedules immediately upon component render, but only once per useEffect
     useEffect(loadSchedules, []);
 
@@ -34,53 +35,47 @@ const ScheduleList = () => {
 
     // get schedules by single date variables and functions
     let dateNeeded: Date = new Date;
-    const newGetScheduleByDateInput = (e: any) => {setSearchDate(e.target.value)}
+    const newGetScheduleByDateInput = (e: any) => {setSearchDate(e.target.value)};
     
-    // iterates through schedules array state to match user date input to schedule date
+    // iterates through schedules array state to match user date input to schedule date or message if not &&
+    // function to set on timer for schedules not found
+    const notFoundFunc = () => {notFound = true}
+    let notFound: Boolean = false;
+    let notFoundMessage: string = "Schedule Not Found. Much Sorry."
     const handleGetSchedulesByDate = (e: FormEvent) => {
         e.preventDefault();
+        notFound = false;
         let newSearchedSchedule: Schedule[] = [];
         schedules.forEach((schedule) => {
             if (searchDate === schedule.dateNeeded){
+                console.log("found");
                 newSearchedSchedule.push(schedule);
+            }else{
+                notFoundFunc()
             }
         });
+        
+
+        
+        // TODO --- if not found, message on screen, not alert probably
         setSearchedSchedules(newSearchedSchedule);
+        console.log("newSearchedbeforeReset", searchedSchedules)
+        console.log("searched", searchedSchedules);
     }
    
 
     // resetSearch
     const resetSearch = () => {
-        fetchSchedules().then(setSearchedSchedules);
-        console.log(searchedSchedules);
+        loadSchedules();
+        setSearchedSchedules([]);
     }
     
-    // const onGetSchedulesByDateSubmit = (dateNeeded: Date) => {
-    //     setSearchedSchedules([]);
-    //     console.log("what");
-    //     schedules.forEach((schedule) => {
-    //         if (dateNeeded === schedule.dateNeeded){
-    //             let newSearchedSchedule: Schedule[] = searchedSchedules;
-    //             newSearchedSchedule.push(schedule);
-    //             setSearchedSchedules(newSearchedSchedule);
-    //             console.log("searchedSchedules", searchedSchedules);
-    //         }
-    //     })
-    // }
-
-    // const handleGetSchedulesByDate = (e: FormEvent) => {
-    //     e.preventDefault();
-    //     setSearchedSchedules([]);
-    //     console.log("setSearchedinByDate", searchedSchedules);
-    //     console.log("dateneeded", dateNeeded);
-    //     onGetSchedulesByDateSubmit(dateNeeded);
-    //     console.log("in handle get schedules function");
-    // }
 
     // handle submission of finalized form, with volunteer info, to historicalSchedules collection
-    const submitHistoricalSchedule = (historicalSchedule: HistoricalSchedule) => {
-        addHistoricalSchedule(historicalSchedule);
-    }
+    // const submitHistoricalSchedule = (historicalSchedule: HistoricalSchedule) => {
+    //     addHistoricalSchedule(historicalSchedule);
+    // }
+    
     // finalizes submission of finalized form, calling submit function from above
     const handleHistoricalScheduleSubmit =(e: FormEvent) => {
         e.preventDefault();
@@ -89,22 +84,140 @@ const ScheduleList = () => {
         let monthCreated: any = d.getMonth();
         let dayCreated: any = d.getDate();
 
+        // TEST TEST
+        // functions to handle creation of scheduleRow - FIX ANY
         
+        const rowSubmit = (e: FormEvent) => {
+            console.log("in Row Submit")
+            const newFirstName = (e: any) => setFirstName(e.target.value);
+            const newLastName = (e: any) => setLastName(e.target.value);
+            const newAliases = (e: any) => setAliases(e.target.value);
+            const newEmail = (e: any) => setEmail(e.target.value);
+            const newTimeIn = (e: any) => setTimeIn(e.target.value);
+            const newTimeOut = (e: any) => setTimeOut(e.target.value);
+            newFirstName(e);
+            newLastName(e);
+            newAliases(e);
+            newEmail(e);
+            newTimeIn(e);
+            newTimeOut(e);
+        }
+        searchedSchedules.forEach((schedule) => {
+            for (let i = 0; i > schedule.timeBlocks.length; i++){
+                schedule.timeBlocks.forEach((block) => {
+                    block.scheduleRows.forEach((row) => {
+                        rowSubmit(e);
+                        row.firstName = firstName;
+                        row.lastName = lastName;
+                        row.aliases = aliases;
+                        row.email = email;
+                        row.timeIn = timeIn;
+                        row.timeOut = timeOut
+                    })
+                })
+                
+            }
+        })
 
-        submitHistoricalSchedule({
+        let schedule = searchedSchedules[0];
+        
+        addHistoricalSchedule({
             schedule,
             yearCreated,
             monthCreated,
-            dayCreated,
-        });
+            dayCreated
+        })
+        
+        // ENDTEST
+
+        // submitHistoricalSchedule(e);
+
+        
+
+        // TEST
+        // searchedSchedules.forEach((schedule) => {
+        //     for (let i = 0; i > schedule.timeBlocks.length; i++){
+        //         schedule.timeBlocks[i].scheduleRows.forEach((row) => {
+        //          onInputChange(e: any) => row.firstName = (e.target.value);
+        //         const newLastName = (e: any) => row.lastName = (e.target.value);
+        //         const newAliases = (e: any) => row.aliases = (e.target.value);
+        //         const newEmail = (e: any) => row.email = (e.target.value);
+        //         const newTimeIn = (e: any) => row.timeIn = (e.target.value);
+        //         const newTimeOut = (e: any) => row.timeOut = (e.target.value); 
+        //         })
+        //     }
+        //     block.scheduleRows.forEach((row) => {
+        //         // functions to handle creation of scheduleRow - FIX ANY
+        //         const newFirstName = (e: any) => row.firstName = (e.target.value);
+        //         const newLastName = (e: any) => row.lastName = (e.target.value);
+        //         const newAliases = (e: any) => row.aliases = (e.target.value);
+        //         const newEmail = (e: any) => row.email = (e.target.value);
+        //         const newTimeIn = (e: any) => row.timeIn = (e.target.value);
+        //         const newTimeOut = (e: any) => row.timeOut = (e.target.value);
+        //     })
+        // })
+        
+
+        // END TEST
+
+        // submitHistoricalSchedule({
+        //     historicalSchedule,
+        //     yearCreated,
+        //     monthCreated,
+        //     dayCreated,
+        // });
 
         setSearchedSchedules([]);
     }
 
-    const HandleDeleteRow = (schedule: Schedule) => {
+    // TESTING FOR SCHEDULE SUBMISSION FINAL
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [aliases, setAliases] = useState("");
+    const [email, setEmail] = useState("");
+    const [timeIn, setTimeIn] = useState();
+    const [timeOut, setTimeOut] = useState();
+
+  //handles submit event with ShiftLog object key values -FIX ANY
+    const submitHistoricalSchedule = (schedule: Schedule) => {
+        // e.preventDefault();
+        console.log("in form event");
+        // let newRow: ScheduleRow = row;
+
+        // rowSubmit({
+        //     firstName,
+        //     lastName,
+        //     aliases,
+        //     email,
+        //     timeIn,
+        //     timeOut
+        // });
+       
+        // let newRow: ScheduleRow = row;
+        // console.log("row from sched-row", row);
+
+        // onClose();
+        // setFirstName("");
+        // setLastName("");
+        // setAliases("");
+        // setEmail("");
+        // setTimeIn(undefined);
+        // setTimeOut(undefined);
+        
+    
+            // NOTE FOR LATER: forEachRow --- do below?
+    }
+
+     
+
+    // END TESTING FOR SCHEDULE SUBMISSION FINAL
+
+    const handleDeleteRow = (schedule: Schedule) => {
         console.log("sched id to delete", schedule._id);
 
+    }
 
+    const handleRowEdit = (row: ScheduleRow) => {
 
     }
 
@@ -113,7 +226,26 @@ const ScheduleList = () => {
         console.log("searchedSchedules", searchedSchedules);
     }
 
-    
+    const handleScheduleDelete = (schedule: Schedule) => {
+        console.log("scheduleId to delete", schedule._id);
+        deleteSchedule(schedule);
+        resetSearch();
+    }
+
+    const handleScheduleEdit = (schedule: Schedule) => {
+        console.log("schedule to edit", schedule._id);
+        // schedule.timeBlocks.forEach((block) => {
+        //     block.scheduleRows.forEach((row) => {
+        //         // functions to handle creation of scheduleRow - FIX ANY
+        //         const newFirstName = (e: any) => row.firstName = (e.target.value);
+        //         const newLastName = (e: any) => row.lastName = (e.target.value);
+        //         const newAliases = (e: any) => row.aliases = (e.target.value);
+        //         const newEmail = (e: any) => row.email = (e.target.value);
+        //         const newTimeIn = (e: any) => row.timeIn = (e.target.value);
+        //         const newTimeOut = (e: any) => row.timeOut = (e.target.value);
+        //     })
+        // })
+    }
 
     return (
         <main>
@@ -122,63 +254,41 @@ const ScheduleList = () => {
                     <form action="submit" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
                         <h4>Search schedules by date:</h4>
                         <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/>
-                        <button form="scheduleItemSearchByDate">Search</button>
+                        <button type="submit" form="scheduleItemSearchByDate">Search</button>
                     </form>
                     <button type="button" onClick={handleFetchSchedules}>View All Schedules</button>
                     <button onClick={resetSearch}>Reset</button>
             </div>
-            <section className="scheduleItemFoundSchedulesContainer">
-                {/* TODO : the key needs a string or number. Currently not string or number to use
-                    as the _id can be more than a string or number. Unsure what to use for the key in this instance.
-                */}
-                {searchedSchedules.map((schedule, index) =>
-                    <div className="scheduleContainer" key={`${schedule._id}-${schedule}`}>
-                        <form action="submit" id="historicalScheduleSubmissionForm">
-                            <div className="scheduleContainerHeader">
-                                <h4>{schedule.dateNeeded}</h4>
-                            </div>
-                            <div className="scheduleTimeBlockContainer" key={`${schedule._id}-${index}`}>
-                                {schedule.timeBlocks.map((timeBlock, index) =>
-                                    <div key={`${timeBlock._id}-${index}`}>
-                                        <div className="scheduleTimeBlockHeaderContainer">
-                                            <h5>From: {timeBlock.startTime} To: {timeBlock.endTime}</h5>
-                                        </div>
-                                        <div>
-                                            {timeBlock.scheduleRows.map((row, index) => 
-                                                <div className="scheduleRowComponentWrapper" key={`${row._id}-${index}`}>
-                                                    <ScheduleRowComponent
-                                                    firstName={row.firstName}
-                                                    lastName={row.lastName}
-                                                    aliases={row.aliases}
-                                                    email={row.email}
-                                                    timeIn={row.timeIn}
-                                                    timeOut={row.timeOut}
-                                                    _id={row._id}
-                                                    key={`${row._id}-${index}`}
-                                                    onDelete={() => HandleDeleteRow(schedule)}
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>                                                                                     
-                                                                                        
-                                )}
-                            </div>
-                            <button className="submitButton" type="submit" name="submit" form="historicalScheduleSubmissionForm" onClick={handleHistoricalScheduleSubmit}>Submit Completed Schedule</button>
-                        </form>
-                        <div className="scheduleIconContainer">
+            
+                <main className="sheduleComponentContainer">
+                    <h3>Schedule Search:</h3>
+                    {/* fix below (notFound) */}
+                    {notFound && <div className="notFoundMessage"><h4>{notFoundMessage}</h4></div>}
+                    <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleHistoricalScheduleSubmit}>
+                        {searchedSchedules && searchedSchedules.map((schedule, index) => 
+                            <ScheduleItem
+                                key={`${schedule.dateNeeded}-${index}`} 
+                                schedule={schedule}
+                                onScheduleDelete={() => handleScheduleDelete(schedule)}
+                                onScheduleEdit={() => handleScheduleEdit(schedule)}
+                                onInputChangeSubmit3={() => handleHistoricalScheduleSubmit}
+                                // onTimeBlockRowReset={()=>{}}
+                                // onScheduleSubmission={() => handleScheduleSubmit}
+                            />
+                        )}
+                        {searchedSchedules[0] && <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Finalized Schedule</button>}
+                    </form>
 
-                        </div>
-
-                    </div>
-
-                )}
-
-               
-            </section>
-            <BackButton/>
+                    <section className="BackButtonLinkContainer">
+                        <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                    </section>
+                </main>
         </main>
+
+        // TEST END
     )
+     
+    
 }
 
 
