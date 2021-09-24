@@ -6,6 +6,7 @@ import './IncidentReportUpdater.css' ;
 
 // Icons
 import editIcon from "../../Icons/edit.svg";
+import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
 
 
 
@@ -33,9 +34,9 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
 
     return(
         <main className="IncidentReportUpdaterContainer">
-            <section>
-                <button className="ModalToggle" onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
-            </section>
+            <UpdateButton
+                updateHidden={updateHidden}
+            />
             <section className={updateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
                     <section className="UpdateClickableSection">

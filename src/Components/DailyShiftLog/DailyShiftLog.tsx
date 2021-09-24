@@ -2,6 +2,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShiftLog } from "../../Model/Interfaces";
 import { deleteShiftLog, fetchShiftLogs, updateShiftLog } from "../../services";
+import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
 import './DailyShiftLog.css';
 
@@ -95,9 +96,7 @@ const DailyShiftLog = () => {
                         />
                 )}
             </section>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen" className="BackButtonLinkContainer"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
     )
 }

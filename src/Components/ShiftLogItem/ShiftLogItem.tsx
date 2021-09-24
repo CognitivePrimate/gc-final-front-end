@@ -5,6 +5,7 @@ import './ShiftLogItem.css';
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
+import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
 
@@ -51,7 +52,9 @@ const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
                             updateLogSubmit={updateLogSubmit}
                             updateHidden={handleHidden}
                         />
-                        <button className="DeleteButton" type="button" onClick={deleteReport}><img src={deleteIcon} alt="delete button" /></button>
+                        <DeleteButton
+                            deleteReport={deleteReport}
+                        />
                     </section>
                 </div>
                 <section>

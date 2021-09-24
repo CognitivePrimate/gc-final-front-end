@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IncidentReport } from '../../Model/Interfaces';
 import { deleteIncidentReport, fetchIncidentReports, updateIncidentReport } from '../../services';
+import BackButton from '../ButtonComponents/BackButton/BackButton';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
 
 
@@ -95,9 +96,7 @@ const IncidentReportLogs = () => {
                         />
                 )}
             </section>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
     )
 }

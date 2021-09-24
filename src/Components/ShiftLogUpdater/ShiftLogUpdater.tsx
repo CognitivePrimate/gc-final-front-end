@@ -4,6 +4,7 @@ import './ShiftLogUpdater.css';
 
 // Icon
 import editIcon from "../../Icons/edit.svg";
+import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
 
 
 interface Props {
@@ -28,9 +29,9 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
 
     return(
         <main className="ShiftLogUpdaterContainer">
-            <section>
-                <button className="ModalToggle" onClick={updateHidden}><img src={editIcon} alt="edit" /></button>
-            </section>
+            <UpdateButton
+                updateHidden={updateHidden}
+            />
             <section className={UpdateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
                     <section className="UpdateClickableSection">

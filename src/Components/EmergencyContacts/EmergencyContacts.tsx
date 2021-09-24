@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { deleteEmergencyContact, fetchEmergencyContacts, updateEmergencyContact } from "../../services";
+import BackButton from "../ButtonComponents/BackButton/BackButton";
 import EmergencyContactItem from "../EmergencyContactItem/EmergencyContactItem";
 import "./EmergencyContacts.css";
 
@@ -52,9 +53,7 @@ const EmergencyContacts = () => {
                         />
                 )}
             </section>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
     )
 }

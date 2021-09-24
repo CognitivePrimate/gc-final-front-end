@@ -7,6 +7,7 @@ import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
 
 import deleteIcon from "../../Icons/delete.svg";
+import BackButton from '../ButtonComponents/BackButton/BackButton';
 // import 
 
 const ScheduleList = () => {   
@@ -175,9 +176,7 @@ const ScheduleList = () => {
 
                
             </section>
-            <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
-            </section>
+            <BackButton/>
         </main>
     )
 }
