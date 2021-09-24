@@ -10,29 +10,22 @@ import { fetchAllWeather } from "../../services";
 
 
 const WeatherHeader = () => {
-    const [weather, setWeather] = useState<AxiosResponse>();
-    const [temp, setTemp] = useState(0);
-  
-    const {GeoLocation, updateLocation} = useContext(GeoLocationContext);
+    const [temp, setTemp] = useState([]);
+    // sets icon code to be used in url for weather image
+    const [icon, setIcon] = useState();
+    const [timeZone, setTimeZone] = useState<string>();
+    const [alert, setAlert] = useState();
+    const [windSpeed, setWindSpeed] = useState();
+    const [windGusts, setWindGusts] = useState();
+    
 
-    // const weatherSetter = (res: any) => {
-    //     setWeather(res);
-    //     console.log("weather from functino", weather);
-    //     if (weather === undefined){
-    //         console.log("secondAttempt", res);
-    //         setWeather(res)
-    //     }
-    // } 
+    
 
-    const weatherLog = () => {
-        console.log("weather", weather);
-    }
+    
     // if timeout/error
     const error = (err: any) => {
         console.warn(`ERROR:(${err.code}): ${err.message}`)
     }
-   
-    // use callback function, in setTemp  setTemp(()=>res.temp)
     
     // to only call location access once
     useEffect(() => {
@@ -43,9 +36,14 @@ const WeatherHeader = () => {
             console.log(`lon: ${crd.longitude}`);
             fetchAllWeather(crd.latitude, crd.longitude).then((res) => {
                 console.log("weatherRes", res);
-                // setTemp(res.temp);
-                // console.log(temp)
-                setWeather(()=> res);              
+                setTemp(res.current.temp.toFixed(0));
+                setIcon(res.current.weather[0].icon);
+                // takes timezone from api, splits into array, and cuts first index. initially "country/city"
+                setTimeZone(res.timezone.split("/").splice(1));
+                setAlert(res.alerts[0].event);
+                setWindSpeed(res.current.wind_speed);
+                setWindGusts(res.current.wind_gust);
+                              
             })
         };
 
@@ -58,7 +56,6 @@ const WeatherHeader = () => {
 
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(success, error, options);
-            // fetchAllWeather();
         }
 
     }, []);
@@ -66,14 +63,20 @@ const WeatherHeader = () => {
 
     return (
         <div className="weather-header">
-            <section className="weather-header-sections">
-                <span>City</span>
+            {/* <section className="weather-header-sections">
+                <span>Location</span>
                 <span>Time</span>
                 <span>Temperature</span>
-            </section>
-            <section className="weather-header-sections">
-                <span className="lat-lon-span">{}</span>
-                <span className="lat-lon-span">{}</span>
+            </section> */}
+            <section className="weather-info-sections">
+                <span className="timeZoneSpan">{timeZone}</span>
+                <span className="weatherHidden">Alerts: {alert}</span>
+                <span className="weatherHidden">Wind Speed: {windSpeed}-{windGusts}mph</span>
+                <div id="tempIconContainer">
+                    <img id="weatherIcon" src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather icon" />
+                    <span className="lat-lon-span">{temp} F</span>
+                </div>
+                
             </section>
             
         </div>

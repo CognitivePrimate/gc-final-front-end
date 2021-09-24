@@ -2,7 +2,9 @@ main.EmergencyContactItemContainer {
     border-style: none;
     border-radius: 8px;
     padding: 20px;
-    margin: 10px;
+    margin: 10px auto 10px auto;
+    width: 95vw;
+    max-width: 576px;
     /* background-color: rgb(197, 197, 197); */
     background-color: #ffffff;
     box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);

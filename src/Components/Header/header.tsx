@@ -11,10 +11,10 @@ const Header = () => {
     return (
         <div className="header">
             <section>
-                <Link to="/"><h1 className="header-banner">Fake Company</h1></Link> 
+                <Link to="/" id="companyName"><h1 className="header-banner">Fake Company</h1></Link> 
             </section>
-            <section>
-                <h2 className="header-banner">{user?.displayName}</h2>
+            <section id="userNameContainer">
+                <h2 className="header-banner userName">{user?.displayName}</h2>
             </section>
             <WeatherHeader /> 
         </div>

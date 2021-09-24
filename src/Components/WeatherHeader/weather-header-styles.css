@@ -1,8 +1,9 @@
 .weather-header {
     position: absolute;
     display: flex;
+    /* justify-content: space-around; */
     flex-direction: column;
-    bottom: -18px;
+    bottom: -20px;
     border-radius: 5px;
     display: flex;
     /* margin-top: 30px; */
@@ -15,7 +16,9 @@
     background: #F5A17A;
     box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
     width: 95vw;
-    padding: 10px;
+    padding: 10px 5px;
+    color: #ffffff;
+    font-weight: 550;
 
 }
 
@@ -25,7 +28,39 @@ div.weather-header section.weather-header-sections {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
+    margin-bottom: 5px;
 }
-div.weather-header span.lat-lon-span {
+
+.weather-info-sections {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+div.weather-header span.timeZoneSpan {
     margin: 0 10px;
+}
+
+#weatherIcon {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: -14px;
+    right: 25px;
+}
+
+section.weather-info-sections div {
+    height: 20px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.weatherHidden {
+    display: none;
+}
+
+@media only screen and (min-width: 678px) {
+    .weatherHidden {
+        display: block;
+    }
 }

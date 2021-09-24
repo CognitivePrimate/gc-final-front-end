@@ -14,7 +14,7 @@ const key: string | undefined = process.env.REACT_APP_WEATHER_API;
 export function fetchAllWeather(APILat: any, APILon: any){
     // console.log("services location", location);
     // console.log("services location.lat", location.lat);
-    const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${APILat}&lon=${APILon}&appid=${key}`;
+    const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${APILat}&lon=${APILon}&units=imperial&appid=${key}`;
     // console.log("lat-services", location.lat);
     return axios.get(weatherAPIURL).then((response) => {
         console.log("services response.data", response.data)

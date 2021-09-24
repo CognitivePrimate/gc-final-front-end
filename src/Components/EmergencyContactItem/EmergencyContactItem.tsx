@@ -36,10 +36,11 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
             <section>
                 <section className="NameUpdateSection">
                     <section>
-                        <p>Name: {emergencyContact.firstName} {emergencyContact.lastName}</p>
-                        <p>Phone # {emergencyContact.phoneNumber}</p>
-                        <p>Email: {emergencyContact.email}</p>
-                        <p>Role: {emergencyContact.role}</p>
+                        
+                        <p><b>Name:</b> {emergencyContact.firstName} {emergencyContact.lastName}</p>
+                        <p><b>Phone:</b> {emergencyContact.phoneNumber}</p>
+                        <p><b>Email:</b> {emergencyContact.email}</p>
+                        <p><b>Role:</b> {emergencyContact.role}</p>
                     </section>
                     <section className="UpdateDeleteSection">
                         <button className="DeleteButton" type="button" onClick={deleteContact}><img src={deleteIcon} alt="delete button"/></button>

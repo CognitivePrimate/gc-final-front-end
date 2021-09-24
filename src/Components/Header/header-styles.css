@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: center;
     /* width: 100%; */
     background: #f17841;
@@ -10,15 +11,27 @@
     left: 0;
     /* padding-top: 20px; */
     box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 0 10px 0 10px;
 }
 
 .header-banner {
     margin-top: 0;
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin-left: 8px;
+    color: #ffffff;
 }
+
+h2.header-banner{
+    text-align:right;
+    margin-right: 8px;
+}
+
+
+.header :link{
+    text-decoration: none;
+}
+
 
 
 
