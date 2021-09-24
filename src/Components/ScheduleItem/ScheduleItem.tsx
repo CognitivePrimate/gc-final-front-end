@@ -1,28 +1,52 @@
 import { Schedule, TimeBlock } from "../../Model/Interfaces";
-import { fetchSchedules } from "../../services";
+import TimeBlockItem from "../ScheduleTimeBlock/timeBlock";
 
+// icons
+import deleteIcon from "../../Icons/delete.svg";
+import editIcon from "../../Icons/edit.svg";
 
+// css
+import "./schedule-item.styles.css";
+import { addSchedule } from "../../services";
+import { FormEvent } from "react";
 interface Props {
     schedule: Schedule,
-    timeblock: TimeBlock
+    onScheduleDelete: () => void;
+    onScheduleEdit: () => void;
+    // onInputChange: () => void;
+    onInputChangeSubmit3: () => void;
+    // onScheduleSubmission: () => void;
+    // onTimeBlockRowReset: () => void;
 }
 
-const ScheduleItem = ({schedule, timeblock}: Props) => {
+const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChangeSubmit3}: Props) => {
 
-    fetchSchedules();
+    const handleTimeBlockDelete = (timeBlock: TimeBlock) => {
+        console.log("timeblock", timeBlock)
+    }
+    
+    
 
     return(
-        <main>
-            <section>
-                <div>
-                    
-                    {/* here might potentially be a timeblock component to be more specific. 
-                        for the time being, just schedule.timeBlocks to map on the Schedule component
-                    */}
-                    {schedule.timeBlocks}
-                </div>
-            </section>
-        </main>
+        <div className="scheduleItemContainer" key={`${schedule.dateNeeded}-${schedule._id}`}>
+            <div className="scheduleItemHeaderContainer">
+                <h4>Schedule Date: {schedule.dateNeeded}</h4>
+            </div>
+            {schedule.timeBlocks.map((timeBlock, index) =>
+                <TimeBlockItem
+                    key={`${timeBlock.startTime}-${index}`}
+                    timeBlock={timeBlock}
+                    onTimeBlockDelete={()=> handleTimeBlockDelete(timeBlock)}
+                    onInputChangeSubmit2={onInputChangeSubmit3}
+                    // updateTimeBlock={(pendingTimeblock) => {}}
+                />
+            )}
+            <div className="scheduleIconContainer">
+                {schedule.templated === true && <><img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit}/><span>Edit Schedule Template</span> </>}
+                <img className="trashIcon"src={deleteIcon} alt="delete" onClick={onScheduleDelete}/><span>Delete Schedule Template</span>
+            </div>
+        </div>
+
     );
 }
 

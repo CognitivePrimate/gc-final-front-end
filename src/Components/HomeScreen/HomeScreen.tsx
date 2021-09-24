@@ -17,19 +17,20 @@ const HomeScreen = () => {
             <div className="home-screen-container">
 
                 {/*  D R Y, don't repeat yourself.  W E T,  */}
-                <section className="home-screen-options-volunteers home-screen-options-containers">
-                    <Link to="/Schedule" className="home-screen-button-link"><button className={homeScreenStyle}>Schedules</button></Link>
-                    <Link to="/NewLogEntry" className="home-screen-button-link"><button className="home-screen-button">Submit Log Entry</button></Link>
-                    <Link to="/DailyShiftLog" className="home-screen-button-link"><button className="home-screen-button">Current Shift Log</button></Link>
-                    <Link to="/SubmitIncidentReport" className="home-screen-button-link"><button className="home-screen-button">Submit Incident Report</button></Link>
-                    <Link to="/IncidentReportLogs" className="home-screen-button-link"><button className="home-screen-button">Incident Report Logs</button></Link>
-                    <Link to="/SubmitEmergencyContact" className="home-screen-button-link"><button className="home-screen-button">Submit Emergency Contact</button></Link>
+                <section className="home-screen-options-volunteers home-screen-options-containers">  
+                    <Link to="/NewLogEntry" className="home-screen-button-link"><button className="home-screen-button">New Shift Log</button></Link>
+                    <Link to="/DailyShiftLog" className="home-screen-button-link"><button className="home-screen-button">Shift Logs</button></Link>
+                    <Link to="/SubmitIncidentReport" className="home-screen-button-link"><button className="home-screen-button">New Incident Report</button></Link>
+                    <Link to="/IncidentReportLogs" className="home-screen-button-link"><button className="home-screen-button">Incident Reports</button></Link>
+                    <Link to="/SubmitEmergencyContact" className="home-screen-button-link"><button className="home-screen-button">New Emergency Contact</button></Link>
                     <Link to="/EmergencyContacts" className="home-screen-button-link"><button className="home-screen-button">Emergency Contacts</button></Link>
+                    <Link to="/ScheduleCreation" className="home-screen-button-link"><button className="home-screen-button">Create Schedule</button></Link>
+                    <Link to="/Schedule" className="home-screen-button-link"><button className={homeScreenStyle}>Schedules</button></Link>
                     {/* <button className="home-screen-button">Events</button> */}
                 </section>
                 <section className="home-screen-options-admin home-screen-options-containers">
                     {/* <button className="home-screen-button">Add Event</button></Link> */}
-                    <Link to="/ScheduleCreation" className="home-screen-button-link"><button className="home-screen-button">Create Schedule</button></Link>
+                    
                 </section>
             </div>
         </main>

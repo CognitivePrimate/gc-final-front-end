@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useMemo } from "react";
 import { GeoLocation } from "../../Model/Interfaces"
 import {GeoLocationContext} from "../../ContextProviders/WeatherLocationProvider"
 import "./weather-header-styles.css";
@@ -10,59 +10,27 @@ import { fetchAllWeather } from "../../services";
 
 
 const WeatherHeader = () => {
-    const [weather, setWeather] = useState<AxiosResponse>();
+    const [weather, setWeather] = useState<any>({});
+    const [temp, setTemp] = useState(0);
   
     const {GeoLocation, updateLocation} = useContext(GeoLocationContext);
 
-    const weatherSetter = (res: AxiosResponse) => setWeather(res); 
+    // const weatherSetter = (res: any) => {
+    //     setWeather(res);
+    //     console.log("weather from functino", weather);
+    //     if (weather === undefined){
+    //         console.log("secondAttempt", res);
+    //         setWeather(res)
+    //     }
+    // } 
 
-    // TEST
-    // gets API key from .env file
-    // const key: string | undefined = process.env.REACT_APP_WEATHER_API;  
-    // let APILongi: any = null;
-    // let APILati: any = null
-    // function fetchAllWeather(){
-    //     // console.log("services location", location);
-    //     // console.log("services location.lat", location.lat);
-    //     const weatherAPIURL: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${APILati}&lon=${APILongi}&appid=${key}`;
-    //     // console.log("lat-services", location.lat);
-    //     return axios.get(weatherAPIURL).then((response) => {
-    //         console.log("services response.data", response.data);
-    //         console.log("res.data", response.data);
-    //         return response.data;
-            
-    //     });
-    // }
-
-    // END TEST
-
-    const updateLocationTwo = (APILon: any, APILat: any) => {
-        // updateLocation({lat: location.lat, lon: location.lon});
-        // updateLocation(location);
-        // APILon = APILongi;
-        // APILat = APILati;
-    }
-
-    // FIND LOCATION FUNCTIONS <---- FIX ANY TYPE
-    // const success = (pos: any) => {
-    //     let crd = pos.coords;
-    //     console.log(`lat: ${crd.latitude}`);
-    //     console.log(`lon: ${crd.longitude}`);
-    //     updateLocationTwo(crd.longitide, crd.latitude);
-    //     fetchAllWeather(crd.latitude, crd.longitude);
-    // }
     
     // if timeout/error
     const error = (err: any) => {
         console.warn(`ERROR:(${err.code}): ${err.message}`)
     }
-    // // set timeout for error message, enable accuracy, and no reset
-    // const options = {
-    //     enableHighAccuracy: true,
-    //     timeout: 5000,
-    //     maximumAge: 0
-    // };
-
+   
+    // use callback function, in setTemp  setTemp(()=>res.temp)
     
     // to only call location access once
     useEffect(() => {
@@ -71,17 +39,15 @@ const WeatherHeader = () => {
             let crd = pos.coords;
             console.log(`lat: ${crd.latitude}`);
             console.log(`lon: ${crd.longitude}`);
-            updateLocationTwo(crd.longitide, crd.latitude);
             fetchAllWeather(crd.latitude, crd.longitude).then((res) => {
                 console.log("weatherRes", res);
-                weatherSetter(res);
-                console.log("weatherState", weather);
-
-                
+                // setTemp(res.temp);
+                // console.log(temp)
+                setWeather(()=> res);              
             })
         };
 
-        // set timeout for error message, enable accuracy, and no reset
+        // set timeout for error message, enable accuracy, and no reset bullshit 
         const options = {
             enableHighAccuracy: true,
             timeout: 5000,
@@ -92,13 +58,9 @@ const WeatherHeader = () => {
             navigator.geolocation.getCurrentPosition(success, error, options);
             // fetchAllWeather();
         }
+
     }, []);
     
-
-    // console.log(fetchAllWeather());
-
-
-
 
     return (
         <div className="weather-header">
