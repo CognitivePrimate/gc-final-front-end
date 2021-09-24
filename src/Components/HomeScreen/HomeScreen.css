@@ -25,6 +25,13 @@ main.home-screen-main button.home-screen-button {
     color: #ffffff;
     font-weight: 700;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+main.home-screen-main button.home-screen-button:hover {
+    background-color: #ee5e1b;
+    box-shadow:  3px 3px 4px 4px rgba(0, 0, 0, 0.3)
 }
 
 section.hidden {

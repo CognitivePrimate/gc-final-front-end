@@ -63,11 +63,12 @@ function App() {
         <Header />
           {/* <WeatherHeader/> */}
 
+        {/* <Route path="/" exact>
+          <LoginScreen/>
+        </Route> */}
+
         <Route path="/" exact>
           <LoginScreen/>
-        </Route>
-
-        <Route path="/HomeScreen">
           <HomeScreen/>
         </Route>
 

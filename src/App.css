@@ -19,7 +19,8 @@ body {
 
 input {
     border: hidden; 
-    border-bottom: groove #ffffff;  
+    border-bottom: groove #ffffff;
+    height: 30px;  
 }
 
 textarea {
