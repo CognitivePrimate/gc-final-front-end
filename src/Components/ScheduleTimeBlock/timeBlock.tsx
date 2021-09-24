@@ -21,26 +21,19 @@ interface Props {
 
 const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Props) => {
 
-    const [pendingTimeBlock, setPendingTimeBlock] = useState<TimeBlock>({
-        ...timeBlock
-    })
-
+    
     const handleRowDelete = (index: number, row: ScheduleRow) => {
         // finds row at specified index in array. otherwise, row always returns index 0 in this case
-        // let toDelete = timeBlock.scheduleRows.indexOf(row, index);
-        let newTimeBlock = pendingTimeBlock;
-        let toDelete = newTimeBlock.scheduleRows.indexOf(row, index);
+        let toDelete = timeBlock.scheduleRows.indexOf(row, index);
         console.log("index", index);
         console.log("toDelete", toDelete);
         if (index === toDelete){
             console.log("predelete", timeBlock.scheduleRows);
-            // timeBlock.scheduleRows.splice(index, 1);
-            newTimeBlock.scheduleRows.splice(index, 1);
+            timeBlock.scheduleRows.splice(index, 1);
             console.log("deleted", timeBlock.scheduleRows);
             // onTimeBlockTemplateRowDelete();
         }
-        setPendingTimeBlock(newTimeBlock);
-        // updateTimeBlock(pendingTimeBlock)
+        
     }
 
     const handleRowEdit = (row: ScheduleRow) => {
@@ -53,10 +46,12 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Pro
         
         <main className="timeBlockContainer">
             <div className="timeBlockContainerHeaderContainer">
-                <h4 className="timeBlockTimeHeader">{timeBlock.dateNeeded}</h4>
+                
                 <div className="timeBlockDateHeaderRight">
-                    <h5 className="timeBlockTimeHeader">From: {timeBlock.startTime.toLocaleString("en-US")}</h5>
-                    <h5 className="timeBlockTimeHeader">To: {timeBlock.endTime.toLocaleString("en-US")}</h5>
+                    <h4>Time Block: </h4>
+                    <h5 className="timeBlockTimeHeader">{timeBlock.startTime.toLocaleString("en-US")}</h5>
+                    <h5>to</h5>
+                    <h5 className="timeBlockTimeHeader">{timeBlock.endTime.toLocaleString("en-US")}</h5>
                 </div>            
             </div>
             <div className="timeBlockScheduleRowContainer" >
@@ -74,7 +69,8 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Pro
                 
             </div>
             <div className="timeBlockIconContainer">
-                <img src={deleteIcon} className="trashIcon" alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} />
+                {/* <img src={deleteIcon} className="trashIcon" alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} /> */}
+                {/* <span>Delete Time Block</span> */}
             </div>
         </main>
     );

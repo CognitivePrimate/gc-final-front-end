@@ -2,8 +2,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    bottom: 0px;
-    border-radius: 10px;
+    bottom: -18px;
+    border-radius: 5px;
     display: flex;
     /* margin-top: 30px; */
     /* margin: 0 auto; */
@@ -12,8 +12,9 @@
     left: 0;
     right: 0;
     /* bottom: 0; */
-    background: rgb(197, 197, 197);
-    width: 98vw;
+    background: #F5A17A;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    width: 95vw;
     padding: 10px;
 
 }

@@ -10,7 +10,7 @@ import { fetchAllWeather } from "../../services";
 
 
 const WeatherHeader = () => {
-    const [weather, setWeather] = useState<any>({});
+    const [weather, setWeather] = useState<AxiosResponse>();
     const [temp, setTemp] = useState(0);
   
     const {GeoLocation, updateLocation} = useContext(GeoLocationContext);
@@ -24,7 +24,9 @@ const WeatherHeader = () => {
     //     }
     // } 
 
-    
+    const weatherLog = () => {
+        console.log("weather", weather);
+    }
     // if timeout/error
     const error = (err: any) => {
         console.warn(`ERROR:(${err.code}): ${err.message}`)

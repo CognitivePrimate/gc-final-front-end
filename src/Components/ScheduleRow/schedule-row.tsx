@@ -82,22 +82,22 @@ const ScheduleRowComponent = ({onRowDelete, onInputChangeSubmit, row, index}: Pr
         return(
             <div className="scheduleRowContainer">
                 
-                <label htmlFor={`firstName-${index}`}>First Name</label>
+                <label htmlFor={`firstName-${index}`} className="schedRowInputLabel">First Name</label>
                 <input type="text" name={`firstName-${index}`} id={`firstName-${index}`} defaultValue={row.firstName} onChange={onInputChangeSubmit} placeholder="first name"/>
 
-                <label htmlFor={`lastName-${index}`}>Last Name</label>
+                <label htmlFor={`lastName-${index}`} className="schedRowInputLabel">Last Name</label>
                 <input type="text" name={`lastName-${index}`} id={`lastName-${index}`} defaultValue={row.lastName} onChange={onInputChangeSubmit} placeholder="last name" />
             
-                <label htmlFor={`aliases-${index}`}>Aliases</label>
+                <label htmlFor={`aliases-${index}`} className="schedRowInputLabel">Aliases</label>
                 <input type="text" name={`aliases-${index}`} id={`aliases-${index}`} defaultValue={row.aliases} onChange={onInputChangeSubmit} placeholder="aliases"/>
 
-                <label htmlFor={`email-${index}`}>Email</label>
+                <label htmlFor={`email-${index}`} className="schedRowInputLabel">Email</label>
                 <input type="text" name={`email-${index}`} id={`email-${index}`} defaultValue={row.email} onChange={onInputChangeSubmit} placeholder="email"/>
 
-                <label htmlFor={`timeIn-${index}`}>Time In</label>
+                <label htmlFor={`timeIn-${index}`} className="schedRowInputLabel">Time In</label>
                 <input type="time" name={`timeIn-${index}`} id={`timeIn-${index}`} defaultValue={row.timeIn} onChange={onInputChangeSubmit}/>
 
-                <label htmlFor="timeOut">Time Out</label>
+                <label htmlFor="timeOut" className="schedRowInputLabel">Time Out</label>
                 <input type="time" name={`timeOut-${index}`} id={`timeOut-${index}`} defaultValue={row.timeOut} onChange={onInputChangeSubmit}/>
 
                 <div className="scheduleRowIconContainer">

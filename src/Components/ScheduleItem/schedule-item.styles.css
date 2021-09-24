@@ -3,9 +3,23 @@
     flex-direction: column;
     align-items: center;
     width: 95%;
-    margin: 0 auto;
+    max-width: 855px;
+    margin: 10px auto 0 auto;
     border-radius: 5px;
     /* margin-top: 20px; */
-    box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    transition: .7s;
+    animation: FadeIn 0.7s;
     
+}
+
+.scheduleIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+div.scheduleIconContainer span {
+    margin-top: 7px;
 }

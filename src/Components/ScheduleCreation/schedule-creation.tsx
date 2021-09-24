@@ -139,6 +139,11 @@ const ScheduleCreation = () => {
 
     // NEW TEST AREA
     const handleScheduleDelete = () => {
+        setScheduleRows([]);
+        setTimeBlocks([]);
+        setVolunteersNeeded(0);
+        setStartTime(0);
+        setEndTime(0);
         setScheduleTemplate([]);
     }
 
@@ -154,18 +159,18 @@ const ScheduleCreation = () => {
             <div className="scheduleCreationContainer">
                 <form className="scheduleCreationForm InputForm" action="submit">
                     
-                    <label htmlFor="dateNeeded">Date Needed:</label>
+                    <label htmlFor="dateNeeded" className="schedCreateInputLabel">Date Needed:</label>
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
                     <br/>
                     <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
                     <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
 
-                    <label htmlFor="startTime">Start Time:</label>
+                    <label htmlFor="startTime" className="schedCreateInputLabel">Start Time:</label>
                     <input type="time" name="startTime" id="startTime" value={startTime} onChange={newStartTime}/>
 
-                    <label htmlFor="endTime">end Time:</label>
+                    <label htmlFor="endTime" className="schedCreateInputLabel">end Time:</label>
                     <input type="time" name="endTime" id="endTime" value={endTime} onChange={newEndTime}/>
-                    <button type="button" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
+                    <button type="button" className="schedSub SubmitButton" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
                 </form>
             </div>
             <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleScheduleSubmit}>
@@ -180,11 +185,12 @@ const ScheduleCreation = () => {
                         // onScheduleSubmission={() => handleScheduleSubmit}
                     /> 
                 )}
-                <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
             </form>
-
+            {scheduleTemplate[0] && <button className="schedSub SubmitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
+}
             <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                {/* <Link to="/HomeScreen"><button className="BackButton">Back</button></Link> */}
+                <BackButton/>
             </section>
         </main>
         
