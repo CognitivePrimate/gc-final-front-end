@@ -18,15 +18,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 50%;
+    margin-right: 50px;
+    width: 200px;
 }
 
 .timeBlockContainerHeaderContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.timeBlockTimeHeader {
-    margin-bottom: 2px;
-    margin-left: 8px;
+.timeBlockIconContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5px;
+    align-items: center;
+    height: 50px;
+}
+
+div.timeBlockIconContainer span {
+    margin-top: 7px;
 }

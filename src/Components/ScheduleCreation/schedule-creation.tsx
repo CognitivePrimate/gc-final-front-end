@@ -139,11 +139,41 @@ const ScheduleCreation = () => {
 
     // NEW TEST AREA
     const handleScheduleDelete = () => {
+        setScheduleRows([]);
+        setTimeBlocks([]);
+        setVolunteersNeeded(0);
+        setStartTime(0);
+        setEndTime(0);
         setScheduleTemplate([]);
     }
 
-    const handleTimeBlockRowReset = () => {
-        console.log("in function thing");
+    // functions and variables to rerender page on schedule template changes
+    let timeBlockIndex: number = 0; 
+    const resetTemplateRender = (index: number) => {
+        console.log("shceudleTempla", scheduleTemplate);
+        // takes in index of scheduleRow, removes it from the schedTemplate and resets state
+        setScheduleTemplate(prevTemplate => [
+            ...prevTemplate.slice(index)
+        ]);
+        console.log("tbIndex", timeBlockIndex);
+        // STILL NEED TO MAKE THIS PART WORK -- LOW PRIORITY THOUGH
+        if (scheduleTemplate[0].timeBlocks[timeBlockIndex].scheduleRows.length === 0){
+            console.log("blergh");
+            setScheduleTemplate(prevTemplate => [
+                ...prevTemplate.slice(index)
+            ]);
+        }
+
+    }
+
+    const handleTimeBlockDelete = (index: number) => {
+        timeBlockIndex = index;
+        setScheduleTemplate(prevTemplate => [
+            ...prevTemplate.slice(index)
+        ]);
+        if (scheduleTemplate[0].timeBlocks.length === 0){
+            setScheduleTemplate([]);
+        }
     }
     
     // NEW TEST AREA
@@ -154,37 +184,40 @@ const ScheduleCreation = () => {
             <div className="scheduleCreationContainer">
                 <form className="scheduleCreationForm InputForm" action="submit">
                     
-                    <label htmlFor="dateNeeded">Date Needed:</label>
+                    <label htmlFor="dateNeeded" className="schedCreateInputLabel">Date Needed:</label>
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
                     <br/>
                     <label htmlFor="volunteersNeeded">Volunteers Needed:</label>
                     <input type="number" name="volunteersNeeded" id="volunteersNeeded" value={volunteersNeeded} onChange={newVolunteersNeeded}/>
 
-                    <label htmlFor="startTime">Start Time:</label>
+                    <label htmlFor="startTime" className="schedCreateInputLabel">Start Time:</label>
                     <input type="time" name="startTime" id="startTime" value={startTime} onChange={newStartTime}/>
 
-                    <label htmlFor="endTime">end Time:</label>
+                    <label htmlFor="endTime" className="schedCreateInputLabel">end Time:</label>
                     <input type="time" name="endTime" id="endTime" value={endTime} onChange={newEndTime}/>
-                    <button type="button" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
+                    <button type="button" className="schedSub SubmitButton" onClick={handleTimeBlocksubmit}>Generate Time Block</button>
                 </form>
             </div>
             <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleScheduleSubmit}>
-                {scheduleTemplate && scheduleTemplate.map((schedule, index) => 
+                {scheduleTemplate.map((schedule, index) => 
                     <ScheduleItem
                         key={`${schedule.dateNeeded}-${index}`} 
                         schedule={schedule}
                         onScheduleDelete={() => handleScheduleDelete()}
                         onScheduleEdit={() => {}}
                         onInputChangeSubmit3={() => {}}
+                        onRowDeleteThree={() => resetTemplateRender(index)}
+                        onTimeBlockDeleteTwo={() => handleTimeBlockDelete(index)}
                         // onTimeBlockRowReset={() => handleTimeBlockRowReset}
                         // onScheduleSubmission={() => handleScheduleSubmit}
                     /> 
                 )}
-                <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
             </form>
-
+            {scheduleTemplate[0] && <button className="schedSub SubmitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
+}
             <section className="BackButtonLinkContainer">
-                <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                {/* <Link to="/HomeScreen"><button className="BackButton">Back</button></Link> */}
+                <BackButton/>
             </section>
         </main>
         

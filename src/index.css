@@ -18,22 +18,20 @@ code {
 
 .trashIcon {
   cursor: pointer;
-  filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7));
+  /* filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7)); */
 }
 
 .trashIcon:hover{
-  animation: Wiggles .8s infinite;
-  filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9));
+  /* filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9)); */
 }
 
 .editIcon {
   cursor: pointer;
-  filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7));
+  /* filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7)); */
 }
 
 .editIcon:hover{
-  animation: Wiggles .8s infinite;
-  filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9));
+  /* filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9)); */
 }
 
 

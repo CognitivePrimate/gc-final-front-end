@@ -9,3 +9,9 @@ main.DailyShiftLogContainer section.SearchOptions {
 main.DailyShiftLogContainer button.ResetButton {
     width: 40%;
 }
+
+main.DailyShiftLogContainer section.ShiftLogsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

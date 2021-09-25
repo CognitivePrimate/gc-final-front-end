@@ -11,7 +11,7 @@ export interface GeoLocationCon {
 }
 
 
-
+// ShiftLog Interfaces
 export interface ShiftLog {
     user?: firebase.User | null;
     author: string;
@@ -24,6 +24,14 @@ export interface ShiftLog {
     minutes?: Date;
     _id?: string;
 }    
+
+export interface ShiftSearchParams {
+    author?: string;
+    supervisor?: string;
+    date?: string;
+}
+
+
 export interface UserLogin {
     username: string,
     password: string
