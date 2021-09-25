@@ -24,31 +24,7 @@ const DailyShiftLog = () => {
     }
     useEffect(loadDailyShiftLogs, []);
 
-///// *** WORKING SEARCH FIRST NAME ONLY **** /////
 
-//     // Search State //
-//     const [ searchFirst, setSearchFirst] = useState('');
-
-//     // Search functions //
-//     function handleSubmit(e: FormEvent){
-//         e.preventDefault();
-
-        
-//         let newSearchedShiftLogs: ShiftLog[] = [];
-//         dailyShiftLogs.forEach((shiftLog) => {
-//         if (searchFirst === shiftLog.author) {
-//             newSearchedShiftLogs.push(shiftLog);
-//         }
-//         })
-//         setSearchedShiftLogs(newSearchedShiftLogs);
-
-
-// }
-
-/////////////////////////////////////////////////////////////
-
-
-//// *** ATTEMPT AT WORKING ALL SEARCH OPTIONS **** //////
 
 // Search State ///
 
@@ -89,25 +65,12 @@ function handleSubmit(e: FormEvent){
         // variables the currently searched parameters to be put into a single variable to check against the current logs combined string value.
         let searchedDate = searchMonth + searchDay + searchYear;
 
-        console.log(searchedDate);
-        if(searchedDate){
-            console.log('this is truthy');
-        } else {
-            console.log('this is falsey');
-        }
-
-
-
-        console.log(searchedFirst);
 
     // if the value of the input from the search is a truthy statement, then compare the lower case truthy statement to see if matches the current logs value in lowercase.
-    // if it matches then make the temporary search parameters value equal to that matched value.
+    // if it matches then make the temporary search parameters value equal to that matched value of the current log we are on.
  
     if (searchFirst) {
-        console.log(searchedFirst);
         if (currentFirst?.includes(searchedFirst)){
-            console.log(searchedFirst);
-            console.log(currentFirst);
             tempSearchParams.author = currentFirst;
         } 
     }
@@ -118,7 +81,6 @@ function handleSubmit(e: FormEvent){
     }
     if (searchedDate){
         if (currentDate.includes(searchedDate)){
-            console.log(shiftLog);
             tempSearchParams.date = currentDate;
         }
     }
