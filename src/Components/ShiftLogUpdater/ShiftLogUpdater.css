@@ -47,6 +47,7 @@ main.ShiftLogUpdaterContainer button.ModalToggle {
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
+    border-color: rgb(192, 192, 192);
     height: 32px;
     width: 38px;
 }

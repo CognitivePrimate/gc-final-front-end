@@ -1,4 +1,4 @@
-
+import './DeleteButton.css';
 
 // Icons
 import deleteIcon from "../../../Icons/delete.svg";

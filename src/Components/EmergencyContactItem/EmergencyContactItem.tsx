@@ -5,6 +5,7 @@ import './EmergencyContactItem.css';
 import deleteIcon from "../../Icons/delete.svg";
 import { useState } from "react";
 import EmergencyContactsUpdater from "../EmergencyContactsUpdater/EmergencyContactsUpdater";
+import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
 
@@ -43,7 +44,9 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
                         <p><b>Role:</b> {emergencyContact.role}</p>
                     </section>
                     <section className="UpdateDeleteSection">
-                        <button className="DeleteButton" type="button" onClick={deleteContact}><img src={deleteIcon} alt="delete button"/></button>
+                            <DeleteButton
+                                deleteReport={deleteContact}
+                            />
                             <EmergencyContactsUpdater
                                 contact={emergencyContact}
                                 updateForm={updateForm}

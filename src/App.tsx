@@ -69,7 +69,7 @@ function App() {
 
         <Route path="/" exact>
           <LoginScreen/>
-          <HomeScreen/>
+          {/* <HomeScreen/> */}
         </Route>
 
         <Route path="/NewLogEntry">

@@ -87,11 +87,7 @@ function handleSubmit(e: FormEvent){
         console.log(currentDate);
 
         // variables the currently searched parameters to be put into a single variable to check against the current logs combined string value.
-        // if all three parts of the date are true, then make the searchedDate have the value of them concatenated together as strings
-        let searchedDate = '';
-        if (searchMonth && searchDay && searchYear){
-            searchedDate = searchMonth + searchDay + searchYear;
-        }
+        let searchedDate = searchMonth + searchDay + searchYear;
 
         console.log(searchedDate);
         if(searchedDate){
@@ -106,19 +102,24 @@ function handleSubmit(e: FormEvent){
 
     // if the value of the input from the search is a truthy statement, then compare the lower case truthy statement to see if matches the current logs value in lowercase.
     // if it matches then make the temporary search parameters value equal to that matched value.
+ 
     if (searchFirst) {
-        if (searchedFirst === currentFirst){
-            tempSearchParams.author = searchedFirst;
+        console.log(searchedFirst);
+        if (currentFirst?.includes(searchedFirst)){
+            console.log(searchedFirst);
+            console.log(currentFirst);
+            tempSearchParams.author = currentFirst;
         } 
     }
     if (searchSup) {
-        if (searchedSup === currentSup){
-            tempSearchParams.supervisor = searchedSup
+        if (currentSup?.includes(searchedSup)){
+            tempSearchParams.supervisor = currentSup
         }
     }
     if (searchedDate){
-        if (searchedDate === currentDate){
-            tempSearchParams.date = searchedDate;
+        if (currentDate.includes(searchedDate)){
+            console.log(shiftLog);
+            tempSearchParams.date = currentDate;
         }
     }
 
@@ -160,6 +161,11 @@ function handleSubmit(e: FormEvent){
 
     const resetSearch = () => {
         loadDailyShiftLogs();
+        setSearchFirst('');
+        setSearchSup('');
+        setSearchMonth('');
+        setSearchDay('');
+        setSearchYear('');
     }
 
 

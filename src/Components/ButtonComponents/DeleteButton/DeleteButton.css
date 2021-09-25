@@ -1,7 +1,13 @@
-
+/* 
 main.DeleteButtonContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-color: rgb(192, 192, 192);
+} */
+
+main.DeleteButtonContainer button.DeleteButton {
+    border-color: rgb(192, 192, 192);;
 }
