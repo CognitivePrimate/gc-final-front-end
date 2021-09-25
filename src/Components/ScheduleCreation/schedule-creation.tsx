@@ -8,6 +8,7 @@ import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ScheduleItem from "../ScheduleItem/ScheduleItem";
 import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
+import "../LoginScreen/LoginScreen.css";
 
 
 
@@ -183,6 +184,10 @@ const ScheduleCreation = () => {
             <h3>Create a new schedule:</h3>
             <div className="scheduleCreationContainer">
                 <form className="scheduleCreationForm InputForm" action="submit">
+
+                    {/* TEST */}
+                        <div className="StylishDivSize1 testBox1"></div>
+                    {/* END TEST */}
                     
                     <label htmlFor="dateNeeded" className="schedCreateInputLabel">Date Needed:</label>
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
@@ -219,6 +224,7 @@ const ScheduleCreation = () => {
                 {/* <Link to="/HomeScreen"><button className="BackButton">Back</button></Link> */}
                 <BackButton/>
             </section>
+            
         </main>
         
     );
