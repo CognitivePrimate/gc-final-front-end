@@ -24,3 +24,10 @@ main.EmergencyContactsUpdaterContainer form.InputFormUpdater {
     height: 60%;
     width: 80%;
 }
+
+button.editIcon {
+    border-style: solid;
+    border-radius: 5px;
+    background: none;
+    margin: 5px;
+}
