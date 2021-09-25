@@ -9,7 +9,7 @@ import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
 const key: string | undefined = process.env.REACT_APP_WEATHER_API;
 
 
-// console.log (key);
+console.log (key);
 // get all weather
 export function fetchAllWeather(APILat: any, APILon: any){
     // console.log("services location", location);
