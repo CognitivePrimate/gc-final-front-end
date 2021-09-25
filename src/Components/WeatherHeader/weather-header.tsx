@@ -14,12 +14,14 @@ const WeatherHeader = () => {
     // sets icon code to be used in url for weather image
     const [icon, setIcon] = useState();
     const [timeZone, setTimeZone] = useState<string>();
-    const [alert, setAlert] = useState();
+    const [alert, setAlert] = useState<string>();
     const [windSpeed, setWindSpeed] = useState();
     const [windGusts, setWindGusts] = useState();
     
-
-    
+    // in the event of no alerts, won't crash app. probably a good thing. = 
+    const alertSetWorkAround = (res: any) => {
+        res.alerts ? setAlert(res.alerts) : setAlert("None");
+    }
 
     
     // if timeout/error
@@ -40,7 +42,9 @@ const WeatherHeader = () => {
                 setIcon(res.current.weather[0].icon);
                 // takes timezone from api, splits into array, and cuts first index. initially "country/city"
                 setTimeZone(res.timezone.split("/").splice(1));
-                setAlert(res.alerts[0].event);
+                // MAKE FUNCTIO TO SET ALERT?
+                alertSetWorkAround(res);
+                // setAlert(res.alerts[0].event || setAlert());
                 setWindSpeed(res.current.wind_speed);
                 setWindGusts(res.current.wind_gust);
                               
@@ -70,7 +74,7 @@ const WeatherHeader = () => {
             </section> */}
             <section className="weather-info-sections">
                 <span className="timeZoneSpan">{timeZone}</span>
-                <span className="weatherHidden">Alerts: {alert}</span>
+                {alert === undefined &&  <span className="weatherHidden">Alerts: {alert}</span>}
                 <span className="weatherHidden">Wind Speed: {windSpeed}-{windGusts}mph</span>
                 <div id="tempIconContainer">
                     <img id="weatherIcon" src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather icon" />

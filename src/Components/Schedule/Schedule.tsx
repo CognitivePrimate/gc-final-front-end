@@ -272,6 +272,8 @@ const ScheduleList = () => {
                                 onScheduleDelete={() => handleScheduleDelete(schedule)}
                                 onScheduleEdit={() => handleScheduleEdit(schedule)}
                                 onInputChangeSubmit3={() => handleHistoricalScheduleSubmit}
+                                onRowDeleteThree={() => {}}
+                                onTimeBlockDeleteTwo={() => {}}
                                 // onTimeBlockRowReset={()=>{}}
                                 // onScheduleSubmission={() => handleScheduleSubmit}
                             />

@@ -147,8 +147,33 @@ const ScheduleCreation = () => {
         setScheduleTemplate([]);
     }
 
-    const handleTimeBlockRowReset = () => {
-        console.log("in function thing");
+    // functions and variables to rerender page on schedule template changes
+    let timeBlockIndex: number = 0; 
+    const resetTemplateRender = (index: number) => {
+        console.log("shceudleTempla", scheduleTemplate);
+        // takes in index of scheduleRow, removes it from the schedTemplate and resets state
+        setScheduleTemplate(prevTemplate => [
+            ...prevTemplate.slice(index)
+        ]);
+        console.log("tbIndex", timeBlockIndex);
+        // STILL NEED TO MAKE THIS PART WORK -- LOW PRIORITY THOUGH
+        if (scheduleTemplate[0].timeBlocks[timeBlockIndex].scheduleRows.length === 0){
+            console.log("blergh");
+            setScheduleTemplate(prevTemplate => [
+                ...prevTemplate.slice(index)
+            ]);
+        }
+
+    }
+
+    const handleTimeBlockDelete = (index: number) => {
+        timeBlockIndex = index;
+        setScheduleTemplate(prevTemplate => [
+            ...prevTemplate.slice(index)
+        ]);
+        if (scheduleTemplate[0].timeBlocks.length === 0){
+            setScheduleTemplate([]);
+        }
     }
     
     // NEW TEST AREA
@@ -174,13 +199,15 @@ const ScheduleCreation = () => {
                 </form>
             </div>
             <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleScheduleSubmit}>
-                {scheduleTemplate && scheduleTemplate.map((schedule, index) => 
+                {scheduleTemplate.map((schedule, index) => 
                     <ScheduleItem
                         key={`${schedule.dateNeeded}-${index}`} 
                         schedule={schedule}
                         onScheduleDelete={() => handleScheduleDelete()}
                         onScheduleEdit={() => {}}
                         onInputChangeSubmit3={() => {}}
+                        onRowDeleteThree={() => resetTemplateRender(index)}
+                        onTimeBlockDeleteTwo={() => handleTimeBlockDelete(index)}
                         // onTimeBlockRowReset={() => handleTimeBlockRowReset}
                         // onScheduleSubmission={() => handleScheduleSubmit}
                     /> 

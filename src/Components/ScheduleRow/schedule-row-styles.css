@@ -20,7 +20,7 @@ div.scheduleRowContainer input {
     margin-top: 5px;
 }
 
-/* div.scheduleRowContainer input:focus {
-    background: #FEF2EC;
-    outline: none;
-} */
+.scheduleRowIconContainer {
+    margin-top: 10px;
+    /* padding-top: 5px; */
+}

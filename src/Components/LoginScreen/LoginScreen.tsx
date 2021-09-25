@@ -23,12 +23,12 @@ const LoginScreen = () => {
         <main className="login-screen">
         { user ?
           <section className="SignedInSection">
-            <div>
+            {/* <div>
                 {user.displayName} {' '}
                 (<Link to="/HomeScreen">Home</Link>) {' '}
             </div>
-            <button onClick={logout}>Sign Out</button>
-
+            <button onClick={logout}>Sign Out</button> */}
+            <span className="signOutButton" onClick={logout}>Sign Out</span>
           </section> :
           <button className="SignInButton" onClick={signIn}>Sign in with Google</button>
           

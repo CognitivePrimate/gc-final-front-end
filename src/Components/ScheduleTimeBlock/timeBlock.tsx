@@ -12,6 +12,7 @@ interface Props {
     timeBlock: TimeBlock,
     onTimeBlockDelete: (timeBlock: TimeBlock) => void;
     onInputChangeSubmit2: () => void;
+    onRowDeleteTwo: (index: number, timeBlock: TimeBlock) => void;
 
     // updateTimeBlock: (pendingTimeBlock: TimeBlock) => {}
     // onInputChange: () => void;
@@ -19,9 +20,10 @@ interface Props {
     // onRowDelete: (index: number, row: ScheduleRow) => void;
 }
 
-const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Props) => {
+const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRowDeleteTwo}: Props) => {
 
-    
+
+    // to find TimeBlock index to delete row from sched template in sched creation component
     const handleRowDelete = (index: number, row: ScheduleRow) => {
         // finds row at specified index in array. otherwise, row always returns index 0 in this case
         let toDelete = timeBlock.scheduleRows.indexOf(row, index);
@@ -33,7 +35,7 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Pro
             console.log("deleted", timeBlock.scheduleRows);
             // onTimeBlockTemplateRowDelete();
         }
-        
+        onRowDeleteTwo(index, timeBlock);
     }
 
     const handleRowEdit = (row: ScheduleRow) => {
@@ -69,7 +71,7 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2}: Pro
                 
             </div>
             <div className="timeBlockIconContainer">
-                {/* <img src={deleteIcon} className="trashIcon" alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} /> */}
+                <img src={deleteIcon} className="trashIcon" alt="delete" onClick={() => onTimeBlockDelete(timeBlock)} />
                 {/* <span>Delete Time Block</span> */}
             </div>
         </main>
