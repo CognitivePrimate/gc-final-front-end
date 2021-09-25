@@ -1,0 +1,11 @@
+main.IncidentReportLogs section.SearchOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+
+.incident-search-field {
+    width: 3000px;
+}

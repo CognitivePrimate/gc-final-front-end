@@ -54,7 +54,7 @@ const WeatherHeader = () => {
         // set timeout for error message, enable accuracy, and no reset bullshit 
         const options = {
             enableHighAccuracy: true,
-            timeout: 5000,
+            timeout: 10000,
             maximumAge: 0
         };
 

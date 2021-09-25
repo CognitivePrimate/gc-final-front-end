@@ -19,6 +19,7 @@
     padding: 10px 5px;
     color: #ffffff;
     font-weight: 550;
+    animation: FadeIn .7s;
 
 }
 
@@ -46,7 +47,8 @@ div.weather-header span.timeZoneSpan {
     width: 50px;
     position: absolute;
     bottom: -14px;
-    right: 25px;
+    right: 27px;
+    animation: FadeIn .7s;
 }
 
 section.weather-info-sections div {

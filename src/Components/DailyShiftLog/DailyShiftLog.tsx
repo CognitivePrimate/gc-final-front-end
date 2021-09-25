@@ -5,6 +5,7 @@ import { deleteShiftLog, fetchShiftLogs, updateShiftLog } from "../../services";
 import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
 import './DailyShiftLog.css';
+import refreshIcon from "../../Icons/refresh.svg";
 
 
 
@@ -201,7 +202,7 @@ function handleSubmit(e: FormEvent){
                     </section>
                     <section className="SearchOptions">
                         <button className="SubmitButton">Search</button>
-                        <button className="ResetButton" onClick={resetSearch}>Reset</button>
+                        <button className="ResetButton" onClick={resetSearch}><img src={refreshIcon} alt="Refresh"/></button>
                     </section>
                 </form>
             </section>

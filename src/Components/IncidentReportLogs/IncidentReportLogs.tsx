@@ -5,6 +5,8 @@ import { IncidentReport } from '../../Model/Interfaces';
 import { deleteIncidentReport, fetchIncidentReports, updateIncidentReport } from '../../services';
 import BackButton from '../ButtonComponents/BackButton/BackButton';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
+import './IncidentReportLogs.css';
+import refreshIcon from '../../Icons/refresh.svg';
 
 
 
@@ -71,19 +73,21 @@ const IncidentReportLogs = () => {
     }
 
     return (
-        <main>
+        <main className="IncidentReportLogs">
             <form action="submit" className="InputForm" onSubmit={handleSubmit}>
             <h4>Search Incidents</h4>
-                <section>
-                    <label htmlFor="firstNameSearch">Author: </label>
-                    <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchAuthor} onChange={ (e) => setSearchAuthor(e.target.value) }/>
+                <section className="incident-search-field">
+                    <label htmlFor="firstNameSearch"></label>
+                    <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchAuthor} onChange={ (e) => setSearchAuthor(e.target.value) } placeholder="Author"/>
                 </section>
                 <section>
-                    <label htmlFor="supervisorSearch">Supervisor:</label>
-                    <input type="text" name="supervisorSearch" id="supervisorSearch"/>
+                    <label htmlFor="supervisorSearch"></label>
+                    <input type="text" name="supervisorSearch" id="supervisorSearch" placeholder="Supervisor"/>
                 </section>
-                <button>Search</button>
-                <button onClick={resetSearch}>Reset</button>
+                <section className="SearchOptions">
+                    <button className="SubmitButton">Search</button>
+                    <button className="ResetButton" onClick={resetSearch}><img src={refreshIcon} alt="Refresh"/></button>
+                </section>
             </form>
             <section>
                 {/* Map the searched reports. The Reports initially have no filtering on useEffect load up render. */}

@@ -34,7 +34,7 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
     return (
         <main className="EmergencyContactsUpdaterContainer">
             <section>
-                <button onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
+                <button className="editIcon" onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
             </section>
             <section className={updateForm}>
                 <form className="InputFormUpdater" action="submit" onSubmit={preventReload}>

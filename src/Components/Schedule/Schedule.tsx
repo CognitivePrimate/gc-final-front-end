@@ -282,7 +282,7 @@ const ScheduleList = () => {
                     </form>
 
                     <section className="BackButtonLinkContainer">
-                        <Link to="/HomeScreen"><button className="BackButton">Back</button></Link>
+                        <Link to="/"><button className="BackButton">Back</button></Link>
                     </section>
                 </main>
         </main>
