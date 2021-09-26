@@ -43,7 +43,6 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRo
     }
 
 
-
     return(
         
         <main className="timeBlockContainer">
@@ -51,9 +50,9 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRo
                 
                 <div className="timeBlockDateHeaderRight">
                     <h4>Time Block: </h4>
-                    <h5 className="timeBlockTimeHeader">{timeBlock.startTime.toLocaleString("en-US")}</h5>
+                    <h5 className="timeBlockTimeHeader">{timeBlock.startTime}</h5>
                     <h5>to</h5>
-                    <h5 className="timeBlockTimeHeader">{timeBlock.endTime.toLocaleString("en-US")}</h5>
+                    <h5 className="timeBlockTimeHeader">{timeBlock.endTime}</h5>
                 </div>            
             </div>
             <div className="timeBlockScheduleRowContainer" >

@@ -18,6 +18,7 @@ main.UpdateButtonContainer:hover {
 
 main.UpdateButtonContainer button.ModalToggle {
     background-color: rgba(197, 197, 197, 0);
-        border-style: none;
-        border-color: rgba(197, 197, 197, 0);
+    border-style: none;
+    border-color: rgba(197, 197, 197, 0);
+    cursor: pointer;
 }
