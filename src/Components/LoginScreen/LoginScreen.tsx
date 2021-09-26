@@ -14,20 +14,18 @@ const LoginScreen = () => {
 
     // Hidden Class for HomeScreen and UserAuth
 
-    // let HomeScreenVisible = 'hidden';
-    // let HomeIconVisible = '';
 
-    // const [ loginScreen, setLoginScreen ] = useState()
+    const [ loginScreen, setLoginScreen ] = useState({
+        HomeScreenVisible: 'hidden',
+        HomeIconVisible: ''
+    })
 
     function logout() {
-        firebase.auth().signOut();
-        // HomeScreenVisible = 'hidden';
-        // HomeIconVisible = ''
+        firebase.auth().signOut().then(() => setLoginScreen({HomeScreenVisible: 'hidden', HomeIconVisible: ''}))
       }
 
     function signIn() {
-        firebase.auth().signInWithPopup(authProvider);
-        // HomeScreenVisible = ''
+        firebase.auth().signInWithPopup(authProvider).then(() => setLoginScreen({HomeScreenVisible: '', HomeIconVisible: 'hidden'}))
       }
 
 
@@ -36,18 +34,25 @@ const LoginScreen = () => {
         <main className="login-screen">
         { user ?
           <section className="SignedInSection">
-            {/* <div>
-                {user.displayName} {' '}
-                (<Link to="/HomeScreen">Home</Link>) {' '}
-            </div>
-            <button onClick={logout}>Sign Out</button> */}
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
+              <div className="StylishDivSize3"></div>
             <span className="signOutButton" onClick={logout}>Sign Out</span>
           </section> :
-          <button className="SignInButton" onClick={signIn}>Sign in with Google</button>
+          <section className="SignedInSection">
+              <div className="StylishDivSize3"></div>
+            <span className="SignInButton" onClick={signIn}>Sign in with Google</span>
+          </section>
           
           
         }
-        {/* <section className={HomeIconVisible}> */}
+        <section >
             <section className="StylishDivsContainerSize2">
                 <div className="StylishDivSize2"></div>
                 <div className="StylishDivSize2"></div>
@@ -87,10 +92,10 @@ const LoginScreen = () => {
                 <div className="StylishDivSize2"></div>
                 <div className="StylishDivSize2"></div>
             </section>
-        {/* </section> */}
-        {/* <section className={HomeScreenVisible}> */}
+        </section>
+        <section>
             <HomeScreen/>
-        {/* </section> */}
+        </section>
         </main>
     )
 }

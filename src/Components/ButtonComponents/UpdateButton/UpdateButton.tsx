@@ -1,5 +1,5 @@
 
-
+import './UpdateButton.css';
 
 // Icon
 import editIcon from "../../../Icons/edit.svg";

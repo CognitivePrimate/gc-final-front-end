@@ -1,8 +1,4 @@
 main.ShiftLogContainer {
-    /* border-style: solid;
-    border-radius: 8px;
-    border-color: black;
-    background-color: gray; */
     padding: 5px;
     padding-left: 10px;
     width: 90%;
@@ -40,8 +36,8 @@ main.ShiftLogContainer section.PersonUpdateSection {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     background-color: #ffffff;
-    /* box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2); */
-    position: relative;
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    /* position: relative; */
 }
 
 .PersonUpdateSection::after{

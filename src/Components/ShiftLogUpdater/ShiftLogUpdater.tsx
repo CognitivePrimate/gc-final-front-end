@@ -1,10 +1,10 @@
 import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
 import './ShiftLogUpdater.css';
+import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
 
 // Icon
-import editIcon from "../../Icons/edit.svg";
-import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
+import CloseButton from "../ButtonComponents/CloseButton/CloseButton";
 
 
 interface Props {
@@ -34,9 +34,9 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
             />
             <section className={UpdateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
-                    <section className="UpdateClickableSection">
-                        <div className="UpdateClickableDiv"onClick={updateHidden}>X</div>
-                    </section>
+                    <CloseButton
+                        updateHidden={updateHidden}
+                    />
                     <h3 className="NewLogTitle">Update Log</h3>
                     <div className="logInputInfoContainer">
                         <div className="InputOptions">
@@ -50,7 +50,9 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
                     </div>
                     <label htmlFor="logEntry"></label><br/>
                     <textarea name="logEntry" id="logEntry" className="logEntry" value={pendingLog.logText} onChange={(e) => setPendingLog({...pendingLog, logText: e.target.value})} required minLength={2} rows={8} placeholder="Log Here:"/><br />
-                    <button className="SubmitButton" id="logSubmitButton" type="submit" >Update Log</button>
+                    <section className="SubmitButtonContainer">
+                        <button className="SubmitButton" id="logSubmitButton" type="submit" >Update Log</button>
+                    </section>
                 </form>
             </section>
 

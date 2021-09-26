@@ -45,8 +45,6 @@ import NewLogEntry from './Components/NewShiftLogEntry/new-log-entry';
 import DailyShiftLog from './Components/DailyShiftLog/DailyShiftLog';
 import SubmitIncidentReport from './Components/SubmitIncidentReport/SubmitIncidentReport';
 import IncidentReportLogs from './Components/IncidentReportLogs/IncidentReportLogs';
-import {ShiftLogContextProvider} from './ContextProviders/ShiftLogProvider';
-import { IncidentReportsContextProvider } from './ContextProviders/IncidentReportsProvider';
 import ScheduleCreation from './Components/ScheduleCreation/schedule-creation';
 import { AuthContextProvider } from './ContextProviders/auth-context';
 import SubmitEmergencyContact from './Components/SubmitEmergencyContact/SubmitEmergencyContact';
@@ -76,21 +74,18 @@ function App() {
           <NewLogEntry/>
         </Route>
 
-        <ShiftLogContextProvider>
           <Route path="/DailyShiftLog" exact>
               <DailyShiftLog/>
           </Route>
-        </ShiftLogContextProvider>
 
         <Route path="/SubmitIncidentReport" exact>
             <SubmitIncidentReport/>
         </Route>
 
-        <IncidentReportsContextProvider>
           <Route path="/IncidentReportLogs" exact>
               <IncidentReportLogs/>
           </Route>
-        </IncidentReportsContextProvider>
+ 
 
           <Route path="/SubmitEmergencyContact" exact>
               <SubmitEmergencyContact/>

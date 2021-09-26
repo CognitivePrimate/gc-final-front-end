@@ -7,6 +7,7 @@ import BackButton from '../ButtonComponents/BackButton/BackButton';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
 import './IncidentReportLogs.css';
 import refreshIcon from '../../Icons/refresh.svg';
+import ResetButton from '../ButtonComponents/ResetButton/ResetButton';
 
 
 
@@ -163,7 +164,9 @@ function handleSubmit(e: FormEvent){
                     </section>
                 <section className="SearchOptions">
                     <button className="SubmitButton">Search</button>
-                    <button className="ResetButton" onClick={resetSearch}><img src={refreshIcon} alt="Refresh"/></button>
+                    <ResetButton
+                        resetSearch={resetSearch}
+                    />
                 </section>
             </form>
             <section>

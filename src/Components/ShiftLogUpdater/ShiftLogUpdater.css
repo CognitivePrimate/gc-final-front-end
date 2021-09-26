@@ -35,11 +35,14 @@ main.ShiftLogUpdaterContainer div.UpdateClickableDiv {
 main.ShiftLogUpdaterContainer form.InputFormUpdater {
     border-style: none;
     border-radius: 5px;
-    background-color: rgb(197, 197, 197);
+    background-color: white;
     padding: 15px;
     margin: 10px;
     height: 60%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+
 }
 
 main.ShiftLogUpdaterContainer button.ModalToggle {
@@ -50,4 +53,13 @@ main.ShiftLogUpdaterContainer button.ModalToggle {
     border-color: rgb(192, 192, 192);
     height: 32px;
     width: 38px;
+}
+
+main.ShiftLogUpdaterContainer h3.NewLogTitle {
+    text-align: center;
+}
+
+main.ShiftLogUpdaterContainer section.SubmitButtonContainer {
+    display: flex;
+    align-items: center;
 }
