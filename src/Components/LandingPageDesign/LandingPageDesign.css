@@ -1,0 +1,38 @@
+
+
+
+/* fun stylish thing  */
+
+main.LandingPageDesignContainer section.StylishDivsContainerSize1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 0 40px;
+}
+
+main.LandingPageDesignContainer div.StylishDivSize1 {
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #f1a886;
+}
+
+
+/*  size 2 */
+
+main.LandingPageDesignContainer section.StylishDivsContainerSize2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+main.LandingPageDesignContainer div.StylishDivSize2 {
+    height: 20px;
+    width: 14px;
+    border-radius: 3px;
+    margin: 0 10px;
+    background-color: #f1d5c7;
+}

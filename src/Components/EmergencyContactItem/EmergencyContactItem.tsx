@@ -2,7 +2,6 @@ import { EmergencyContact } from "../../Model/Interfaces"
 import './EmergencyContactItem.css';
 
 // icons
-import deleteIcon from "../../Icons/delete.svg";
 import { useState } from "react";
 import EmergencyContactsUpdater from "../EmergencyContactsUpdater/EmergencyContactsUpdater";
 import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";

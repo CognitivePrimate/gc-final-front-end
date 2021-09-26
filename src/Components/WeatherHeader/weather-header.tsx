@@ -1,8 +1,5 @@
-import { useEffect, useState, useContext, useMemo } from "react";
-import { GeoLocation } from "../../Model/Interfaces"
-import {GeoLocationContext} from "../../ContextProviders/WeatherLocationProvider"
+import { useEffect, useState} from "react";
 import "./weather-header-styles.css";
-import axios, { AxiosResponse } from "axios";
 import { fetchAllWeather } from "../../services";
 
 // import weather API

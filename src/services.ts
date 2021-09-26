@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useContext} from "react";
 
 // import variables from weather header component for api request
-import { EmergencyContact, GeoLocation, HistoricalSchedule, IncidentReport, Schedule, ShiftLog } from "./Model/Interfaces";
-import {GeoLocationContext} from "./ContextProviders/WeatherLocationProvider"
+import { EmergencyContact, HistoricalSchedule, IncidentReport, Schedule, ShiftLog } from "./Model/Interfaces";
 
 // gets API key from .env file
 const key: string | undefined = process.env.REACT_APP_WEATHER_API;

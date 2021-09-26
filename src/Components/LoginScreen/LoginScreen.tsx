@@ -1,11 +1,10 @@
 import firebase from "../../firebaseConfig";
-import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { authProvider } from "../../firebaseConfig";
-import { UserLogin } from "../../Model/Interfaces";
 import "./LoginScreen.css";
 import HomeScreen from "../HomeScreen/HomeScreen";
+import LandingPageDesign from "../LandingPageDesign/LandingPageDesign";
 
 
 const LoginScreen = () => {
@@ -52,47 +51,7 @@ const LoginScreen = () => {
           
           
         }
-        <section >
-            <section className="StylishDivsContainerSize2">
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-            </section>
-            <section className="StylishDivsContainerSize1">
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-            </section>
-            <section className="HeroShotLoginSection">
-                <div className="HeroShotLoginDiv">
-                    <h2 className="AppName">SkedMan</h2>
-                </div>
-            </section>
-            <section className="StylishDivsContainerSize1">
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-            </section>
-            <section className="StylishDivsContainerSize2">
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-            </section>
-        </section>
+        <LandingPageDesign/>
         <section>
             <HomeScreen/>
         </section>

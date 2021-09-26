@@ -1,12 +1,19 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// React imports
+import { FormEvent, useEffect, useState } from "react";
+
+// interfaces
 import { ShiftLog, ShiftSearchParams } from "../../Model/Interfaces";
+
+// Services for API 
 import { deleteShiftLog, fetchShiftLogs, updateShiftLog } from "../../services";
+
+// imported components
 import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ShiftLogItem from "../ShiftLogItem/ShiftLogItem";
-import './DailyShiftLog.css';
-import refreshIcon from "../../Icons/refresh.svg";
 import ResetButton from "../ButtonComponents/ResetButton/ResetButton";
+
+// styles
+import './DailyShiftLog.css';
 
 
 

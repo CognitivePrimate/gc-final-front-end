@@ -44,3 +44,10 @@ main.NewLogContainer textarea.logEntry {
     height: 10rem;
     width: 100%;
 }
+
+main.NewLogContainer section.BackCrumbContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

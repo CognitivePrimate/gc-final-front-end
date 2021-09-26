@@ -30,3 +30,8 @@ main.DeleteButtonContainer button.DeleteButton {
         border-style: none;
         border-color: rgba(197, 197, 197, 0);
 }
+
+main.DeleteButtonContainer:hover {
+    background-color: #F8D2C0;
+    transition: .5s;
+}

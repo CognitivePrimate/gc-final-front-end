@@ -21,3 +21,10 @@ main.SubmitIncidentReportContainer input.FormInputsStyle {
 main.SubmitIncidentReportContainer h3.NewReportTitle {
     text-align: center;
 }
+
+main.SubmitIncidentReportContainer section.BackCrumbContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

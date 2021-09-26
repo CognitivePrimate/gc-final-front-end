@@ -8,7 +8,7 @@ import editIcon from "../../Icons/edit.svg";
 // css
 import "./schedule-item.styles.css";
 import { addSchedule } from "../../services";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 interface Props {
     schedule: Schedule,
     onScheduleDelete: () => void;

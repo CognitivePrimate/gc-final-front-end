@@ -1,15 +1,14 @@
 import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
-import {ObjectId} from "mongodb";
 
 import "./new-log-entry-styles.css";
 import "../../App.css";
 import "../../index.css";
 
-import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { addShiftLog } from "../../services";
 import BackButton from "../ButtonComponents/BackButton/BackButton";
+import BreadCrumbButton from "../ButtonComponents/BreadCrumbButton/BreadCrumbButton";
 
 // TODO
 // remove log function
@@ -26,6 +25,11 @@ const NewLogEntry = () => {
         console.log(shiftLog);
         addShiftLog(shiftLog)
     }
+
+// Variables for BreadCrumbButton
+
+    let buttonName= "Shift Logs";
+    let linkRoute=  "/DailyShiftLog";
 
  //handles submit event with ShiftLog object key values -FIX ANY
     const handlesubmit = (e: FormEvent) => {
@@ -86,7 +90,13 @@ const NewLogEntry = () => {
             <textarea name="logEntry" id="logEntry" className="logEntry" placeholder="Log Here:" value={logText} onChange={newLogText} required minLength={2} rows={8}/><br />
             <div className="FinishButtons">
                 <button className="SubmitButton" id="logSubmitButton" type="submit" onClick={handlesubmit}>Submit Log</button>
-                <BackButton/>
+                <section className="BackCrumbContainer">
+                    <BackButton/>
+                    <BreadCrumbButton
+                        buttonName={buttonName}
+                        linkRoute={linkRoute}
+                    />
+                </section>
             </div>
         </form>
     </main>

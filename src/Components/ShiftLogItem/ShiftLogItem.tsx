@@ -4,7 +4,6 @@ import ShiftLogUpdater from "../ShiftLogUpdater/ShiftLogUpdater";
 import './ShiftLogItem.css';
 
 // icons
-import deleteIcon from "../../Icons/delete.svg";
 import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 

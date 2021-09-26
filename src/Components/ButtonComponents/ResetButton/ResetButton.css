@@ -23,3 +23,8 @@ main.ResetMainContainer button.ResetButton {
     padding: 5px;
     width: 100%;
 }
+
+main.ResetMainContainer button.ResetButton:hover {
+    background-color: #F8D2C0;
+    transition: .25s;
+}

@@ -1,12 +1,9 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { FormEvent, useEffect, useState } from 'react';
 import { IncidentReport, ShiftSearchParams } from '../../Model/Interfaces';
 import { deleteIncidentReport, fetchIncidentReports, updateIncidentReport } from '../../services';
 import BackButton from '../ButtonComponents/BackButton/BackButton';
 import IncidentReportItem from "../IncidentReportItem/IncidentReportItem";
 import './IncidentReportLogs.css';
-import refreshIcon from '../../Icons/refresh.svg';
 import ResetButton from '../ButtonComponents/ResetButton/ResetButton';
 
 

@@ -11,6 +11,11 @@ main.UpdateButtonContainer {
     align-items: center;
 }
 
+main.UpdateButtonContainer:hover {
+    background-color: #F8D2C0;
+    transition: .5s;
+}
+
 main.UpdateButtonContainer button.ModalToggle {
     background-color: rgba(197, 197, 197, 0);
         border-style: none;

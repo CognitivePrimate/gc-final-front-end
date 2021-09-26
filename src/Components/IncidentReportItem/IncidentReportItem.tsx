@@ -2,9 +2,6 @@ import { IncidentReport } from "../../Model/Interfaces";
 import './IncidentReportItem.css';
 import { useState } from "react";
 import IncidentReportUpdater from "../IncidentReportUpdater/IncidentReportUpdater";
-
-// icons
-import deleteIcon from "../../Icons/delete.svg";
 import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
