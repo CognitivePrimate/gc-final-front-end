@@ -12,3 +12,24 @@
     z-index: 3;
 
 }
+
+main.ScheduleMainContainer {
+    padding: 10px;
+}
+
+main.ScheduleMainContainer h3.ScheduleTitle {
+    text-align: center;
+}
+
+
+main.ScheduleMainContainer div.scheduleItemSearchContainer {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 98%;
+    max-width: 900px;
+    padding: 15px;
+    margin: 10px auto 10px auto;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    animation: FadeIn .7s;
+}

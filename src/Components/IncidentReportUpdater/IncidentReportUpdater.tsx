@@ -1,12 +1,8 @@
 import { useState, FormEvent } from "react";
 import { IncidentReport } from "../../Model/Interfaces";
-import ShiftLogUpdater from "../ShiftLogUpdater/ShiftLogUpdater";
-
 import './IncidentReportUpdater.css' ;
-
-// Icons
-import editIcon from "../../Icons/edit.svg";
 import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
+import ModalCloseButton from "../ButtonComponents/ModalCloseButton/ModalCloseButton";
 
 
 
@@ -39,9 +35,9 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
             />
             <section className={updateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
-                    <section className="UpdateClickableSection">
-                        <div className="UpdateClickableDiv"onClick={updateHidden}>X</div>
-                    </section>
+                    <ModalCloseButton
+                    updateHidden={updateHidden}
+                    />
                     <h3 className="NewLogTitle">Update Incident</h3>
                     <div className="logInputInfoContainer">
                         <div className="InputOptions">
@@ -53,9 +49,13 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
                             <input type="text" name="supervisor" id="supervisor" value={pendingReport.supervisor} onChange={(e) => setPendingReport({...report, supervisor: e.target.value})}/>
                         </div>
                     </div>
-                    <label htmlFor="logEntry">Incident Here:</label><br/>
-                    <textarea name="logEntry" id="logEntry" className="logEntry" value={pendingReport.incident} onChange={(e) => setPendingReport({...report, incident: e.target.value})} required minLength={2} rows={8}/><br />
-                    <button className="SubmitButton" id="logSubmitButton" type="submit" >Update Incident</button>
+                    <div className="InputOptions">
+                        <label htmlFor="logEntry">Incident Here:</label><br/>
+                        <textarea name="logEntry" id="logEntry" className="logEntry" value={pendingReport.incident} onChange={(e) => setPendingReport({...report, incident: e.target.value})} required minLength={2} rows={8}/><br />
+                    </div>
+                    <div className="SubmitButtonContainer">
+                        <button className="SubmitButton" id="logSubmitButton" type="submit" >Update Incident</button>
+                    </div>
                 </form>
             </section>
 

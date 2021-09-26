@@ -18,11 +18,24 @@ main.EmergencyContactsUpdaterContainer section.ShiftUpdaterForm {
 main.EmergencyContactsUpdaterContainer form.InputFormUpdater {
     border-style: none;
     border-radius: 5px;
-    background-color: rgb(197, 197, 197);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
     padding: 15px;
     margin: 10px;
-    height: 60%;
+    height: 70%;
     width: 80%;
+}
+
+
+main.EmergencyContactsUpdaterContainer h3.ContactTitle {
+    text-align: center;
+}
+
+main.EmergencyContactItemContainer div.ContactLabelInputContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
 }
 
 button.editIcon {

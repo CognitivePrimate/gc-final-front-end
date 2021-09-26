@@ -44,14 +44,14 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
                         <p><b>Role:</b> {emergencyContact.role}</p>
                     </section>
                     <section className="UpdateDeleteSection">
-                            <DeleteButton
-                                deleteReport={deleteContact}
-                            />
                             <EmergencyContactsUpdater
                                 contact={emergencyContact}
                                 updateForm={updateForm}
                                 updateEmergencyContact={updateEmergencyContact}
                                 updateHidden={handleHidden}
+                            />
+                            <DeleteButton
+                                deleteReport={deleteContact}
                             />
                     </section>
                 </section>

@@ -150,7 +150,7 @@ function handleSubmit(e: FormEvent){
     return (
         <main className="IncidentReportLogs">
             <form action="submit" className="InputForm" onSubmit={handleSubmit}>
-            <h4>Search Incidents</h4>
+            <h3 className="IncidentTitle">Search Incidents</h3>
                     <section className="InputOptions">
                         <input type="text" name="firstNameSearch" id="firstNameSearch" value={searchFirst} onChange={ (e) => setSearchFirst(e.target.value) } placeholder="Name"/>
                     </section>

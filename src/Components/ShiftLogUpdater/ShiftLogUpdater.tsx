@@ -2,9 +2,9 @@ import { FormEvent, useState } from "react";
 import { ShiftLog } from "../../Model/Interfaces";
 import './ShiftLogUpdater.css';
 import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
+import ModalCloseButton from "../ButtonComponents/ModalCloseButton/ModalCloseButton";
 
-// Icon
-import CloseButton from "../ButtonComponents/CloseButton/CloseButton";
+
 
 
 interface Props {
@@ -34,8 +34,8 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
             />
             <section className={UpdateForm}>
                 <form action="submit" className="InputFormUpdater"onSubmit={preventReload}>
-                    <CloseButton
-                        updateHidden={updateHidden}
+                    <ModalCloseButton
+                    updateHidden={updateHidden}
                     />
                     <h3 className="NewLogTitle">Update Log</h3>
                     <div className="logInputInfoContainer">

@@ -1,15 +1,25 @@
 
 
-section.ResetButtonContainer {
-    border-style: solid;
-    border-color: rgb(192, 192, 192);
-    border-width: 3px;
-    border-radius: 8px;
-    width: 40%;
+main.ResetMainContainer {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin: 10px 0;
 }
 
-section.ResetButtonContainer button.ResetButton {
+main.ResetMainContainer section.ResetButtonContainer {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+
+}
+
+main.ResetMainContainer button.ResetButton {
     border-style: none;
+    border-style: solid;
+    border-color: #F5A17A;
+    border-width: 3px;
+    border-radius: 8px;
+    padding: 5px;
+    width: 100%;
 }

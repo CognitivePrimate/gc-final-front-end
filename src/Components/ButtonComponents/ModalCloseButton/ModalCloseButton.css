@@ -1,0 +1,17 @@
+main.ModalCloseMain {
+    display: flex;
+    justify-content: flex-end;
+}
+
+main.ModalCloseMain section.ModalCloseButtonSection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+main.ModalCloseMain button.ModalCloseButton {
+    background-color: white;
+    color: coral;
+    font-size: large;
+    border-style: none;
+}

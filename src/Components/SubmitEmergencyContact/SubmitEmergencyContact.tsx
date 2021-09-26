@@ -79,8 +79,8 @@ const SubmitEmergencyContact = () => {
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
                 </section>
+                <BackButton/>
             </form>
-            <BackButton/>
 
         </main>
     )

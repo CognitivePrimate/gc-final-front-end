@@ -1,3 +1,9 @@
+
+main.DailyShiftLogContainer {
+    padding: 20px;
+    animation: FadeIn .7s;
+}
+
 main.DailyShiftLogContainer section.SearchOptions {
     display: flex;
     flex-direction: column;

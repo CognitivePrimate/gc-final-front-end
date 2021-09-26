@@ -49,14 +49,14 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
                     <p>Supervisor: {incident.supervisor}</p>
                 </div>
                 <section className="UpdateDeletecontainer">
-                        <DeleteButton
-                        deleteReport={deleteReport}
-                        />
                         <IncidentReportUpdater
                             report={incident}
                             updateForm={updateForm}
                             updateIncidentSubmit={updateIncidentSubmit}
                             updateHidden={handleHidden}
+                        />
+                        <DeleteButton
+                        deleteReport={deleteReport}
                         />
                 </section>
             </section>

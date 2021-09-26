@@ -16,11 +16,21 @@ main.IncidentReportUpdaterContainer section.ShiftUpdaterForm {
 main.IncidentReportUpdaterContainer form.InputFormUpdater {
     border-style: none;
     border-radius: 5px;
-    background-color: rgb(197, 197, 197);
+    background-color: white;
     padding: 15px;
     margin: 10px;
-    height: 60%;
+    height: 70%;
     width: 80%;
+}
+
+main.IncidentReportUpdaterContainer h3.NewLogTitle {
+    text-align: center;
+}
+
+main.IncidentReportUpdaterContainer div.InputOptions {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
 }
 
 main.IncidentReportUpdaterContainer button.ModalToggle {
@@ -30,4 +40,10 @@ main.IncidentReportUpdaterContainer button.ModalToggle {
         border-radius: 5px;
         height: 32px;
         width: 38px;
+}
+
+
+main.IncidentReportUpdaterContainer div.SubmitButtonContainer {
+    display: flex;
+    justify-content: center;
 }

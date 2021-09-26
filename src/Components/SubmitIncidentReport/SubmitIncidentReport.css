@@ -1,3 +1,9 @@
+
+main.SubmitIncidentReportContainer {
+    padding: 20px;
+    animation: FadeIn .7s;
+}
+
 main.SubmitIncidentReportContainer section.AuthSupStyle {
     display: flex;
     flex-direction: column;
@@ -10,4 +16,8 @@ main.SubmitIncidentReportContainer textarea.IncidentTextArea {
 
 main.SubmitIncidentReportContainer input.FormInputsStyle {
     width: 100%;
+}
+
+main.SubmitIncidentReportContainer h3.NewReportTitle {
+    text-align: center;
 }

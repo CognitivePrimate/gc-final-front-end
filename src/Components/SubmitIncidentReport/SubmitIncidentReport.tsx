@@ -87,6 +87,9 @@ const SubmitIncidentReport = () => {
     return (
         <main className="SubmitIncidentReportContainer">
             <form className="incidentInputForm InputForm" action="submit">
+                <section>
+                    <h3 className="NewReportTitle">New Incident Report</h3>
+                </section>
                 <div className="incidentInputInfoContainer">
                     <section className="AuthSupStyle">
                         <label htmlFor="author"></label>
@@ -98,7 +101,7 @@ const SubmitIncidentReport = () => {
                     </section>
                 </div>
                 <label htmlFor="incidentEntry"></label><br/>
-                <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={10} rows={16} value={incident} onChange={newIncident} placeholder="Log Here:"/><br/>
+                <textarea className="IncidentTextArea"name="incidentEntry" id="incidentEntry" required minLength={2} rows={10} value={incident} onChange={newIncident} placeholder="Log Here:"/><br/>
 
                 <label htmlFor="witnesses"></label><br/>
                 <input className="FormInputsStyle" type="text" name="witnesses" id="witnesses" value={witnesses} onChange={newWitnesses} placeholder="Witnesses"/><br/>
@@ -106,8 +109,8 @@ const SubmitIncidentReport = () => {
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
                 </section>
+                <BackButton/>
             </form>
-            <BackButton/>
         </main>
     )
 }

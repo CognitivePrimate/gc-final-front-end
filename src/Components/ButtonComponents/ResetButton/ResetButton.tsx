@@ -11,9 +11,11 @@ interface Props {
 const ResetFilterButton = ({resetSearch}: Props) => {
 
     return(
-        <section className="ResetButtonContainer">
-            <button className="ResetButton" onClick={resetSearch}><img src={refreshIcon} alt="Refresh"/></button>
-        </section>
+        <main className="ResetMainContainer">
+            <section className="ResetButtonContainer">
+                <button className="ResetButton" onClick={resetSearch}><img src={refreshIcon} alt="Refresh"/></button>
+            </section>
+        </main>
     )
 }
 

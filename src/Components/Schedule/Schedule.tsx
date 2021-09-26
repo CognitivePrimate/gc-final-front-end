@@ -5,9 +5,11 @@ import {HistoricalSchedule, Schedule, ScheduleRow} from '../../Model/Interfaces'
 import { addHistoricalSchedule, deleteSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import ScheduleRowComponent from '../ScheduleRow/schedule-row';
+import './Schedule.css';
 
 import deleteIcon from "../../Icons/delete.svg";
 import BackButton from '../ButtonComponents/BackButton/BackButton';
+import ResetButton from '../ButtonComponents/ResetButton/ResetButton';
 // import 
 
 const ScheduleList = () => {   
@@ -248,20 +250,23 @@ const ScheduleList = () => {
     }
 
     return (
-        <main>
-            <h3>Schedules</h3>
+        <main className="ScheduleMainContainer">
+            <h3 className="ScheduleTitle">Schedules</h3>
             <div className="scheduleItemSearchContainer">
-                    <form action="submit" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
+                    <form action="submit" className="" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
                         <h4>Search schedules by date:</h4>
                         <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/>
                         <button type="submit" form="scheduleItemSearchByDate">Search</button>
                     </form>
                     <button type="button" onClick={handleFetchSchedules}>View All Schedules</button>
-                    <button onClick={resetSearch}>Reset</button>
+                    
+                    <ResetButton
+                    resetSearch={resetSearch}
+                    />
             </div>
             
                 <main className="sheduleComponentContainer">
-                    <h3>Schedule Search:</h3>
+                    {/* <h3>Schedule Search:</h3> */}
                     {/* fix below (notFound) */}
                     {notFound && <div className="notFoundMessage"><h4>{notFoundMessage}</h4></div>}
                     <form className="scheduleCreationTemplateContainer" action="submit" id="scheduleSubmissionForm" onSubmit={handleHistoricalScheduleSubmit}>

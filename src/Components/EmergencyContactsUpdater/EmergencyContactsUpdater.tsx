@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react"
 import { EmergencyContact } from "../../Model/Interfaces"
-import { updateEmergencyContact } from "../../services"
+
 
 import './EmergencyContactsUpdater.css';
 
 // Icons
-import editIcon from "../../Icons/edit.svg";
+import UpdateButton from "../ButtonComponents/UpdateButton/UpdateButton";
+import ModalCloseButton from "../ButtonComponents/ModalCloseButton/ModalCloseButton";
 
 
 
@@ -33,14 +34,14 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
 
     return (
         <main className="EmergencyContactsUpdaterContainer">
-            <section>
-                <button className="editIcon" onClick={updateHidden}><img src={editIcon} alt="edit icon" /></button>
-            </section>
+                    <UpdateButton
+                        updateHidden={updateHidden}
+                    />
             <section className={updateForm}>
                 <form className="InputFormUpdater" action="submit" onSubmit={preventReload}>
-                    <section>
-                        <button onClick={updateHidden}>X</button>
-                    </section>
+                    <ModalCloseButton
+                        updateHidden={updateHidden}
+                    />
                     <h3 className="ContactTitle">Add Emergency Contact</h3>
                     <div className="ContactLabelInputContainer">
                         <label htmlFor="first-name">First Name:</label>

@@ -1,3 +1,13 @@
+main.IncidentReportLogs {
+    padding: 20px;
+    animation: FadeIn .7s;
+}
+
+main.IncidentReportLogs h3.IncidentTitle {
+    text-align: center;
+}
+
+
 main.IncidentReportLogs section.SearchOptions {
     display: flex;
     flex-direction: column;
