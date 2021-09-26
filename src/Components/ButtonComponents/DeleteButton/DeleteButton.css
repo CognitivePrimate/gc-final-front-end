@@ -23,10 +23,12 @@ main.DeleteButtonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 main.DeleteButtonContainer button.DeleteButton {
     background-color: rgba(197, 197, 197, 0);
-        border-style: none;
-        border-color: rgba(197, 197, 197, 0);
+    border-style: none;
+    border-color: rgba(197, 197, 197, 0);
+    cursor: pointer;
 }

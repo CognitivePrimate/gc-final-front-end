@@ -254,7 +254,7 @@ const ScheduleList = () => {
             <h3 className="ScheduleTitle">Schedules</h3>
             <div className="scheduleItemSearchContainer">
                     <form action="submit" className="" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
-                        <h4>Search schedules by date:</h4>
+                        <h4>Search schedule templates by date:</h4>
                         <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/>
                         <button type="submit" form="scheduleItemSearchByDate">Search</button>
                     </form>

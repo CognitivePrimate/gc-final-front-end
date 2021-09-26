@@ -13,10 +13,23 @@ const WeatherHeader = () => {
     const [temp, setTemp] = useState([]);
     // sets icon code to be used in url for weather image
     const [icon, setIcon] = useState();
-    const [timeZone, setTimeZone] = useState<string>();
+    // const [timeZone, setTimeZone] = useState<string>();
     const [alert, setAlert] = useState<string>();
     const [windSpeed, setWindSpeed] = useState();
     const [windGusts, setWindGusts] = useState();
+    const [sunset, setSunset] = useState<string>();
+
+    // converts unix-timestamp for sunset
+    const convertedSunset = (res: any) => {
+        let unixTimestamp = res;
+        let date = new Date(unixTimestamp * 1000).toLocaleTimeString("en-US");
+        // let hours = date.getHours();
+        // let minutes = "0" + date.getMinutes();
+        // let normalPersonTime = `${hours} + ':' + ${minutes.substr(-2)}`;
+        setSunset(date);
+
+    }
+
     
     // in the event of no alerts, won't crash app. probably a good thing. = 
     const alertSetWorkAround = (res: any) => {
@@ -41,8 +54,9 @@ const WeatherHeader = () => {
                 setTemp(res.current.temp.toFixed(0));
                 setIcon(res.current.weather[0].icon);
                 // takes timezone from api, splits into array, and cuts first index. initially "country/city"
-                setTimeZone(res.timezone.split("/").splice(1));
+                // setTimeZone(res.timezone.split("/").splice(1));
                 // MAKE FUNCTIO TO SET ALERT?
+                convertedSunset(res.current.sunset)
                 alertSetWorkAround(res);
                 // setAlert(res.alerts[0].event || setAlert());
                 setWindSpeed(res.current.wind_speed);
@@ -73,7 +87,7 @@ const WeatherHeader = () => {
                 <span>Temperature</span>
             </section> */}
             <section className="weather-info-sections">
-                <span className="timeZoneSpan">{timeZone}</span>
+                <span className="timeZoneSpan">Sunset: {sunset}</span>
                 {alert === undefined &&  <span className="weatherHidden">Alerts: {alert}</span>}
                 <span className="weatherHidden">Wind Speed: {windSpeed}-{windGusts}mph</span>
                 <div id="tempIconContainer">

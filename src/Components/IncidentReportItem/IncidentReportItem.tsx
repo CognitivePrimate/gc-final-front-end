@@ -39,14 +39,14 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
         <main className="IncidentReportLogContainer">
             <section className="ReportHeaderSection ReportLogSections">
                 <section>
-                    <span>Date: {incident.month}/{incident.day}/{incident.year}</span>
-                    <span> Time: {incident.hours}:{incident.minutes}</span>
+                    <span><b>Date:</b> {incident.month}/{incident.day}/{incident.year}</span>
+                    <span><b>Time:</b> {incident.hours}:{incident.minutes}</span>
                 </section>
             </section>
             <section className="incident-author-supervisor-section ReportLogSections">
                 <div>
-                    <p>Author: {incident.author}</p>
-                    <p>Supervisor: {incident.supervisor}</p>
+                    <p><b>Author:</b> {incident.author}</p>
+                    <p><b>Supervisor:</b> {incident.supervisor}</p>
                 </div>
                 <section className="UpdateDeletecontainer">
                         <IncidentReportUpdater
@@ -61,8 +61,8 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
                 </section>
             </section>
             <section className="ReportLogSections">
-                <p>Log Text: {incident.incident}</p>
-                <p>Witness: {incident.witnesses}</p>
+                <p><b>Log Text:</b> {incident.incident}</p>
+                <p><b>Witnesses:</b> {incident.witnesses}</p>
             </section>
         </main>
     )
