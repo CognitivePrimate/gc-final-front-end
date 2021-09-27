@@ -1,17 +1,3 @@
-/* 
-main.DeleteButtonContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-style: solid;
-    border-color: rgb(192, 192, 192);
-} */
-/* 
-main.DeleteButtonContainer button.DeleteButton {
-    border-color: rgb(192, 192, 192);;
-} */
-
 main.DeleteButtonContainer {
     border-style: solid;
     border-color: rgb(192, 192, 192);
@@ -25,6 +11,10 @@ main.DeleteButtonContainer {
     align-items: center;
     
 }
+main.DeleteButtonContainer:hover {
+    background-color: #F8D2C0;
+    transition: .25s;
+}
 
 main.DeleteButtonContainer button.DeleteButton {
     background-color: rgba(197, 197, 197, 0);
@@ -32,3 +22,4 @@ main.DeleteButtonContainer button.DeleteButton {
     border-color: rgba(197, 197, 197, 0);
     cursor: pointer;
 }
+

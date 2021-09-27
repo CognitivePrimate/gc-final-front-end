@@ -1,24 +1,29 @@
-main.BackButtonContainer {
+
+.CrumbLink {
+    width: 80%;
+}
+
+main.MainBreadCrumbContainer {
     display: flex;
     justify-content: center;
     margin: 5px;
 }
 
-
-button.BackButton {
+main.MainBreadCrumbContainer button.BreadCrumbButton {
     border-style: none;
     font-weight: 700;
     border-radius: 8px;
     width: 100px;
     height: 30px;
     border-width: 2px;
-    background-color: #F5A17A;;
+    background-color: #F5A17A;
     color: #ffffff;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     transition: .25s
 }
 
-button.BackButton:hover {
+
+main.MainBreadCrumbContainer button.BreadCrumbButton:hover {
     background-color: #ee5e1b;
     box-shadow:  3px 3px 4px 4px rgba(0, 0, 0, 0.3);
 }

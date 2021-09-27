@@ -11,3 +11,10 @@ main.EmergencyContactContainer div.ContactLabelInputContainer {
     flex-direction: column;
 
 }
+
+main.EmergencyContactContainer section.BackCrumbContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

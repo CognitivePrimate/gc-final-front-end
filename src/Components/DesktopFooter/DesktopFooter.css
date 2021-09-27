@@ -1,0 +1,50 @@
+
+/*  This only shows up at desktop sizes */
+
+/* Icon Container */
+@media only screen and (max-width: 1007px) {
+main.DesktopFooterContainer {
+    display: none;
+}
+
+}
+
+@media only screen and (min-width: 1008px) {
+    
+
+    main.DesktopFooterContainer div.IconContainer {
+        /* position: absolute;
+        bottom: -140px;
+        left: 30px; */
+        position: fixed;
+        bottom: -240px;
+        left: -5px;
+        z-index: 3;
+        transition: .5;
+    }
+
+    main.DesktopFooterContainer div.IconContainer:hover {
+        /* position: absolute;
+        bottom: -140px;
+        left: 30px; */
+        position: fixed;
+        bottom: -140px;
+        left: -5px;
+        z-index: 3;
+        transition: .5s;
+    }
+
+    main.DesktopFooterContainer div.StickyFooter {
+        /* position: absolute;
+        bottom: -140px;
+        left: 30px; */
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        height: 20px;
+        width: 100%;
+        background-color: #d8622c;
+        z-index: 2;
+    }
+
+}

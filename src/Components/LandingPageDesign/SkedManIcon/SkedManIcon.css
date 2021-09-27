@@ -1,0 +1,104 @@
+main.HeroShotMainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main.HeroShotMainContainer div.HeroShotLoginDiv {
+    border-style: solid;
+    border-color: #F17841;
+    background-color: #F17841;
+    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-width: 2px;
+    margin: 20px;
+    width: 220px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.HeroShotMainContainer h2.AppName {
+    text-align: center;
+    color: white;
+    margin: 20px 0;
+}
+
+/* Notebook Styling */
+
+
+/* Notebook Title */
+
+main.HeroShotMainContainer section.BookTitleSection {
+    height: 100%;
+    padding-top: 20px;
+}
+
+main.HeroShotMainContainer div.AppNameContainer {
+    background-color: #d8622c;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    left: 13px;
+}
+
+main.HeroShotMainContainer div.AppNameContainer {
+    background-color: #d8622c;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    left: 13px;
+}
+
+/*  Notebook Strap */
+
+main.HeroShotMainContainer div.BindingStrap {
+    position: relative;
+    background-color: #f1a886;
+    width: 12px;
+    height: 304px;
+    margin: 0 4px;
+    border-radius: 3px;
+    left: 25px;
+}
+
+/* notebook holes */
+
+main.HeroShotMainContainer section.BookHolesContainer {
+    height: 90%;
+    position: relative;
+    right: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+main.HeroShotMainContainer div.BookHoles {
+    background-color: #f0cebc;
+    width: 6px;
+    height: 15px;
+    border-radius: 10px;
+}
+
+
+/*  Notebook Rings */
+
+main.HeroShotMainContainer section.BookRingsContainer {
+    height: 90%;
+    position: relative;
+    right: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main.HeroShotMainContainer div.BookRing {
+    background-color: #f1a886;
+    width: 20px;
+    height: 10px;
+    border-radius: 10px;
+}

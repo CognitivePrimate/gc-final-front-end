@@ -1,11 +1,11 @@
 import firebase from "../../firebaseConfig";
-import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { authProvider } from "../../firebaseConfig";
-import { UserLogin } from "../../Model/Interfaces";
 import "./LoginScreen.css";
 import HomeScreen from "../HomeScreen/HomeScreen";
+import LandingPageDesign from "../LandingPageDesign/LandingPageDesign";
+import DesktopFooter from "../DesktopFooter/DesktopFooter";
 
 
 const LoginScreen = () => {
@@ -15,24 +15,37 @@ const LoginScreen = () => {
     // Hidden Class for HomeScreen and UserAuth
 
 
-    const [ loginScreen, setLoginScreen ] = useState({
-        HomeScreenVisible: 'hidden',
-        HomeIconVisible: ''
-    })
+    // const [ loginScreen, setLoginScreen ] = useState({
+    //     HomeScreenVisible: 'hidden',
+    //     HomeIconVisible: ''
+    // })
+
+    // function logout() {
+    //     firebase.auth().signOut().then(() => setLoginScreen({HomeScreenVisible: 'hidden', HomeIconVisible: ''}))
+    //     console.log(user);
+    //   }
+
+    // function signIn() {
+    //     firebase.auth().signInWithPopup(authProvider).then(() => setLoginScreen({HomeScreenVisible: '', HomeIconVisible: 'hidden'}))
+    //     console.log(user);
+    //   }
+
 
     function logout() {
-        firebase.auth().signOut().then(() => setLoginScreen({HomeScreenVisible: 'hidden', HomeIconVisible: ''}))
+        firebase.auth().signOut()
+        console.log(user);
       }
 
     function signIn() {
-        firebase.auth().signInWithPopup(authProvider).then(() => setLoginScreen({HomeScreenVisible: '', HomeIconVisible: 'hidden'}))
+        firebase.auth().signInWithPopup(authProvider)
+        console.log(user);
       }
-
 
 
     return (
         <main className="login-screen">
         { user ?
+
           <section className="SignedInSection">
               <div className="StylishDivSize3"></div>
               <div className="StylishDivSize3"></div>
@@ -43,58 +56,28 @@ const LoginScreen = () => {
               <div className="StylishDivSize3"></div>
               <div className="StylishDivSize3"></div>
               <div className="StylishDivSize3"></div>
-            <span className="signOutButton" onClick={logout}>Sign Out</span>
+              <section className="SignOutButtonContainer">
+                    <span className="signOutButton" onClick={logout}>Sign Out</span>
+              </section>
           </section> :
-          <section className="SignedInSection">
-              <div className="StylishDivSize3"></div>
-            <span className="SignInButton" onClick={signIn}>Sign in with Google</span>
+          <section className="SignedOutSection">
+            <section className="SignInButtonContainer">
+                <span className="SignInButton" onClick={signIn}>Sign in with Google</span>
+            </section>
+            
           </section>
           
           
         }
+        
         <section >
-            <section className="StylishDivsContainerSize2">
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-            </section>
-            <section className="StylishDivsContainerSize1">
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-            </section>
-            <section className="HeroShotLoginSection">
-                <div className="HeroShotLoginDiv">
-                    <h2 className="AppName">SkedMan</h2>
-                </div>
-            </section>
-            <section className="StylishDivsContainerSize1">
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-                <div className="StylishDivSize1"></div>
-            </section>
-            <section className="StylishDivsContainerSize2">
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-                <div className="StylishDivSize2"></div>
-            </section>
+            {!user && <LandingPageDesign/>}
         </section>
         <section>
-            <HomeScreen/>
+            {user && <HomeScreen/>}
+        </section>
+        <section>
+            {user && <DesktopFooter/>}
         </section>
         </main>
     )

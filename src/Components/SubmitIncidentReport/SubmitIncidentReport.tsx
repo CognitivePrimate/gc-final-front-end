@@ -1,9 +1,8 @@
-import { ObjectId } from 'bson';
-import React, { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
 import { IncidentReport } from '../../Model/Interfaces';
 import { addIncidentReport } from '../../services';
 import BackButton from '../ButtonComponents/BackButton/BackButton';
+import BreadCrumbButton from '../ButtonComponents/BreadCrumbButton/BreadCrumbButton';
 import './SubmitIncidentReport.css';
 
 const SubmitIncidentReport = () => {
@@ -12,22 +11,10 @@ const SubmitIncidentReport = () => {
    const [incident, setIncident] = useState("");
    const [witnesses, setWitnesses] = useState([]);
 
- //takes all log items to compile into shift log object
-   const [incidentReports, setIncidentReports] = useState<IncidentReport[]>([]);
+// BreadCrumb Button variables
 
- //functions to handle onSubmit
-    // const onSubmit = (incidentReport: IncidentReport) => {
-    //     // setShiftLogs(prevShiftLogs => [
-    //     //     ...prevShiftLogs,
-    //     //     shiftLog
-    //     // ]);
-    //     // console.log("trying", shiftLogs);
-    //     // WHY ONLY WORK THIS WAY?! 
-    //     let newIncidentReport: IncidentReport[] = incidentReports;
-    //     newIncidentReport.push(incidentReport);
-    //     setIncidentReports(newIncidentReport);
-    //     console.log("incidentReports post onSubmit function", incidentReports)
-    // }    
+let buttonName= "Incident Reports";
+let linkRoute= "/IncidentReportLogs";
 
     const onSubmit = (incidentReport: IncidentReport) => {
         // record the input values
@@ -109,7 +96,13 @@ const SubmitIncidentReport = () => {
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" id="incidentSubmitButton" type="submit" onClick={handlesubmit}>Submit Report</button>
                 </section>
-                <BackButton/>
+                <section className="BackCrumbContainer">
+                    <BackButton/>
+                    <BreadCrumbButton
+                        buttonName={buttonName}
+                        linkRoute={linkRoute}
+                    />
+                </section>
             </form>
         </main>
     )

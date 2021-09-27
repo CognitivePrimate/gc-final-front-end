@@ -2,9 +2,6 @@ import { IncidentReport } from "../../Model/Interfaces";
 import './IncidentReportItem.css';
 import { useState } from "react";
 import IncidentReportUpdater from "../IncidentReportUpdater/IncidentReportUpdater";
-
-// icons
-import deleteIcon from "../../Icons/delete.svg";
 import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
@@ -28,6 +25,7 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
     const handleHidden = () => {
         if(updateForm === "hidden"){
             setUpdateForm("ShiftUpdaterForm");
+            window.scrollTo(0,0);
         } else if(updateForm === "ShiftUpdaterForm"){
             setUpdateForm("hidden");
         }

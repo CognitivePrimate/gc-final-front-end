@@ -1,6 +1,6 @@
 body {
     /* #e9ecef */
-    background-color: #fff;
+    background-color: rgb(240, 240, 240);
 /* background-image: linear-gradient(315deg, #e9ecef 0%, #fff 50%, #ffffff 100%);; */
 }
 
@@ -64,7 +64,7 @@ section.InputOptions {
 
 /* Global Back button */
 
-button.BackButton {
+/* button.BackButton {
     border-style: none;
     font-weight: 700;
     border-radius: 8px;
@@ -79,8 +79,8 @@ button.BackButton {
 
 button.BackButton:hover {
     background-color: #ee5e1b;
-    box-shadow:  3px 3px 10px 10px rgba(0, 0, 0, 0.1);
-}
+    box-shadow:  3px 3px 4px 4px rgba(0, 0, 0, 0.3);
+} */
 
 section.BackButtonLinkContainer {
     display: flex;

@@ -1,10 +1,9 @@
-import { ObjectId } from "mongodb";
 import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { EmergencyContact } from "../../Model/Interfaces";
 import { addEmergencyContact } from "../../services";
 import BackButton from "../ButtonComponents/BackButton/BackButton";
+import BreadCrumbButton from "../ButtonComponents/BreadCrumbButton/BreadCrumbButton";
 import './SubmitEmergencyContact.css';
 
 
@@ -18,6 +17,11 @@ const SubmitEmergencyContact = () => {
    const [email, setEmail] = useState("");
 
    const user = useAuthUser();
+
+   // BreadCrumb Variables
+
+   let buttonName= "Emergency Contacts";
+   let linkRoute= "/EmergencyContacts";
 
    const onSubmit = (emergencyContact: EmergencyContact) => {
        console.log(emergencyContact);
@@ -79,7 +83,13 @@ const SubmitEmergencyContact = () => {
                 <section className="SubmitButtonContainer">
                     <button className="SubmitButton" onClick={handlesubmit}>Add Emergency Contact</button>
                 </section>
-                <BackButton/>
+                <section className="BackCrumbContainer">
+                    <BackButton/>
+                    <BreadCrumbButton
+                        buttonName={buttonName}
+                        linkRoute={linkRoute}
+                    />
+                </section>
             </form>
 
         </main>
