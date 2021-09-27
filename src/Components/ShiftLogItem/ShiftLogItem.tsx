@@ -23,6 +23,7 @@ const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
     const handleHidden = () => {
         if(updateForm === "hidden"){
             setUpdateForm("ShiftUpdaterForm");
+            window.scrollTo(0,0);
         } else if(updateForm === "ShiftUpdaterForm"){
             setUpdateForm("hidden");
         }

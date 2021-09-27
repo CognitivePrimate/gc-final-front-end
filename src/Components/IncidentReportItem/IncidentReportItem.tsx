@@ -25,6 +25,7 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
     const handleHidden = () => {
         if(updateForm === "hidden"){
             setUpdateForm("ShiftUpdaterForm");
+            window.scrollTo(0,0);
         } else if(updateForm === "ShiftUpdaterForm"){
             setUpdateForm("hidden");
         }

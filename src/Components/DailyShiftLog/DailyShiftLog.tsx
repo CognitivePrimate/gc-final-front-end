@@ -172,9 +172,9 @@ function handleSubmit(e: FormEvent){
                         <input type="text" name="supervisorSearch" id="supervisorSearch" value={searchSup} onChange={ (e) => setSearchSup(e.target.value) } placeholder="Supervisor"/>
                     </section>
                     <section className="SearchDateContainer">
-                        <input type="text" name="monthSearch" id="monthSearch" value={searchMonth} onChange={ (e) => setSearchMonth(e.target.value) } placeholder="Month"/>
-                        <input type="text" name="daySearch" id="daySearch" value={searchDay} onChange={ (e) => setSearchDay(e.target.value) } placeholder="Day"/>
-                        <input type="text" name="yearSearch" id="yearSearch" value={searchYear} onChange={ (e) => setSearchYear(e.target.value) } placeholder="Year"/>
+                        <input type="text" name="monthSearch" id="monthSearch" value={searchMonth} onChange={ (e) => setSearchMonth(e.target.value) } placeholder="Month (1-12)"/>
+                        <input type="text" name="daySearch" id="daySearch" value={searchDay} onChange={ (e) => setSearchDay(e.target.value) } placeholder="Day (1-31)"/>
+                        <input type="text" name="yearSearch" id="yearSearch" value={searchYear} onChange={ (e) => setSearchYear(e.target.value) } placeholder="Year (20XX)"/>
                     </section>
                     <section className="SearchOptions">
                         <button className="SubmitButton">Search</button>

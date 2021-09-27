@@ -37,6 +37,14 @@ main.HeroShotMainContainer section.BookTitleSection {
     padding-top: 20px;
 }
 
+main.HeroShotMainContainer div.AppNameContainer {
+    background-color: #d8622c;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    left: 13px;
+}
+
 /*  Notebook Strap */
 
 main.HeroShotMainContainer div.BindingStrap {
@@ -62,7 +70,7 @@ main.HeroShotMainContainer section.BookHolesContainer {
 }
 
 main.HeroShotMainContainer div.BookHoles {
-    background-color: white;
+    background-color: #f0cebc;
     width: 6px;
     height: 15px;
     border-radius: 10px;
@@ -74,15 +82,15 @@ main.HeroShotMainContainer div.BookHoles {
 main.HeroShotMainContainer section.BookRingsContainer {
     height: 90%;
     position: relative;
-    right: 160px;
+    right: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-main.HeroShotMainContainer div.BookHoles {
-    background-color: white;
-    width: 6px;
-    height: 15px;
+main.HeroShotMainContainer div.BookRing {
+    background-color: #f1a886;
+    width: 20px;
+    height: 10px;
     border-radius: 10px;
 }

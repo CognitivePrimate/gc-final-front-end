@@ -13,7 +13,7 @@ main.UpdateButtonContainer {
 
 main.UpdateButtonContainer:hover {
     background-color: #F8D2C0;
-    transition: .5s;
+    transition: .25s;
 }
 
 main.UpdateButtonContainer button.ModalToggle {

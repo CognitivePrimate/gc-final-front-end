@@ -7,19 +7,18 @@ const SkedManIcon = () => {
     <main className="HeroShotMainContainer">
         <div className="HeroShotLoginDiv">
             <section className="BookTitleSection">
-                <h2 className="AppName">SkedMan</h2>
+                <div className="AppNameContainer">
+                    <h2 className="AppName">SkedMan</h2>
+                </div>
             </section>
             <section >
                 <div className="BindingStrap"></div>
             </section>
-            <section className="BookHolesContainer">
-                <div className="BookHoles"></div>
-                <div className="BookHoles"></div>
-                <div className="BookHoles"></div>
-                <div className="BookHoles"></div>
-            </section>
             <section className="BookRingsContainer">
-            <div className="BookRing"></div>
+                <div className="BookRing"></div>
+                <div className="BookRing"></div>
+                <div className="BookRing"></div>
+                <div className="BookRing"></div>
             </section>
 
         </div>
