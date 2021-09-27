@@ -44,18 +44,5 @@ code {
 }
 
 
-@keyframes Wiggles {
-  
-  from{
-    transform: rotate(-0.1turn);
-  }to{
-    transform: rotate(0.1turn)
-  }from{
-    transform: rotate(0.1turn);
-  }to{
-    transform: rotate(-0.1turn);
-  }
-  
-}
 
 
