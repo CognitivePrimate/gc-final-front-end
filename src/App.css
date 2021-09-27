@@ -36,6 +36,11 @@ textarea {
     border-bottom: groove;
 }
 
+textarea:focus {
+    background: #FEF2EC;
+    outline: none;
+}
+
 form.InputForm {
     border-style: none;
     border-radius: 5px;
@@ -110,6 +115,7 @@ button.SubmitButton {
     background-color: #ee5e1b;
     box-shadow:  3px 3px 4px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 section.SubmitButtonContainer {
     display: flex;

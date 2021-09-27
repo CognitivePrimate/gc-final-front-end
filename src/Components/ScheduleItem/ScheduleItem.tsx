@@ -72,7 +72,8 @@ const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange
                 />
             )}
             <div className="scheduleIconContainer">
-                {schedule.templated === true && <><img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit}/><span>Edit Schedule Template</span> </>}
+                {/* {schedule.templated === true && <><img className="editIcon" src={editIcon} alt="edit" onClick={() => onScheduleEdit}/><span>Edit Schedule Template</span> </>} */}
+                {schedule.templated === true && <span id="excuseOurDust">Newly created website, excuse our dust.</span>}
                 {schedule.templated === false && <><img className="trashIcon"src={deleteIcon} alt="delete" onClick={onScheduleDelete}/><span>Delete Schedule Template</span></>}
             </div>
         </div>

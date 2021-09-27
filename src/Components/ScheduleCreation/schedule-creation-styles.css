@@ -27,6 +27,10 @@
     padding: 15px 0;
 }
 
+#scheduleSearchHeader{
+    margin-left: 20px;
+}
+
 #volunteersNeeded {
     width: 30px;
 }

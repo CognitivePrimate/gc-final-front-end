@@ -181,7 +181,7 @@ const ScheduleCreation = () => {
 
     return(
         <main className="sheduleComponentContainer">
-            <h3>Create a new schedule:</h3>
+            <h3 id="scheduleSearchHeader">Create a new schedule:</h3>
             <div className="scheduleCreationContainer">
                 <form className="scheduleCreationForm InputForm" action="submit">
 

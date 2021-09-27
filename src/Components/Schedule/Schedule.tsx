@@ -255,10 +255,10 @@ const ScheduleList = () => {
             <div className="scheduleItemSearchContainer">
                     <form action="submit" className="" id="scheduleItemSearchByDate" onSubmit={handleGetSchedulesByDate}>
                         <h4>Search schedule templates by date:</h4>
-                        <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/>
-                        <button type="submit" form="scheduleItemSearchByDate">Search</button>
+                        <input type="date" id="getScheduleByDateInput" onChange={newGetScheduleByDateInput}/><br/>
+                        <button type="submit" className="SubmitButton" id="scheduleSearchSubmitButton" form="scheduleItemSearchByDate">Search</button>
                     </form>
-                    <button type="button" onClick={handleFetchSchedules}>View All Schedules</button>
+                    <button type="button" className="SubmitButton" id="scheduleSearchAllSubmitButton"onClick={handleFetchSchedules}>View All Schedules</button>
                     
                     <ResetButton
                     resetSearch={resetSearch}
@@ -279,11 +279,9 @@ const ScheduleList = () => {
                                 onInputChangeSubmit3={() => handleHistoricalScheduleSubmit}
                                 onRowDeleteThree={() => {}}
                                 onTimeBlockDeleteTwo={() => {}}
-                                // onTimeBlockRowReset={()=>{}}
-                                // onScheduleSubmission={() => handleScheduleSubmit}
                             />
                         )}
-                        {searchedSchedules[0] && <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Finalized Schedule</button>}
+                        {/* {searchedSchedules[0] && <button className="submitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Finalized Schedule</button>} */}
                     </form>
 
                     <section className="BackButtonLinkContainer">

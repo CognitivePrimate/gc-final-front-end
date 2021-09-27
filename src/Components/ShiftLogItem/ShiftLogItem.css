@@ -2,6 +2,7 @@ main.ShiftLogContainer {
     padding: 5px;
     padding-left: 10px;
     width: 90%;
+    max-width: 800px;
     margin-top: 20px;
     animation: FadeIn .7s;
 }
@@ -40,7 +41,7 @@ main.ShiftLogContainer section.PersonUpdateSection {
     /* position: relative; */
 }
 
-.PersonUpdateSection::after{
+/* .PersonUpdateSection::after{
     position: absolute;
     content: '';
     width: 100%;
@@ -48,10 +49,10 @@ main.ShiftLogContainer section.PersonUpdateSection {
     border-radius: 8px;
     top: 0;
     left: 0;
-    /* box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2); */
+    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
     z-index: -1;
     
-}
+} */
 
 main.ShiftLogContainer p.ParaInfo{
     margin: 5px;

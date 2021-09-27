@@ -23,6 +23,8 @@ main.ScheduleMainContainer h3.ScheduleTitle {
 
 
 main.ScheduleMainContainer div.scheduleItemSearchContainer {
+    display: flex;
+    flex-direction: column;
     border-style: none;
     border-radius: 5px;
     background-color: #ffffff;
@@ -32,4 +34,36 @@ main.ScheduleMainContainer div.scheduleItemSearchContainer {
     margin: 10px auto 10px auto;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
     animation: FadeIn .7s;
+}
+
+
+#scheduleItemSearchByDate{
+    display: flex;
+    flex-direction: column;
+}
+
+#scheduleSearchSubmitButton {
+    width: 70%;
+    /* margin-left: 20px; */
+    margin: 10px auto;
+}
+
+#scheduleSearchAllSubmitButton{
+    width: 60%;
+    margin: 0 auto;
+}
+
+#excuseOurDust {
+    background-color: #F5A17A;
+    width: 800px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+@media only screen and (max-width:600px ){
+    #scheduleSearchSubmitButton {
+        margin: 10px auto 10px auto;
+    }
 }

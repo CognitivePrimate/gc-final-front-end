@@ -19,6 +19,7 @@ main.home-screen-main button.home-screen-button {
     width: 100%;
     margin: 10px;
     height: 40px;
+    max-width: 910px;
     border-style: none;
     border-radius: 8px;
     background-color: #F17841;
@@ -40,4 +41,5 @@ section.hidden {
 
 .home-screen-button-link {
     width: 70vw;
+    max-width: 910px;
 }
