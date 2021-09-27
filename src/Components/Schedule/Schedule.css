@@ -64,6 +64,6 @@ main.ScheduleMainContainer div.scheduleItemSearchContainer {
 
 @media only screen and (max-width:600px ){
     #scheduleSearchSubmitButton {
-        margin: 10px auto 10px auto;
+        /* margin: 10px auto 10px auto; */
     }
 }
