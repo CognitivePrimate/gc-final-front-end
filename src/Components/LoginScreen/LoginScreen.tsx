@@ -43,7 +43,7 @@ const LoginScreen = () => {
 
 
     return (
-        <main >
+        <main className="login-screen">
         { user ?
 
           <section className="SignedInSection">

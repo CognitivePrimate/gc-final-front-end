@@ -55,22 +55,23 @@ main.login-main button.login-submit-button {
 main.login-screen section.SignedInSection {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: flex-end;
     padding: 5px;
     height: 30px;
     margin-top: 40px;
+    padding: 5px;
     /* position: relative; */
 }
 
 main.login-screen section.SignedOutSection {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-end;
     padding: 5px;
     height: 30px;
-    margin-top: 40px;
+    margin-top: 60px;
     /* position: relative; */
 }
 
@@ -85,19 +86,8 @@ main.login-screen div.StylishDivSize3 {
 main.login-screen section.SignInButtonContainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.SignInButton {
-    font-size: 12px;
-    right: 2rem;
-    top: -2px;
-    cursor: pointer;
-    color: #F17841;
-    background: rgba(248, 222, 210, 0.5);
-    padding: 4px;
-    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -117,6 +107,16 @@ main.login-screen section.SignInButtonContainer {
 main.login-screen span.SignInButton {
     color: #F17841;
     background: rgba(248, 222, 210, 0.5);
-    padding: 4px;
+    padding: 10px;
     border-radius: 5px;
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+main.login-screen span.SignInButton:hover {
+    background: #F17841;
+    color: white;
+    transition: .25s;
 }

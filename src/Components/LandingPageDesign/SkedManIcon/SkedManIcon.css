@@ -45,6 +45,14 @@ main.HeroShotMainContainer div.AppNameContainer {
     left: 13px;
 }
 
+main.HeroShotMainContainer div.AppNameContainer {
+    background-color: #d8622c;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    left: 13px;
+}
+
 /*  Notebook Strap */
 
 main.HeroShotMainContainer div.BindingStrap {
