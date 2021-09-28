@@ -51,48 +51,4 @@
 
 }
 
-.testBox1 {
-    position: absolute;
-    top: 4rem;
-    right: 2rem;
-    height: 40px;
-    width: 30px;
-    border-radius: 5px;
-    margin: 0 10px;
-    background-color: #f1a886;
-    z-index: 5;
-    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
-    animation: rotate 2s infinite;
-}
-
-
-@keyframes rotate {
-    from{
-        transform: rotateY(0deg);
-    }to{
-        transform: rotateY(360deg);
-    }
-}
-
-/* .timeBlockContainer{
-    margin: 10px 0;
-    box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.2);
-}
-
-.timeBlockDateHeaderRight {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 50%;
-}
-
-.timeBlockContainerHeaderContainer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.timeBlockTimeHeader {
-    margin-bottom: 2px;
-    margin-left: 8px;
-} */
 
