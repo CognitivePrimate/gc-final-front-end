@@ -1,14 +1,13 @@
-import { ObjectId } from 'mongodb';
+
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {HistoricalSchedule, Schedule, ScheduleRow} from '../../Model/Interfaces'
+import {Schedule, ScheduleRow} from '../../Model/Interfaces'
 import { addHistoricalSchedule, deleteSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
-import ScheduleRowComponent from '../ScheduleRow/schedule-row';
 import './Schedule.css';
 
-import deleteIcon from "../../Icons/delete.svg";
-import BackButton from '../ButtonComponents/BackButton/BackButton';
+// import deleteIcon from "../../Icons/delete.svg";
+// import BackButton from '../ButtonComponents/BackButton/BackButton';
 import ResetButton from '../ButtonComponents/ResetButton/ResetButton';
 // import 
 

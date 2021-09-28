@@ -11,7 +11,7 @@ main.ShiftLogContainer section.LogAuthorTime {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 60%;
+    width: 65%;
     padding-left: 10px;
     padding-right: 10px;
     border-style: none;
@@ -37,15 +37,17 @@ main.ShiftLogContainer section.PersonUpdateSection {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     background-color: #ffffff;
-    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    box-shadow:  3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+    /* test */
     /* position: relative; */
+    /* z-index: 0; */
 }
 
 /* .PersonUpdateSection::after{
     position: absolute;
     content: '';
     width: 100%;
-    height: 100%;
+    height: 50%;
     border-radius: 8px;
     top: 0;
     left: 0;
