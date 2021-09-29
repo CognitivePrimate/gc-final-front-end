@@ -20,7 +20,7 @@ footer.DesktopFooterContainer {
         bottom: -240px;
         left: -5px;
         z-index: 3;
-        /* transition: 2; */
+        transition: .25s;
     }
 
     footer.DesktopFooterContainer div.IconContainer:hover {
@@ -31,7 +31,7 @@ footer.DesktopFooterContainer {
         bottom: -140px;
         left: -5px;
         z-index: 3;
-        transition: .5s;
+        transition: .25s;
     }
 
     footer.DesktopFooterContainer div.StickyFooter {
