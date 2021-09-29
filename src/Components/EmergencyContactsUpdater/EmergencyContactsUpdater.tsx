@@ -42,7 +42,7 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
                     <ModalCloseButton
                         updateHidden={updateHidden}
                     />
-                    <h3 className="ContactTitle">Add Emergency Contact</h3>
+                    <h3 className="ContactTitle">Update Emergency Contact</h3>
                     <div className="ContactLabelInputContainer">
                         <label htmlFor="first-name">First Name:</label>
                         <input type="text" name="first-name" id="first-name" value={pendingContact.firstName} onChange={(e) => setPendingContact({...contact, firstName: e.target.value})}/>
@@ -64,7 +64,7 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
                         <input type="text" name="contact-role" id="contact-role" value={pendingContact.role} onChange={(e) => setPendingContact({...contact, role: e.target.value})}/>
                     </div>
                     <section className="SubmitButtonContainer">
-                        <button className="SubmitButton" onClick={preventReload}>Add Emergency Contact</button>
+                        <button className="SubmitButton" onClick={preventReload}>Update Emergency Contact</button>
                     </section>
                 </form>
             </section>
