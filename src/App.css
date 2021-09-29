@@ -31,6 +31,7 @@ textarea {
     border: hidden;
     border-left: groove #ffffff;
     border-bottom: groove;
+    resize: none;
 }
 
 textarea:focus {
