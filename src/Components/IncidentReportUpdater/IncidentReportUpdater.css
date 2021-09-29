@@ -9,6 +9,7 @@ main.IncidentReportUpdaterContainer section.ShiftUpdaterForm {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 15;
 
 }
 

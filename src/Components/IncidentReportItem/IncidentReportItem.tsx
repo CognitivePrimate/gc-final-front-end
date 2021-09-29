@@ -5,10 +5,6 @@ import IncidentReportUpdater from "../IncidentReportUpdater/IncidentReportUpdate
 import DeleteButton from "../ButtonComponents/DeleteButton/DeleteButton";
 
 
-
-
-
-
 interface Props {
     incident: IncidentReport
     deleteReport: () => void; 

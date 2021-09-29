@@ -184,10 +184,6 @@ const ScheduleCreation = () => {
             <h3 id="scheduleSearchHeader">Create a new schedule:</h3>
             <div className="scheduleCreationContainer">
                 <form className="scheduleCreationForm InputForm" action="submit">
-
-                    {/* TEST */}
-                        <div className="StylishDivSize1 testBox1"></div>
-                    {/* END TEST */}
                     
                     <label htmlFor="dateNeeded" className="schedCreateInputLabel">Date Needed:</label>
                     <input type="date" name="dateNeeded" id="dateNeeded" value={dateNeeded} onChange={newDateNeeded}/>
