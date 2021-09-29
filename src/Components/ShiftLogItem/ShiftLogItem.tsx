@@ -29,6 +29,10 @@ const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
         }
     }
 
+    const updateSubmitHidden = () => {
+        setUpdateForm("hidden");
+    }
+
 
     return (
         <main className="ShiftLogContainer">
@@ -50,6 +54,7 @@ const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
                             UpdateForm={updateForm}
                             updateLogSubmit={updateLogSubmit}
                             updateHidden={handleHidden}
+                            updateSubmitHidden={updateSubmitHidden}
                         />
                         <DeleteButton
                             deleteReport={deleteReport}

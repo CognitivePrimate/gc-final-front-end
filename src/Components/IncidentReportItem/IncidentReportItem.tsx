@@ -27,6 +27,10 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
         }
     }
 
+    const updateSubmitHidden = () => {
+        setUpdateForm("hidden");
+    }
+
 
     
     return (
@@ -48,6 +52,7 @@ const IncidentReportItem = ({incident, deleteReport, updateIncidentSubmit}: Prop
                             updateForm={updateForm}
                             updateIncidentSubmit={updateIncidentSubmit}
                             updateHidden={handleHidden}
+                            updateSubmitHidden={updateSubmitHidden}
                         />
                         <DeleteButton
                         deleteReport={deleteReport}

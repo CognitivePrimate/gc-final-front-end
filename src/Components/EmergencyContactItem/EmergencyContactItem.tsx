@@ -29,6 +29,10 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
         }
     }
 
+    const updateSubmitHidden = () => {
+        setUpdateForm("hidden");
+    }
+
 
     
     return(
@@ -48,6 +52,7 @@ const EmergencyContactItem = ({emergencyContact, deleteContact, updateEmergencyC
                                 updateForm={updateForm}
                                 updateEmergencyContact={updateEmergencyContact}
                                 updateHidden={handleHidden}
+                                updateSubmitHidden={updateSubmitHidden}
                             />
                             <DeleteButton
                                 deleteReport={deleteContact}

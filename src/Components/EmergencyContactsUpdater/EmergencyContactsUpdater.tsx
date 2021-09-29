@@ -13,12 +13,13 @@ import ModalCloseButton from "../ButtonComponents/ModalCloseButton/ModalCloseBut
 interface Props {
     contact: EmergencyContact;
     updateHidden: () => void;
+    updateSubmitHidden: () => void;
     updateForm: string;
     updateEmergencyContact: (contact: EmergencyContact) => void;
 }
 
 
-const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmergencyContact}: Props) => {
+const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmergencyContact, updateSubmitHidden}: Props) => {
 
     const [pendingContact, setPendingContact] = useState<EmergencyContact>({
         ...contact
@@ -28,6 +29,8 @@ const EmergencyContactsUpdater = ({contact, updateForm, updateHidden, updateEmer
     const preventReload = (e: FormEvent) => {
         e.preventDefault();
         updateEmergencyContact(pendingContact);
+        updateSubmitHidden();
+        
 
         // separation of concerns. Parent shouldn't be concerned //
     }

@@ -101,7 +101,12 @@ main.login-screen section.SignInButtonContainer {
     background: rgba(248, 222, 210, 0.5);
     padding: 4px;
     border-radius: 5px;
+}
 
+.signOutButton:hover {
+    background: #F17841;
+    color: white;
+    transition: .25s;
 }
 
 main.login-screen span.SignInButton {

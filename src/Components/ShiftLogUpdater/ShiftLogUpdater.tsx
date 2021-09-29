@@ -12,9 +12,10 @@ interface Props {
     UpdateForm: string;
     updateLogSubmit: (shiftLog: ShiftLog) => void;
     updateHidden: () => void;
+    updateSubmitHidden: () => void;
 }
 
-const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: Props) => {
+const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden, updateSubmitHidden}: Props) => {
 
     const [pendingLog, setPendingLog] = useState<ShiftLog>({
         ...shiftLog,
@@ -23,6 +24,7 @@ const ShiftLogUpdater = ({shiftLog, UpdateForm, updateLogSubmit, updateHidden}: 
     const preventReload = (e: FormEvent) => {
         e.preventDefault();
         updateLogSubmit(pendingLog);
+        updateSubmitHidden();
 
         // separation of concerns. Parent shouldn't be concerned //
     }
