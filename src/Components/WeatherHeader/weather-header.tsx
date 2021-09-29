@@ -10,7 +10,6 @@ const WeatherHeader = () => {
     const [temp, setTemp] = useState([]);
     // sets icon code to be used in url for weather image
     const [icon, setIcon] = useState();
-    // const [timeZone, setTimeZone] = useState<string>();
     const [alert, setAlert] = useState<string>();
     const [windSpeed, setWindSpeed] = useState();
     const [windGusts, setWindGusts] = useState();
@@ -20,15 +19,11 @@ const WeatherHeader = () => {
     const convertedSunset = (res: any) => {
         let unixTimestamp = res;
         let date = new Date(unixTimestamp * 1000).toLocaleTimeString("en-US");
-        // let hours = date.getHours();
-        // let minutes = "0" + date.getMinutes();
-        // let normalPersonTime = `${hours} + ':' + ${minutes.substr(-2)}`;
         setSunset(date);
-
     }
 
     
-    // in the event of no alerts, won't crash app. probably a good thing. = 
+    // in the event of no alerts, won't crash app. probably a good thing. 
     const alertSetWorkAround = (res: any) => {
         res.alerts ? setAlert(res.alerts) : setAlert("None");
     }
@@ -50,19 +45,14 @@ const WeatherHeader = () => {
                 console.log("weatherRes", res);
                 setTemp(res.current.temp.toFixed(0));
                 setIcon(res.current.weather[0].icon);
-                // takes timezone from api, splits into array, and cuts first index. initially "country/city"
-                // setTimeZone(res.timezone.split("/").splice(1));
-                // MAKE FUNCTIO TO SET ALERT?
                 convertedSunset(res.current.sunset)
                 alertSetWorkAround(res);
-                // setAlert(res.alerts[0].event || setAlert());
                 setWindSpeed(res.current.wind_speed);
-                setWindGusts(res.current.wind_gust);
-                              
+                setWindGusts(res.current.wind_gust);             
             })
         };
 
-        // set timeout for error message, enable accuracy, and no reset bullshit 
+        // set timeout for error message, enable accuracy, and no reset 
         const options = {
             enableHighAccuracy: true,
             timeout: 10000,
@@ -78,11 +68,7 @@ const WeatherHeader = () => {
 
     return (
         <div className="weather-header">
-            {/* <section className="weather-header-sections">
-                <span>Location</span>
-                <span>Time</span>
-                <span>Temperature</span>
-            </section> */}
+            
             <section className="weather-info-sections">
                 <span className="timeZoneSpan">Sunset: {sunset}</span>
                 {alert === undefined &&  <span className="weatherHidden">Alerts: {alert}</span>}

@@ -17,19 +17,13 @@ interface Props {
     onRowDelete: (row: ScheduleRow) => void;
     onRowEdit: (index: number) => void;
     row: ScheduleRow
-    // newFirstName: () => void;
-    // newLastName: () => void;
-    // newAliases: () => void;
-    // newEmail: () => void;
-    // newTimeIn: () => void;
-    // newTimeOut: () => void;
-    
     onInputChangeSubmit: () => void;
     index: number;
 }
 
 
 const ScheduleRowComponent = ({onRowDelete, onInputChangeSubmit, row, index}: Props) => {
+    // LEAVE COMMENTED OUT CODE FOR FIXING LATER, POST BOOTCAMP
 //     const [firstName, setFirstName] = useState("");
 //     const [lastName, setLastName] = useState("");
 //     const [aliases, setAliases] = useState("");
@@ -77,8 +71,6 @@ const ScheduleRowComponent = ({onRowDelete, onInputChangeSubmit, row, index}: Pr
      
 
 
-        // row.index?
-
         return(
             <div className="scheduleRowContainer">
                 
@@ -103,7 +95,6 @@ const ScheduleRowComponent = ({onRowDelete, onInputChangeSubmit, row, index}: Pr
                 <div className="scheduleRowIconContainer">
                     <img className="trashIcon" src={deleteIcon} alt="delete" onClick={() => onRowDelete(row)}/>
                 </div>
-                {/* <p>{_id}</p> */}
                 {/* <button id="scheduleRowSubmitButton" type="submit" onClick={handlesubmit}>Submit</button> */}
             </div>
         )

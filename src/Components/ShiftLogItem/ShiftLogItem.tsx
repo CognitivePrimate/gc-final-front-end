@@ -37,7 +37,6 @@ const ShiftLogItem = ({log, deleteReport, updateLogSubmit}: Props) => {
                     <p className="ParaInfo"><b>Author:</b> {log.author}</p>
                     <p className="ParaInfo">{log.month}/{log.day}/{log.year}</p>
                 </section>
-                {/* <button className="DeleteButton" type="button" onClick={deleteReport}><img src={deleteIcon} alt="delete button" /></button> */}
             </section>
             <section className="PersonUpdateSection">
                 <div className="MainDiv">

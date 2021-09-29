@@ -1,5 +1,4 @@
 import firebase from "../../firebaseConfig";
-import { useState } from "react";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { authProvider } from "../../firebaseConfig";
 import "./LoginScreen.css";
@@ -12,7 +11,7 @@ const LoginScreen = () => {
 
     const user = useAuthUser()
 
-    // Hidden Class for HomeScreen and UserAuth
+    // Hidden Class for HomeScreen and UserAuth -- LEAVE FOR LATER USE
 
 
     // const [ loginScreen, setLoginScreen ] = useState({

@@ -31,15 +31,6 @@ main.NewLogContainer div.FinishButtons {
     margin-top: 20px;
 }
 
-/* main.NewLogContainer button.logSubmitButton {
-    border-style: solid;
-    border-radius: 5px;
-    height: 50px;
-    width: 80%;
-    margin-bottom: 10px;
-
-} */
-
 main.NewLogContainer textarea.logEntry {
     height: 10rem;
     width: 100%;

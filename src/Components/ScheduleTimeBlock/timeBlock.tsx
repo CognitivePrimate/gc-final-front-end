@@ -6,18 +6,11 @@ import "./timeBlocks.style.css";
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
-import { FormEvent, useState } from "react";
-
 interface Props {
     timeBlock: TimeBlock,
     onTimeBlockDelete: (timeBlock: TimeBlock) => void;
     onInputChangeSubmit2: () => void;
     onRowDeleteTwo: (index: number, timeBlock: TimeBlock) => void;
-
-    // updateTimeBlock: (pendingTimeBlock: TimeBlock) => {}
-    // onInputChange: () => void;
-    // onTimeBlockTemplateRowDelete: () => void;
-    // onRowDelete: (index: number, row: ScheduleRow) => void;
 }
 
 const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRowDeleteTwo}: Props) => {
@@ -33,8 +26,8 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRo
             console.log("predelete", timeBlock.scheduleRows);
             timeBlock.scheduleRows.splice(index, 1);
             console.log("deleted", timeBlock.scheduleRows);
-            // onTimeBlockTemplateRowDelete();
         }
+        
         onRowDeleteTwo(index, timeBlock);
     }
 
@@ -61,7 +54,6 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRo
                         key={`${row}-${index}`}
                         index={index}
                         onRowDelete={() => handleRowDelete(index, row)}
-                        // onRowDelete={() => handleRowDelete}
                         onRowEdit={() => handleRowEdit(row)}
                         row={row}
                         onInputChangeSubmit={onInputChangeSubmit2}      

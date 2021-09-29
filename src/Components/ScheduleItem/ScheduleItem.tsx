@@ -1,24 +1,21 @@
-import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
+import { Schedule, TimeBlock } from "../../Model/Interfaces";
 import TimeBlockItem from "../ScheduleTimeBlock/timeBlock";
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
-import editIcon from "../../Icons/edit.svg";
+// import editIcon from "../../Icons/edit.svg";
 
 // css
 import "./schedule-item.styles.css";
-import { addSchedule } from "../../services";
+// import { addSchedule } from "../../services";
 import { useState } from "react";
 interface Props {
     schedule: Schedule,
     onScheduleDelete: () => void;
     onScheduleEdit: () => void;
     onRowDeleteThree: (index: number, timeBlock: TimeBlock, schedule: Schedule) => void;
-    // onInputChange: () => void;
     onInputChangeSubmit3: () => void;
     onTimeBlockDeleteTwo: (index: number) => void; 
-    // onScheduleSubmission: () => void;
-    // onTimeBlockRowReset: () => void;
 }
 
 const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChangeSubmit3, onRowDeleteThree, onTimeBlockDeleteTwo}: Props) => {
@@ -45,12 +42,11 @@ const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange
         console.log("TimeBlocktoDeleteFrom", TimeBlocktoDeleteFrom);
         if (index === TimeBlocktoDeleteFrom){
             console.log("predelete", schedule.timeBlocks);
-            // schedule.timeBlocks.splice(index, 1);
             setTimeBlockIndex(index)
             console.log("timeBIndex", timeBlockIndex);
             console.log("deleted", timeBlock.scheduleRows);
-            // onTimeBlockTemplateRowDelete();
         }
+        
         onRowDeleteThree(index, timeBlock, schedule);
     }
     
@@ -68,7 +64,6 @@ const ScheduleItem = ({schedule, onScheduleDelete, onScheduleEdit, onInputChange
                     onTimeBlockDelete={()=> handleTimeBlockDelete(index, timeBlock, schedule)}
                     onInputChangeSubmit2={onInputChangeSubmit3}
                     onRowDeleteTwo={() => handleTimeBlockIndexRowDelete(schedule, timeBlock, index)}
-                    // updateTimeBlock={(pendingTimeblock) => {}}
                 />
             )}
             <div className="scheduleIconContainer">

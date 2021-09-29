@@ -151,19 +151,16 @@ const ScheduleCreation = () => {
     // functions and variables to rerender page on schedule template changes
     let timeBlockIndex: number = 0; 
     const resetTemplateRender = (index: number) => {
-        console.log("shceudleTempla", scheduleTemplate);
         // takes in index of scheduleRow, removes it from the schedTemplate and resets state
         setScheduleTemplate(prevTemplate => [
             ...prevTemplate.slice(index)
         ]);
-        console.log("tbIndex", timeBlockIndex);
         // STILL NEED TO MAKE THIS PART WORK -- LOW PRIORITY THOUGH
-        if (scheduleTemplate[0].timeBlocks[timeBlockIndex].scheduleRows.length === 0){
-            console.log("blergh");
-            setScheduleTemplate(prevTemplate => [
-                ...prevTemplate.slice(index)
-            ]);
-        }
+        // if (scheduleTemplate[0].timeBlocks[timeBlockIndex].scheduleRows.length === 0){
+        //     setScheduleTemplate(prevTemplate => [
+        //         ...prevTemplate.slice(index)
+        //     ]);
+        // }
 
     }
 
@@ -209,15 +206,12 @@ const ScheduleCreation = () => {
                         onInputChangeSubmit3={() => {}}
                         onRowDeleteThree={() => resetTemplateRender(index)}
                         onTimeBlockDeleteTwo={() => handleTimeBlockDelete(index)}
-                        // onTimeBlockRowReset={() => handleTimeBlockRowReset}
-                        // onScheduleSubmission={() => handleScheduleSubmit}
                     /> 
                 )}
             </form>
             {scheduleTemplate[0] && <button className="schedSub SubmitButton" type="submit" name="submit" form="scheduleSubmissionForm">Submit Schedule Template</button>
 }
             <section className="BackButtonLinkContainer">
-                {/* <Link to="/HomeScreen"><button className="BackButton">Back</button></Link> */}
                 <BackButton/>
             </section>
             

@@ -38,23 +38,9 @@ main.ShiftLogContainer section.PersonUpdateSection {
     border-bottom-left-radius: 8px;
     background-color: #ffffff;
     box-shadow:  3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-    /* test */
-    /* position: relative; */
-    /* z-index: 0; */
 }
 
-/* .PersonUpdateSection::after{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 50%;
-    border-radius: 8px;
-    top: 0;
-    left: 0;
-    box-shadow:  3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    z-index: -1;
-    
-} */
+
 
 main.ShiftLogContainer p.ParaInfo{
     margin: 5px;

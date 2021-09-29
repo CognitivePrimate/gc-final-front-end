@@ -39,7 +39,7 @@ const SubmitEmergencyContact = () => {
             email,
             role
         });
-        // onClose();
+      
         setFirstName("");
         setLastName("");
         setPhoneNumber("");

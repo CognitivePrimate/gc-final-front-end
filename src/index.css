@@ -21,18 +21,11 @@ code {
   /* filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7)); */
 }
 
-.trashIcon:hover{
-  /* filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9)); */
-}
-
 .editIcon {
   cursor: pointer;
   /* filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, .7)); */
 }
 
-.editIcon:hover{
-  /* filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, .9)); */
-}
 
 
 @keyframes FadeIn {

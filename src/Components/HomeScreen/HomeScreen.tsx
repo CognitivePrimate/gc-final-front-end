@@ -26,10 +26,8 @@ const HomeScreen = () => {
                     <Link to="/EmergencyContacts" className="home-screen-button-link"><button className="home-screen-button">Emergency Contacts</button></Link>
                     <Link to="/ScheduleCreation" className="home-screen-button-link"><button className="home-screen-button">Create Schedule</button></Link>
                     <Link to="/Schedule" className="home-screen-button-link"><button className={homeScreenStyle}>Schedules</button></Link>
-                    {/* <button className="home-screen-button">Events</button> */}
                 </section>
                 <section className="home-screen-options-admin home-screen-options-containers">
-                    {/* <button className="home-screen-button">Add Event</button></Link> */}
                     
                 </section>
             </div>
