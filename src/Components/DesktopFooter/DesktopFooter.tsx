@@ -5,7 +5,7 @@ import './DesktopFooter.css';
 const DesktopFooter = () => {
 
     return (
-        <main className="DesktopFooterContainer">
+        <footer className="DesktopFooterContainer">
             <section>
                 <div className="IconContainer">
                     <SkedManIcon/>
@@ -13,7 +13,7 @@ const DesktopFooter = () => {
                 </div>
                 <div className="StickyFooter"></div>
             </section>
-        </main>
+        </footer>
     )
 }
 

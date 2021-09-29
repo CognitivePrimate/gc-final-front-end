@@ -3,7 +3,7 @@
 
 /* Icon Container */
 @media only screen and (max-width: 1007px) {
-main.DesktopFooterContainer {
+footer.DesktopFooterContainer {
     display: none;
 }
 
@@ -12,7 +12,7 @@ main.DesktopFooterContainer {
 @media only screen and (min-width: 1008px) {
     
 
-    main.DesktopFooterContainer div.IconContainer {
+    footer.DesktopFooterContainer div.IconContainer {
         /* position: absolute;
         bottom: -140px;
         left: 30px; */
@@ -20,10 +20,10 @@ main.DesktopFooterContainer {
         bottom: -240px;
         left: -5px;
         z-index: 3;
-        transition: .5;
+        /* transition: 2; */
     }
 
-    main.DesktopFooterContainer div.IconContainer:hover {
+    footer.DesktopFooterContainer div.IconContainer:hover {
         /* position: absolute;
         bottom: -140px;
         left: 30px; */
@@ -34,7 +34,7 @@ main.DesktopFooterContainer {
         transition: .5s;
     }
 
-    main.DesktopFooterContainer div.StickyFooter {
+    footer.DesktopFooterContainer div.StickyFooter {
         /* position: absolute;
         bottom: -140px;
         left: 30px; */

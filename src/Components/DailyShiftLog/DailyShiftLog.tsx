@@ -143,6 +143,7 @@ function handleSubmit(e: FormEvent){
         console.log(shiftLog);
         console.log(shiftLog._id)
         deleteShiftLog(shiftLog);
+        loadDailyShiftLogs();
         resetSearch();
         };
     
@@ -152,6 +153,7 @@ function handleSubmit(e: FormEvent){
     const handleUpdate = (pendingLog: ShiftLog) => {
         console.log(pendingLog);
         updateShiftLog(pendingLog);
+        loadDailyShiftLogs();
         resetSearch();
     }
 

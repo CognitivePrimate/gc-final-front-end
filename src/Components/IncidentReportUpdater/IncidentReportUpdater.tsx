@@ -13,9 +13,10 @@ interface Props {
     updateForm: string;
     updateIncidentSubmit: (report: IncidentReport) => void;
     updateHidden: () => void;
+    updateSubmitHidden: () => void;
 }
 
-const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, updateHidden}: Props) => {
+const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, updateHidden, updateSubmitHidden}: Props) => {
 
     const [pendingReport, setPendingReport] = useState<IncidentReport>({
         ...report,
@@ -24,7 +25,7 @@ const IncidentReportUpdater = ({report, updateForm, updateIncidentSubmit, update
     const preventReload = (e: FormEvent) => {
         e.preventDefault();
         updateIncidentSubmit(pendingReport);
-
+        updateSubmitHidden();
         // separation of concerns. Parent shouldn't be concerned //
     }
 

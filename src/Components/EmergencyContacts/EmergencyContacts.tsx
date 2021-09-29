@@ -26,6 +26,7 @@ const EmergencyContacts = () => {
         console.log(contact);
         console.log(contact._id)
         deleteEmergencyContact(contact);
+        loadEmergencyContacts();
         resetSearch();
         };
     
@@ -33,6 +34,7 @@ const EmergencyContacts = () => {
     const handleUpdate = (pendingContact: EmergencyContact) => {
         console.log(pendingContact);
         updateEmergencyContact(pendingContact);
+        loadEmergencyContacts();
         resetSearch();
     }
 

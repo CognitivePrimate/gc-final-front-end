@@ -134,6 +134,7 @@ function handleSubmit(e: FormEvent){
 
         // delete report imported from services.
         deleteIncidentReport(incident);
+        loadIncidentReports();
         resetSearch();
     };
 
@@ -141,6 +142,7 @@ function handleSubmit(e: FormEvent){
     const handleUpdate = (pendingIncident: IncidentReport) => {
         console.log(pendingIncident);
         updateIncidentReport(pendingIncident);
+        loadIncidentReports();
         resetSearch();
     }
 
