@@ -1,14 +1,14 @@
-
+// LEAVE COMMENTED OUT CODE IN THIS COMPONENT BECAUSE I *WILL* FIGURE OUT HOW TO MAKE THIS WORK IN ITS TOTALITY POST-CLASS 
+// SCOPE OF DYNAMIC FORM CREATION & SUBMISSION WAS MUCH GREATER THAN ANTICIPATED
 import "./schedule-row-styles.css";
 
 import {ScheduleRow} from "../../Model/Interfaces";
-import { Link } from "react-router-dom";
-import { FormEvent, useState } from "react";
-import { ObjectId } from "mongodb";
+// import { Link } from "react-router-dom";
+// import { FormEvent, useState } from "react";
 
 // icons
 import deleteIcon from "../../Icons/delete.svg";
-import editIcon from "../../Icons/edit.svg";
+// import editIcon from "../../Icons/edit.svg";
 
 // css
 import "../../../src/index.css";

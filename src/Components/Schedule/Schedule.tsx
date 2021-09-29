@@ -1,7 +1,7 @@
 
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Schedule, ScheduleRow} from '../../Model/Interfaces'
+import {Schedule} from '../../Model/Interfaces'
 import { addHistoricalSchedule, deleteSchedule, fetchSchedules } from '../../services';
 import ScheduleItem from '../ScheduleItem/ScheduleItem';
 import './Schedule.css';
@@ -11,6 +11,9 @@ import './Schedule.css';
 import ResetButton from '../ButtonComponents/ResetButton/ResetButton';
 // import 
 
+
+// LEAVE COMMENTED OUT CODE FOR LATER FIX POST-BOOTCAMP. DYNAMIC FORM SUBMISSION WITH SO MANY MOVING PARTS
+// WAS TOO LARGE OF SCOPE WITHIN ALLOTED TIMEFRAME. 
 const ScheduleList = () => {   
     // sets all schedule items into state
     const [schedules, setSchedules] = useState<Schedule[]>([]);
@@ -30,12 +33,11 @@ const ScheduleList = () => {
     useEffect(loadSchedules, []);
 
     // variable for historical schedule submission and finalization
-    let schedule: Schedule | any = searchedSchedules;
+    // let schedule: Schedule | any = searchedSchedules;
     // Search State
     const [searchDate, setSearchDate] = useState();
 
     // get schedules by single date variables and functions
-    let dateNeeded: Date = new Date;
     const newGetScheduleByDateInput = (e: any) => {setSearchDate(e.target.value)};
     
     // iterates through schedules array state to match user date input to schedule date or message if not &&
@@ -180,9 +182,8 @@ const ScheduleList = () => {
     const [timeOut, setTimeOut] = useState();
 
   //handles submit event with ShiftLog object key values -FIX ANY
-    const submitHistoricalSchedule = (schedule: Schedule) => {
+    // const submitHistoricalSchedule = (schedule: Schedule) => {
         // e.preventDefault();
-        console.log("in form event");
         // let newRow: ScheduleRow = row;
 
         // rowSubmit({
@@ -207,20 +208,20 @@ const ScheduleList = () => {
         
     
             // NOTE FOR LATER: forEachRow --- do below?
-    }
+    // }
 
      
 
     // END TESTING FOR SCHEDULE SUBMISSION FINAL
 
-    const handleDeleteRow = (schedule: Schedule) => {
-        console.log("sched id to delete", schedule._id);
+    // const handleDeleteRow = (schedule: Schedule) => {
+    //     console.log("sched id to delete", schedule._id);
 
-    }
+    // }
 
-    const handleRowEdit = (row: ScheduleRow) => {
+    // const handleRowEdit = (row: ScheduleRow) => {
 
-    }
+    // }
 
     const handleFetchSchedules = () => {
         setSearchedSchedules(schedules);

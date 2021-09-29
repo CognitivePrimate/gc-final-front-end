@@ -20,12 +20,8 @@ const TimeBlockItem = ({timeBlock, onTimeBlockDelete, onInputChangeSubmit2, onRo
     const handleRowDelete = (index: number, row: ScheduleRow) => {
         // finds row at specified index in array. otherwise, row always returns index 0 in this case
         let toDelete = timeBlock.scheduleRows.indexOf(row, index);
-        console.log("index", index);
-        console.log("toDelete", toDelete);
         if (index === toDelete){
-            console.log("predelete", timeBlock.scheduleRows);
             timeBlock.scheduleRows.splice(index, 1);
-            console.log("deleted", timeBlock.scheduleRows);
         }
         
         onRowDeleteTwo(index, timeBlock);

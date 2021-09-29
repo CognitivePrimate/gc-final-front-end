@@ -1,16 +1,11 @@
-import firebase from "firebase";
 import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAuthUser } from "../../ContextProviders/auth-context";
 import { Schedule, ScheduleRow, TimeBlock } from "../../Model/Interfaces";
 import { addSchedule } from "../../services";
 import BackButton from "../ButtonComponents/BackButton/BackButton";
 import ScheduleItem from "../ScheduleItem/ScheduleItem";
-import ScheduleRowComponent from "../ScheduleRow/schedule-row";
 import "./schedule-creation-styles.css";
 import "../LoginScreen/LoginScreen.css";
-
-
 
 const ScheduleCreation = () => {
     // setting with state all required properties for Schedule object
@@ -35,7 +30,6 @@ const ScheduleCreation = () => {
         let newTimeBlock: TimeBlock[] = timeBlocks;
         newTimeBlock.push(timeBlock);
         setTimeBlocks(newTimeBlock);
-        console.log("timeBlocks post onSubmit function", timeBlocks);
     }
  // generates a Schedule Row component in respective TimeBlock based on number of volunteers input by user
     const handleScheduleRows = (scheduleRow: ScheduleRow) => {     
@@ -43,7 +37,6 @@ const ScheduleCreation = () => {
             let newScheduleRow: ScheduleRow[] = scheduleRows;
             newScheduleRow.push(scheduleRow);
             setScheduleRows(newScheduleRow);
-            console.log("ScheduleRows", scheduleRows);
         }
     }
     
@@ -75,13 +68,9 @@ const ScheduleCreation = () => {
             user: user,
             timeBlocks: timeBlocks,
             dateNeeded: dateNeeded,
-            // yearCreated,
-            // monthCreated,
-            // dayCreated,
             templated
         }])
 
-        // onClose();
         setVolunteersNeeded(0);
         setStartTime(0);
         setEndTime(0)
@@ -89,7 +78,6 @@ const ScheduleCreation = () => {
     } 
 
     // functions to handle creation of schedule - FIX ANY
-    const newScheduleRows = (e: any) => setScheduleRows(e.target.value);
     const newDateNeeded = (e: any) => setDateNeeded(e.target.value);
     const newVolunteersNeeded = (e: any) => setVolunteersNeeded(e.target.value);
     // const newSupervisor = (e: any) => setVolunteersNeeded(e.target.value);
@@ -106,8 +94,7 @@ const ScheduleCreation = () => {
         let monthCreated: any = d.getMonth() + 1;
         let dayCreated: any = d.getDate();
 
-        // set templating to true for editing on call from db
-        let dateNeeded = timeBlocks[0].dateNeeded;
+        // let dateNeeded = timeBlocks[0].dateNeeded;
 
         let schedule: Schedule | undefined = undefined;
 
@@ -149,7 +136,6 @@ const ScheduleCreation = () => {
     }
 
     // functions and variables to rerender page on schedule template changes
-    let timeBlockIndex: number = 0; 
     const resetTemplateRender = (index: number) => {
         // takes in index of scheduleRow, removes it from the schedTemplate and resets state
         setScheduleTemplate(prevTemplate => [
@@ -165,7 +151,6 @@ const ScheduleCreation = () => {
     }
 
     const handleTimeBlockDelete = (index: number) => {
-        timeBlockIndex = index;
         setScheduleTemplate(prevTemplate => [
             ...prevTemplate.slice(index)
         ]);
